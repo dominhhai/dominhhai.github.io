@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Do Minh Hai</title>
+  <script src="js/marked.js"></script>
+</head>
+<body>
+  <div id="content"></div>
+  <script>
+    document.getElementById('content').innerHTML = marked(getContent())
+	function getContent () {
+		var content = '# Do Minh Hai\n'
+		content += '### Mobile Game/ App. Backend with PHP, Nodejs.\n'
+		content += '```javascript\n'
+		content += 'console.error("God\'s Big Bug")\n'
+		content += '```'
+		
+		return content
+	}
+  </script>
+</body>
+</html>
