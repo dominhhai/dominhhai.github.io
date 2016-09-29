@@ -3,23 +3,28 @@
 <head>
   <meta charset="utf-8"/>
   <title>Base64 Decode/ Encode</title>
+  <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
 </head>
 <body>
   <div id="content">
+    <h1>The encoded/ decoded result will be copied automatically!</h1>
     <div>
       <label for="input">Input:</label>
       <textarea id="input" rows="10" cols="80" placeholder="Input here" autofocus></textarea>
     </div>
-    <div>
+    <div style="margin: 10px;">
       <button id="btn-encode" type="button">Encode</button>
       <button id="btn-decode" type="button">Decode</button>
+      <button id="btn-copy" type="button" data-clipboard-target="#output">Copy Result</button>
     </div>
     <div>
       <label for="output">Output:</label>
       <textarea id="output" rows="10" cols="80" placeholder="Click the Encode/ Decode button to see the result here"></textarea>
     </div>
   </div>
-  <script>	  
+  <script>
+    var clipboard = new Clipboard('#btn-copy')
+    
     document.getElementById('btn-encode').addEventListener('click', function() {
       var input = document.getElementById('input').value
       if (input) {
