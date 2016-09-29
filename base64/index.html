@@ -11,8 +11,8 @@
       <textarea id="input" rows="4" cols="40" placeholder="Input here"></textarea>
 	  </div>
     <div>
-      <button id="encode" type="button">Encode</button>
-      <button id="decode" type="button">Decode</button>
+      <button id="btn-encode" type="button">Encode</button>
+      <button id="btn-decode" type="button">Decode</button>
     </div>
     <div>
 		  <label for="output">Output:</label>
@@ -20,7 +20,21 @@
 	  </div>
   </div>
   <script>
-    console.log(document.getElementById('content').innerHTML)
+		document.getElementById('btn-encode').addEventListener('click', function() {
+			console.log(document.getElementById('input').textContent)
+		})
+		
+		document.getElementById('btn-decode').addEventListener('click', function() {
+			console.log(document.getElementById('input').textContent)
+		})
+		
+		function encode(msg) {
+			return btoa(unescape(encodeURIComponent(msg)))
+		}
+		
+		function decode(msg) {
+			return decodeURIComponent(escape(atob(msg)))
+		}
   </script>
 </body>
 </html>
