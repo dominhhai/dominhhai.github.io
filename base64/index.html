@@ -6,59 +6,57 @@
 </head>
 <body>
   <div id="content">
-	  <div>
-		  <label for="input">Input:</label>
-      <textarea id="input" rows="10" cols="80" placeholder="Input here"></textarea>
-	  </div>
+    <div>
+      <label for="input">Input:</label>
+      <textarea id="input" rows="10" cols="80" placeholder="Input here" autofocus></textarea>
+    </div>
     <div>
       <button id="btn-encode" type="button">Encode</button>
       <button id="btn-decode" type="button">Decode</button>
     </div>
     <div>
-		  <label for="output">Output:</label>
+      <label for="output">Output:</label>
       <textarea id="output" rows="10" cols="80" placeholder="Click the Encode/ Decode button to see the result here"></textarea>
-	  </div>
+    </div>
   </div>
-  <script>
-		document.getElementById('btn-encode').addEventListener('click', function() {
-			var input = document.getElementById('input').value
-			if (input) {
-				var output = encode(input)
-				console.log(output)
-				document.getElementById('output').value = output
-			}
-		})
+  <script>	  
+    document.getElementById('btn-encode').addEventListener('click', function() {
+      var input = document.getElementById('input').value
+      if (input) {
+	var output = encode(input)
+	document.getElementById('output').value = output
+      }
+    })
+
+    document.getElementById('btn-decode').addEventListener('click', function() {
+      var input = document.getElementById('input').value
+      if (input) {
+	var output = decode(input)
+	document.getElementById('output').value = output
+      }
+    })
+
+    function encode(msg) {
+      var ret = ''
+	try {
+	  ret = btoa(unescape(encodeURIComponent(msg)))
+	} catch (err) {
+	  alert(err)
+	}
+	
+	return ret
+    }
 		
-		document.getElementById('btn-decode').addEventListener('click', function() {
-			var input = document.getElementById('input').value
-			if (input) {
-				var output = decode(input)
-				console.log(output)
-				document.getElementById('output').value = output
-			}
-		})
-		
-		function encode(msg) {
-			var ret = ''
-			try {
-				ret = btoa(unescape(encodeURIComponent(msg)))
-			} catch (err) {
-				alert(err)
-			}
+    function decode(msg) {
+      var ret = ''
+      try {
+	ret = decodeURIComponent(escape(atob(msg)))
+      } catch (err) {
+	alert(err)
+      }
 			
-			return ret
-		}
-		
-		function decode(msg) {
-			var ret = ''
-			try {
-				ret = decodeURIComponent(escape(atob(msg)))
-			} catch (err) {
-				alert(err)
-			}
-			
-			return ret
-		}
+      return ret
+    }
   </script>
 </body>
 </html>
