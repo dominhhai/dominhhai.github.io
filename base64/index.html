@@ -8,7 +8,7 @@
   <div id="content">
 	  <div>
 		  <label for="input">Input:</label>
-      <textarea id="input" rows="4" cols="40" placeholder="Input here"></textarea>
+      <textarea id="input" rows="10" cols="80" placeholder="Input here"></textarea>
 	  </div>
     <div>
       <button id="btn-encode" type="button">Encode</button>
@@ -16,7 +16,7 @@
     </div>
     <div>
 		  <label for="output">Output:</label>
-      <textarea id="output" rows="4" cols="40" placeholder="Click the Encode/ Decode button to see the result here"></textarea>
+      <textarea id="output" rows="10" cols="80" placeholder="Click the Encode/ Decode button to see the result here"></textarea>
 	  </div>
   </div>
   <script>
@@ -39,11 +39,25 @@
 		})
 		
 		function encode(msg) {
-			return btoa(unescape(encodeURIComponent(msg)))
+			var ret = ''
+			try {
+				ret = btoa(unescape(encodeURIComponent(msg)))
+			} catch (err) {
+				alert(err)
+			}
+			
+			return ret
 		}
 		
 		function decode(msg) {
-			return decodeURIComponent(escape(atob(msg)))
+			var ret = ''
+			try {
+				ret = decodeURIComponent(escape(atob(msg)))
+			} catch (err) {
+				alert(err)
+			}
+			
+			return ret
 		}
   </script>
 </body>
