@@ -2,24 +2,25 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>err.ok</title>
-  <script src="js/marked.js"></script>
+  <title>Base64 Decode/ Encode</title>
 </head>
 <body>
-  <div id="content"></div>
+  <div id="content">
+	  <div>
+		  <label for="input">Input:</label>
+      <textarea id="input" rows="4" cols="40" placeholder="Input here"></textarea>
+	  </div>
+    <div>
+      <button id="encode" type="button" value="Encode" />
+      <button id="decode" type="button" value="Decode" />
+    </div>
+    <div>
+		  <label for="output">Output:</label>
+      <textarea id="output" rows="4" cols="40" placeholder="Click the Encode/ Decode button to see the result here"></textarea>
+	  </div>
+  </div>
   <script>
-    document.getElementById('content').innerHTML = marked(getContent())
-	function getContent () {
-		var content = '# Do Minh Hai\n'
-		content += '### Mobile Game/ App, Web, Backend Programmer. Opensource Fan!\n'
-		content += '```javascript\n'
-		content += '// Geek Coder\n'
-		content += 'console.error("God\'s Big Bug")\n'
-		content += 'console.error("System Error: err.ok!")\n'
-		content += '```'
-		
-		return content
-	}
+    console.log(document.getElementById('content').innerHTML)
   </script>
 </body>
 </html>
