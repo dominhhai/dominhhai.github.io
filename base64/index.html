@@ -16,6 +16,7 @@
       <button id="btn-encode" type="button">Encode</button>
       <button id="btn-decode" type="button">Decode</button>
       <button id="btn-copy" type="button" data-clipboard-target="#output">Copy Result</button>
+      <button id="btn-swap" type="button">Swap↑↓</button>	    
       <button id="btn-clear" type="button">Clear</button>
     </div>
     <div>
@@ -41,6 +42,15 @@
 	var output = decode(input)
 	document.getElementById('output').value = output
       }
+    })
+    
+    document.getElementById('btn-swap').addEventListener('click', function() {
+      var eleInput = document.getElementById('input')
+      var eleOutput = document.getElementById('output')
+      var tmp = eleInput.value      
+      eleInput.value = eleOutput.value
+      eleOutput.value = tmp
+      eleInput.focus()
     })
     
     document.getElementById('btn-clear').addEventListener('click', function() {
