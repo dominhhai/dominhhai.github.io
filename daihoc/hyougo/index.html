@@ -40,7 +40,7 @@ var dataSet = [
     ['神戸大学', 'http://www.kobe-u.ac.jp/'],
     '国立',
     '医医, 法, 国際人間, 経営, 経済, 文, 農, 理, 医保, 工, 海事科',
-    ['535,800円', 'kobe'],
+    ['535,800', 'kobe'],
     '',
     ''
   ],
@@ -48,7 +48,7 @@ var dataSet = [
     ['兵庫教育大学', 'http://www.hyogo-u.ac.jp/'],
     '国立',
     '学校教',
-    ['535,800円', 'hyogokyoiku'],
+    ['535,800', 'hyogokyoiku'],
     '',
     ''
   ],
@@ -56,7 +56,7 @@ var dataSet = [
     ['兵庫県立大学', 'http://www.u-hyogo.ac.jp/'],
     '公立',
     '理(中), 経済, 経営, 環境人, 看護, 工',
-    '',
+    ['647,800', 'hyogokenritu'],
     '',
     ''
   ],
@@ -64,7 +64,7 @@ var dataSet = [
     ['神戸市外国語大学', 'http://www.kobe-cufs.ac.jp/'],
     '公立',
     '外',
-    '',
+    ['535,800', 'kobesigaikokugo'],
     '',
     ''
   ],
@@ -72,7 +72,7 @@ var dataSet = [
     ['神戸市看護大学', 'http://www.kobe-ccn.ac.jp/'],
     '公立',
     '看護',
-    '',
+    ['600,800', 'kobesikango'],
     '',
     ''
   ],
@@ -104,7 +104,7 @@ var dataSet = [
     ['芦屋大学', 'http://www.ashiya-u.ac.jp/'],
     '私立',
     '臨床教育, 経営教育',
-    '',
+    ['1,200,000', 'asiya'],
     '',
     ''
   ],
@@ -112,7 +112,7 @@ var dataSet = [
     ['大手前大学', 'http://www.otemae.ac.jp/'],
     '私立',
     '健康栄養, 現代社会, 総合文化, メディ・芸',
-    '',
+    ['1,020,00', 'otemae'],
     '',
     ''
   ],
@@ -120,7 +120,7 @@ var dataSet = [
     ['関西看護医療大学', 'http://www.kki.ac.jp/top.php'],
     '私立',
     '看護',
-    '',
+    ['1,600,000', 'kansaikangoiryo'],
     '',
     ''
   ],
@@ -495,7 +495,7 @@ $(function() {
       render: link => '<a href="'+ link[1] +'" target="_blank" rel="noopener noreferrer">'+ link[0] +'</a>'
     }, {
       targets: 4,
-      render: link => '<a href="http://www.hensachi.jp/daigaku/'+ link[1] +'.html" target="_blank" rel="noopener noreferrer">'+ link[0] +'</a>'
+      render: link => '<a href="http://www.hensachi.jp/daigaku/'+ link[1] +'.html" target="_blank" rel="noopener noreferrer">'+ link[0] +'円</a>'
     }]
   })
 })
