@@ -40,7 +40,7 @@ var dataSet = [
     ['神戸大学', 'http://www.kobe-u.ac.jp/'],
     '国立',
     '医医, 法, 国際人間, 経営, 経済, 文, 農, 理, 医保, 工, 海事科',
-    '',
+    ['535,800円', 'kobe'],
     '',
     ''
   ],
@@ -48,7 +48,7 @@ var dataSet = [
     ['兵庫教育大学', 'http://www.hyogo-u.ac.jp/'],
     '国立',
     '学校教',
-    '',
+    ['535,800円', 'hyogokyoiku'],
     '',
     ''
   ],
@@ -491,8 +491,11 @@ $(function() {
   $('#result').DataTable({
     data: dataSet,
     columnDefs: [{
-    targets: 1,
-    render: link => '<a href="'+ link[1] +'" target="_blank" rel="noopener noreferrer">'+ link[0] +'</a>'
+      targets: 1,
+      render: link => '<a href="'+ link[1] +'" target="_blank" rel="noopener noreferrer">'+ link[0] +'</a>'
+    }, {
+      targets: 4,
+      render: link => '<a href="http://www.hensachi.jp/daigaku/'+ link[1] +'.html" target="_blank" rel="noopener noreferrer">'+ link[0] +'</a>'
     }]
   })
 })
