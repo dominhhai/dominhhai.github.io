@@ -95,7 +95,7 @@ var dataSet = [
   [
     ['港湾職業能力開発短期大学校神戸校', 'http://www3.jeed.or.jp/hyogo/college/'],
     '公立',
-    '',
+    '港湾',
     ['年額390,000', 'http://www3.jeed.or.jp/hyogo/college/contents/other/gakuhi.html'],
     '',
     ''
@@ -280,7 +280,7 @@ var dataSet = [
     ['園田学園女子大学', 'http://www.sonoda-u.ac.jp/'],
     '私立',
     '人健康, 人教育',
-    ['', ''],
+    ['1,130,000', 'sonodagakuen'],
     '',
     ''
   ],
@@ -288,7 +288,7 @@ var dataSet = [
     ['宝塚大学', 'http://www.takara-univ.ac.jp/'],
     '私立',
     '看護, 東京メディア',
-    ['', ''],
+    ['1,500,000', 'takarazuka'],
     '',
     ''
   ],
@@ -296,7 +296,7 @@ var dataSet = [
     ['宝塚医療大学', 'http://www.tumh.ac.jp/'],
     '私立',
     '保健医療',
-    ['', ''],
+    ['1,500,000', 'takarazukairyo'],
     '',
     ''
   ],
@@ -304,7 +304,7 @@ var dataSet = [
     ['姫路獨協大学', 'http://www.himeji-du.ac.jp/'],
     '私立',
     '医療保健, 薬, 看護, 人間社会',
-    ['', ''],
+    ['1,003,300', 'himejidokkyo'],
     '',
     ''
   ],
@@ -312,7 +312,7 @@ var dataSet = [
     ['兵庫大学', 'http://www.hyogo-dai.ac.jp/'],
     '私立',
     '健康科, 現代ビジ, 生涯福祉, 看護',
-    ['', ''],
+    ['1,617,300', 'hyogo'],
     '',
     ''
   ],
@@ -320,7 +320,7 @@ var dataSet = [
     ['兵庫医科大学', 'http://www.hyo-med.ac.jp/'],
     '私立',
     '医',
-    ['', ''],
+    ['7,025,000', 'hyogoika'],
     '',
     ''
   ],
@@ -328,7 +328,7 @@ var dataSet = [
     ['兵庫医療大学', 'http://www.huhs.ac.jp/'],
     '私立',
     'リハビリ, 看護, 薬',
-    ['', ''],
+    ['1,625,000', 'hyogoiryo1,625,000'],
     '',
     ''
   ],
@@ -336,7 +336,7 @@ var dataSet = [
     ['武庫川女子大学', 'http://www.mukogawa-u.ac.jp/'],
     '私立',
     '生活環, 文, 健・スポ, 看護, 薬, 音楽',
-    ['', ''],
+    ['1,237,700', 'mukogawajyosi'],
     '',
     ''
   ],
@@ -344,8 +344,8 @@ var dataSet = [
     ['流通科学大学', 'http://www.umds.ac.jp/'],
     '私立',
     '商, 経済, 人間社会',
+    ['1,026,140', 'ryutukagaku'],
     '',
-    ['', ''],
     ''
   ],
   [
@@ -392,8 +392,8 @@ var dataSet = [
     ['神戸常盤大学短期大学部', 'http://www.kobe-tokiwa.ac.jp/univ/'],
     '私立',
     '',
-    '',
     ['', ''],
+    '',
     ''
   ],
   [
@@ -485,10 +485,7 @@ var dataSet = [
     ''
   ]
 ]
-dataSet.forEach(val => {
-  if (val[3] == '') console.error(val)
-  else console.log(val[0])
-})
+
 var count = 1
 dataSet = dataSet.map(val => [count++].concat(val))
 $(function() {
