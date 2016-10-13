@@ -485,6 +485,9 @@ var dataSet = [
     ''
   ]
 ]
+dataSet.forEach(val => {
+  if (val[3] == ''] console.error(val)
+})
 var count = 1
 dataSet = dataSet.map(val => [count++].concat(val))
 $(function() {
