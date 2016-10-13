@@ -486,7 +486,8 @@ var dataSet = [
   ]
 ]
 dataSet.forEach(val => {
-  if (val[3] == ''] console.error(val)
+  if (val[3] == '') console.error(val)
+  else console.log(val[0])
 })
 var count = 1
 dataSet = dataSet.map(val => [count++].concat(val))
