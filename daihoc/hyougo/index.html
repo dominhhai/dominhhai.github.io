@@ -112,7 +112,7 @@ var dataSet = [
     ['大手前大学', 'http://www.otemae.ac.jp/'],
     '私立',
     '健康栄養, 現代社会, 総合文化, メディ・芸',
-    ['1,020,00', 'otemae'],
+    ['1,020,000', 'otemae'],
     '',
     ''
   ],
@@ -224,7 +224,7 @@ var dataSet = [
     ['神戸松蔭女子学院大学', 'http://www.shoin.ac.jp/'],
     '私立',
     '人間, 文',
-    '',
+    ['1,078,000', 'kobesyoinjyosigakuin'],
     '',
     ''
   ],
@@ -264,7 +264,7 @@ var dataSet = [
     ['神戸薬科大学', 'http://www.kobepharma-u.ac.jp/'],
     '私立',
     '薬',
-    '',
+    ['1,831,000', 'kobeyakka'],
     '',
     ''
   ],
@@ -272,7 +272,7 @@ var dataSet = [
     ['神戸山手大学', 'http://www.kobe-yamate.ac.jp/univ/'],
     '私立',
     '現代社',
-    '',
+    ['1,018,000', 'kobeyamate'],
     '',
     ''
   ],
@@ -495,7 +495,7 @@ $(function() {
       render: link => '<a href="'+ link[1] +'" target="_blank" rel="noopener noreferrer">'+ link[0] +'</a>'
     }, {
       targets: 4,
-      render: link => '<a href="http://www.hensachi.jp/daigaku/'+ link[1] +'.html" target="_blank" rel="noopener noreferrer">'+ link[0] +'円</a>'
+      render: link => '<a href="'+ (link[1].startsWith('http') ? link[1] : 'http://www.hensachi.jp/daigaku/' + link[1] + '.html') +'" target="_blank" rel="noopener noreferrer">'+ link[0] +'円</a>'
     }]
   })
 })
