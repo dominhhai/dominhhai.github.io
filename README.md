@@ -1,2 +1,0 @@
-# dominhhai.github.io
-Homepage
