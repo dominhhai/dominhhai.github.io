@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/post/</link>
+    <description>Recent content in Posts on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Sat, 07 Mar 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dominhhai.github.io/vi/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[JS] Bất ngờ nhỏ với mảng</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-b%E1%BA%A5t-ng%E1%BB%9D-nh%E1%BB%8F-v%E1%BB%9Bi-m%E1%BA%A3ng/</link>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-b%E1%BA%A5t-ng%E1%BB%9D-nh%E1%BB%8F-v%E1%BB%9Bi-m%E1%BA%A3ng/</guid>
+      <description>Từng làm việc với một vài ngôn ngữ lập trình (Java, C, C++, C#, Objective-C, PHP), mỗi ngôn ngữ đều có cái hay riêng. Nhưng khi tiếp xúc với JavaScript (JS) lại tự dưng thấy yêu nó, yêu cái vẻ sexy và bất ngờ của nó. Ví như mảng trong JS rất đặc biệt và bất ngờ. Trong bài này sẽ viết lại một số điểm có thể là bất ngờ với một số người như mình.</description>
+    </item>
+    
+    <item>
+      <title>[JS] Tản mạn dấu chấm phẩy</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-t%E1%BA%A3n-m%E1%BA%A1n-d%E1%BA%A5u-ch%E1%BA%A5m-ph%E1%BA%A9y/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-t%E1%BA%A3n-m%E1%BA%A1n-d%E1%BA%A5u-ch%E1%BA%A5m-ph%E1%BA%A9y/</guid>
+      <description>JavaScript cho phép chúng ta lược bỏ dấu kết thúc lệnh (dấu chấm phẩy). Nhưng trường hợp nào ta phải bắt buộc dùng dấu chấm phải, trường hợp nào thì không và có khi nào ta nên bỏ nó đi? Trước mắt ta xem một chút bộ dịch JavaScript sẽ làm gì với các lệnh của ta.
+ ex1.js     1
+2
+3
+4
+5
+6</description>
+    </item>
+    
+  </channel>
+</rss>

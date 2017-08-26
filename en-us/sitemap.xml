@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://dominhhai.github.io/en-us/archives/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/archives/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/en-us/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/en-us/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/en-us/tags/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/tags/"
+                />
+  </url>
+  
+</urlset>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/categories/</link>
+    <description>Recent content in Categories on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    
+	<atom:link href="https://dominhhai.github.io/vi/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Js</title>
+      <link>https://dominhhai.github.io/vi/categories/js/</link>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/categories/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lập Trình</title>
+      <link>https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/</link>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/2015/03/js-b%E1%BA%A5t-ng%E1%BB%9D-nh%E1%BB%8F-v%E1%BB%9Bi-m%E1%BA%A3ng/</loc>
+    <lastmod>2015-03-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/2015/03/js-t%E1%BA%A3n-m%E1%BA%A1n-d%E1%BA%A5u-ch%E1%BA%A5m-ph%E1%BA%A9y/</loc>
+    <lastmod>2015-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/archives/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/archives/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/</loc>
+    <lastmod>2015-03-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/tags/js/</loc>
+    <lastmod>2015-03-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/categories/js/</loc>
+    <lastmod>2015-03-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/tags/js-tips/</loc>
+    <lastmod>2015-03-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/</loc>
+    <lastmod>2015-03-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/post/</loc>
+    <lastmod>2015-03-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/tags/</loc>
+    <lastmod>2015-03-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/tags/"
+                />
+  </url>
+  
+</urlset>
