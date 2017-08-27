@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lets Encrypt on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/tags/lets-encrypt/</link>
+    <description>Recent content in Lets Encrypt on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Fri, 17 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dominhhai.github.io/vi/tags/lets-encrypt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Web] Cài đặt SSL miễn phí với Let&#39;s Encrypt</title>
+      <link>https://dominhhai.github.io/vi/2017/02/web-c%C3%A0i-%C4%91%E1%BA%B7t-ssl-mi%E1%BB%85n-ph%C3%AD-v%E1%BB%9Bi-lets-encrypt/</link>
+      <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/02/web-c%C3%A0i-%C4%91%E1%BA%B7t-ssl-mi%E1%BB%85n-ph%C3%AD-v%E1%BB%9Bi-lets-encrypt/</guid>
+      <description>Bài viết này hướng dẫn cài đặt Let&amp;rsquo;s Encrypt - một dịch vụ ngon-bổ-miễn phí cho việc HTTPS hóa máy chủ. Ở đây, mình sử dụng máy chủ CentOS 7 và Nginx để thực hiện, nhưng các bạn hoàn toàn có thể làm tương tự với các môi trường khác.
+Để cài đặt được Let&#39;s Encrypt, ta cần có môi trường Python v2.7.x trở lên. Nên nếu máy của bạn chưa có thì cài đặt hoặc cập nhập bản mới đi nhé.</description>
+    </item>
+    
+  </channel>
+</rss>

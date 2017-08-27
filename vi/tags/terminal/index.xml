@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terminal on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/tags/terminal/</link>
+    <description>Recent content in Terminal on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Thu, 15 Dec 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dominhhai.github.io/vi/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Terminal] Tạo Alias cho lệnh trên MacOS</title>
+      <link>https://dominhhai.github.io/vi/2016/12/terminal-t%E1%BA%A1o-alias-cho-l%E1%BB%87nh-tr%C3%AAn-macos/</link>
+      <pubDate>Thu, 15 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/12/terminal-t%E1%BA%A1o-alias-cho-l%E1%BB%87nh-tr%C3%AAn-macos/</guid>
+      <description>Bài viết này hướng dẫn cách cài đặt để sài iTerm2 &amp;ldquo;đẹp trai&amp;rdquo; thay cho Terminal &amp;ldquo;xấu xí&amp;rdquo; trên MacOS.
+Lưu ý là cái này không sử dụng được trên Windows nhé. Nhưng chưa có Mac thì cứ đọc để có động lực mua Mac cũng hay :D
+ Cài đặt iTerm2  Cách nhẹ nhàng nhất là tải iTerm2 từ trang chủ về rồi kéo vào thư mục Application của máy.</description>
+    </item>
+    
+    <item>
+      <title>[Terminal] Tạo Alias cho lệnh trên MacOS</title>
+      <link>https://dominhhai.github.io/vi/2016/06/terminal-t%E1%BA%A1o-alias-cho-l%E1%BB%87nh-tr%C3%AAn-macos/</link>
+      <pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/06/terminal-t%E1%BA%A1o-alias-cho-l%E1%BB%87nh-tr%C3%AAn-macos/</guid>
+      <description>Để tạo được tên thay thế (alias) cho các lệnh trên Mac khá đơn giản. Ta chỉ cần thêm các lệnh alias vào file .bash_profile tại thư mục home là OK. Trường hợp máy chưa có file .bash_profile thì ta có thể tạo mới file này là OK.
+Lệnh tạo alias:
+alias YOUR_ALIAS=&#39;YOUR_COMMAND&#39;  Ví dụ ta tạo alias cho lệnh react-native với tên là rn như sau:
+alias rn=&#39;react-native&#39;  Vì ta chỉ tạo alias chứ không thay đổi câu lệnh nên là vẫn có thể sài được lệnh cũ sau khi đã được tạo alias.</description>
+    </item>
+    
+  </channel>
+</rss>

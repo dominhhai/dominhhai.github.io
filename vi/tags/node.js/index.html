@@ -1,0 +1,660 @@
+
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.26">
+    <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
+    <title>Node.js</title>
+    <meta name="author" content="Do Minh Hai">
+    <meta name="keywords" content=", dominhhai, programming, computer science, machine learning, deep learning">
+
+    <link rel="icon" href="https://dominhhai.github.io/favicon/golden-buddha-512-79567.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://dominhhai.github.io/vi/tags/node.js/index.xml">
+    
+
+    
+    <meta name="description" content="The blog of Do Minh Hai">
+    <meta property="og:description" content="The blog of Do Minh Hai">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Node.js">
+    <meta property="og:url" content="/vi/tags/node.js/">
+    <meta property="og:site_name" content="Hai&#39;s Blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Hai&#39;s Blog">
+    <meta name="twitter:description" content="The blog of Do Minh Hai">
+    
+      <meta name="twitter:creator" content="@minhhai3b">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" />
+    
+    
+    <link rel="stylesheet" href="https://dominhhai.github.io/css/style-u6mk0ojoywresbx8iepslrmmhl4stuhrsxuwhkpwrkrx7mryjcaimasnk4pi.min.css" />
+    
+    
+      <link rel="stylesheet" href="https://dominhhai.github.io/css/main.css">
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-105333519-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="2">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link fa fa-lg fa-home" href="https://dominhhai.github.io/vi/"> Hai&#39;s Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://dominhhai.github.io/vi/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=90" alt="Ảnh đại diện của tác giả" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="2">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://dominhhai.github.io/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện của tác giả" />
+        </a>
+        <h4 class="sidebar-profile-name">Do Minh Hai</h4>
+        
+          <h5 class="sidebar-profile-bio">Just a developer<br>Enjoy life as a journey</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Danh mục</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Thẻ thông tin</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Lưu trữ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">Thông tin</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Trang chủ</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/minhhai3b" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/dominhhai" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="2"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/02/node.js-m%C3%A3-ho%C3%A1-m%E1%BA%ADt-kh%E1%BA%A9u-v%E1%BB%9Bi-bcrypt/">
+          [Node.js] Mã hoá mật khẩu với Bcrypt
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2016-02-02T00:00:00Z">
+      
+  Tháng hai 2, 2016
+
+    </time>
+  
+  
+  
+  
+    <span>trong</span>
+    
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/l%e1%ba%adp-tr%c3%acnh">Lập Trình</a>, 
+    
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/node.js">Node.js</a>
+    
+  
+
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        Mình không thực sự hiểu nhiều về các thuật toán, kĩ thuật mã hóa mật khẩu. Mình chỉ đọc qua một số phương pháp mã hóa và các lời bình về nó trên mạng và quyết định sử dụng bcrypt. Đọc thì thấy rằng thuật toán này tuy có hơi chậm hơn các thuật toán khác như MD5, nhưng đổi lại nó giải quyết được các vấn đề như hack từ điển&hellip; của các thuật toán khác do có thể đối phó được với cấp độ tiến hóa của vi xử lý máy tính.
+        <br>
+        <a href="https://dominhhai.github.io/vi/2016/02/node.js-m%C3%A3-ho%C3%A1-m%E1%BA%ADt-kh%E1%BA%A9u-v%E1%BB%9Bi-bcrypt/" class="postShorten-excerpt_link link">Đọc tiếp...</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://dominhhai.github.io/vi/2016/02/node.js-m%C3%A3-ho%C3%A1-m%E1%BA%ADt-kh%E1%BA%A9u-v%E1%BB%9Bi-bcrypt/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="//nodejs.org/static/images/logo-hexagon.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+            
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <div id="helpinfo">
+    <div id="author">
+      <label id="home">Hai's Blog</label>
+      <div class="language">
+        <label for="language">Other Languages:</label>
+        <select id="language">
+          
+          
+            <option title="Tiếng Việt" value="vi" selected>
+              Tiếng Việt (vi)
+            </option>
+          
+            <option title="English" value="en-us" >
+              English (en-us)
+            </option>
+          
+            <option title="日本語" value="ja" >
+              日本語 (ja)
+            </option>
+          
+        </select>
+      </div>
+    </div>
+    <div id="topic">
+      <label>Topics</label>
+      <ul>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh">Lập Trình</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y">Học Máy</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/to%C3%A1n">Toán</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/x%C3%A1c-su%E1%BA%A5t">Xác Suất</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/s%C3%A1ch">Sách</a>
+        </li>
+        
+      </ul>
+    </div>
+    <div id="contact">
+      <label>Contact</label>
+      <ul>
+        <li>
+          <a href="https://github.com/dominhhai/dominhhai.github.io/issues/new" target="_blank">
+            <i class="fa fa-lg fa-inbox"></i> Hit Me
+          </a>
+        </li>
+        <li id="follow">
+          
+            <a href="https://twitter.com/minhhai3b" target="_blank">
+              <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+            </a>
+          
+            <a href="https://github.com/dominhhai" target="_blank">
+              <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+            </a>
+          
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="contentinfo">
+    <span class="copyrights">
+      &copy; 2017 <a href="https://github.com/dominhhai">Do Minh Hai</a>. All Rights Reserved
+    </span>
+  </div>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện của tác giả" />
+    
+    <h4 id="about-card-name">Do Minh Hai</h4>
+    
+      <div id="about-card-bio">Just a developer<br>Enjoy life as a journey</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Freelancer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Japan
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Tìm kiếm" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">không tìm thấy kết quả</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/02/web-c%C3%A0i-%C4%91%E1%BA%B7t-ssl-mi%E1%BB%85n-ph%C3%AD-v%E1%BB%9Bi-lets-encrypt/">
+                <h3 class="media-heading">[Web] Cài đặt SSL miễn phí với Let&#39;s Encrypt</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Bài viết này hướng dẫn cài đặt Let&rsquo;s Encrypt - một dịch vụ ngon-bổ-miễn phí cho việc HTTPS hóa máy chủ. Ở đây, mình sử dụng máy chủ CentOS 7 và Nginx để thực hiện, nhưng các bạn hoàn toàn có thể làm tương tự với các môi trường khác.
+Để cài đặt được Let's Encrypt, ta cần có môi trường Python v2.7.x trở lên. Nên nếu máy của bạn chưa có thì cài đặt hoặc cập nhập bản mới đi nhé.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/12/js-async-queue-k%C3%A8m-%C4%91i%E1%BB%81u-ki%E1%BB%87n/">
+                <h3 class="media-heading">[JS] Async Queue kèm điều kiện</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Có lẽ nhiều người đã từng sử dụng queue hoặc priority queue của async để thực thi danh sách các tác vụ 1 lần. Nhưng nếu để ý thì ta có thể nhận thấy thư viện này không hỗ trợ việc thiết lập điều kiện thực thi cho từng tác vụ riêng biệt, mà chỉ đơn giản là có tác vụ thì sẽ chạy. Điều này làm nảy sinh vấn đề là thiếu sự đồng bộ khi cần thực thi một loạt các tác vụ có liên quan nhau.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/12/terminal-t%E1%BA%A1o-alias-cho-l%E1%BB%87nh-tr%C3%AAn-macos/">
+                <h3 class="media-heading">[Terminal] Tạo Alias cho lệnh trên MacOS</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Bài viết này hướng dẫn cách cài đặt để sài iTerm2 &ldquo;đẹp trai&rdquo; thay cho Terminal &ldquo;xấu xí&rdquo; trên MacOS.
+Lưu ý là cái này không sử dụng được trên Windows nhé. Nhưng chưa có Mac thì cứ đọc để có động lực mua Mac cũng hay :D
+ Cài đặt iTerm2  Cách nhẹ nhàng nhất là tải iTerm2 từ trang chủ về rồi kéo vào thư mục Application của máy.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/11/nodefest-nodefest-tokyo-2016/">
+                <h3 class="media-heading">[NodeFest] NodeFest Tokyo 2016</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">http://nodefest.jp/2016/
+ day 1   Paypal/Braintree Workshop Starting TDD with Node.js  Tasting ES2017 Node.jsに縁のない職場でnode.jsを使い始める戦術  Electronで製造ラインアプリ開発  Node.js × Babel で AWS Lambda アプリケーションを開発する  Node.js with WebRTC DataChannel    day 2   Vue.js 2.0 Server Side Rendering Evolution of Electron Evolution of Electron（日本語） PostCSS: Build your own CSS processor Introducing Now and Next.js サイボウズの開発を支えるKAIZEN文化  From Library to Tool - power-assert as a General Purpose Assertion Enhancement Tool How Do We Get Along With Static Types WebAssemblyに足りないもの The Journey to ES Modules JavaScript による並列処理：共有メモリとロック React with Reduxによる大規模商用サービスの開発 Demystifying (JavaScript) Engines Famicom programming with JavaScript Browser is the new Server Building Interactive npm Command Line Applications CHOO BOARDING THE TINY FRAMEWORK Putting TV on the Internet  </div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/10/js-async-await-c%E1%BB%B1c-%C4%91%C6%A1n-gi%E1%BA%A3n/">
+                <h3 class="media-heading">[JS] Async Await cực đơn giản</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">1. Giới thiệu Với các đặc tả JavaScript cũ, ta phải sử dụng các hàm phản hồi để xử lý các thao tác bất đồng bộ. Tuy nhiên việc này dẫn tới tình trạng callback hell khi ta có nhiều thao tác bất đồng bộ phải chờ nhau thực hiện. Call hell làm cho mã nguồn của ta rất rối và khó bảo trì.
+function wait(ms, cb) { setTimeout(cb, ms) } function main() { console.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/06/terminal-t%E1%BA%A1o-alias-cho-l%E1%BB%87nh-tr%C3%AAn-macos/">
+                <h3 class="media-heading">[Terminal] Tạo Alias cho lệnh trên MacOS</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Để tạo được tên thay thế (alias) cho các lệnh trên Mac khá đơn giản. Ta chỉ cần thêm các lệnh alias vào file .bash_profile tại thư mục home là OK. Trường hợp máy chưa có file .bash_profile thì ta có thể tạo mới file này là OK.
+Lệnh tạo alias:
+alias YOUR_ALIAS='YOUR_COMMAND'  Ví dụ ta tạo alias cho lệnh react-native với tên là rn như sau:
+alias rn='react-native'  Vì ta chỉ tạo alias chứ không thay đổi câu lệnh nên là vẫn có thể sài được lệnh cũ sau khi đã được tạo alias.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/04/node.js-tri%E1%BB%83n-khai-d%E1%BB%8Bch-v%E1%BB%A5-node.js-tr%C3%AAn-windows/">
+                <h3 class="media-heading">[Node.js] Triển khai dịch vụ Node.js trên Windows</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Để triển khai ứng dụng Node.js bằng Windows, ta có nhiều phương án như dưới đây:
+ Sử dụng forever Sử dụng issnode Sử dụng NSSM  Cả 3 softwares trên đều có hướng dẫn rất chi tiết trên trang chủ tương ứng, nhưng ta nên chọn cái nào để triển khai ứng dụng? Trong bài này ta sẽ liệt kê 1 vài điểm mạnh yếu của chúng.
+    Tên Điểm mạnh Điểm yếu     1 forever Lệnh đơn giản, có API phong phú.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/04/node.js-copy-node-oracledb-module-tr%C3%AAn-windows/">
+                <h3 class="media-heading">[Node.js] Copy Node OracleDB Module trên Windows</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Trong bài Chạy Oracle DB trên Nodejs mình đã viết lại quá trình cài đặt node-oracle trên wins, thì bài này sẽ tập trung vào việc triển khai node-oracle khi deploy ứng dụng.
+Việc cài đặt node-oracledb không đơn giản tẹo nào khi ta phải cài thằng Visual Studio mất tới 20 phút rồi. Nếu việc này mà lặp lại lần nữa khi muốn deploy hay dev trên một máy khác thì đúng là ác mộng.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/03/node.js-c%C3%A0i-%C4%91%E1%BA%B7t-node-oracledb-tr%C3%AAn-windows/">
+                <h3 class="media-heading">[Node.js] Cài đặt Node OracleDB trên Windows</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Bài viết này nhằm mục tiêu lưu lại 1 ngày vất vả vật lộn với cái node-oracledb trên con Windows Server 2008 của mình.
+Môi trường có sẵn  Windows Server 2008, 64 bit. Oracle Client 11.2 Visual Studio 2012  Cài đặt  Node v01.2.x Python 2.7 (nhớ chọn thiết lập biến môi trường) Oracle Instant Client v12.x  Để cài đặt Oralce Instant Client v12.x, ta cần tải 2 gói basic và sdk từ đây.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/03/atom-t%E1%BB%B1-%C4%91%E1%BB%99ng-ho%C3%A0n-thi%E1%BB%87n-l%E1%BB%87nh/">
+                <h3 class="media-heading">[Atom] Tự động hoàn thiện lệnh</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Các trình soạn thảo mã lệnh hầu hết có tính năng auto-complete (tự động hoàn thiện lệnh) khi gõ. Nhờ có tính năng này mà chúng ta có thể gõ mã nhanh hơn và không cần phải nhớ hết làu làu các API của ngôn ngữ, thư viện nào đó. Hầu hết các API có tên rất dễ liên tưởng tới tính năng của nó nên chỉ cần nhìn là biết ngay nó dùng để làm gì.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="không tìm thấy kết quả"
+         data-message-one="tìm thấy 1 kết quả "
+         data-message-other="tìm thấy {n} kết quả">
+         21 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://dominhhai.github.io/images/cover-v1.2.0.jpg');"></div>
+  
+
+
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js"></script>
+
+
+<script src="https://dominhhai.github.io/js/script-wl33z0n6ocaypepiqrazthtivfrliqijej4rq8ek8gvrv1awftmgjuv8k4zc.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+   <script src="https://dominhhai.github.io/js/main.js"></script>
+
+
+    
+  </body>
+</html>
+

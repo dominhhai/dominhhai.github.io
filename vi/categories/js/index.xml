@@ -6,10 +6,48 @@
     <description>Recent content in Js on Hai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Sat, 07 Mar 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Dec 2016 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dominhhai.github.io/vi/categories/js/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[JS] Async Queue kèm điều kiện</title>
+      <link>https://dominhhai.github.io/vi/2016/12/js-async-queue-k%C3%A8m-%C4%91i%E1%BB%81u-ki%E1%BB%87n/</link>
+      <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/12/js-async-queue-k%C3%A8m-%C4%91i%E1%BB%81u-ki%E1%BB%87n/</guid>
+      <description>Có lẽ nhiều người đã từng sử dụng queue hoặc priority queue của async để thực thi danh sách các tác vụ 1 lần. Nhưng nếu để ý thì ta có thể nhận thấy thư viện này không hỗ trợ việc thiết lập điều kiện thực thi cho từng tác vụ riêng biệt, mà chỉ đơn giản là có tác vụ thì sẽ chạy. Điều này làm nảy sinh vấn đề là thiếu sự đồng bộ khi cần thực thi một loạt các tác vụ có liên quan nhau.</description>
+    </item>
+    
+    <item>
+      <title>[JS] Async Await cực đơn giản</title>
+      <link>https://dominhhai.github.io/vi/2016/10/js-async-await-c%E1%BB%B1c-%C4%91%C6%A1n-gi%E1%BA%A3n/</link>
+      <pubDate>Mon, 31 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/10/js-async-await-c%E1%BB%B1c-%C4%91%C6%A1n-gi%E1%BA%A3n/</guid>
+      <description>1. Giới thiệu Với các đặc tả JavaScript cũ, ta phải sử dụng các hàm phản hồi để xử lý các thao tác bất đồng bộ. Tuy nhiên việc này dẫn tới tình trạng callback hell khi ta có nhiều thao tác bất đồng bộ phải chờ nhau thực hiện. Call hell làm cho mã nguồn của ta rất rối và khó bảo trì.
+function wait(ms, cb) { setTimeout(cb, ms) } function main() { console.</description>
+    </item>
+    
+    <item>
+      <title>[JS] Apply, Call và Bind khác gì nhau?</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-apply-call-v%C3%A0-bind-kh%C3%A1c-g%C3%AC-nhau/</link>
+      <pubDate>Sat, 28 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-apply-call-v%C3%A0-bind-kh%C3%A1c-g%C3%AC-nhau/</guid>
+      <description>Như trong bài về từ khóa this đã đề cập tới ngữ cảnh thực thi với mối tương quan tới từ khóa this và việc thay đổi được ngữ cảnh thực thi một cách trực tiếp bằng cách sử dụng call, apply và bind, thì bài viết này sẽ làm rõ ràng hơn 3 phương thức này và sự khác nhau cũng như tính hữu dụng của nó.
+Về cơ bản call và apply gần giống nhau và được giới thiệu từ phiên bản 3 theo chuẩn ECMAScript, còn bind được giới thiệu từ phiên bản 5 thì lại khác hẳn về bản chất nhưng cũng có mối quan hệ mật thiết với 2 phương thức kia.</description>
+    </item>
+    
+    <item>
+      <title>[JS] Hiểu thế nào cho đúng về biến this</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-hi%E1%BB%83u-th%E1%BA%BF-n%C3%A0o-cho-%C4%91%C3%BAng-v%E1%BB%81-bi%E1%BA%BFn-this/</link>
+      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-hi%E1%BB%83u-th%E1%BA%BF-n%C3%A0o-cho-%C4%91%C3%BAng-v%E1%BB%81-bi%E1%BA%BFn-this/</guid>
+      <description>// app.js // câu hỏi vui: Đoán kết quả lệnh (1) và lệnh (2) :cười: var obj = { mMethod: function() { console.log(this) } } obj.mMethod(); // (1) var _mMethod = obj.mMethod; _mMethod(); // (2)  JavaScript (JS) là một ngôn ngữ lập trình khá linh hoạt và thú vị. Nhưng để có được điều đó nó cũng mang tới không ít phiền phức, dễ nhầm lẫn với những người không chuyên.</description>
+    </item>
     
     <item>
       <title>[JS] Bất ngờ nhỏ với mảng</title>

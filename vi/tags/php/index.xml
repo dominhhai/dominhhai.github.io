@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Php on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/tags/php/</link>
+    <description>Recent content in Php on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Sun, 28 Jun 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dominhhai.github.io/vi/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[PHP] Lỗi Cetificate của Curl trong PHP</title>
+      <link>https://dominhhai.github.io/vi/2015/06/php-l%E1%BB%97i-cetificate-c%E1%BB%A7a-curl-trong-php/</link>
+      <pubDate>Sun, 28 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/06/php-l%E1%BB%97i-cetificate-c%E1%BB%A7a-curl-trong-php/</guid>
+      <description>Lỗi SSL certificate problem: unable to get local issuer certificate cho PHP curl Chả là hôm rồi có sử dụng thư viện curl của PHP để gọi dịch vụ Restful Service của bên thứ 3 từ server PHP của mình thì gặp chút rắc rối nên giờ viết lại cho khỏi quên.
+Chắc mọi người cũng biết lệnh curl của linux là một lệnh khá mạnh mẽ dùng để kết nối, gửi hay lấy dữ liệu với một máy chủ nào đó, và nó hỗ trợ nhiều kiểu giao thức khác nhau như HTTP, HTTPS, FTP, GOPHER, DICT, TELNET, LDAP hay FILE.</description>
+    </item>
+    
+  </channel>
+</rss>

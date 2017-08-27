@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oracledb on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/tags/oracledb/</link>
+    <description>Recent content in Oracledb on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Sun, 03 Apr 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dominhhai.github.io/vi/tags/oracledb/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Node.js] Copy Node OracleDB Module trên Windows</title>
+      <link>https://dominhhai.github.io/vi/2016/04/node.js-copy-node-oracledb-module-tr%C3%AAn-windows/</link>
+      <pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/04/node.js-copy-node-oracledb-module-tr%C3%AAn-windows/</guid>
+      <description>Trong bài Chạy Oracle DB trên Nodejs mình đã viết lại quá trình cài đặt node-oracle trên wins, thì bài này sẽ tập trung vào việc triển khai node-oracle khi deploy ứng dụng.
+Việc cài đặt node-oracledb không đơn giản tẹo nào khi ta phải cài thằng Visual Studio mất tới 20 phút rồi. Nếu việc này mà lặp lại lần nữa khi muốn deploy hay dev trên một máy khác thì đúng là ác mộng.</description>
+    </item>
+    
+    <item>
+      <title>[Node.js] Cài đặt Node OracleDB trên Windows</title>
+      <link>https://dominhhai.github.io/vi/2016/03/node.js-c%C3%A0i-%C4%91%E1%BA%B7t-node-oracledb-tr%C3%AAn-windows/</link>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/03/node.js-c%C3%A0i-%C4%91%E1%BA%B7t-node-oracledb-tr%C3%AAn-windows/</guid>
+      <description>Bài viết này nhằm mục tiêu lưu lại 1 ngày vất vả vật lộn với cái node-oracledb trên con Windows Server 2008 của mình.
+Môi trường có sẵn  Windows Server 2008, 64 bit. Oracle Client 11.2 Visual Studio 2012  Cài đặt  Node v01.2.x Python 2.7 (nhớ chọn thiết lập biến môi trường) Oracle Instant Client v12.x  Để cài đặt Oralce Instant Client v12.x, ta cần tải 2 gói basic và sdk từ đây.</description>
+    </item>
+    
+  </channel>
+</rss>

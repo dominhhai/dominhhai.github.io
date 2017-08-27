@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/tags/windows/</link>
+    <description>Recent content in Windows on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Mon, 04 Apr 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dominhhai.github.io/vi/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Node.js] Triển khai dịch vụ Node.js trên Windows</title>
+      <link>https://dominhhai.github.io/vi/2016/04/node.js-tri%E1%BB%83n-khai-d%E1%BB%8Bch-v%E1%BB%A5-node.js-tr%C3%AAn-windows/</link>
+      <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/04/node.js-tri%E1%BB%83n-khai-d%E1%BB%8Bch-v%E1%BB%A5-node.js-tr%C3%AAn-windows/</guid>
+      <description>Để triển khai ứng dụng Node.js bằng Windows, ta có nhiều phương án như dưới đây:
+ Sử dụng forever Sử dụng issnode Sử dụng NSSM  Cả 3 softwares trên đều có hướng dẫn rất chi tiết trên trang chủ tương ứng, nhưng ta nên chọn cái nào để triển khai ứng dụng? Trong bài này ta sẽ liệt kê 1 vài điểm mạnh yếu của chúng.
+    Tên Điểm mạnh Điểm yếu     1 forever Lệnh đơn giản, có API phong phú.</description>
+    </item>
+    
+    <item>
+      <title>[Node.js] Copy Node OracleDB Module trên Windows</title>
+      <link>https://dominhhai.github.io/vi/2016/04/node.js-copy-node-oracledb-module-tr%C3%AAn-windows/</link>
+      <pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/04/node.js-copy-node-oracledb-module-tr%C3%AAn-windows/</guid>
+      <description>Trong bài Chạy Oracle DB trên Nodejs mình đã viết lại quá trình cài đặt node-oracle trên wins, thì bài này sẽ tập trung vào việc triển khai node-oracle khi deploy ứng dụng.
+Việc cài đặt node-oracledb không đơn giản tẹo nào khi ta phải cài thằng Visual Studio mất tới 20 phút rồi. Nếu việc này mà lặp lại lần nữa khi muốn deploy hay dev trên một máy khác thì đúng là ác mộng.</description>
+    </item>
+    
+    <item>
+      <title>[Node.js] Cài đặt Node OracleDB trên Windows</title>
+      <link>https://dominhhai.github.io/vi/2016/03/node.js-c%C3%A0i-%C4%91%E1%BA%B7t-node-oracledb-tr%C3%AAn-windows/</link>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/03/node.js-c%C3%A0i-%C4%91%E1%BA%B7t-node-oracledb-tr%C3%AAn-windows/</guid>
+      <description>Bài viết này nhằm mục tiêu lưu lại 1 ngày vất vả vật lộn với cái node-oracledb trên con Windows Server 2008 của mình.
+Môi trường có sẵn  Windows Server 2008, 64 bit. Oracle Client 11.2 Visual Studio 2012  Cài đặt  Node v01.2.x Python 2.7 (nhớ chọn thiết lập biến môi trường) Oracle Instant Client v12.x  Để cài đặt Oralce Instant Client v12.x, ta cần tải 2 gói basic và sdk từ đây.</description>
+    </item>
+    
+  </channel>
+</rss>
