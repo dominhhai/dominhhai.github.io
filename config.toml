@@ -200,3 +200,9 @@ categories = ["プログラミング", "機械学習", "数学", "確率", "読�
   # Customize copyright value "© 2016 <CUSTOMIZATION>. All Rights Reserved"
   [params.footer]
     copyright = "<a href=\"https://github.com/dominhhai\">Do Minh Hai</a>"
+
+  # 404 not found page
+  [params.p404]
+    title = "404 Not Found"
+    content = "Xin lỗi cậu! Tớ không tìm thấy trang này.<br>Cậu hãy thử quay lại trang chủ tìm kiếm xem sao nhé."
+    coverImage = "//lh3.googleusercontent.com/rhXZVpUnYQVxcO7k3WN5T7Vw0_hjVrT9Fws4FKdijFAt0-LHfdnVIcITiKNETvOvirWybJKeEtu-sENC9EXvq81XINiTHbuf6yyqqXfc6-0lqWthTXRUclCi0K6mfqtx2lIzzuMClGbgau57Jg5OSgHW9jB1fnq-F7KzZjEyiEIbxZOBwYG2x6210RlIsPSRAd8XCmbFwBO0te4Vx5KdaMGjST6uJB9hZf_N0w-KW8SQTPKqaDp9w8-E5LrvIxAF7jHqYQ40rcca6ae1h5OdYMBqm5GwhXPkzYoS26yOLK2glTFJMJOHLOFSUAmYrngPzbe8vAzpdwJkFGzYFglaOkUd9JfvnWhMD7jTAT_SvCr7uA67ZpOZnJtQisEJhgq5oFetbag4B3NSUD7GVsN7J6_L7RBpQVU6Fx69F5YChkrkXZbjmIDDJ61yl1aMKZOQls3fRqoS_3pczp4uvOislVenSBtwFRZ1GiRvBA4xUX3lgRJz7Hf2RnNUI8XHLVl12G9GstjCYsivZ5m5TJc0nnZ2ic1yPfYCrZDITxZEEkYLl_dypyCrQ5X8B_EYTd2JObfoRGys_3D7GtK8fqYfUVsUp7dsxu7xV137ZycCHx3TdHZduP4a=w1014-h757-no"
