@@ -11,7 +11,7 @@ keywords:
 - JavaScript
 - JS
 autoThumbnailImage: true
-thumbnailImagePosition: "top"
+thumbnailImagePosition: "left"
 thumbnailImage: //lh3.googleusercontent.com/gsMKQt7DZQVs0NJJihKmR3zR-g5y-CBOH0v6IC1W7U6gQx0u5IxiQVrwNbhjAdkFbqWMTBzJRSSZln-w441biwoAMiDkj17CHRxFqUkuaWzTungp8YHS374z8BvCfPxfg91EZmZ78A=w785-h340-no
 coverImage: //lh3.googleusercontent.com/gsMKQt7DZQVs0NJJihKmR3zR-g5y-CBOH0v6IC1W7U6gQx0u5IxiQVrwNbhjAdkFbqWMTBzJRSSZln-w441biwoAMiDkj17CHRxFqUkuaWzTungp8YHS374z8BvCfPxfg91EZmZ78A=w785-h340-no
 metaAlignment: center
