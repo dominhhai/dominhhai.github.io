@@ -8,8 +8,8 @@ deploy:
 		&& cd public \
 		&& git add --all \
 		&& git commit -m "Build on $$(date)" \
-		&& cd .. \
-		&& git push origin master
+		&& git push \
+		&& cd ..
 
 # add publish page
 set-publish:
