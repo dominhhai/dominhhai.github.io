@@ -8,7 +8,7 @@
            data-behavior="{{ $.Scratch.Get "sidebarBehavior" }}">
         <div class="post-header main-content-wrap text-center">
           <h1 class="post-title" itemprop="headline">
-            {{ .Site.Params.p404.title | markdownify }}
+            {{ i18n "404.title" }}
           </h1>
         </div>
       </div>
@@ -16,7 +16,7 @@
         <article class="post">
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              {{ .Site.Params.p404.content | markdownify }}
+              {{ (i18n "404.content") | markdownify }}
             </div>
           </div>
         </article>
