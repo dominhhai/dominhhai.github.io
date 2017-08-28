@@ -6,10 +6,194 @@
     <description>Recent content in Posts on Hai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Sat, 07 Mar 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Feb 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dominhhai.github.io/vi/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Web] Cài đặt SSL miễn phí với Let&#39;s Encrypt</title>
+      <link>https://dominhhai.github.io/vi/2017/02/web-c%C3%A0i-%C4%91%E1%BA%B7t-ssl-mi%E1%BB%85n-ph%C3%AD-v%E1%BB%9Bi-lets-encrypt/</link>
+      <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/02/web-c%C3%A0i-%C4%91%E1%BA%B7t-ssl-mi%E1%BB%85n-ph%C3%AD-v%E1%BB%9Bi-lets-encrypt/</guid>
+      <description>Bài viết này hướng dẫn cài đặt Let&amp;rsquo;s Encrypt - một dịch vụ ngon-bổ-miễn phí cho việc HTTPS hóa máy chủ. Ở đây, mình sử dụng máy chủ CentOS 7 và Nginx để thực hiện, nhưng các bạn hoàn toàn có thể làm tương tự với các môi trường khác.
+Để cài đặt được Let&#39;s Encrypt, ta cần có môi trường Python v2.7.x trở lên. Nên nếu máy của bạn chưa có thì cài đặt hoặc cập nhập bản mới đi nhé.</description>
+    </item>
+    
+    <item>
+      <title>[JS] Async Queue kèm điều kiện</title>
+      <link>https://dominhhai.github.io/vi/2016/12/js-async-queue-k%C3%A8m-%C4%91i%E1%BB%81u-ki%E1%BB%87n/</link>
+      <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/12/js-async-queue-k%C3%A8m-%C4%91i%E1%BB%81u-ki%E1%BB%87n/</guid>
+      <description>Có lẽ nhiều người đã từng sử dụng queue hoặc priority queue của async để thực thi danh sách các tác vụ 1 lần. Nhưng nếu để ý thì ta có thể nhận thấy thư viện này không hỗ trợ việc thiết lập điều kiện thực thi cho từng tác vụ riêng biệt, mà chỉ đơn giản là có tác vụ thì sẽ chạy. Điều này làm nảy sinh vấn đề là thiếu sự đồng bộ khi cần thực thi một loạt các tác vụ có liên quan nhau.</description>
+    </item>
+    
+    <item>
+      <title>[Terminal] Tạo Alias cho lệnh trên MacOS</title>
+      <link>https://dominhhai.github.io/vi/2016/12/terminal-t%E1%BA%A1o-alias-cho-l%E1%BB%87nh-tr%C3%AAn-macos/</link>
+      <pubDate>Thu, 15 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/12/terminal-t%E1%BA%A1o-alias-cho-l%E1%BB%87nh-tr%C3%AAn-macos/</guid>
+      <description>Bài viết này hướng dẫn cách cài đặt để sài iTerm2 &amp;ldquo;đẹp trai&amp;rdquo; thay cho Terminal &amp;ldquo;xấu xí&amp;rdquo; trên MacOS.
+Lưu ý là cái này không sử dụng được trên Windows nhé. Nhưng chưa có Mac thì cứ đọc để có động lực mua Mac cũng hay :D
+ Cài đặt iTerm2  Cách nhẹ nhàng nhất là tải iTerm2 từ trang chủ về rồi kéo vào thư mục Application của máy.</description>
+    </item>
+    
+    <item>
+      <title>[NodeFest] NodeFest Tokyo 2016</title>
+      <link>https://dominhhai.github.io/vi/2016/11/nodefest-nodefest-tokyo-2016/</link>
+      <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/11/nodefest-nodefest-tokyo-2016/</guid>
+      <description>http://nodefest.jp/2016/
+ day 1   Paypal/Braintree Workshop Starting TDD with Node.js  Tasting ES2017 Node.jsに縁のない職場でnode.jsを使い始める戦術  Electronで製造ラインアプリ開発  Node.js × Babel で AWS Lambda アプリケーションを開発する  Node.js with WebRTC DataChannel    day 2   Vue.js 2.0 Server Side Rendering Evolution of Electron Evolution of Electron（日本語） PostCSS: Build your own CSS processor Introducing Now and Next.js サイボウズの開発を支えるKAIZEN文化  From Library to Tool - power-assert as a General Purpose Assertion Enhancement Tool How Do We Get Along With Static Types WebAssemblyに足りないもの The Journey to ES Modules JavaScript による並列処理：共有メモリとロック React with Reduxによる大規模商用サービスの開発 Demystifying (JavaScript) Engines Famicom programming with JavaScript Browser is the new Server Building Interactive npm Command Line Applications CHOO BOARDING THE TINY FRAMEWORK Putting TV on the Internet  </description>
+    </item>
+    
+    <item>
+      <title>[JS] Async Await cực đơn giản</title>
+      <link>https://dominhhai.github.io/vi/2016/10/js-async-await-c%E1%BB%B1c-%C4%91%C6%A1n-gi%E1%BA%A3n/</link>
+      <pubDate>Mon, 31 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/10/js-async-await-c%E1%BB%B1c-%C4%91%C6%A1n-gi%E1%BA%A3n/</guid>
+      <description>1. Giới thiệu Với các đặc tả JavaScript cũ, ta phải sử dụng các hàm phản hồi để xử lý các thao tác bất đồng bộ. Tuy nhiên việc này dẫn tới tình trạng callback hell khi ta có nhiều thao tác bất đồng bộ phải chờ nhau thực hiện. Call hell làm cho mã nguồn của ta rất rối và khó bảo trì.
+function wait(ms, cb) { setTimeout(cb, ms) } function main() { console.</description>
+    </item>
+    
+    <item>
+      <title>[Terminal] Tạo Alias cho lệnh trên MacOS</title>
+      <link>https://dominhhai.github.io/vi/2016/06/terminal-t%E1%BA%A1o-alias-cho-l%E1%BB%87nh-tr%C3%AAn-macos/</link>
+      <pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/06/terminal-t%E1%BA%A1o-alias-cho-l%E1%BB%87nh-tr%C3%AAn-macos/</guid>
+      <description>Để tạo được tên thay thế (alias) cho các lệnh trên Mac khá đơn giản. Ta chỉ cần thêm các lệnh alias vào file .bash_profile tại thư mục home là OK. Trường hợp máy chưa có file .bash_profile thì ta có thể tạo mới file này là OK.
+Lệnh tạo alias:
+alias YOUR_ALIAS=&#39;YOUR_COMMAND&#39;  Ví dụ ta tạo alias cho lệnh react-native với tên là rn như sau:
+alias rn=&#39;react-native&#39;  Vì ta chỉ tạo alias chứ không thay đổi câu lệnh nên là vẫn có thể sài được lệnh cũ sau khi đã được tạo alias.</description>
+    </item>
+    
+    <item>
+      <title>[Node.js] Triển khai dịch vụ Node.js trên Windows</title>
+      <link>https://dominhhai.github.io/vi/2016/04/node.js-tri%E1%BB%83n-khai-d%E1%BB%8Bch-v%E1%BB%A5-node.js-tr%C3%AAn-windows/</link>
+      <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/04/node.js-tri%E1%BB%83n-khai-d%E1%BB%8Bch-v%E1%BB%A5-node.js-tr%C3%AAn-windows/</guid>
+      <description>Để triển khai ứng dụng Node.js bằng Windows, ta có nhiều phương án như dưới đây:
+ Sử dụng forever Sử dụng issnode Sử dụng NSSM  Cả 3 softwares trên đều có hướng dẫn rất chi tiết trên trang chủ tương ứng, nhưng ta nên chọn cái nào để triển khai ứng dụng? Trong bài này ta sẽ liệt kê 1 vài điểm mạnh yếu của chúng.
+    Tên Điểm mạnh Điểm yếu     1 forever Lệnh đơn giản, có API phong phú.</description>
+    </item>
+    
+    <item>
+      <title>[Node.js] Copy Node OracleDB Module trên Windows</title>
+      <link>https://dominhhai.github.io/vi/2016/04/node.js-copy-node-oracledb-module-tr%C3%AAn-windows/</link>
+      <pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/04/node.js-copy-node-oracledb-module-tr%C3%AAn-windows/</guid>
+      <description>Trong bài Chạy Oracle DB trên Nodejs mình đã viết lại quá trình cài đặt node-oracle trên wins, thì bài này sẽ tập trung vào việc triển khai node-oracle khi deploy ứng dụng.
+Việc cài đặt node-oracledb không đơn giản tẹo nào khi ta phải cài thằng Visual Studio mất tới 20 phút rồi. Nếu việc này mà lặp lại lần nữa khi muốn deploy hay dev trên một máy khác thì đúng là ác mộng.</description>
+    </item>
+    
+    <item>
+      <title>[Node.js] Cài đặt Node OracleDB trên Windows</title>
+      <link>https://dominhhai.github.io/vi/2016/03/node.js-c%C3%A0i-%C4%91%E1%BA%B7t-node-oracledb-tr%C3%AAn-windows/</link>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/03/node.js-c%C3%A0i-%C4%91%E1%BA%B7t-node-oracledb-tr%C3%AAn-windows/</guid>
+      <description>Bài viết này nhằm mục tiêu lưu lại 1 ngày vất vả vật lộn với cái node-oracledb trên con Windows Server 2008 của mình.
+Môi trường có sẵn  Windows Server 2008, 64 bit. Oracle Client 11.2 Visual Studio 2012  Cài đặt  Node v01.2.x Python 2.7 (nhớ chọn thiết lập biến môi trường) Oracle Instant Client v12.x  Để cài đặt Oralce Instant Client v12.x, ta cần tải 2 gói basic và sdk từ đây.</description>
+    </item>
+    
+    <item>
+      <title>[Atom] Tự động hoàn thiện lệnh</title>
+      <link>https://dominhhai.github.io/vi/2016/03/atom-t%E1%BB%B1-%C4%91%E1%BB%99ng-ho%C3%A0n-thi%E1%BB%87n-l%E1%BB%87nh/</link>
+      <pubDate>Sun, 27 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/03/atom-t%E1%BB%B1-%C4%91%E1%BB%99ng-ho%C3%A0n-thi%E1%BB%87n-l%E1%BB%87nh/</guid>
+      <description>Các trình soạn thảo mã lệnh hầu hết có tính năng auto-complete (tự động hoàn thiện lệnh) khi gõ. Nhờ có tính năng này mà chúng ta có thể gõ mã nhanh hơn và không cần phải nhớ hết làu làu các API của ngôn ngữ, thư viện nào đó. Hầu hết các API có tên rất dễ liên tưởng tới tính năng của nó nên chỉ cần nhìn là biết ngay nó dùng để làm gì.</description>
+    </item>
+    
+    <item>
+      <title>[Node.js] Mã hoá mật khẩu với Bcrypt</title>
+      <link>https://dominhhai.github.io/vi/2016/02/node.js-m%C3%A3-ho%C3%A1-m%E1%BA%ADt-kh%E1%BA%A9u-v%E1%BB%9Bi-bcrypt/</link>
+      <pubDate>Tue, 02 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/02/node.js-m%C3%A3-ho%C3%A1-m%E1%BA%ADt-kh%E1%BA%A9u-v%E1%BB%9Bi-bcrypt/</guid>
+      <description>Mình không thực sự hiểu nhiều về các thuật toán, kĩ thuật mã hóa mật khẩu. Mình chỉ đọc qua một số phương pháp mã hóa và các lời bình về nó trên mạng và quyết định sử dụng bcrypt. Đọc thì thấy rằng thuật toán này tuy có hơi chậm hơn các thuật toán khác như MD5, nhưng đổi lại nó giải quyết được các vấn đề như hack từ điển&amp;hellip; của các thuật toán khác do có thể đối phó được với cấp độ tiến hóa của vi xử lý máy tính.</description>
+    </item>
+    
+    <item>
+      <title>[Atom] Hiển thị mã Markdown với Atom</title>
+      <link>https://dominhhai.github.io/vi/2016/01/atom-hi%E1%BB%83n-th%E1%BB%8B-m%C3%A3-markdown-v%E1%BB%9Bi-atom/</link>
+      <pubDate>Sat, 02 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/01/atom-hi%E1%BB%83n-th%E1%BB%8B-m%C3%A3-markdown-v%E1%BB%9Bi-atom/</guid>
+      <description>Đầu năm rảnh rỗi ngồi viết bậy lúc cho vui tay. Tiện chúc anh em bạn bè năm mới tràn đầy niềm vui và hạnh phúc, sớm thành các tay lập trình lão luyện thuộc top world class.
+Xem trước một cách real-time hiển thị của mã Markdown trên Atom (phiên bản hiện tại là 1.x) cực kì dễ dàng. Chỉ cần mở tab đang soạn thảo mã Markdown của bạn và ấn tổ hợp phím CONTROL + SHIFT + M là có thể xem ngay mã Markdown trong khi đang soạn thảo.</description>
+    </item>
+    
+    <item>
+      <title>[Git] GitFlow - một mô hình làm việc hiệu quả</title>
+      <link>https://dominhhai.github.io/vi/2015/11/git-gitflow---m%E1%BB%99t-m%C3%B4-h%C3%ACnh-l%C3%A0m-vi%E1%BB%87c-hi%E1%BB%87u-qu%E1%BA%A3/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/11/git-gitflow---m%E1%BB%99t-m%C3%B4-h%C3%ACnh-l%C3%A0m-vi%E1%BB%87c-hi%E1%BB%87u-qu%E1%BA%A3/</guid>
+      <description>Gần đây mới được tiếp xúc với git-flow thấy cách làm việc hay quá, muốn chia sẻ lại đôi chút. Về cơ bản git-flow là một tập hợp các lệnh mở rộng cho git nhằm hỗ trợ cho quy trình làm việc hiệu quả hơn.
+・Tóm tắt: Git-Flow Cheatsheet. ・Đầy đủ: Git-Flow Repos
+Tuy nhiên bản đầy đủ hiện giờ đang không được bảo trì nên có một số tính năng mà bạn muốn có khi lại không có ví dụ như tính năng xoá một nhánh feature chẳng hạn.</description>
+    </item>
+    
+    <item>
+      <title>[PHP] Lỗi Cetificate của Curl trong PHP</title>
+      <link>https://dominhhai.github.io/vi/2015/06/php-l%E1%BB%97i-cetificate-c%E1%BB%A7a-curl-trong-php/</link>
+      <pubDate>Sun, 28 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/06/php-l%E1%BB%97i-cetificate-c%E1%BB%A7a-curl-trong-php/</guid>
+      <description>Lỗi SSL certificate problem: unable to get local issuer certificate cho PHP curl Chả là hôm rồi có sử dụng thư viện curl của PHP để gọi dịch vụ Restful Service của bên thứ 3 từ server PHP của mình thì gặp chút rắc rối nên giờ viết lại cho khỏi quên.
+Chắc mọi người cũng biết lệnh curl của linux là một lệnh khá mạnh mẽ dùng để kết nối, gửi hay lấy dữ liệu với một máy chủ nào đó, và nó hỗ trợ nhiều kiểu giao thức khác nhau như HTTP, HTTPS, FTP, GOPHER, DICT, TELNET, LDAP hay FILE.</description>
+    </item>
+    
+    <item>
+      <title>[NodeSchool] NodeSchool Hanoi lần 2</title>
+      <link>https://dominhhai.github.io/vi/2015/06/nodeschool-nodeschool-hanoi-l%E1%BA%A7n-2/</link>
+      <pubDate>Sat, 20 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/06/nodeschool-nodeschool-hanoi-l%E1%BA%A7n-2/</guid>
+      <description>Ngày 20/6/2015, buổi workshop lần 2 của NodeSchool Hanoi đã diễn ra tốt đẹp với sự tham gia của gần 30 bạn tại công ty CodeLovers Vietnam.
+Về lịch trình Thời gian Thứ 7, ngày 20/6/2015, 13:30 ~ 17:00
+Địa chỉ Cty Codelovers Vietnam - Phòng 404, Toà nhà Cty CP May Nông Nghiệp, Số 1&amp;frasl;120 Truờng Chinh - Ðống Ða
+Hướng dẫn viên dự kiến  @spidercpsf @netcell @vietduc1441 @NgaNguyenDuy @dac2205  Nội dung Lần 2 này vẫn thực hiện theo hướng hướng 1 - tự học (xem thêm các hướng thực hiện đề xuất).</description>
+    </item>
+    
+    <item>
+      <title>[NodeSchool] NodeSchool Hanoi lần 1</title>
+      <link>https://dominhhai.github.io/vi/2015/05/nodeschool-nodeschool-hanoi-l%E1%BA%A7n-1/</link>
+      <pubDate>Mon, 11 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/05/nodeschool-nodeschool-hanoi-l%E1%BA%A7n-1/</guid>
+      <description>Ngày 9/5/2015, buổi workshop đầu tiên của NodeSchool Hanoi đã diễn ra tốt đẹp với sự tài trợ và ủng hộ nhiệt tình của công ty lapnghiep của anh @Logle. Tại buổi đầu tiên có 10 bạn tham gia, nhưng không vì thế mà không khí của buổi gặp mặt đầu tiên kém sôi động.
+Về lịch trình Thời gian Thứ 7, ngày 9/5/2015, 13:30 ~ 16:30
+Địa chỉ Phòng 1001, toà 17T3, 17 Hoàng Đạo Thúy, Trung Hoà, Cầu Giấy</description>
+    </item>
+    
+    <item>
+      <title>[JS] Apply, Call và Bind khác gì nhau?</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-apply-call-v%C3%A0-bind-kh%C3%A1c-g%C3%AC-nhau/</link>
+      <pubDate>Sat, 28 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-apply-call-v%C3%A0-bind-kh%C3%A1c-g%C3%AC-nhau/</guid>
+      <description>Như trong bài về từ khóa this đã đề cập tới ngữ cảnh thực thi với mối tương quan tới từ khóa this và việc thay đổi được ngữ cảnh thực thi một cách trực tiếp bằng cách sử dụng call, apply và bind, thì bài viết này sẽ làm rõ ràng hơn 3 phương thức này và sự khác nhau cũng như tính hữu dụng của nó.
+Về cơ bản call và apply gần giống nhau và được giới thiệu từ phiên bản 3 theo chuẩn ECMAScript, còn bind được giới thiệu từ phiên bản 5 thì lại khác hẳn về bản chất nhưng cũng có mối quan hệ mật thiết với 2 phương thức kia.</description>
+    </item>
+    
+    <item>
+      <title>[JS] Hiểu thế nào cho đúng về biến this</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-hi%E1%BB%83u-th%E1%BA%BF-n%C3%A0o-cho-%C4%91%C3%BAng-v%E1%BB%81-bi%E1%BA%BFn-this/</link>
+      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-hi%E1%BB%83u-th%E1%BA%BF-n%C3%A0o-cho-%C4%91%C3%BAng-v%E1%BB%81-bi%E1%BA%BFn-this/</guid>
+      <description>// app.js // câu hỏi vui: Đoán kết quả lệnh (1) và lệnh (2) :cười: var obj = { mMethod: function() { console.log(this) } } obj.mMethod(); // (1) var _mMethod = obj.mMethod; _mMethod(); // (2)  JavaScript (JS) là một ngôn ngữ lập trình khá linh hoạt và thú vị. Nhưng để có được điều đó nó cũng mang tới không ít phiền phức, dễ nhầm lẫn với những người không chuyên.</description>
+    </item>
     
     <item>
       <title>[JS] Bất ngờ nhỏ với mảng</title>
@@ -27,7 +211,7 @@
       
       <guid>https://dominhhai.github.io/vi/2015/03/js-t%E1%BA%A3n-m%E1%BA%A1n-d%E1%BA%A5u-ch%E1%BA%A5m-ph%E1%BA%A9y/</guid>
       <description>JavaScript cho phép chúng ta lược bỏ dấu kết thúc lệnh (dấu chấm phẩy). Nhưng trường hợp nào ta phải bắt buộc dùng dấu chấm phải, trường hợp nào thì không và có khi nào ta nên bỏ nó đi? Trước mắt ta xem một chút bộ dịch JavaScript sẽ làm gì với các lệnh của ta.
-ex1.js1
+ ex1.js     1
 2
 3
 4
