@@ -15,7 +15,7 @@
       </div>
     </div>
     <div id="topic">
-      <label>Topics</label>
+      <label>{{ i18n "footer.topic.title" }}</label>
       <ul>
         {{ range $category := $.Site.Params.categories }}
         <li>
@@ -25,11 +25,11 @@
       </ul>
     </div>
     <div id="contact">
-      <label>Contact</label>
+      <label>{{ i18n "footer.contact.title" }}</label>
       <ul>
         <li>
           <a href="https://github.com/dominhhai/dominhhai.github.io/issues/new" target="_blank">
-            <i class="fa fa-lg fa-inbox"></i> Hit Me
+            <i class="fa fa-lg fa-inbox"></i> {{ i18n "footer.contact.mail" }}
           </a>
         </li>
         <li id="follow">

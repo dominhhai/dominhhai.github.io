@@ -1,0 +1,13 @@
+## 404 page ##
+- id: "404.title"
+  translation: "404 見つかりません。"
+- id: "404.content"
+  translation: "申し訳ございません! このページが見つかりません。<br>ホームページに戻って、投稿一覧をご確認ください。"
+
+## Footer ##
+- id: "footer.topic.title"
+  translation: "話題"
+- id: "footer.contact.title"
+  translation: "連絡"
+- id: "footer.contact.mail"
+  translation: "メッセージ"

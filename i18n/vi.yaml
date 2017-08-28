@@ -1,0 +1,13 @@
+## 404 page ##
+- id: "404.title"
+  translation: "404 Trang không tồn tại"
+- id: "404.content"
+  translation: "Xin lỗi cậu! Tớ không tìm thấy trang này.<br>Cậu hãy thử quay lại trang chủ tìm kiếm xem sao nhé."
+
+## Footer ##
+- id: "footer.topic.title"
+  translation: "Chủ đề"
+- id: "footer.contact.title"
+  translation: "Liên hệ"
+- id: "footer.contact.mail"
+  translation: "Gửi tin nhắn" 
