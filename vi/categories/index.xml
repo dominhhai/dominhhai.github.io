@@ -11,27 +11,9 @@
     
     
     <item>
-      <title>Editor</title>
-      <link>https://dominhhai.github.io/vi/categories/editor/</link>
-      <pubDate>Sun, 27 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/categories/editor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://dominhhai.github.io/vi/categories/git/</link>
-      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/categories/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Js</title>
       <link>https://dominhhai.github.io/vi/categories/js/</link>
-      <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://dominhhai.github.io/vi/categories/js/</guid>
       <description></description>
@@ -40,54 +22,9 @@
     <item>
       <title>Lập Trình</title>
       <link>https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/</link>
-      <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Meetup</title>
-      <link>https://dominhhai.github.io/vi/categories/meetup/</link>
-      <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/categories/meetup/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Node.js</title>
-      <link>https://dominhhai.github.io/vi/categories/node.js/</link>
-      <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/categories/node.js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Php</title>
-      <link>https://dominhhai.github.io/vi/categories/php/</link>
-      <pubDate>Sun, 28 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/categories/php/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Terminal</title>
-      <link>https://dominhhai.github.io/vi/categories/terminal/</link>
-      <pubDate>Thu, 15 Dec 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/categories/terminal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Web Ssl</title>
-      <link>https://dominhhai.github.io/vi/categories/web-ssl/</link>
-      <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/categories/web-ssl/</guid>
       <description></description>
     </item>
     

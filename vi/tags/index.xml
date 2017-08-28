@@ -6,78 +6,15 @@
     <description>Recent content in Tags on Hai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Sun, 27 Mar 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2015 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dominhhai.github.io/vi/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Atom</title>
-      <link>https://dominhhai.github.io/vi/tags/atom/</link>
-      <pubDate>Sun, 27 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/atom/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bcrypt</title>
-      <link>https://dominhhai.github.io/vi/tags/bcrypt/</link>
-      <pubDate>Tue, 02 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/bcrypt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Conditional Queue</title>
-      <link>https://dominhhai.github.io/vi/tags/conditional-queue/</link>
-      <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/conditional-queue/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Editor</title>
-      <link>https://dominhhai.github.io/vi/tags/editor/</link>
-      <pubDate>Sun, 27 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/editor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Es2017</title>
-      <link>https://dominhhai.github.io/vi/tags/es2017/</link>
-      <pubDate>Mon, 31 Oct 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/es2017/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://dominhhai.github.io/vi/tags/git/</link>
-      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gitflow</title>
-      <link>https://dominhhai.github.io/vi/tags/gitflow/</link>
-      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/gitflow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Js</title>
       <link>https://dominhhai.github.io/vi/tags/js/</link>
-      <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://dominhhai.github.io/vi/tags/js/</guid>
       <description></description>
@@ -86,90 +23,9 @@
     <item>
       <title>Js Tips</title>
       <link>https://dominhhai.github.io/vi/tags/js-tips/</link>
-      <pubDate>Mon, 31 Oct 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://dominhhai.github.io/vi/tags/js-tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Lets Encrypt</title>
-      <link>https://dominhhai.github.io/vi/tags/lets-encrypt/</link>
-      <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/lets-encrypt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Meetup</title>
-      <link>https://dominhhai.github.io/vi/tags/meetup/</link>
-      <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/meetup/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Node.js</title>
-      <link>https://dominhhai.github.io/vi/tags/node.js/</link>
-      <pubDate>Tue, 02 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/node.js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nodefest</title>
-      <link>https://dominhhai.github.io/vi/tags/nodefest/</link>
-      <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/nodefest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nodeschool Hanoi</title>
-      <link>https://dominhhai.github.io/vi/tags/nodeschool-hanoi/</link>
-      <pubDate>Sat, 20 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/nodeschool-hanoi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Oracledb</title>
-      <link>https://dominhhai.github.io/vi/tags/oracledb/</link>
-      <pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/oracledb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Php</title>
-      <link>https://dominhhai.github.io/vi/tags/php/</link>
-      <pubDate>Sun, 28 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/php/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Terminal</title>
-      <link>https://dominhhai.github.io/vi/tags/terminal/</link>
-      <pubDate>Thu, 15 Dec 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/terminal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Windows</title>
-      <link>https://dominhhai.github.io/vi/tags/windows/</link>
-      <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/tags/windows/</guid>
       <description></description>
     </item>
     
