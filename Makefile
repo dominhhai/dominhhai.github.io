@@ -11,6 +11,13 @@ deploy:
 		&& git push \
 		&& cd ..
 
+# publish & push
+publish:
+	@git add --all \
+		&& git commit -m "Build on $$(date)" \
+		&& git push \
+		&& make deploy
+
 # add publish page
 set-publish:
 	@rm -rf public && mkdir public \
