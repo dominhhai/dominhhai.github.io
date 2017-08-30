@@ -1,5 +1,6 @@
 ﻿---
-title: "[Skill] A Mind For Numbers"
+title: "A Mind For Numbers"
+slug: a-mind-for-numbers
 date: 2017-08-30
 categories:
 - Sách
