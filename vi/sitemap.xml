@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://dominhhai.github.io/vi/2017/08/skill-a-mind-for-numbers/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/2017/08/skill-a-mind-for-numbers/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/2017/08/skill-a-mind-for-numbers/"
+                />
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/vi/2017/02/web-c%C3%A0i-%C4%91%E1%BA%B7t-ssl-mi%E1%BB%85n-ph%C3%AD-v%E1%BB%9Bi-lets-encrypt/</loc>
     <lastmod>2017-02-17T00:00:00+00:00</lastmod>
   </url>
@@ -161,13 +176,19 @@
   </url>
   
   <url>
-    <loc>https://dominhhai.github.io/vi/categories/editor/</loc>
-    <lastmod>2016-03-27T00:00:00+00:00</lastmod>
+    <loc>https://dominhhai.github.io/vi/tags/c%C3%A1ch-h%E1%BB%8Dc/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://dominhhai.github.io/vi/tags/editor/</loc>
+    <lastmod>2016-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/categories/editor/</loc>
     <lastmod>2016-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -179,13 +200,13 @@
   </url>
   
   <url>
-    <loc>https://dominhhai.github.io/vi/categories/git/</loc>
+    <loc>https://dominhhai.github.io/vi/tags/git/</loc>
     <lastmod>2015-11-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dominhhai.github.io/vi/tags/git/</loc>
+    <loc>https://dominhhai.github.io/vi/categories/git/</loc>
     <lastmod>2015-11-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -198,7 +219,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/</loc>
-    <lastmod>2017-02-17T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -218,13 +239,13 @@
   </url>
   
   <url>
-    <loc>https://dominhhai.github.io/vi/categories/js/</loc>
+    <loc>https://dominhhai.github.io/vi/tags/js/</loc>
     <lastmod>2016-12-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dominhhai.github.io/vi/tags/js/</loc>
+    <loc>https://dominhhai.github.io/vi/categories/js/</loc>
     <lastmod>2016-12-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -232,6 +253,18 @@
   <url>
     <loc>https://dominhhai.github.io/vi/tags/js-tips/</loc>
     <lastmod>2016-10-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/tags/k%C4%A9-n%C4%83ng/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/categories/k%C4%A9-n%C4%83ng/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -248,26 +281,26 @@
   </url>
   
   <url>
-    <loc>https://dominhhai.github.io/vi/categories/meetup/</loc>
-    <lastmod>2016-11-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://dominhhai.github.io/vi/tags/meetup/</loc>
     <lastmod>2016-11-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dominhhai.github.io/vi/categories/node.js/</loc>
-    <lastmod>2016-04-04T00:00:00+00:00</lastmod>
+    <loc>https://dominhhai.github.io/vi/categories/meetup/</loc>
+    <lastmod>2016-11-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://dominhhai.github.io/vi/tags/node.js/</loc>
     <lastmod>2016-02-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/categories/node.js/</loc>
+    <lastmod>2016-04-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -290,20 +323,36 @@
   </url>
   
   <url>
-    <loc>https://dominhhai.github.io/vi/categories/php/</loc>
-    <lastmod>2015-06-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://dominhhai.github.io/vi/tags/php/</loc>
     <lastmod>2015-06-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://dominhhai.github.io/vi/categories/php/</loc>
+    <lastmod>2015-06-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/vi/post/</loc>
-    <lastmod>2017-02-17T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/categories/s%C3%A1ch/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -329,13 +378,13 @@
   </url>
   
   <url>
-    <loc>https://dominhhai.github.io/vi/categories/terminal/</loc>
+    <loc>https://dominhhai.github.io/vi/tags/terminal/</loc>
     <lastmod>2016-12-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dominhhai.github.io/vi/tags/terminal/</loc>
+    <loc>https://dominhhai.github.io/vi/categories/terminal/</loc>
     <lastmod>2016-12-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

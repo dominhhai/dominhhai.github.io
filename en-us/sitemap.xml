@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://dominhhai.github.io/en-us/2017/08/skill-a-mind-for-numbers/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/2017/08/skill-a-mind-for-numbers/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/2017/08/skill-a-mind-for-numbers/"
+                />
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/en-us/archives/</loc>
     <priority>0</priority>
     <xhtml:link
@@ -24,6 +39,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/en-us/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -43,7 +59,14 @@
   </url>
   
   <url>
+    <loc>https://dominhhai.github.io/en-us/categories/books/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/en-us/categories/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -63,7 +86,42 @@
   </url>
   
   <url>
+    <loc>https://dominhhai.github.io/en-us/tags/learning-skill/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/en-us/post/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/en-us/tags/skill/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/en-us/categories/skill/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/en-us/tags/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

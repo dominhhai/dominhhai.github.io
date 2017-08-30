@@ -6,9 +6,28 @@
     <description>Recent content in Categories on Blog of Do Minh Hai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
+    <lastBuildDate>Wed, 30 Aug 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dominhhai.github.io/en-us/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Books</title>
+      <link>https://dominhhai.github.io/en-us/categories/books/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/en-us/categories/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Skill</title>
+      <link>https://dominhhai.github.io/en-us/categories/skill/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/en-us/categories/skill/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
