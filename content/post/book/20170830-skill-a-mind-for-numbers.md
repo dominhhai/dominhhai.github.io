@@ -114,12 +114,12 @@ Ngồi học một cách thụ động và đưa bắt ngang dọc trang sách.
 Trừ khi bạn cần kiểm lại rằng mình nhớ được các ý chính trong đó hay không,
 còn không việc đọc lại chỉ lãng phí thời gian mà thôi.
 
-### 2. Tô màu nhớ triền miên
-
-Highlighting your text can fool your mind into thinking you are putting something in your brain,
-when all you’re really doing is moving your hand.
-A little highlighting here and there is okay—sometimes it can be helpful in flagging important points.
-But if you are using highlighting as a memory tool, make sure that what you mark is also going into your brain.
+### 2. Đánh dấu triền miên
+Đánh dấu có thể đánh lừa ta rằng những thông tin đó được đưa nào bộ nhớ,
+trong khi thực tế là bạn chỉ đang di chuyển bàn tay của mình mà thôi.
+Một vào đánh dấu nho nhỏ có thể được vì chúng dễ tìm được các điểm chính.
+Nhưng nếu sử dụng biện pháp tô màu đánh dấu như một công cụ để ghi nhớ,
+thì hãy chắc chắn rằng tất cả những gì bạn đánh dấu đều được nhét vào bộ não của bạn.
 
 ### 3. Chỉ lướt qua cách giải rồi tự nghĩ là có thể giải quyết được
 Đây là một lỗi phổ biến thậm tệ nhất của người học.
@@ -137,17 +137,23 @@ Nếu mà ngồi lì để giải cùng một bài toán nào đó
 thì bạn dường như đang chuẩn bị cho giải bóng hơn là chuẩn bị cho kì thi.
 
 ### 6. Tham gia học nhóm cho "vui"
+Kiểm tra cái bạn học được với bạn bè và đặt câu hỏi cho người khác về cái bạn đã được học
+có thể giúp bạn hứng thú học hơn,
+phát hiện được lỗ hỏng của bản thân
+và hiểu sâu hơn những thứ đã học.
+Tuy nhiên, nếu ta chỉ tham gia nhóm học nào đó cho vui trước khi ta tự học
+thì nó chỉ làm mất thời gian của ta. 
+Lúc ấy hãy tìm nhóm khác học tập hiệu quả hơn.
 
-Checking your problem solving with friends, and quizzing one another on what you know,
-can make learning more enjoyable, expose flaws in your thinking, and deepen your learning.
-But if your joint study sessions turn to fun before the work is done,
-you’re wasting your time and should find another study group.
-
-### 7. Không đọc hướng dẫn trước khi làm
-Would you dive into a pool before you knew how to swim?
-The textbook is your swimming instructor—it guides you toward the answers.
-You will flounder and waste your time if you don’t bother to read it.
-Before you begin to read, however, take a quick glance over the chapter or section to get a sense of what it’s about.
+### 7. Không đọc hướng dẫn trước khi thực hành
+Liệu rằng bạn có dám nhảy xuống bể bơi trước khi bạn biết bơi?
+Sách, tài liệu hướng dẫn chính là hướng dẫn viên bơi của ta,
+nó giúp ta biết được nên làm thế nào cho hợp lý.
+Nếu không đọc nó, ta có thể sẽ lãng phí thời gian vô ích
+và thậm chí có thể chết đuối.
+Trước khi đọc, ta cũng nên xem một lượt mục lục
+để có cái nhìn tổng quát nó viết về những vấn đề gì.
+Tránh kiểu đọc thụ động, cắm đầu cắm cổ đọc rồi chẳng thu được những thứ ta muốn.
 
 ### 8. Không làm rõ các điểm còn mơ hồ với thầy giáo hoặc các ta cùng lớp
 Các thầy giáo có nhiệm vụ là hướng dẫn, giúp đỡ các học viên còn chưa hiểu vấn đề.
@@ -162,7 +168,8 @@ Những chuyện nho nhỏ đó sẽ làm cho sự phát triển của nơ-ron b
 khiến chúng không liên kết được với nhau, dẫn tới việc bạn không thể học tốt được.
 
 ### 10. Thiếu ngủ
-Your brain pieces together problem-solving techniques when you sleep,
-and it also practices and repeats whatever you put in mind before you go to sleep.
-Prolonged fatigue allows toxins to build up in the brain that disrupt the neural connections you need to think quickly and well.
-If you don’t get a good sleep before a test, NOTHING ELSE YOU HAVE DONE WILL MATTER.
+Khi ta ngủ, bộ não của ta sẽ kết nối các kĩ thuật giải quyết vấn đề
+và lặp lại những gì ta tiếp thu trước khi ngủ.
+Mệt mỏi trong thời gian dài sẽ tạo ra các độc tố làm phá vỡ các kết nối nơ-ron thần kinh
+làm cho ta không thể suy nghĩ nhanh và tốt được.
+Nếu không ngủ sâu và đầy đủ trước khi thi thì ta sẽ không thể nào hoàn thành tốt bài thi được.
