@@ -12,11 +12,18 @@ deploy:
 		&& cd ..
 
 # publish & push
-publish:
+push:
 	@git add --all \
 		&& git commit -m "Build on $$(date)" \
 		&& git push \
 		&& make deploy
+
+# pull
+pull:
+	@git pull \
+		&& cd public \
+		&& git pull \
+		&& cd ..
 
 # add publish page
 set-publish:
