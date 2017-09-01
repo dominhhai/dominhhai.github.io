@@ -13,10 +13,10 @@
     
     <item>
       <title>[JS] Async Await cực đơn giản</title>
-      <link>https://dominhhai.github.io/vi/2016/10/js-async-await-c%E1%BB%B1c-%C4%91%C6%A1n-gi%E1%BA%A3n/</link>
+      <link>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</link>
       <pubDate>Mon, 31 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://dominhhai.github.io/vi/2016/10/js-async-await-c%E1%BB%B1c-%C4%91%C6%A1n-gi%E1%BA%A3n/</guid>
+      <guid>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</guid>
       <description>1. Giới thiệu Với các đặc tả JavaScript cũ, ta phải sử dụng các hàm phản hồi để xử lý các thao tác bất đồng bộ. Tuy nhiên việc này dẫn tới tình trạng callback hell khi ta có nhiều thao tác bất đồng bộ phải chờ nhau thực hiện. Call hell làm cho mã nguồn của ta rất rối và khó bảo trì.
 function wait(ms, cb) { setTimeout(cb, ms) } function main() { console.</description>
     </item>

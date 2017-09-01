@@ -13,10 +13,10 @@
     
     <item>
       <title>[JS] Async Queue kèm điều kiện</title>
-      <link>https://dominhhai.github.io/vi/2016/12/js-async-queue-k%C3%A8m-%C4%91i%E1%BB%81u-ki%E1%BB%87n/</link>
+      <link>https://dominhhai.github.io/vi/2016/12/js-conditional-async-queue/</link>
       <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://dominhhai.github.io/vi/2016/12/js-async-queue-k%C3%A8m-%C4%91i%E1%BB%81u-ki%E1%BB%87n/</guid>
+      <guid>https://dominhhai.github.io/vi/2016/12/js-conditional-async-queue/</guid>
       <description>Có lẽ nhiều người đã từng sử dụng queue hoặc priority queue của async để thực thi danh sách các tác vụ 1 lần. Nhưng nếu để ý thì ta có thể nhận thấy thư viện này không hỗ trợ việc thiết lập điều kiện thực thi cho từng tác vụ riêng biệt, mà chỉ đơn giản là có tác vụ thì sẽ chạy. Điều này làm nảy sinh vấn đề là thiếu sự đồng bộ khi cần thực thi một loạt các tác vụ có liên quan nhau.</description>
     </item>
     
