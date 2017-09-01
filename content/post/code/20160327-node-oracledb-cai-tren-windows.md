@@ -1,5 +1,6 @@
 ---
 title: "[Node.js] Cài đặt Node OracleDB trên Windows"
+slug: install-node-oracledb-on-windows
 date: 2016-03-28
 categories:
 - Lập Trình

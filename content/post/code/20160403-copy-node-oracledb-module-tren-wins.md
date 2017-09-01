@@ -1,5 +1,6 @@
 ---
 title: "[Node.js] Copy Node OracleDB Module trên Windows"
+slug: copy-node-oracledb-on-windows
 date: 2016-04-03
 categories:
 - Lập Trình

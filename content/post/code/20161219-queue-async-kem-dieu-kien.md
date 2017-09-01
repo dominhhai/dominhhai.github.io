@@ -1,5 +1,6 @@
 ---
 title: "[JS] Async Queue kèm điều kiện"
+slug: js-conditional-async-queue
 date: 2016-12-19
 categories:
 - Lập Trình

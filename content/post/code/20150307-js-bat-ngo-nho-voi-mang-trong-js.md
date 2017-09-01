@@ -1,5 +1,6 @@
 ---
 title: "[JS] Bất ngờ nhỏ với mảng"
+slug: js-work-with-array
 date: 2015-03-07
 categories:
 - Lập Trình

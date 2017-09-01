@@ -1,5 +1,6 @@
 ---
 title: "[NodeSchool] NodeSchool Hanoi lần 2"
+slug: nodeschool-hanoi-2
 date: 2015-06-20
 categories:
 - Lập Trình

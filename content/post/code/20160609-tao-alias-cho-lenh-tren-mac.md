@@ -1,5 +1,6 @@
 ---
 title: "[Terminal] Tạo Alias cho lệnh trên MacOS"
+slug: alias-for-command-on-macos
 date: 2016-06-09
 categories:
 - Lập Trình

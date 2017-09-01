@@ -1,5 +1,6 @@
 ---
 title: "[Node.js] Mã hoá mật khẩu với Bcrypt"
+slug: nodejs-ecrypt-password-with-bcrypt
 date: 2016-02-02
 categories:
 - Lập Trình

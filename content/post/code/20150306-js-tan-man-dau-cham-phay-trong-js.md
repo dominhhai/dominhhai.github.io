@@ -1,5 +1,6 @@
 ---
 title: "[JS] Tản mạn dấu chấm phẩy"
+slug: js-do-not-need-semicolon
 date: 2015-03-06
 categories:
 - Lập Trình

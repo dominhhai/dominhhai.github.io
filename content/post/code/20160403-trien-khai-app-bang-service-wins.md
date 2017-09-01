@@ -1,5 +1,6 @@
 ---
 title: "[Node.js] Triển khai dịch vụ Node.js trên Windows"
+slug: deploy-nodejs-on-windows
 date: 2016-04-04
 categories:
 - Lập Trình

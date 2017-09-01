@@ -1,5 +1,6 @@
 ---
 title: "[PHP] Lỗi Cetificate của Curl trong PHP"
+slug: php-curl-cetificate-error
 date: 2015-06-28
 categories:
 - Lập Trình

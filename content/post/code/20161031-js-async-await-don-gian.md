@@ -1,5 +1,6 @@
 ---
 title: "[JS] Async Await cực đơn giản"
+slug: js-async-await-is-simple
 date: 2016-10-31
 categories:
 - Lập Trình

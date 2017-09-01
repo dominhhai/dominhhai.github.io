@@ -1,5 +1,6 @@
 ---
 title: "[NodeFest] NodeFest Tokyo 2016"
+slug: nodefest-tokyo-2016
 date: 2016-11-01
 categories:
 - Lập Trình

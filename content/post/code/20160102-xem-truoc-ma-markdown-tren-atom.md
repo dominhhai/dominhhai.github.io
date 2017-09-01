@@ -1,5 +1,6 @@
 ---
 title: "[Atom] Hiển thị mã Markdown với Atom"
+slug: atom-markdown-preview
 date: 2016-01-02
 categories:
 - Lập Trình
