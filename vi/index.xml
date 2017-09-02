@@ -6,10 +6,19 @@
     <description>Recent content on Hai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Wed, 30 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dominhhai.github.io/vi/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Git] worktree - cùng lúc sài nhiều branch</title>
+      <link>https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/</link>
+      <pubDate>Sat, 02 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/</guid>
+      <description>git worktree cho phép ta có thể sử dụng cùng lúc nhiều nhánh của repo trong cùng một thư mục dự án. Ví dụ, blog của mình được xây dựng với Hugo, trong thư mục blog của mình có thư mục public là thư mục chứa các file được dịch ra từ mã nguồn blog. Còn ở phía repo trên Github, mình có 2 branch là dev lưu mã nguồn và master lưu các file chạy.</description>
+    </item>
     
     <item>
       <title>A Mind For Numbers</title>
@@ -221,7 +230,7 @@ Về cơ bản call và apply gần giống nhau và được giới thiệu t�
       
       <guid>https://dominhhai.github.io/vi/2015/03/js-do-not-need-semicolon/</guid>
       <description>JavaScript cho phép chúng ta lược bỏ dấu kết thúc lệnh (dấu chấm phẩy). Nhưng trường hợp nào ta phải bắt buộc dùng dấu chấm phải, trường hợp nào thì không và có khi nào ta nên bỏ nó đi? Trước mắt ta xem một chút bộ dịch JavaScript sẽ làm gì với các lệnh của ta.
-ex1.js1
+ ex1.js     1
 2
 3
 4

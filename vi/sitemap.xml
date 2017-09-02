@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/</loc>
+    <lastmod>2017-09-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/vi/2017/08/a-mind-for-numbers/</loc>
     <lastmod>2017-08-30T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -201,13 +206,13 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/tags/git/</loc>
-    <lastmod>2015-11-01T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://dominhhai.github.io/vi/categories/git/</loc>
-    <lastmod>2015-11-01T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -219,7 +224,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/</loc>
-    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -276,7 +281,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/</loc>
-    <lastmod>2017-02-17T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -336,7 +341,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/post/</loc>
-    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
