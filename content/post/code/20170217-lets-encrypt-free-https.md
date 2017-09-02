@@ -10,8 +10,8 @@ tags:
 keywords:
 - Lets Encrypt
 autoThumbnailImage: true
-thumbnailImagePosition: top
-thumbnailImage: //letsencrypt.org/images/le-logo-wide.png
+thumbnailImagePosition: left
+thumbnailImage: https://letsencrypt.org/images/le-logo-lockonly.svg
 #thumbnailImage: //letsencrypt.org/images/le-logo-twitter.png
 metaAlignment: center
 ---
