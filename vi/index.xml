@@ -6,17 +6,17 @@
     <description>Recent content on Hai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Sat, 02 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dominhhai.github.io/vi/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[Git] submodule - cùng lúc sài nhiều repo</title>
-      <link>https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/</link>
-      <pubDate>Sat, 02 Sep 2017 00:00:00 +0000</pubDate>
+      <link>https://dominhhai.github.io/vi/2017/09/git-submodule-multi-repo/</link>
+      <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/</guid>
+      <guid>https://dominhhai.github.io/vi/2017/09/git-submodule-multi-repo/</guid>
       <description>Đôi lúc ta cần phải sử dụng các repo khác như là một module của dự án hiện tại, nhưng ta lại muốn quản lý nó riêng biệt giống như việc sử dụng các trình quản lý gói như npm chẳng hạn. Lúc này ta có thể sài git submodule để quản lý các module từ các repo khác. Ví dụ, blog của mình được xây dựng với theme tranquilpeak và mình cần đưa theme này vào thư mục themes của dự án.</description>
     </item>
     
