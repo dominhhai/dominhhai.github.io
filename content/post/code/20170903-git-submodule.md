@@ -1,7 +1,7 @@
 ---
 title: "[Git] submodule - cùng lúc sài nhiều repo"
-slug: git-worktree-multi-branchs
-date: 2017-09-02
+slug: git-submodule-multi-repo
+date: 2017-09-03
 categories:
 - Lập Trình
 - Git
