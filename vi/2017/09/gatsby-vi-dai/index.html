@@ -1,0 +1,918 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.26">
+    <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
+    <title>Gatsby vĩ đại</title>
+    <meta name="author" content="Do Minh Hai">
+    <meta name="keywords" content="Gatsby, dominhhai, programming, computer science, machine learning, deep learning">
+
+    <link rel="icon" href="https://dominhhai.github.io/favicon/golden-buddha-512-79567.png">
+    
+
+    
+    <meta name="description" content="Cuốn tiểu thuyết đầu tiên mình đọc 🙂
+1. Bối cảnh đọc Bỗng 1 ngày nhận ra tâm hồn khô cứng của bản thân. Thế rồi bỗng dưng muốn cho chút thay đổi nào đó. Bỗng dưng muốn trách xa những trang sách kĩ thuật với những công thức, dòng code nhảy múa. Muốn trốn vào đâu đó để cảm nhận lại cuộc sống.
+Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết 🙂 Cùng lúc ấy 1 cô gái gửi tặng cho 1 cuốn.">
+    <meta property="og:description" content="Cuốn tiểu thuyết đầu tiên mình đọc 🙂
+1. Bối cảnh đọc Bỗng 1 ngày nhận ra tâm hồn khô cứng của bản thân. Thế rồi bỗng dưng muốn cho chút thay đổi nào đó. Bỗng dưng muốn trách xa những trang sách kĩ thuật với những công thức, dòng code nhảy múa. Muốn trốn vào đâu đó để cảm nhận lại cuộc sống.
+Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết 🙂 Cùng lúc ấy 1 cô gái gửi tặng cho 1 cuốn.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Gatsby vĩ đại">
+    <meta property="og:url" content="/vi/2017/09/gatsby-vi-dai/">
+    <meta property="og:site_name" content="Hai&#39;s Blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Hai&#39;s Blog">
+    <meta name="twitter:description" content="Cuốn tiểu thuyết đầu tiên mình đọc 🙂
+1. Bối cảnh đọc Bỗng 1 ngày nhận ra tâm hồn khô cứng của bản thân. Thế rồi bỗng dưng muốn cho chút thay đổi nào đó. Bỗng dưng muốn trách xa những trang sách kĩ thuật với những công thức, dòng code nhảy múa. Muốn trốn vào đâu đó để cảm nhận lại cuộc sống.
+Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết 🙂 Cùng lúc ấy 1 cô gái gửi tặng cho 1 cuốn.">
+    
+      <meta name="twitter:creator" content="@minhhai3b">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640">
+    
+
+    
+      <meta property="og:image" content="https://dominhhai.github.io/imgs/gatsby-vi-dai.jpg">
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" />
+    
+    
+    <link rel="stylesheet" href="https://dominhhai.github.io/css/style-u6mk0ojoywresbx8iepslrmmhl4stuhrsxuwhkpwrkrx7mryjcaimasnk4pi.min.css" />
+    
+    
+      <link rel="stylesheet" href="https://dominhhai.github.io/css/main.css">
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-105333519-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link fa fa-lg fa-home" href="https://dominhhai.github.io/vi/"> Hai&#39;s Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://dominhhai.github.io/vi/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=90" alt="Ảnh đại diện của tác giả" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://dominhhai.github.io/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện của tác giả" />
+        </a>
+        <h4 class="sidebar-profile-name">Do Minh Hai</h4>
+        
+          <h5 class="sidebar-profile-bio">Just a developer<br>Enjoy life as a journey</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Danh mục</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Thẻ thông tin</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Lưu trữ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">Thông tin</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Trang chủ</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/minhhai3b" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/dominhhai" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Gatsby vĩ đại
+    </h1>
+  
+  <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2017-09-18T00:00:00Z">
+      
+  Tháng chín 18, 2017
+
+    </time>
+  
+  
+  
+  
+    <span>trong</span>
+    
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/s%c3%a1ch">Sách</a>, 
+    
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/ti%e1%bb%83u-thuy%e1%ba%bft">Tiểu Thuyết</a>
+    
+  
+
+
+</div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p><img src="https://dominhhai.github.io/imgs/gatsby-vi-dai.jpg" alt="Tôi Tự Học" />
+Cuốn tiểu thuyết đầu tiên mình đọc 🙂</p>
+
+<h3 id="1-bối-cảnh-đọc">1. Bối cảnh đọc</h3>
+
+<p>Bỗng 1 ngày nhận ra tâm hồn khô cứng của bản thân.
+Thế rồi bỗng dưng muốn cho chút thay đổi nào đó.
+Bỗng dưng muốn trách xa những trang sách kĩ thuật với những công thức,
+dòng code nhảy múa. Muốn trốn vào đâu đó để cảm nhận lại cuộc sống.</p>
+
+<p>Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết 🙂
+Cùng lúc ấy 1 cô gái gửi tặng cho 1 cuốn.
+Tất cả mọi chuyện đều chỉ là trùng hợp.
+Nhận được sách rồi đọc ngấu nghiến mà không biết biết mình sẽ đọc cái gì, đi tìm cái gì.
+Tên sách chưa 1 lần nghe thấy, tác giả thì lại càng không biết tý gì. Mục lục thì không có,
+nghĩ hơi kì! Thế mà vẫn đọc, đọc chỉ để đọc đúng nghĩa :))</p>
+
+<h3 id="2-nội-dung-sách">2. Nội dung sách</h3>
+
+<p>Câu chuyện về chuyện tình của anh chàng người Mỹ – tên Gatsby ở thời hậu chiến tranh.
+Anh có yêu 1 cô tiểu thư quen sống trong thế giới xa hoa nước Mỹ ngay từ cái nhìn đầu tiên.
+Và cô ấy cũng yêu anh (chắc là do anh khác những người trong thế giới giàu có kia) .
+Trong lúc anh này vẫn là 1 tên lính quèn. Anh vốn sinh ra trong gia đình nghèo khổ,
+đi lính cũng chẳng có tiền bạc gì.
+Yêu nàng anh quyết tâm phải xây dựng sự nghiệp để có thể xứng đáng với nàng.
+Một ngày kia anh phải ra mặt trận và trong suốt thời gian ấy 2 người chỉ liên lạc qua thư từ.
+Trong thư Gatsby ngỏ lời muốn cô nàng chờ anh xây dựng sự nghiệp rồi cưới nhau.
+Từ những phút giây ấy, anh đã coi nàng là vợ anh rồi.
+5 năm trôi qua, nàng đã lấy chồng 🙂
+Hôm cưới, nàng có nhận được thư từ Gatsby và nàng đã khóc đã có ý không muốn lấy chồng.
+Nàng vẫn yêu chàng Gatsby, chỉ là nàng phải đợt quá lâu và khó có thể chờ được tiếp.
+Trong khi đó anh thành 1 đại gia có tiếng ở Mỹ, tên anh trên khắp các mặt báo.
+Người ta không hiểu tiền anh từ đâu ra mà mua cả một lâu đài tráng lệ,
+tổ chức những buổi tiệc thâu đêm với đủ mọi thành phần từ sinh viên đói ăn tới các quan chức chính phủ, các diễn viên, người mẫu.
+Nhưng tất cả những thứ đó chỉ là một bức bình phong cho giấc mộng của anh – mơ ngày đoàn tụ với cô nàng kia 🙂
+Anh mua toà lâu đài đó vì nó hoành tráng nhất vùng và vì nó đối diện với nhà nàng.
+Anh tổ chức những bữa tiệc cốt muốn nàng thử tới bữa tiệc đó để 2 người có thể gặp lại.
+Đời không như mơ, dường như nàng không hề biết tới tất cả những chuyện đó.</p>
+
+<p>Rồi nhờ Nick, một người họ hàng của nàng, sống ngay cạnh toà lâu đài của Gatsby giúp mà 2 người đã gặp lại nhau sau 5 năm.
+2 người nhanh chóng lại quan hệ lại như những ngày nào. Lúc này nàng muốn cùng Gastby bỏ trốn đi,
+muốn bỏ ngôi nhà nàng đang sống để được ở bên Gastby.
+Nhưng Gastby muốn nàng đường đường chính chính sống trong toà lâu đài đó với chàng.
+Tất cả mọi thứ chàng làm chỉ vì cô gái đó mà thôi 🙂
+Một ngày nọ, cuộc cãi vã giữ 3 người, Gatsby và vợ chồng nàng đã làm mọi chuyện thay đổi.
+Nàng rối bời lái xe của Gatsby và vô tình đâm chết cô bồ nhí của chồng khi cô ngày chạy ra đầu xe vì nghĩ đó là người tình của ả.
+Tốc độ đi quá nhanh, lại có 1 xe gần đó nữa nên không thể xoay xở nổi dẫn tới cái chết của ả.</p>
+
+<p>Gatsby sẵn sàng nhận trách nhiệm thay nàng và coi như là mình đã lái xe hôm đó.
+Còn chồng nàng thì đổ oan cho anh với chồng của ả rồi thậm thụt rủ nàng trốn khỏi cái chốn hiện tại.
+Chồng của ả với khẩu súng lục đã cho Gatsby 1 phát rồi tự tử luôn 🙂
+Sau khi chết người ở lại và lo liệu cho anh chỉ có mỗi anh Nick – hàng xóm – họ hàng của người yêu anh.
+Tất cả những người làm ăn với anh, tất cả những người tới những bữa tiệc của anh,
+ngay cả nàng người yêu anh đều không có ai tới, không ai có lời hỏi thăm hay đau buồn 🙂</p>
+
+<p>Tất các các tờ báo lúc đó còn đặt đủ điều về anh – tất nhiên tất cả đều là sự giả dối,
+duy chỉ có Nick là biết về sự thật. Một con người vĩ đại, rắn rỏi với ước mơ dang dở 🙂</p>
+
+<h3 id="3-đôi-chút-cảm-nhận">3. Đôi chút cảm nhận</h3>
+
+<p>Đoạn đầu đọc hơi khó hiểu 🙂 cứ nghĩ là chắc do mình chưa đọc quen nên vậy.
+Cứ nghĩ đọc dần dần rồi sẽ quen. Sau rồi quen thật, bắt đầu nhớ tên nhân vật,
+hiểu cảm nghĩ nhân vật hơn, đọc thấy dễ chịu hơn. Đọc tiểu thuyết khó hơn mình tưởng tượng nhiều 🙂
+Đọc để bám được tâm lý nhân vật, để hiểu được toàn bộ bối cảnh qua những tiếng gió, qua màu sắc,
+qua những lời bực tức của nhân vật phụ không phải là chuyện đơn giản.
+Chắc cuộc sống bên ngoài cũng vậy, rất nhiều chuyện khó hiểu 🙂</p>
+
+<p>Còn về nhân vật thì mình thấy tiếc cho anh này,
+tiếc cho giấc mơ dang dở của một nhân vật có tư tưởng ngoài sức với của người thường.
+Ban đầu có hơi trách cô gái kia, nhưng sau nghĩ bụng nếu mà cô ấy mà đợi anh này thì không có câu chuyện thế này mà đọc.
+Nên phải cảm ơn cô gái đó :)) Cuộc sống chắc cũng vậy, hiếm ai mà chờ đợi và chịu đựng được như vậy 🙂</p>
+
+<p>↑ Viết dài vãi :3 chắc nghỉ thôi. Hẹn lần sau sẽ viết về cuốn tiểu thuyết đang nổi của Nhật: “Giết tên kị sĩ”.
+Lời sau cùng vụng về: Cám ơn cô gái đã tặng mình cuốn sách này 🙂</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/LVHU_YWV3e4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0"></iframe>
+ </div>
+
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">THẺ ĐÁNH DẤU</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://dominhhai.github.io/vi/tags/ti%E1%BB%83u-thuy%E1%BA%BFt/">Tiểu Thuyết</a>
+
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">Tiếp</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/09/toi-tu-hoc-nguyen-duy-can/" data-tooltip="Tôi tự học - Thu Giang Nguyễn Duy Cần">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">Trước</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fdominhhai.github.io%2fvi%2f2017%2f09%2fgatsby-vi-dai%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fdominhhai.github.io%2fvi%2f2017%2f09%2fgatsby-vi-dai%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fdominhhai.github.io%2fvi%2f2017%2f09%2fgatsby-vi-dai%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <div id="helpinfo">
+    <div id="author">
+      <label id="home">Hai's Blog</label>
+      <div class="language">
+        <label for="language">Other Languages:</label>
+        <select id="language">
+          
+          
+            <option title="Tiếng Việt" value="vi" selected>
+              Tiếng Việt (vi)
+            </option>
+          
+            <option title="English" value="en-us" >
+              English (en-us)
+            </option>
+          
+            <option title="日本語" value="ja" >
+              日本語 (ja)
+            </option>
+          
+        </select>
+      </div>
+    </div>
+    <div id="topic">
+      <label>Chủ đề</label>
+      <ul>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh">Lập Trình</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y">Học Máy</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/to%C3%A1n">Toán</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/x%C3%A1c-su%E1%BA%A5t">Xác Suất</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/s%C3%A1ch">Sách</a>
+        </li>
+        
+      </ul>
+    </div>
+    <div id="contact">
+      <label>Liên hệ</label>
+      <ul>
+        <li>
+          <a href="https://github.com/dominhhai/dominhhai.github.io/issues/new" target="_blank">
+            <i class="fa fa-lg fa-inbox"></i> Gửi tin nhắn
+          </a>
+        </li>
+        <li id="follow">
+          
+            <a href="https://twitter.com/minhhai3b" target="_blank">
+              <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+            </a>
+          
+            <a href="https://github.com/dominhhai" target="_blank">
+              <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+            </a>
+          
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="contentinfo">
+    <span class="copyrights">
+      &copy; 2017 <a href="https://github.com/dominhhai">Do Minh Hai</a>. All Rights Reserved
+    </span>
+  </div>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">Tiếp</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/09/toi-tu-hoc-nguyen-duy-can/" data-tooltip="Tôi tự học - Thu Giang Nguyễn Duy Cần">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">Trước</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fdominhhai.github.io%2fvi%2f2017%2f09%2fgatsby-vi-dai%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fdominhhai.github.io%2fvi%2f2017%2f09%2fgatsby-vi-dai%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fdominhhai.github.io%2fvi%2f2017%2f09%2fgatsby-vi-dai%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <ul class="share-options">
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fdominhhai.github.io%2fvi%2f2017%2f09%2fgatsby-vi-dai%2f">
+        <i class="fa fa-google-plus"></i><span>Chia sẻ với Google Plus</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fdominhhai.github.io%2fvi%2f2017%2f09%2fgatsby-vi-dai%2f">
+        <i class="fa fa-facebook-official"></i><span>Chia sẻ với Facebook</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fdominhhai.github.io%2fvi%2f2017%2f09%2fgatsby-vi-dai%2f">
+        <i class="fa fa-twitter"></i><span>Chia sẻ với Twitter</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện của tác giả" />
+    
+    <h4 id="about-card-name">Do Minh Hai</h4>
+    
+      <div id="about-card-bio">Just a developer<br>Enjoy life as a journey</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Freelancer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Japan
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Tìm kiếm" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">không tìm thấy kết quả</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/gatsby-vi-dai/">
+                <h3 class="media-heading">Gatsby vĩ đại</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Cuốn tiểu thuyết đầu tiên mình đọc 🙂
+1. Bối cảnh đọc Bỗng 1 ngày nhận ra tâm hồn khô cứng của bản thân. Thế rồi bỗng dưng muốn cho chút thay đổi nào đó. Bỗng dưng muốn trách xa những trang sách kĩ thuật với những công thức, dòng code nhảy múa. Muốn trốn vào đâu đó để cảm nhận lại cuộc sống.
+Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết 🙂 Cùng lúc ấy 1 cô gái gửi tặng cho 1 cuốn.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/toi-tu-hoc-nguyen-duy-can/">
+                <h3 class="media-heading">Tôi tự học - Thu Giang Nguyễn Duy Cần</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Cuốn sách tuy mỏng nhưng rất đáng để đọc, để suy ngẫm về cách tác giả tự học. Nội dung bên trong thiên về hướng tự học thông qua đọc sách nhiều hơn. Trái với tưởng tượng ban đầu của mình, cuốn sách này đề cập khá rộng các vấn đề để có nền tảng văn hoá tốt, bao gồm từ định nghĩ thế nào là người có học, tới việc nên đọc sách gì, đọc thế nào, đánh giá các sự vật, hiện tượng ra sao, rồi cả tâm thế học, thời giờ học.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/git-submodule-multi-repo/">
+                <h3 class="media-heading">[Git] submodule - cùng lúc sài nhiều repo</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Đôi lúc ta cần phải sử dụng các repo khác như là một module của dự án hiện tại, nhưng ta lại muốn quản lý nó riêng biệt giống như việc sử dụng các trình quản lý gói như npm chẳng hạn. Lúc này ta có thể sài git submodule để quản lý các module từ các repo khác. Ví dụ, blog của mình được xây dựng với theme tranquilpeak và mình cần đưa theme này vào thư mục themes của dự án.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/">
+                <h3 class="media-heading">[Git] worktree - cùng lúc sài nhiều branch</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">git worktree cho phép ta có thể sử dụng cùng lúc nhiều nhánh của repo trong cùng một thư mục dự án. Ví dụ, blog của mình được xây dựng với Hugo, trong thư mục blog của mình có thư mục public là thư mục chứa các file được dịch ra từ mã nguồn blog. Còn ở phía repo trên Github, mình có 2 branch là dev lưu mã nguồn và master lưu các file chạy.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/08/a-mind-for-numbers/">
+                <h3 class="media-heading">A Mind For Numbers</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Dưới đây là tổng hợp một vài ý chính từ khóa học &lsquo;Học cách học&rsquo; - trích dẫn từ cuốn sách A Mind for Numbers: How to Excel in Math and Science (Even if You Flunked Algebra), của tác giả Barbara Oakley, xuất bản vào tháng 6, 2014.
+10 cách học hiệu quả 1. Hồi tưởng Sau khi đọc xong một trang, hãy rời mắt ra chỗ khác và hồi tưởng lại các ý chính.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/02/free-ssl-with-let-encrypt/">
+                <h3 class="media-heading">[Web] Cài đặt SSL miễn phí với Let&#39;s Encrypt</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Bài viết này hướng dẫn cài đặt Let&rsquo;s Encrypt - một dịch vụ ngon-bổ-miễn phí cho việc HTTPS hóa máy chủ. Ở đây, mình sử dụng máy chủ CentOS 7 và Nginx để thực hiện, nhưng các bạn hoàn toàn có thể làm tương tự với các môi trường khác.
+Để cài đặt được Let's Encrypt, ta cần có môi trường Python v2.7.x trở lên. Nên nếu máy của bạn chưa có thì cài đặt hoặc cập nhập bản mới đi nhé.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/12/js-conditional-async-queue/">
+                <h3 class="media-heading">[JS] Async Queue kèm điều kiện</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Có lẽ nhiều người đã từng sử dụng queue hoặc priority queue của async để thực thi danh sách các tác vụ 1 lần. Nhưng nếu để ý thì ta có thể nhận thấy thư viện này không hỗ trợ việc thiết lập điều kiện thực thi cho từng tác vụ riêng biệt, mà chỉ đơn giản là có tác vụ thì sẽ chạy. Điều này làm nảy sinh vấn đề là thiếu sự đồng bộ khi cần thực thi một loạt các tác vụ có liên quan nhau.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/12/iterm2-cool-terminal/">
+                <h3 class="media-heading">[Terminal] Cool Terminal - iTerm2</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Bài viết này hướng dẫn cách cài đặt để sài iTerm2 &ldquo;đẹp trai&rdquo; thay cho Terminal &ldquo;xấu xí&rdquo; trên MacOS.
+Lưu ý là cái này không sử dụng được trên Windows nhé. Nhưng chưa có Mac thì cứ đọc để có động lực mua Mac cũng hay :D
+ Cài đặt iTerm2  Cách nhẹ nhàng nhất là tải iTerm2 từ trang chủ về rồi kéo vào thư mục Application của máy.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/11/nodefest-tokyo-2016/">
+                <h3 class="media-heading">[NodeFest] NodeFest Tokyo 2016</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">http://nodefest.jp/2016/
+ day 1   Paypal/Braintree Workshop Starting TDD with Node.js  Tasting ES2017 Node.jsに縁のない職場でnode.jsを使い始める戦術  Electronで製造ラインアプリ開発  Node.js × Babel で AWS Lambda アプリケーションを開発する  Node.js with WebRTC DataChannel    day 2   Vue.js 2.0 Server Side Rendering Evolution of Electron Evolution of Electron（日本語） PostCSS: Build your own CSS processor Introducing Now and Next.js サイボウズの開発を支えるKAIZEN文化  From Library to Tool - power-assert as a General Purpose Assertion Enhancement Tool How Do We Get Along With Static Types WebAssemblyに足りないもの The Journey to ES Modules JavaScript による並列処理：共有メモリとロック React with Reduxによる大規模商用サービスの開発 Demystifying (JavaScript) Engines Famicom programming with JavaScript Browser is the new Server Building Interactive npm Command Line Applications CHOO BOARDING THE TINY FRAMEWORK Putting TV on the Internet  </div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/">
+                <h3 class="media-heading">[JS] Async Await cực đơn giản</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">1. Giới thiệu Với các đặc tả JavaScript cũ, ta phải sử dụng các hàm phản hồi để xử lý các thao tác bất đồng bộ. Tuy nhiên việc này dẫn tới tình trạng callback hell khi ta có nhiều thao tác bất đồng bộ phải chờ nhau thực hiện. Call hell làm cho mã nguồn của ta rất rối và khó bảo trì.
+function wait(ms, cb) { setTimeout(cb, ms) } function main() { console.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="không tìm thấy kết quả"
+         data-message-one="tìm thấy 1 kết quả "
+         data-message-other="tìm thấy {n} kết quả">
+         26 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://dominhhai.github.io/images/cover-v1.2.0.jpg');"></div>
+  
+
+
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js"></script>
+
+
+<script src="https://dominhhai.github.io/js/script-wl33z0n6ocaypepiqrazthtivfrliqijej4rq8ek8gvrv1awftmgjuv8k4zc.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/dominhhai.github.io\/vi\/2017\/09\/gatsby-vi-dai\/';
+          
+            this.page.identifier = '\/vi\/2017\/09\/gatsby-vi-dai\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+   <script src="https://dominhhai.github.io/js/main.js"></script>
+
+
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  </body>
+</html>
+

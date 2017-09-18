@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://dominhhai.github.io/vi/2017/09/gatsby-vi-dai/</loc>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/2017/09/toi-tu-hoc-nguyen-duy-can/</loc>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/vi/2017/09/git-submodule-multi-repo/</loc>
     <lastmod>2017-09-03T00:00:00+00:00</lastmod>
   </url>
@@ -187,7 +197,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/tags/c%C3%A1ch-h%E1%BB%8Dc/</loc>
-    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -229,7 +239,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/</loc>
-    <lastmod>2017-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -268,13 +278,13 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/tags/k%C4%A9-n%C4%83ng/</loc>
-    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://dominhhai.github.io/vi/categories/k%C4%A9-n%C4%83ng/</loc>
-    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -299,6 +309,12 @@
   <url>
     <loc>https://dominhhai.github.io/vi/categories/meetup/</loc>
     <lastmod>2016-11-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/tags/nguy%E1%BB%85n-duy-c%E1%BA%A7n/</loc>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -346,7 +362,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/post/</loc>
-    <lastmod>2017-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -362,7 +378,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/categories/s%C3%A1ch/</loc>
-    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -396,6 +412,18 @@
   <url>
     <loc>https://dominhhai.github.io/vi/categories/terminal/</loc>
     <lastmod>2016-12-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/tags/ti%E1%BB%83u-thuy%E1%BA%BFt/</loc>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/categories/ti%E1%BB%83u-thuy%E1%BA%BFt/</loc>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
