@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://dominhhai.github.io/vi/2017/09/sql-test-data/</loc>
+    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/vi/2017/09/gatsby-vi-dai/</loc>
     <lastmod>2017-09-18T00:00:00+00:00</lastmod>
   </url>
@@ -239,7 +244,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/</loc>
-    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -296,7 +301,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/</loc>
-    <lastmod>2017-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -362,7 +367,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/post/</loc>
-    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -374,6 +379,18 @@
                 hreflang="vi"
                 href="https://dominhhai.github.io/vi/post/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/tags/sql/</loc>
+    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/categories/sql/</loc>
+    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
