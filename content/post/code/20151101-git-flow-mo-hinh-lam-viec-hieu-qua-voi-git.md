@@ -1,4 +1,4 @@
----
+﻿---
 title: "[Git] GitFlow - một mô hình làm việc hiệu quả"
 slug: gitflow-simple-effective-git-model
 date: 2015-11-01
@@ -13,7 +13,7 @@ keywords:
 - GitFlow
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //qiita-image-store.s3.amazonaws.com/0/53309/06140121-a0b6-427f-c149-6858c149738e.png
+thumbnailImage: //git-scm.com/images/logo@2x.png
 metaAlignment: center
 ---
 Gần đây mới được tiếp xúc với git-flow thấy cách làm việc hay quá, muốn chia sẻ lại đôi chút. Về cơ bản git-flow là một tập hợp các lệnh mở rộng cho git nhằm hỗ trợ cho quy trình làm việc hiệu quả hơn.

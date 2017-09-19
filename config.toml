@@ -22,6 +22,7 @@ disqusShortname = "tranquilpeak"
 googleAnalytics = "UA-105333519-1"
 paginate = 7
 canonifyurls = true
+enableRobotsTXT = true
 
 [languages.vi]
 weight = 0

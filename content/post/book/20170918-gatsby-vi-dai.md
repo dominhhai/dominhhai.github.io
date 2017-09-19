@@ -11,10 +11,10 @@ keywords:
 - Gatsby
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: /imgs/gatsby-vi-dai.jpg
+thumbnailImage: /images/gatsby-vi-dai.jpg
 metaAlignment: center
 ---
-![Tôi Tự Học](/imgs/gatsby-vi-dai.jpg)
+![Tôi Tự Học](/images/gatsby-vi-dai.jpg)
 Cuốn tiểu thuyết đầu tiên mình đọc 🙂
 
 ### 1. Bối cảnh đọc
