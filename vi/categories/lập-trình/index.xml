@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>[Make] Sử dụng trên Windows</title>
+      <link>https://dominhhai.github.io/vi/2017/09/gnu-make-windows/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/09/gnu-make-windows/</guid>
+      <description>Makefile là một công cụ giúp ta có thể dễ dàng thực thi các các khối lệnh mà không cần nhờ tới ngôn ngữ lập trình. Mặc dù Make được sử dụng rất rộng rãi trên Unix, Linux hay MacOS, thì trên Windows chắc vẫn còn hiếm hoi. Trên Windows, ta thường file .bat để thực thi các khối lệnh, tuy nhiên các file này chỉ thực thi được trên môi trường Windows.</description>
+    </item>
+    
+    <item>
       <title>[SQL] Tạo lượng lớn dữ liệu test</title>
       <link>https://dominhhai.github.io/vi/2017/09/sql-test-data/</link>
       <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
@@ -239,7 +248,7 @@ Về cơ bản call và apply gần giống nhau và được giới thiệu t�
       
       <guid>https://dominhhai.github.io/vi/2015/03/js-do-not-need-semicolon/</guid>
       <description>JavaScript cho phép chúng ta lược bỏ dấu kết thúc lệnh (dấu chấm phẩy). Nhưng trường hợp nào ta phải bắt buộc dùng dấu chấm phải, trường hợp nào thì không và có khi nào ta nên bỏ nó đi? Trước mắt ta xem một chút bộ dịch JavaScript sẽ làm gì với các lệnh của ta.
- ex1.js     1
+ex1.js1
 2
 3
 4
