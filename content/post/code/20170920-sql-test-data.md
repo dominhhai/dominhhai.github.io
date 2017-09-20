@@ -8,7 +8,7 @@ categories:
 tags:
 - SQL
 keywords:
-- Git
+- SQL
 - sql test data
 autoThumbnailImage: true
 thumbnailImagePosition: left
