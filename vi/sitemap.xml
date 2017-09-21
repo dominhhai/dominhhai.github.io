@@ -148,6 +148,25 @@
   </url>
   
   <url>
+    <loc>https://dominhhai.github.io/vi/page/about/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/page/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/page/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/page/about/"
+                />
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/vi/archives/</loc>
     <priority>0</priority>
     <xhtml:link
@@ -368,6 +387,26 @@
     <loc>https://dominhhai.github.io/vi/tags/oracledb/</loc>
     <lastmod>2016-04-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/page/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/page/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/page/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/page/"
+                />
   </url>
   
   <url>

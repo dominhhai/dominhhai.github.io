@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ドーミンハイ</title>
-    <link>https://dominhhai.github.io/ja/</link>
-    <description>Recent content on ドーミンハイ</description>
+    <title>Pages on ドーミンハイ</title>
+    <link>https://dominhhai.github.io/ja/page/</link>
+    <description>Recent content in Pages on ドーミンハイ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
     
-	<atom:link href="https://dominhhai.github.io/ja/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dominhhai.github.io/ja/page/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
