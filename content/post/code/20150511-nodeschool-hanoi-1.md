@@ -18,7 +18,7 @@ metaAlignment: center
 ---
 Ngày 9/5/2015, buổi workshop đầu tiên của [NodeSchool Hanoi](http://nodeschool.io/hanoi/) đã diễn ra tốt đẹp với sự tài trợ và ủng hộ nhiệt tình của [công ty lapnghiep](http://www.lapnghiep.co/) của anh @Logle. Tại buổi đầu tiên có 10 bạn tham gia, nhưng không vì thế mà không khí của buổi gặp mặt đầu tiên kém sôi động.
 
-![Image 1](https://github.com/nodeschool/hanoi/blob/master/album/HAN%231/WP_20150509_16_55_57_Pro.jpg?raw=true)
+{{< image classes="fancybox nocaption center clear" src="//res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-1-1.jpg" title="nodeschool hanoi 1 1" >}}
 
 # Về lịch trình
 ## Thời gian
@@ -49,7 +49,7 @@ Về một số hướng thực hiện đề xuất hiện tại, các bạn có
 * Lịch trình: có lịch trình cụ thể dựa trên kinh nghiệm tổ chức tại các thành phố khác nhau trên thế giới.
 
 # Không khí diễn ra
-![Image 2](https://github.com/nodeschool/hanoi/blob/master/album/HAN%231/WP_20150509_16_56_14_Pro.jpg?raw=true)
+{{< image classes="fancybox nocaption center clear" src="//res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-1-2.jpg" title="nodeschool hanoi 1 2" >}}
 
 Có 10 bạn tham gia, nhưng không khí làm việc rất sôi động. Tuy thời gian dự kiến tổ chức trong 3 tiếng, nhưng do sự hăng say, nhiệt tình học tập và làm việc của tất cả mọi người, workshop phải kéo dài thêm 1 tiếng đồng hồ và để kết thúc cũng không thực sự là dễ dàng chút nào. Mọi người rất nhiệt tình hỏi, thảo luận và làm quen với nhau. Các anh hướng dẫn viên cũng rất nhiệt tình và quan tâm tới từng bạn một, giúp đỡ các bạn tự tin hỏi, tự tin trình bày hơn. Thực sự các anh hướng dẫn viên cũng như các bạn học viên có một buổi làm việc rất năng suất và cũng khá mệt mỏi do phải tập trung năng lượng trong suốt 4 tiếng đồng hồ liền.
 
@@ -101,4 +101,4 @@ Hiện tại, chưa việc nào được thực hiện cả. Trong lần tới, 
 # Kết luận
 Về cơ bản buổi gặp mặt đầu tiên diễn ra thành công. Thành công này là kết quả của sự ủng hộ, giúp đỡ nhiệt tình từ công ty anh @Logle, [Tinywood Studio](https://www.facebook.com/tinywoodstudio?fref=ts), các anh mentors và các bạn học viên. Tuy nhiên vẫn còn một số điểm yếu cần phải khắc phục ngay. Nguyên nhân của các điểm yếu này đều nằm ở khâu tổ chức của ban tổ chức. Một trong những điểm yếu lớn nhất là việc nhắc các bạn xác nhận tham gia. Trong lần tới ban tổ chức sẽ khắc phục những điểm yếu này đồng thời mở rộng quy mô để có thể đáp ứng được nhu cầu của nhiều bạn học viên hơn.
 
-![Image 3](https://github.com/nodeschool/hanoi/blob/master/album/HAN%231/WP_20150509_17_23_22_Pro.jpg?raw=true)
+{{< image classes="fancybox nocaption center clear" src="//res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-1-3.jpg" title="nodeschool hanoi 1 3" >}}

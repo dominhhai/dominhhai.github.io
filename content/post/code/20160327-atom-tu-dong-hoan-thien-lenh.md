@@ -67,5 +67,6 @@ Với Node.js mình cài thêm gói [atom-ternjs](https://atom.io/packages/atom-
 ![autocomplete-plus](https://raw.githubusercontent.com/dominhhai/blog/master/imgs/atom-ternjs.gif 'atom-ternjs')
 
 Tham khảo:
+
 * [1] [autocomplete-plus](https://atom.io/packages/autocomplete-plus)
 * [2] [atom-ternjs](https://atom.io/packages/atom-ternjs)

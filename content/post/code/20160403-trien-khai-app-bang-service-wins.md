@@ -11,7 +11,7 @@ keywords:
 - Node.js Deploy
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //nodejs.org/static/images/logo-hexagon.png
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/nodejs.png
 metaAlignment: center
 ---
 Để triển khai ứng dụng Node.js bằng Windows, ta có nhiều phương án như dưới đây:

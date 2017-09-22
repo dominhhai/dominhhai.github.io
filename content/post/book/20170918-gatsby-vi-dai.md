@@ -14,10 +14,11 @@ thumbnailImagePosition: left
 thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/book/gatsby-vi-dai.jpg
 metaAlignment: center
 ---
-![Gatsby vi dai](//res.cloudinary.com/dominhhai/image/upload/book/gatsby-vi-dai.jpg)
 Cuốn tiểu thuyết đầu tiên mình đọc 🙂
 
 ### 1. Bối cảnh đọc
+
+{{< image classes="fancybox nocaption right fig-33" src="//res.cloudinary.com/dominhhai/image/upload/book/gatsby-vi-dai.jpg" title="Gatsby vĩ đại" >}}
 
 Bỗng 1 ngày nhận ra tâm hồn khô cứng của bản thân.
 Thế rồi bỗng dưng muốn cho chút thay đổi nào đó.

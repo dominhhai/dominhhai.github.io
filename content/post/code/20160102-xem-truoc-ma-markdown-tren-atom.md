@@ -21,16 +21,16 @@ metaAlignment: center
 
 Xem trước một cách real-time hiển thị của mã <code>Markdown</code> trên <a href="https://atom.io/">Atom</a> (phiên bản hiện tại là 1.x) cực kì dễ dàng.  Chỉ cần mở tab đang soạn thảo mã Markdown của bạn và ấn tổ hợp phím <code>CONTROL + SHIFT + M</code> là có thể xem ngay mã Markdown trong khi đang soạn thảo.
 
-<img class="alignnone size-full wp-image-288" src="https://dofeet.files.wordpress.com/2016/01/e382b9e382afe383aae383bce383b3e382b7e383a7e38383e38388-2016-01-02-11-16-14.png" alt="スクリーンショット 2016-01-02 11.16.14" width="1435" height="843" />
+{{< image classes="fancybox nocaption center clear" src="//res.cloudinary.com/dominhhai/image/upload/code/atom-md-pv.png" title="atom markdown preview" >}}
 
 Cực kì tiện lợi phải không m(..)m
 
 Thực ra để xem được mã <code>Markdown</code> ta cần phải có gói <code>Markdown Preview</code>. Tuy nhiên rất may là gói này được cài đặt mặc định nên ta cứ vậy mà sài là OK. Nếu không tin các bạn xem ngay trong mục Packages là sẽ rõ:
 
-<img class="alignnone size-full wp-image-301" src="https://dofeet.files.wordpress.com/2016/01/e382b9e382afe383aae383bce383b3e382b7e383a7e38383e38388-2016-01-02-11-30-33.png" alt="スクリーンショット 2016-01-02 11.30.33.png" width="1434" height="438" />
+{{< image classes="fancybox nocaption center clear" src="//res.cloudinary.com/dominhhai/image/upload/code/atom-md-how.png" title="show atom markdown preview" >}}
 
 Ngoài ra, ta còn có thể copy hoặc lưu lại mã HTML tương ứng của mã Markdown vừa soạn thảo bằng cách ấn chuột phải ở phần xem trước mã Markdown và chọn Copy hoặc Save mã HTML.
 
-<img class="alignnone size-full wp-image-311" src="https://dofeet.files.wordpress.com/2016/01/e382b9e382afe383aae383bce383b3e382b7e383a7e38383e38388-2016-01-02-11-35-221.png" alt="スクリーンショット 2016-01-02 11.35.22.png" width="1440" height="733" />
+{{< image classes="fancybox nocaption center clear" src="//res.cloudinary.com/dominhhai/image/upload/code/atom-md-save.png" title="save atom markdown preview" >}}
 
 --HẾT PHIM--

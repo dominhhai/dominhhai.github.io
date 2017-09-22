@@ -12,7 +12,7 @@ keywords:
 - NodeFest Tokyo 2016
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //pbs.twimg.com/profile_images/773030453448052736/k3E0dqMx.jpg
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/community/nodefest-tokyo.jpg
 metaAlignment: center
 ---
 
