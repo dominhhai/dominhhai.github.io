@@ -33,3 +33,26 @@ Như vậy trên Windows, khả thi vẫn là chọn `issnode` hoặc `NSSM` mà
 Nên với các trường hợp không chơi `issnode` được ta phải sử dụng `NSSM`.
 
 `NSSM` chỉ đơn giản là 1 chương trình giúp ta đăng kí, quản lý các phần mềm trên Windows chạy như Windows service. Như vậy các chương trình viết bằng nodejs thực chất ta đăng kí và quản lý `Node.js` với tham số chạy của `Node.js` là chương trình tương ứng chứ không phải là quản lý chương trình của của mình. Điểm may là `NSSM` chạy bằng dòng lệnh nên ta hoàn toàn có thể viết wrapper bằng chương trình node để chạy được các lệnh này. Các bạn có thể tham khảo 1 đoạn mã nhỏ mình viết sẵn để sử dụng được `NSSM` [ở đây](https://github.com/dominhhai/node-nssm).
+
+Nếu không khoái viết script cho chương trình thì có thể sử dụng `.bat` file cũng rất tiện lợi.
+```
+@echo off
+echo Uninstall Service ...
+nssm stop <SERVICE_NAME>
+nssm remove <SERVICE_NAME>
+
+echo Install Service ...
+nssm install <SERVICE_NAME> "node"
+
+echo Setting Parameters ...
+nssm set <SERVICE_NAME> AppDirectory "path\to\app"
+nssm set <SERVICE_NAME> AppParameters "index.js"
+nssm set <SERVICE_NAME> AppEnvironmentExtra "NODE_ENV=production"
+nssm set <SERVICE_NAME> AppStdout "path\to\logs\nssm_out.log"
+nssm set <SERVICE_NAME> AppStderr "path\to\logs\nssm_err.log"
+
+echo Start Service ...
+nssm start <SERVICE_NAME>
+
+timeout 10
+```
