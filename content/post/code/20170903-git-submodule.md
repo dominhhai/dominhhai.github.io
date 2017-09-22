@@ -1,4 +1,4 @@
----
+﻿---
 title: "[Git] submodule - cùng lúc sài nhiều repo"
 slug: git-submodule-multi-repo
 date: 2017-09-03
@@ -12,7 +12,7 @@ keywords:
 - git submodule
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //git-scm.com/images/logos/downloads/Git-Icon-1788C.png
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/git.png
 metaAlignment: center
 ---
 Đôi lúc ta cần phải sử dụng các repo khác như là một module của dự án hiện tại,

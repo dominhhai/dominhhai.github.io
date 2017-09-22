@@ -1,4 +1,4 @@
----
+﻿---
 title: "[JS] Async Queue kèm điều kiện"
 slug: js-conditional-async-queue
 date: 2016-12-19
@@ -14,7 +14,7 @@ keywords:
 - Async Queue
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //lh3.googleusercontent.com/gsMKQt7DZQVs0NJJihKmR3zR-g5y-CBOH0v6IC1W7U6gQx0u5IxiQVrwNbhjAdkFbqWMTBzJRSSZln-w441biwoAMiDkj17CHRxFqUkuaWzTungp8YHS374z8BvCfPxfg91EZmZ78A=w785-h340-no
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.jpg
 metaAlignment: center
 ---
 Có lẽ nhiều người đã từng sử dụng [queue](https://caolan.github.io/async/docs.html#queue) hoặc [priority queue](https://caolan.github.io/async/docs.html#priorityQueue) của async để thực thi danh sách các tác vụ 1 lần. Nhưng nếu để ý thì ta có thể nhận thấy thư viện này không hỗ trợ việc thiết lập điều kiện thực thi cho từng tác vụ riêng biệt, mà chỉ đơn giản là có tác vụ thì sẽ chạy. Điều này làm nảy sinh vấn đề là thiếu sự đồng bộ khi cần thực thi một loạt các tác vụ có liên quan nhau. Ví dụ như thực thi các tác vụ tại một điểm thời gian nào đó, ta có thể mô phỏng như sau:

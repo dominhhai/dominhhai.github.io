@@ -12,7 +12,7 @@ keywords:
 - Learning Skill
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //images-fe.ssl-images-amazon.com/images/I/41jOvUQ%2BdhL._SY346_.jpg
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/book/a-mind-for-numbers.jpg
 metaAlignment: center
 ---
 These rules form a synthesis of some of the main ideas of the course--

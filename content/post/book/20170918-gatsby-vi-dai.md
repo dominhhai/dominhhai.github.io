@@ -11,10 +11,10 @@ keywords:
 - Gatsby
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: /images/gatsby-vi-dai.jpg
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/book/gatsby-vi-dai.jpg
 metaAlignment: center
 ---
-![Tôi Tự Học](/images/gatsby-vi-dai.jpg)
+![Gatsby vi dai](//res.cloudinary.com/dominhhai/image/upload/book/gatsby-vi-dai.jpg)
 Cuốn tiểu thuyết đầu tiên mình đọc 🙂
 
 ### 1. Bối cảnh đọc

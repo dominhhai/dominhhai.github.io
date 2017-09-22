@@ -12,7 +12,7 @@ keywords:
 - Make on Windows
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //www.gnu.org/graphics/heckert_gnu.png
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/gnu.png
 metaAlignment: center
 ---
 <a href="https://www.gnu.org/software/make/" target="_blank">Makefile</a> là một công cụ giúp ta có thể dễ dàng

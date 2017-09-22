@@ -13,7 +13,7 @@ keywords:
 - Cách học
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //images-fe.ssl-images-amazon.com/images/I/41jOvUQ%2BdhL._SY346_.jpg
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/book/a-mind-for-numbers.jpg
 metaAlignment: center
 ---
 Dưới đây là tổng hợp một vài ý chính từ khóa học 'Học cách học' - trích dẫn từ cuốn sách <a href="https://mathblog.com/book-review-a-mind-for-numbers/" target="_blank">A Mind for Numbers: How to Excel in Math and Science (Even if You Flunked Algebra)</a>,

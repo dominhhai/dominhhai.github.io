@@ -1,4 +1,4 @@
----
+﻿---
 title: "[PHP] Lỗi Cetificate của Curl trong PHP"
 slug: php-curl-cetificate-error
 date: 2015-06-28
@@ -12,7 +12,7 @@ keywords:
 - PHP Curl
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //secure.php.net/manual/ja/images/c0d23d2d6769e53e24a1b3136c064577-php_logo.png
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/php.png
 metaAlignment: center
 ---
 # Lỗi `SSL certificate problem: unable to get local issuer certificate` cho PHP curl

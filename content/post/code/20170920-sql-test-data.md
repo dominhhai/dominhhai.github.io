@@ -1,4 +1,4 @@
----
+﻿---
 title: "[SQL] Tạo lượng lớn dữ liệu test"
 slug: sql-test-data
 date: 2017-09-20
@@ -12,7 +12,7 @@ keywords:
 - sql test data
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: /images/sql.png
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/sql.png
 metaAlignment: center
 ---
 Ta thường xuyên cần một lượng vừa đủ các dữ liệu để test và dev trong quá trình phát triển hệ thống.

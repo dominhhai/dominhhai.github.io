@@ -1,4 +1,4 @@
----
+﻿---
 title: "[NodeSchool] NodeSchool Hanoi lần 1"
 slug: nodeschool-hanoi-1
 date: 2015-05-11
@@ -13,7 +13,7 @@ keywords:
 - NodeSchool Hanoi
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: https://nodeschool.io/images/nodeschool-hanoi.svg
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/community/nodeschool-hanoi.svg
 metaAlignment: center
 ---
 Ngày 9/5/2015, buổi workshop đầu tiên của [NodeSchool Hanoi](http://nodeschool.io/hanoi/) đã diễn ra tốt đẹp với sự tài trợ và ủng hộ nhiệt tình của [công ty lapnghiep](http://www.lapnghiep.co/) của anh @Logle. Tại buổi đầu tiên có 10 bạn tham gia, nhưng không vì thế mà không khí của buổi gặp mặt đầu tiên kém sôi động.

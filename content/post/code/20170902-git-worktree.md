@@ -1,4 +1,4 @@
----
+﻿---
 title: "[Git] worktree - cùng lúc sài nhiều branch"
 slug: git-worktree-multi-branchs
 date: 2017-09-02
@@ -12,7 +12,7 @@ keywords:
 - git worktree
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //git-scm.com/images/logos/downloads/Git-Icon-1788C.png
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/git.png
 metaAlignment: center
 ---
 <a href="https://git-scm.com/docs/git-worktree" target="_blank">git worktree</a> cho phép ta có thể sử dụng cùng lúc nhiều nhánh của repo trong cùng một thư mục dự án.

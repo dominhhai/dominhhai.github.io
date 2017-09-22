@@ -1,4 +1,4 @@
----
+﻿---
 title: "[JS] Hiểu thế nào cho đúng về biến this"
 slug: js-what-is-this
 date: 2015-03-21
@@ -13,7 +13,7 @@ keywords:
 - JS
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //lh3.googleusercontent.com/gsMKQt7DZQVs0NJJihKmR3zR-g5y-CBOH0v6IC1W7U6gQx0u5IxiQVrwNbhjAdkFbqWMTBzJRSSZln-w441biwoAMiDkj17CHRxFqUkuaWzTungp8YHS374z8BvCfPxfg91EZmZ78A=w785-h340-no
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.jpg
 metaAlignment: center
 ---
 ```javascript

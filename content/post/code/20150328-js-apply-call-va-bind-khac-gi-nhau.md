@@ -1,4 +1,4 @@
----
+﻿---
 title: "[JS] Apply, Call và Bind khác gì nhau?"
 slug: js-how-apply-call-bind
 date: 2015-03-28
@@ -13,7 +13,7 @@ keywords:
 - JS
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //lh3.googleusercontent.com/gsMKQt7DZQVs0NJJihKmR3zR-g5y-CBOH0v6IC1W7U6gQx0u5IxiQVrwNbhjAdkFbqWMTBzJRSSZln-w441biwoAMiDkj17CHRxFqUkuaWzTungp8YHS374z8BvCfPxfg91EZmZ78A=w785-h340-no
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.jpg
 metaAlignment: center
 ---
 Như trong bài về [từ khóa `this`](https://dofeet.wordpress.com/2015/03/07/js-hieu-the-nao-cho-dung-ve-bien-this-trong-javascript/) đã đề cập tới ngữ cảnh thực thi với mối tương quan tới từ khóa `this` và việc thay đổi được ngữ cảnh thực thi một cách trực tiếp bằng cách sử dụng `call`, `apply` và `bind`, thì bài viết này sẽ làm rõ ràng hơn 3 phương thức này và sự khác nhau cũng như tính hữu dụng của nó.

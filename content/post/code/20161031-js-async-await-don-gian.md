@@ -1,4 +1,4 @@
----
+﻿---
 title: "[JS] Async Await cực đơn giản"
 slug: js-async-await-is-simple
 date: 2016-10-31
@@ -16,7 +16,7 @@ keywords:
 - ES6
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //lh3.googleusercontent.com/gsMKQt7DZQVs0NJJihKmR3zR-g5y-CBOH0v6IC1W7U6gQx0u5IxiQVrwNbhjAdkFbqWMTBzJRSSZln-w441biwoAMiDkj17CHRxFqUkuaWzTungp8YHS374z8BvCfPxfg91EZmZ78A=w785-h340-no
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.jpg
 metaAlignment: center
 ---
 ### 1. Giới thiệu

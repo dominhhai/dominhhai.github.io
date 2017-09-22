@@ -1,4 +1,4 @@
----
+﻿---
 title: "[JS] Tản mạn dấu chấm phẩy"
 slug: js-do-not-need-semicolon
 date: 2015-03-06
@@ -13,8 +13,8 @@ keywords:
 - JS
 autoThumbnailImage: true
 thumbnailImagePosition: "left"
-thumbnailImage: //lh3.googleusercontent.com/gsMKQt7DZQVs0NJJihKmR3zR-g5y-CBOH0v6IC1W7U6gQx0u5IxiQVrwNbhjAdkFbqWMTBzJRSSZln-w441biwoAMiDkj17CHRxFqUkuaWzTungp8YHS374z8BvCfPxfg91EZmZ78A=w785-h340-no
-coverImage: //lh3.googleusercontent.com/gsMKQt7DZQVs0NJJihKmR3zR-g5y-CBOH0v6IC1W7U6gQx0u5IxiQVrwNbhjAdkFbqWMTBzJRSSZln-w441biwoAMiDkj17CHRxFqUkuaWzTungp8YHS374z8BvCfPxfg91EZmZ78A=w785-h340-no
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.jpg
+coverImage: //res.cloudinary.com/dominhhai/image/upload/code/js-cover.jpg
 metaAlignment: center
 ---
 JavaScript cho phép chúng ta lược bỏ dấu kết thúc lệnh (dấu chấm phẩy). Nhưng trường hợp nào ta phải bắt buộc dùng dấu chấm phải, trường hợp nào thì không và có khi nào ta nên bỏ nó đi?

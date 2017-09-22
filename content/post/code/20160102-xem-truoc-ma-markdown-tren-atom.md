@@ -1,4 +1,4 @@
----
+﻿---
 title: "[Atom] Hiển thị mã Markdown với Atom"
 slug: atom-markdown-preview
 date: 2016-01-02
@@ -14,7 +14,7 @@ keywords:
 - Markdown Preview
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //og.github.com/atom-mark/atom-mark@1200x630.png
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/editor/atom.png
 metaAlignment: center
 ---
 Đầu năm rảnh rỗi ngồi viết bậy lúc cho vui tay. Tiện chúc anh em bạn bè năm mới tràn đầy niềm vui và hạnh phúc, sớm thành các tay lập trình lão luyện thuộc top world class.
