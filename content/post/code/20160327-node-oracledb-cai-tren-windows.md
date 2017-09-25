@@ -13,7 +13,7 @@ keywords:
 - OralceDB Windows
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/nodejs.png
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/nodejs_svg.svg
 metaAlignment: center
 ---
 Bài viết này nhằm mục tiêu lưu lại 1 ngày vất vả vật lộn với cái [node-oracledb](https://github.com/oracle/node-oracledb) trên con Windows Server 2008 của mình.

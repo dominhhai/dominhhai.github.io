@@ -13,7 +13,7 @@ keywords:
 - Bcrypt
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/nodejs.png
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/nodejs_svg.svg
 metaAlignment: center
 ---
 Mình không thực sự hiểu nhiều về các thuật toán, kĩ thuật mã hóa mật khẩu. Mình chỉ đọc qua một số phương pháp mã hóa và các lời bình về nó trên mạng và quyết định sử dụng [`bcrypt`](https://en.wikipedia.org/wiki/Bcrypt).

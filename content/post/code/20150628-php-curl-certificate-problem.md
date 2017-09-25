@@ -12,7 +12,7 @@ keywords:
 - PHP Curl
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/php.png
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/php_svg.svg
 metaAlignment: center
 ---
 ### Lỗi `SSL certificate problem: unable to get local issuer certificate` cho PHP curl

@@ -14,7 +14,7 @@ keywords:
 - Async Queue
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.jpg
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.svg
 metaAlignment: center
 ---
 Có lẽ nhiều người đã từng sử dụng [queue](https://caolan.github.io/async/docs.html#queue) hoặc [priority queue](https://caolan.github.io/async/docs.html#priorityQueue) của async để thực thi danh sách các tác vụ 1 lần. Nhưng nếu để ý thì ta có thể nhận thấy thư viện này không hỗ trợ việc thiết lập điều kiện thực thi cho từng tác vụ riêng biệt, mà chỉ đơn giản là có tác vụ thì sẽ chạy. Điều này làm nảy sinh vấn đề là thiếu sự đồng bộ khi cần thực thi một loạt các tác vụ có liên quan nhau. Ví dụ như thực thi các tác vụ tại một điểm thời gian nào đó, ta có thể mô phỏng như sau:

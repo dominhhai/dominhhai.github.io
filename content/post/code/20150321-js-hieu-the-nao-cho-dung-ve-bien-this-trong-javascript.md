@@ -13,7 +13,7 @@ keywords:
 - JS
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.jpg
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.svg
 metaAlignment: center
 ---
 ```javascript

@@ -13,8 +13,8 @@ keywords:
 - JS
 autoThumbnailImage: true
 thumbnailImagePosition: "left"
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.jpg
-coverImage: //res.cloudinary.com/dominhhai/image/upload/code/js-cover.jpg
+thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.svg
+coverImage: //res.cloudinary.com/dominhhai/image/upload/code/js.svg
 metaAlignment: center
 ---
 Từng làm việc với một vài ngôn ngữ lập trình (`Java`, `C`, `C++`, `C#`, `Objective-C`, `PHP`), mỗi ngôn ngữ đều có cái hay riêng. Nhưng khi tiếp xúc với JavaScript (JS) lại tự dưng thấy yêu nó, yêu cái vẻ sexy và bất ngờ của nó. Ví như mảng trong JS rất đặc biệt và bất ngờ. Trong bài này sẽ viết lại một số điểm có thể là bất ngờ với một số người như mình.
