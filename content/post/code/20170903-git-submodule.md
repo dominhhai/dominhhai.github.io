@@ -98,6 +98,15 @@ ngay ở lệnh tải về ta có thể lấy ngay được về các module v�
 $ git clone --recursive https://github.com/dominnhhai/dominhhai.github.io.git
 ```
 
+Tuy nhiên, cần lưu ý một điểm là nếu muốn cập nhập trạng thái mới nhất của
+các module đã được lấy về thì ta cần phải cập nhập với lệnh `git pull`
+hệt như các dự án bình thường khác.
+Ví dụ dưới đây sẽ cập nhập toàn bộ các module hiện có của dự án:
+
+```
+$ git submodule foreach git pull origin master
+```
+
 # 3. Xoá module
 Với các repo không cần nữa, ta có thể xoá bỏ nó đi bằng lệnh:
 ```
