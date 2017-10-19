@@ -1,3 +1,6 @@
+body {
+  text-align: justify;
+}
 #footer {
   background-color: #333;
   max-width: none;
@@ -65,4 +68,7 @@
   #footer #author select {
     max-width: 50%;
   }
+}
+#TableOfContents ul {
+  list-style-type: none;
 }
