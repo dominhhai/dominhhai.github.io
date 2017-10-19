@@ -71,7 +71,7 @@
     
     
       
-        <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" integrity="sha384-B41nY7vEWuDrE9Mr+J2nBL0Liu+nl/rBXTdpQal730oTHdlrlXHzYMOhDU60cwde" rel="stylesheet"></script>
+        <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css" integrity="sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx" rel="stylesheet"></script>
       
     
       
@@ -309,15 +309,14 @@ ga('send', 'pageview');
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
         </td>
         <td class="code">
-          <pre class="js code-highlight">
-var arr = []
+          <pre class="js code-highlight">var arr = []
 arr[10] = 0
 arr[20] = &#39;index 20&#39;
 arr[&#39;js&#39;] = &#39;JavaScript&#39;
-console.log(arr.length)</pre>
+console.log(arr.length)</pre>
         </td>
       </tr>
     </tbody>
@@ -349,15 +348,14 @@ console.log(arr.length)</pre>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
         </td>
         <td class="code">
-          <pre class="js code-highlight">
-var arr = []
+          <pre class="js code-highlight">var arr = []
 arr[-1] = 100
 arr[&#39;js&#39;] = &#39;JavaScript&#39;
 arr[&#39;me&#39;] = &#39;Java Lover&#39;
-console.log(arr.length)</pre>
+console.log(arr.length)</pre>
         </td>
       </tr>
     </tbody>
@@ -395,11 +393,10 @@ console.log(arr.length)</pre>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre>
         </td>
         <td class="code">
-          <pre class="js code-highlight">
-var arr = []
+          <pre class="js code-highlight">var arr = []
 arr[10] = 0
 arr[20] = &#39;index 20&#39;
 arr[&#39;me&#39;] = &#39;Java Lover&#39;
@@ -415,7 +412,7 @@ for (var i = arr.length; i &gt; 0; -- i) {
     if (typeof(arr[i]) != &#39;undefined&#39;)
         counter &#43;&#43;
 }
-console.log(&#39;The size of array: %d&#39;, counter)</pre>
+console.log(&#39;The size of array: %d&#39;, counter)</pre>
         </td>
       </tr>
     </tbody>
@@ -446,11 +443,10 @@ Như vậy là <code>counter</code> không cho ra kết quả chính xác và v�
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
         </td>
         <td class="code">
-          <pre class="js code-highlight">
-var arr = []
+          <pre class="js code-highlight">var arr = []
 arr[10] = 0
 arr[20] = &#39;index 20&#39;
 arr[&#39;me&#39;] = &#39;XXX Lover&#39;
@@ -459,7 +455,7 @@ arr.forEach(function(ele, i, array) {
     console.log(i &#43; &#34;: &#34; &#43; ele)
     counter &#43;&#43;
 })
-console.log(&#39;The size of array: %d&#39;, counter)</pre>
+console.log(&#39;The size of array: %d&#39;, counter)</pre>
         </td>
       </tr>
     </tbody>
@@ -489,11 +485,10 @@ console.log(&#39;The size of array: %d&#39;, counter)</pre>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
         </td>
         <td class="code">
-          <pre class="js code-highlight">
-var arr = []
+          <pre class="js code-highlight">var arr = []
 arr[10] = 0
 arr[20] = &#39;index 20&#39;
 arr[&#39;me&#39;] = &#39;Java Lover&#39;
@@ -502,7 +497,7 @@ for (var i in arr) {
     console.log(i &#43; &#34;: &#34; &#43; arr[i])
     counter &#43;&#43;
 }
-console.log(&#39;The size of array: %d&#39;, counter)</pre>
+console.log(&#39;The size of array: %d&#39;, counter)</pre>
         </td>
       </tr>
     </tbody>
@@ -538,18 +533,17 @@ console.log(&#39;The size of array: %d&#39;, counter)</pre>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
         </td>
         <td class="code">
-          <pre class="js code-highlight">
-var arr = []
+          <pre class="js code-highlight">var arr = []
 arr[10] = 0
 arr[20] = &#39;index 20&#39;
 arr[&#39;me&#39;] = &#39;JavaScript Lover&#39;
 
 console.log(&#34;Trust me, men, I&#39;m an Array @@&#34;)
 console.log(&#34;Really, I have to check your DNA.&#34;)
-console.log(&#34;JavaScript checker: arr is &#34; &#43; typeof(arr))</pre>
+console.log(&#34;JavaScript checker: arr is &#34; &#43; typeof(arr))</pre>
         </td>
       </tr>
     </tbody>
@@ -580,17 +574,16 @@ Không cháu là mảng mà, bác thử kiểm tra với cái máy này xem.</p>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
         </td>
         <td class="code">
-          <pre class="js code-highlight">
-var arr = []
+          <pre class="js code-highlight">var arr = []
 arr[10] = 0
 arr[20] = &#39;index 20&#39;
 arr[&#39;me&#39;] = &#39;JavaScript Lover&#39;
 
 console.log(&#34;JavaScript checker: Is arr an array ... &#34;
-            &#43; (Object.prototype.toString.apply(arr) === &#34;[object Array]&#34;))</pre>
+            &#43; (Object.prototype.toString.apply(arr) === &#34;[object Array]&#34;))</pre>
         </td>
       </tr>
     </tbody>
@@ -622,11 +615,10 @@ Chắc code này không phải giải thích nhiều các bạn cũng sẽ thấ
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre>
         </td>
         <td class="code">
-          <pre class="js code-highlight">
-var http = require(&#39;http&#39;)
+          <pre class="js code-highlight">var http = require(&#39;http&#39;)
 var bl = require(&#39;bl&#39;)
 var data = []
 var counter = 0
@@ -651,7 +643,7 @@ function loadData(index) {
 }
 
 for (var i = 0; i &lt; 3; i&#43;&#43;)
-    loadData(i)</pre>
+    loadData(i)</pre>
         </td>
       </tr>
     </tbody>
@@ -982,6 +974,29 @@ Bài này tạm thời thế, khi nào gặp vấn đề lại update tiếp. Mo
           <div class="media">
             
             <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/what-is-rnn/">
+                <h3 class="media-heading">[RNN] RNN là gì?</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank">blog WILDML</a>.</p>
+</blockquote>
+
+<p>Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
               <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/gnu-make-windows/">
                 <h3 class="media-heading">[Make] Sử dụng trên Windows</h3>
               </a>
@@ -1026,7 +1041,7 @@ Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">Cuốn tiểu thuyết đầu tiên mình đọc 🙂
-1. Bối cảnh đọc Bỗng 1 ngày nhận ra tâm hồn khô cứng của bản thân. Thế rồi bỗng dưng muốn cho chút thay đổi nào đó. Bỗng dưng muốn trách xa những trang sách kĩ thuật với những công thức, dòng code nhảy múa. Muốn trốn vào đâu đó để cảm nhận lại cuộc sống.
+1. Bối cảnh đọc   Bỗng 1 ngày nhận ra tâm hồn khô cứng của bản thân. Thế rồi bỗng dưng muốn cho chút thay đổi nào đó. Bỗng dưng muốn trách xa những trang sách kĩ thuật với những công thức, dòng code nhảy múa. Muốn trốn vào đâu đó để cảm nhận lại cuộc sống.
 Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết 🙂 Cùng lúc ấy 1 cô gái gửi tặng cho 1 cuốn.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1137,25 +1152,6 @@ Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết �
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2016/12/iterm2-cool-terminal/">
-                <h3 class="media-heading">[Terminal] Cool Terminal - iTerm2</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Dec 12, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">Bài viết này hướng dẫn cách cài đặt để sài iTerm2 &ldquo;đẹp trai&rdquo; thay cho Terminal &ldquo;xấu xí&rdquo; trên MacOS.
-Lưu ý là cái này không sử dụng được trên Windows nhé. Nhưng chưa có Mac thì cứ đọc để có động lực mua Mac cũng hay :D
- Cài đặt iTerm2  Cách nhẹ nhàng nhất là tải iTerm2 từ trang chủ về rồi kéo vào thư mục Application của máy.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -1163,7 +1159,7 @@ Lưu ý là cái này không sử dụng được trên Windows nhé. Nhưng ch�
          data-message-zero="không tìm thấy kết quả"
          data-message-one="tìm thấy 1 kết quả "
          data-message-other="tìm thấy {n} kết quả">
-         28 posts found
+         29 posts found
       </p>
     </div>
   </div>
@@ -1186,11 +1182,11 @@ Lưu ý là cái này không sử dụng được trên Windows nhé. Nhưng ch�
 
 
   
-    <script crossorigin="anonymous" integrity="sha384-L9gv4ooDLrYwW0QCM6zY3EKSSPrsuUncpx26+erN0pJX4wv1B1FzVW1SvpcJPx/8" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-GR8SEkOO1rBN/jnOcQDFcFmwXAevSLx7/Io9Ps1rkxWp983ZIuUGfxivlF/5f5eJ" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.js"></script>
   
 
   
-    <script crossorigin="anonymous" integrity="sha384-RkgGHBDdR8eyBOoWeZ/vpGg1cOvSAJRflCUDACusAAIVwkwPrOUYykglPeqWakZu" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-cXpztMJlr2xFXyDSIfRWYSMVCXZ9HeGXvzyKTYrn03rsMAlOtIQVzjty5ULbaP8L" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/contrib/auto-render.min.js"></script>
   
 
   
