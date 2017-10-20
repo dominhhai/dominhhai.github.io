@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://dominhhai.github.io/vi/2017/10/what-is-lstm/</loc>
+    <lastmod>2017-10-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/vi/2017/10/what-is-rnn/</loc>
     <lastmod>2017-10-19T00:00:00+00:00</lastmod>
   </url>
@@ -273,7 +278,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/</loc>
-    <lastmod>2017-10-19T00:00:00+00:00</lastmod>
+    <lastmod>2017-10-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -294,13 +299,13 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y/</loc>
-    <lastmod>2017-10-19T00:00:00+00:00</lastmod>
+    <lastmod>2017-10-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-s%C3%A2u/</loc>
-    <lastmod>2017-10-19T00:00:00+00:00</lastmod>
+    <lastmod>2017-10-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -337,6 +342,12 @@
   <url>
     <loc>https://dominhhai.github.io/vi/tags/lets-encrypt/</loc>
     <lastmod>2017-02-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/tags/lstm/</loc>
+    <lastmod>2017-10-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -440,7 +451,7 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/post/</loc>
-    <lastmod>2017-10-19T00:00:00+00:00</lastmod>
+    <lastmod>2017-10-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -456,13 +467,13 @@
   
   <url>
     <loc>https://dominhhai.github.io/vi/tags/rnn/</loc>
-    <lastmod>2017-10-19T00:00:00+00:00</lastmod>
+    <lastmod>2017-10-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://dominhhai.github.io/vi/categories/rnn/</loc>
-    <lastmod>2017-10-19T00:00:00+00:00</lastmod>
+    <lastmod>2017-10-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

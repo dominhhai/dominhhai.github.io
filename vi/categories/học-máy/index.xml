@@ -6,10 +6,28 @@
     <description>Recent content in Học Máy on Hai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Thu, 19 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[RNN] LSTM là gì?</title>
+      <link>https://dominhhai.github.io/vi/2017/10/what-is-lstm/</link>
+      <pubDate>Fri, 20 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/10/what-is-lstm/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Bài LSTM này được dịch lại từ trang &lt;a href=&#34;//colah.github.io/posts/2015-08-Understanding-LSTMs/&#34; target=&#34;_blank&#34;&gt;colah&amp;rsquo;s blog&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
+Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
+&lt;a href=&#34;https://github.com/colah/&#34; target=&#34;_blank&#34;&gt;Christopher Olah&lt;/a&gt;.
+Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[RNN] RNN là gì?</title>

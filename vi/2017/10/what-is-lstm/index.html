@@ -1,0 +1,1581 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.1-BETA">
+    <title>[RNN] LSTM là gì?</title>
+    <meta name="author" content="Do Minh Hai">
+    <meta name="keywords" content="Mạng RNN, LSTM, Học Sâu, Deep Learning, dominhhai, programming, computer science, machine learning, deep learning">
+
+    <link rel="icon" href="https://dominhhai.github.io/favicon/golden-buddha-512-79567.png">
+    
+
+    
+    <meta name="description" content="
+Bài LSTM này được dịch lại từ trang colah&rsquo;s blog.
+
+
+LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
+Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
+Christopher Olah.
+Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.
+
+">
+    <meta property="og:description" content="
+Bài LSTM này được dịch lại từ trang colah&rsquo;s blog.
+
+
+LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
+Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
+Christopher Olah.
+Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.
+
+">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="[RNN] LSTM là gì?">
+    <meta property="og:url" content="/vi/2017/10/what-is-lstm/">
+    <meta property="og:site_name" content="Hai&#39;s Blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Hai&#39;s Blog">
+    <meta name="twitter:description" content="
+Bài LSTM này được dịch lại từ trang colah&rsquo;s blog.
+
+
+LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
+Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
+Christopher Olah.
+Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.
+
+">
+    
+      <meta name="twitter:creator" content="@minhhai3b">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640">
+    
+
+    
+      <meta property="og:image" content="//res.cloudinary.com/dominhhai/image/upload/dl/logo.png">
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://dominhhai.github.io/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    
+    
+      
+        <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css" integrity="sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx" rel="stylesheet"></script>
+      
+    
+      
+        <link href="https://dominhhai.github.io/css/main.css" rel="stylesheet"></script>
+      
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-105333519-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://dominhhai.github.io/vi/">Hai&#39;s Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://dominhhai.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=90" alt="Ảnh đại diện" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://dominhhai.github.io/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện" />
+        </a>
+        <h4 class="sidebar-profile-name">Do Minh Hai</h4>
+        
+          <h5 class="sidebar-profile-bio">Just a developer<br>Enjoy life as a journey</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Trang chủ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Danh mục</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Thẻ thông tin</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Lưu trữ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">Thông tin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/dominhhai" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/minhhai3b" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      [RNN] LSTM là gì?
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-10-20T00:00:00Z">
+        
+  
+  
+  
+  
+    20 tháng 10, 2017
+  
+
+      </time>
+    
+    
+  
+  
+    <span>trong</span>
+    
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/h%e1%bb%8dc-m%c3%a1y">Học Máy</a>, 
+    
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/h%e1%bb%8dc-s%c3%a2u">Học Sâu</a>, 
+    
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/rnn">RNN</a>
+    
+  
+
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <blockquote>
+<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">colah&rsquo;s blog</a>.</p>
+</blockquote>
+
+<p>LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
+Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
+<a href="https://github.com/colah/" target="_blank">Christopher Olah</a>.
+Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.</p>
+
+<p></p>
+
+<h1 id="table-of-contents">Mục lục</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#1-mạng-hồi-quy-rnn">1. Mạng hồi quy RNN</a></li>
+<li><a href="#2-vấn-đề-phụ-thuộc-xa">2. Vấn đề phụ thuộc xa</a></li>
+<li><a href="#3-mạng-lstm">3. Mạng LSTM</a>
+<ul>
+<li><a href="#3-1-ý-tưởng-cốt-lõi-của-lstm">3.1. Ý tưởng cốt lõi của LSTM</a></li>
+<li><a href="#3-2-bên-trong-lstm">3.2. Bên trong LSTM</a></li>
+</ul></li>
+<li><a href="#4-các-biến-thể-của-bộ-nhớ-dài-hạn">4. Các biến thể của bộ nhớ dài hạn</a></li>
+<li><a href="#5-kết-luận">5. Kết luận</a></li>
+</ul>
+</nav>
+
+<h1 id="1-mạng-hồi-quy-rnn">1. Mạng hồi quy RNN</h1>
+
+<p>Con người không bắt đầu suy nghĩ của họ từ đầu tại tất cả các thời điểm.
+Cũng như bạn đang đọc bài viết này, bạn hiểu mỗi chữ ở đây dựa vào
+từ bạn đã hiểu các chữ trước đó chứ không phải là đọc tới đâu ném hết đi tới đó,
+rồi lại bắt đầu suy nghĩ lại từ đầu tới chữ bạn đang đọc.
+Tức là tư duy đã có một bộ nhớ để lưu lại những gì diễn ra trước đó.</p>
+
+<p>Tuy nhiên các mô hình mạng nơ-ron truyền thống thì không thể làm được việc đó,
+đó có thể coi là một khuyết điểm chính của mạng nơ-ron truyền thống.
+Ví dụ, bạn muốn phân loại các bối cảnh xảy ra ở tất cả các thời điểm trong một bộ phim,
+thì đúng là không rõ làm thế nào để có thể hiểu được một tình huống trong phim
+mà lại phụ thuộc vào các tình huống trước đó nếusử dụng các mạng nơ-ron truyền thống.</p>
+
+<p>Mạng nơ-ron hồi quy (Recurrent Neural Network) sinh ra để giải quyết vấn đề đó.
+Mạng này chứa các vòng lặp bên trong cho phép thông tin có thể lưu lại được.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-rolled.png" title="Recurrent Neural Networks have loops." data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-rolled.png" style="width: 20%;" alt="Recurrent Neural Networks have loops.">
+  
+    </a>
+  
+   
+    <span class="caption">Recurrent Neural Networks have loops.</span>
+  
+</div>
+
+
+<p>Hình vẽ trên mô tả một đoạn của mạng nơ-ron hồi quy $ A $ với đầu vào là $ x_t $ và đầu ra là $ h_t $.
+Một vòng lặp cho phép thông tin có thể được truyền từ bước này qua bước này qua bước khác của mạng nơ-ron.</p>
+
+<p>Các vòng lặp này khiến cho mạng nơ-ron hồi quy trông có vẻ khó hiểu.
+Tuy nhiên, nếu bạn để ý một chút thì nó không khác mấy so với các mạng nơ-ron thuần.
+Một mạng nơ-ron hồi quy có thể được coi là nhiều bản sao chép của cùng một mạng,
+trong đó mỗi đầu ra của mạng này là đầu vào của một mạng sao chép khác.
+Nói thì hơi khó hiểu, nhưng bạn hãy xem hình mô tả sau:</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" title="An unrolled recurrent neural network." data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png"  alt="An unrolled recurrent neural network.">
+  
+    </a>
+  
+   
+    <span class="caption">An unrolled recurrent neural network.</span>
+  
+</div>
+
+
+<p>Chuỗi lặp lại các mạng này chính là phân giải của mạng nơ-ron hồi quy,
+các vòng lặp khiến chúng tạo thành một chuỗi danh sách các mạng sao chép nhau.
+Bạn có thấy nó khác gì một mạng nơ-ron thuần không? Không khác gì phải không?
+Các nút của mạng vẫn nhận đầu vào và có đầu ra hệt như mạng nơ-ron thuần.</p>
+
+<p>Trong vài năm gần đây, việc ứng dụng RNN đã đưa ra được nhiều kết quả không thể tin nổi
+trong nhiều lĩnh vực: nhận dạng giọng nói, mô hình hóa ngôn ngữ, dịch máy, mô tả ảnh,&hellip;
+Danh sách vẫn còn đang được mở rộng tiếp.
+Anh Andrej Karpathy đã đề cập tới một số kêt quả mà RNN mang lại tại
+<a href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank">bài viết này</a>, nên tôi sẽ không bàn luận thêm nữa.
+Nhưng tôi vẫn muốn thốt lên rằng chúng thật là quá tuyệt vời.</p>
+
+<p>Đằng sau sự thành côn này chính là sự đóng góp của
+<a href="https://en.wikipedia.org/wiki/Long_short-term_memory" target="_blank">LSTM</a>.
+LSTM là một dạng đặc biệt của mạng nơ-ron hồi quy,
+với nhiều bài toán thì nó tốt hơn mạng hồi quy thuần.
+Hầu hết các kết quả thú vị thu được từ mạng RNN là được sử dụng với LSTM.
+Trong bài viết này, ta sẽ cùng khám phá xem mạng LSTM là cái gì nhé.</p>
+
+<h1 id="2-vấn-đề-phụ-thuộc-xa">2. Vấn đề phụ thuộc xa</h1>
+
+<p>Một điểm nổi bật của RNN chính là ý tưởng kết nối các thông tin phía trước để dự đoán cho hiện tại.
+Việc này tương tự như ta sử dụng các cảnh trước của bộ phim để hiểu được cảnh hiện thời.
+Nếu mà RNN có thể làm được việc đó thì chúng sẽ cực kì hữu dụng,
+tuy nhiên liệu chúng có thể làm được không? Câu trả lời là <em>còn tùy</em>.</p>
+
+<p>Đôi lúc ta chỉ cần xem lại thông tin vừa có thôi là đủ để biết được tình huống hiện tại.
+Ví dụ, ta có câu: &ldquo;<em>các đám may trên bầu trời</em>&rdquo; thì ta chỉ cần đọc tới &ldquo;<em>các đám may trên bầu</em>&rdquo; là đủ biết được chữ tiếp theo là &ldquo;<em>trời</em>&rdquo; rồi.
+Trong tình huống này, khoảng cách tới thông tin có được cần để dự đoán là nhỏ,
+nên RNN hoàn toàn có thể học được.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-shorttermdepdencies.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-shorttermdepdencies.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<p>Nhưng trong nhiều tình huống ta buộc phải sử dụng nhiều ngữ cảnh hơn để suy luận.
+Ví dụ, dự đoán chữ cuối cùng trong đoạn: &ldquo;<em>I grew up in France… I speak fluent French.</em>&rdquo;.
+Rõ ràng là các thông tin gần (&rdquo;<em>I speak fluent</em>&rdquo;) chỉ có phép ta biết được đằng sau nó
+sẽ là tên của một ngôn ngữ nào đó, còn không thể nào biết được đó là tiếng gì.
+Muốn biết là tiếng gì, thì ta cần phải có thêm ngữ cảnh &ldquo;<em>I grew up in France</em>&rdquo; nữa
+mới có thể suy luận được. Rõ ràng là khoảng cách thông tin lúc này có thể đã khá xa rồi.</p>
+
+<p>Thật không may là với khoảng cách càng lớn dần thì RNN bắt đầu không thể nhớ và học được nữa.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-longtermdependencies.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-longtermdependencies.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<p>Về mặt lý thuyết, rõ ràng là RNN có khả năng xử lý các phụ thuộc xa (long-term dependencies).
+Chúng ta có thể xem xét và cài đặt các tham số sao cho khéo là có thể giải quyết được vấn đề này.
+Tuy nhiên, đáng tiếc trong thực tế RNN có vẻ không thể học được các tham số đó.
+Vấn đề này đã được khám phá khá sâu bởi <a href="http://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf">Hochreiter (1991) [tiếng Đức]</a> và <a href="http://www-dsi.ing.unifi.it/~paolo/ps/tnn-94-gradient.pdf">Bengio, et al. (1994)</a>,
+trong các bài báo của mình, họ đã tìm được nhưng lý do căn bản để giải thích tại sao RNN không thể học được.</p>
+
+<p>Tuy nhiên, rất cám ơn là LSTM không vấp phải vấn đề đó!</p>
+
+<h1 id="3-mạng-lstm">3. Mạng LSTM</h1>
+
+<p>Mạng bộ nhớ dài-ngắn (Long Short Term Memory networks), thường được gọi là LSTM -
+là một dạng đặc biệt của RNN, nó có khả năng học được các phụ thuộc xa.
+LSTM được giới thiệu bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf">Hochreiter &amp; Schmidhuber (1997)</a>,
+và sau đó đã được cải tiến và phổ biến bởi rất nhiều người trong ngành.
+Chúng hoạt động cực kì hiệu quả trên nhiều bài toán khác nhau nên dần đã trở nên phổ biến như hiện nay.</p>
+
+<p>LSTM được thiết kế để tránh được vấn đề phụ thuộc xa (long-term dependency).
+Việc nhớ thông tin trong suốt thời gian dài là đặc tính mặc định của chúng,
+chứ ta không cần phải huấn luyện nó để có thể nhớ được.
+Tức là ngay nội tại của nó đã có thể ghi nhớ được mà không cần bất kì can thiệp nào.</p>
+
+<p>Mọi mạng hồi quy đều có dạng là một chuỗi các mô-đun lặp đi lặp lại của mạng nơ-ron.
+Với mạng RNN chuẩn, các mô-dun này có cấu trúc rất đơn giản,
+thường là một tầng $ tanh $.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-SimpleRNN.png" title="The repeating module in a standard RNN contains a single layer." data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-SimpleRNN.png"  alt="The repeating module in a standard RNN contains a single layer.">
+  
+    </a>
+  
+   
+    <span class="caption">The repeating module in a standard RNN contains a single layer.</span>
+  
+</div>
+
+
+<p>LSTM cũng có kiến trúc dạng cuỗi như vậy, nhưng các mô-đun trong nó có cấu trúc khác với mạng RNN chuẩn.
+Thay vì chỉ có một tầng mạng nơ-ron, chúng có tới 4 tầng tương tác với nhau một cách rất đặc biệt.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" title="The repeating module in an LSTM contains four interacting layers." data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png"  alt="The repeating module in an LSTM contains four interacting layers.">
+  
+    </a>
+  
+   
+    <span class="caption">The repeating module in an LSTM contains four interacting layers.</span>
+  
+</div>
+
+
+<p>Giờ thì đừng hoang mang về chi tiết bên trong chúng ngay,
+chúng ta sẽ khám phá chúng chi tiết chúng ở bước sau.
+Điều bạn cần làm bây giờ là làm hãy làm quen với các kí hiệu mà ta sẽ sử dụng ở dưới đây:</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM2-notation.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM2-notation.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<p>Ở sơ đồ trên, mỗi một đường mang một véc-tơ từ đầu ra của một nút tới đầu vào của một nút khác.
+Các hình trong màu hồng biểu diễn các phép toán như phép cộng véc-tơ chẳng hạn,
+còn các ô màu vàng được sử dụng để học trong các từng mạng nơ-ron.
+Các đường hợp nhau kí hiệu việc kết hợp,
+còn các đường rẽ nhánh ám chỉ nội dung của nó được sao chép và chuyển tới các nơi khác nhau.</p>
+
+<h2 id="3-1-ý-tưởng-cốt-lõi-của-lstm">3.1. Ý tưởng cốt lõi của LSTM</h2>
+
+<p>Chìa khóa của LSTM là trạng thái tế bào (cell state) -
+chính đường chạy thông ngang phía trên của sơ đồ hình vẽ.</p>
+
+<p>Trạng thái tế bào là một dạng giống như băng truyền.
+Nó chạy xuyên suốt tất cả các mắt xích (các nút mạng) và chỉ tương tác tuyến tính đôi chút.
+Vì vậy mà các thông tin có thể dễ dàng truyền đi thông suốt mà không sợ bị thay đổi.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-C-line.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-C-line.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<p>LSTM có khả năng bỏ đi hoặc thêm vào các thông tin cần thiết cho trạng thái tế báo,
+chúng được điều chỉnh cẩn thận bởi các nhóm được gọi là cổng (gate).</p>
+
+<p>Các cổng là nơi sàng lọc thông tin đi qua nó,
+chúng được kết hợp bởi một tầng mạng sigmoid và một phép nhân.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-gate.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-gate.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<p>Tầng sigmoid sẽ cho đầu ra là một số trong khoản $ [0, 1] $,
+mô tả có bao nhiêu thông tin có thể được thông qua.
+Khi đầu ra là $ 0 $ thì có nghĩa là không cho thông tin nào qua cả,
+còn khi là $ 1 $ thì có nghĩa là cho tất cả các thông tin đi qua nó.</p>
+
+<p>Một LSTM gồm có 3 cổng như vậy để duy trì và điều hành trạng thái của tế bào.</p>
+
+<h2 id="3-2-bên-trong-lstm">3.2. Bên trong LSTM</h2>
+
+<p>Bước đầu tiên của LSTM là quyết định xem thông tin nào cần bỏ đi từ trạng thái tế bào.
+Quyết định này được đưa ra bởi tầng sigmoid - gọi là &ldquo;tầng cổng quên&rdquo; (forget gate layer).
+Nó sẽ lấy đầu vào là $ h_{t-1} $ và $ x_t $ rồi đưa ra kết quả là một số trong khoảng
+$ [0, 1] $ cho mỗi số trong trạng thái tế bào $ C_{t-1} $.
+Đẩu ra là $ 1 $ thể hiện rằng nó giữ toàn bộ thông tin lại,
+còn $ 0 $ chỉ rằng taonf bộ thông tin sẽ bị bỏ đi.</p>
+
+<p>Quay trở lại với ví dụ mô hình ngôn ngữ dự đoán từ tiếp theo dựa trên tất cả các từ trước đó,
+với những bài toán như vậy, thì trạng thái tế bào có thể sẽ mang
+thông tin về giới của một nhân vật nào đó giúp ta sử dụng được đại từ nhân xưng chuẩn xác.
+Tuy nhiên, khi đề cập tới một người khác thì ta sẽ không muốn nhớ tới giới tính của nhân vật nữa,
+vì nó không còn tác dụng gì với chủ thế mới này.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-f.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-f.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<p>Bước tiếp theo là quyết định xem thông tin mới nào ta sẽ lưu vào trạng thái tế bào.
+Việc này gồm 2 phần.
+Đầu tiên là sử dụng một tầng sigmoid được gọi là &ldquo;tầng cổng vào&rdquo; (input gate layer)
+để quyết định giá trị nào ta sẽ cập nhập.
+Tiếp theo là một tầng $ tanh $ tạo ra một véc-tơ cho giá trị mới $ \tilde{C_t} $
+nhằm thêm vào cho trạng thái.
+Trong bước tiếp theo, ta sẽ kết hợp 2 giá trị đó lại để tạo ra một cập nhập cho trạng thái.</p>
+
+<p>Chẳng hạn với ví dụ mô hình ngôn ngữ của ta,
+ta sẽ muốn thêm giới tính của nhân vật mới này vào trạng thái tế bào
+và thay thế giới tính của nhân vật trước đó.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-i.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-i.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<p>Giờ là lúc cập nhập trạng thái tế bào cũ $ C{t-1} $ thành trạng thái mới $ C_t $.
+Ở các bước trước đó đã quyết định những việc cần làm, nên giờ ta chỉ cần thực hiện là xong.</p>
+
+<p>Ta sẽ nhân trạng thái cũ với $ f_t $ để bỏ đi những thông tin ta quyết định quên lúc trước.
+Sau đó cộng thêm $ i_t * \tilde{C_t} $.
+Trạng thái mơi thu được này phụ thuộc vào việc ta quyết định cập nhập mỗi giá trị trạng thái ra sao.</p>
+
+<p>Với bài toàn mô hình ngôn ngữ, chính là việc ta bỏ đi thông tin về giới tính của nhân vật cũ,
+và thêm thông tin về giới tính của nhân vật mới như ta đã quyết định ở các bước trước đó.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-C.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-C.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<p>Cuối cùng, ta cần quyết định xem ta muốn đầu ra là gì.
+Giá trị đầu ra sẽ dựa vào trạng thái tế bào, nhưng sẽ được tiếp tục sàng lọc.
+Đầu tiên, ta chạy một tầng sigmoid để quyết định phần nào của trạng thái tế bào ta muốn xuất ra.
+Sau đó, ta đưa nó trạng thái tế bảo qua một hàm $ tanh $ để co giá trị nó về khoảng $ [-1, 1] $,
+và nhân nó với đầu ra của cổng sigmoid để được giá trị đầu ra ta mong muốn.</p>
+
+<p>Với ví dụ về mô hình ngôn ngữ, chỉ cần xem chủ thể mà ta có thể đưa ra thông tin về một trạng từ đi sau đó.
+Ví dụ, nếu đầu ra của chủ thể là số ít hoặc số nhiều thì ta có thể biết được dạng của trạng từ đi theo sau nó phải như thế nào.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-o.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-o.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<h1 id="4-các-biến-thể-của-bộ-nhớ-dài-hạn">4. Các biến thể của bộ nhớ dài hạn</h1>
+
+<p>Những thứ ta vừa mô tả ở trên là một LSTM khá bình thường.
+Nhưng không phải tất cả các LTSM đều giống như vậy.
+Thực tế, các bài báo về LTSM đều sử dụng một phiên bản hơi khác so với mô hình LTSM chuẩn.
+Sự khác nhau không lớn, nhưng chúng giúp giải quyết phần nào đó trong cấu trúc của LTSM.</p>
+
+<p>Một dạng LTSM phổ biến được giới thiệu bởi
+<a href="ftp://ftp.idsia.ch/pub/juergen/TimeCount-IJCNN2000.pdf" target="_blank">Gers &amp; Schmidhuber (2000)</a> được thêm các đường kết nối &ldquo;peephole connections&rdquo;,
+làm cho các tầng cổng nhận được giá trị đầu vào là trạng thái tế bào.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-peepholes.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-peepholes.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<p>Hình trên mô tả các đường được thêm vào mọi cổng,
+nhưng cũng có những bài báo chỉ thêm cho một vài cổng mà thôi.</p>
+
+<p>Một biến thể khác là nối 2 cổng loại trừ và đầu vào với nhau.
+Thay vì phân tách các quyết định thông tin loại trừ và thông tin mới thêm vào,
+ta sẽ quyết định chúng cùng với nhau luôn.
+Ta chỉ bỏ đi thông tin khi mà ta thay thế nó bằng thông tin mới đưa vào.
+Ta chỉ đưa thông tin mới vào khi ta bỏ thông tin cũ nào đó đi.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-tied.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-tied.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<p>Một biến thể khá thú vị khác của LSTM là Gated Recurrent Unit, hay GRU được giới thiệu bởi
+<a href="http://arxiv.org/pdf/1406.1078v3.pdf" target="_blank">Cho, et al. (2014)</a>.
+Nó kết hợp các cổng loại trừ và đầu vào thành một cổng &ldquo;cổng cập nhập&rdquo; (update gate).
+Nó cũng hợp trạng thái tế bào và trạng thái ẩn với nhau tạo ra một thay đổi khác.
+Kết quả là mô hình của ta sẽ đơn giản hơn mô hình LSTM chuẩn và ngày càng trở nên phổ biến.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<p>Trên đây chỉ là một vài biến thế được chú ý nhiều nhất thôi,
+thực tế có rất nhiều các biến thể khác nhau của LSTM như
+Depth Gated RNNs của <a href="http://arxiv.org/pdf/1508.03790v2.pdf" target="_blank">Yao, et al. (2015)</a>.
+Cũng có những biến thể mà chiến lực xử lý phụ thuộc xa hoàn toàn khác như
+Clockwork RNNs của <a href="http://arxiv.org/pdf/1402.3511v1.pdf" target="_blank">Koutnik, et al. (2014)</a>.</p>
+
+<p>Nếu bạn muốn tìm hiểu xem biến thể nào là tốt nhất và chúng khác nhau thế nào,
+thì có thể đọc bài so sánh khá hay này của
+<a href="http://arxiv.org/pdf/1503.04069.pdf" target="_blank">Greff, et al. (2015)</a>.
+Ngoài ra thì <a href="http://jmlr.org/proceedings/papers/v37/jozefowicz15.pdf" target="_blank">Jozefowicz, et al. (2015)</a>
+thậm chí còn thử hàng chục nghìn kiến trúc RNN khác nhau
+và tìm ra một vài mô hình hoạt động tốt hơn cả LSTM ở một số bài toán.</p>
+
+<h1 id="5-kết-luận">5. Kết luận</h1>
+
+<p>Như từ đầu tôi đã đề cập tới các kể quả khả quan mà người ta thu được với RNN.
+Đằng sau các thành quả đó là việc sử dụng LSTM.
+Chúng hoạt động thực sự tốt hơn nhiều cho hầu hết các bài toán!</p>
+
+<p>Viết ra một tập các công thức, khiến cho LSTM trở nên khá khó hiểu.
+Nhưng hi vọng là thông qua các bước phân tích trong bày này có thể giúp bạn hình dung được phần nào chiến lược của LSTM thế nào.</p>
+
+<p>LSTM là một bước lớn trong việc sử dụng RNN.
+Ý tưởng của nó giúp cho tất cả các bước của RNN có thể truy vấn được thông tin
+từ một tập thông tin lớn hơn.
+Ví dụ, nếu bạn sử dụng RNN để tạo mô tả cho một bức ảnh,
+nó có thể lấy một phần ảnh để dự đoán mô tả từ tất cả các từ đầu vào.
+Bằng chứng là <a href="http://arxiv.org/pdf/1502.03044v2.pdf" target="_blank">Xu, et al. (2015)</a> đã thực hiện được chính xác việc này.
+Hiện nay cũng đã có nhiều kết qua thực sự rất thú vị được chú ý
+và dường như có nhiều kết quả hơn chúng ta vẫn biết.</p>
+
+<p>Sự chú ý không chỉ gói gọn trong nhóm nghiên cứ RNN.
+Ví dụ <a href="http://arxiv.org/pdf/1507.01526v1.pdf" target="_blank">Grid LSTMs của Kalchbrenner, et al. (2015)</a> có vẻ như cũng rất tiềm năng.
+Cũng có người sử dụng RNN trong các mô hình sinh như
+<a href="http://arxiv.org/pdf/1502.04623.pdf" target="_blank">Gregor, et al. (2015)</a>, <a href="http://arxiv.org/pdf/1506.02216v3.pdf">Chung, et al. (2015)</a>,
+hay <a href="http://arxiv.org/pdf/1411.7610v3.pdf" target="_blank">Bayer &amp; Osendorfer (2015)</a> cũng rất thú vị.
+Mấy năm gần đây là quãng thời gian rất sôi nổi của mạng nơ-ron hồi quy,
+vả chúng còn được kì vọng nhiều hơn nữa trong tương lai.</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">THẺ ĐÁNH DẤU</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://dominhhai.github.io/vi/tags/rnn/">RNN</a>
+
+  <a class="tag tag--primary tag--small" href="https://dominhhai.github.io/vi/tags/lstm/">LSTM</a>
+
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                <i class="fa fa-angle-left"></i>
+                <span class="hide-xs hide-sm text-small icon-ml">Tiếp</span>
+              </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/10/what-is-rnn/" data-tooltip="[RNN] RNN là gì?">
+              
+                <span class="hide-xs hide-sm text-small icon-mr">Trước</span>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2017/10/what-is-lstm/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2017/10/what-is-lstm/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2017/10/what-is-lstm/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <div id="helpinfo">
+    <div id="author">
+      <label id="home">Hai's Blog</label>
+      <div class="language">
+        <label for="language">Other Languages:</label>
+        <select id="language">
+          
+          
+            <option title="Tiếng Việt" value="vi" selected>
+              Tiếng Việt (vi)
+            </option>
+          
+            <option title="English" value="en-us" >
+              English (en-us)
+            </option>
+          
+            <option title="日本語" value="ja" >
+              日本語 (ja)
+            </option>
+          
+        </select>
+      </div>
+    </div>
+    <div id="topic">
+      <label>Chủ đề</label>
+      <ul>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh">Lập Trình</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y">Học Máy</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/to%C3%A1n">Toán</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/x%C3%A1c-su%E1%BA%A5t">Xác Suất</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/s%C3%A1ch">Sách</a>
+        </li>
+        
+      </ul>
+    </div>
+    <div id="contact">
+      <label>Liên hệ</label>
+      <ul>
+        <li>
+          <a href="https://github.com/dominhhai/dominhhai.github.io/issues/new" target="_blank">
+            <i class="fa fa-lg fa-inbox"></i> Gửi tin nhắn
+          </a>
+        </li>
+        <li id="follow">
+          
+            <a href="https://github.com/dominhhai" target="_blank">
+              <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+            </a>
+          
+            <a href="https://twitter.com/minhhai3b" target="_blank">
+              <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+            </a>
+          
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="contentinfo">
+    <span class="copyrights">
+      &copy; 2017 <a href="https://github.com/dominhhai">Do Minh Hai</a>. All Rights Reserved
+    </span>
+  </div>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                <i class="fa fa-angle-left"></i>
+                <span class="hide-xs hide-sm text-small icon-ml">Tiếp</span>
+              </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/10/what-is-rnn/" data-tooltip="[RNN] RNN là gì?">
+              
+                <span class="hide-xs hide-sm text-small icon-mr">Trước</span>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2017/10/what-is-lstm/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2017/10/what-is-lstm/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2017/10/what-is-lstm/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F10%2Fwhat-is-lstm%2F">
+          <i class="fa fa-facebook-official"></i><span>Chia sẻ với Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F10%2Fwhat-is-lstm%2F">
+          <i class="fa fa-twitter"></i><span>Chia sẻ với Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F10%2Fwhat-is-lstm%2F">
+          <i class="fa fa-google-plus"></i><span>Chia sẻ với Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện" />
+    
+    <h4 id="about-card-name">Do Minh Hai</h4>
+    
+      <div id="about-card-bio">Just a developer<br>Enjoy life as a journey</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Freelancer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Japan
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Tìm kiếm" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">không tìm thấy kết quả</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/what-is-lstm/">
+                <h3 class="media-heading">[RNN] LSTM là gì?</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">colah&rsquo;s blog</a>.</p>
+</blockquote>
+
+<p>LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
+Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
+<a href="https://github.com/colah/" target="_blank">Christopher Olah</a>.
+Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/what-is-rnn/">
+                <h3 class="media-heading">[RNN] RNN là gì?</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank">blog WILDML</a>.</p>
+</blockquote>
+
+<p>Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/gnu-make-windows/">
+                <h3 class="media-heading">[Make] Sử dụng trên Windows</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Makefile là một công cụ giúp ta có thể dễ dàng thực thi các các khối lệnh mà không cần nhờ tới ngôn ngữ lập trình. Mặc dù Make được sử dụng rất rộng rãi trên Unix, Linux hay MacOS, thì trên Windows chắc vẫn còn hiếm hoi. Trên Windows, ta thường file .bat để thực thi các khối lệnh, tuy nhiên các file này chỉ thực thi được trên môi trường Windows.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/sql-test-data/">
+                <h3 class="media-heading">[SQL] Tạo lượng lớn dữ liệu test</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Ta thường xuyên cần một lượng vừa đủ các dữ liệu để test và dev trong quá trình phát triển hệ thống. Để làm việc này ta có thể viết code để migrate và seed dữ liệu. Tuy nhiên ta cũng có thể sử dụng chính lệnh SQL để tạo dữ liệu cực kì đơn giản.
+Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt là:</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/gatsby-vi-dai/">
+                <h3 class="media-heading">Gatsby vĩ đại</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Cuốn tiểu thuyết đầu tiên mình đọc 🙂
+1. Bối cảnh đọc Bỗng 1 ngày nhận ra tâm hồn khô cứng của bản thân. Thế rồi bỗng dưng muốn cho chút thay đổi nào đó. Bỗng dưng muốn trách xa những trang sách kĩ thuật với những công thức, dòng code nhảy múa. Muốn trốn vào đâu đó để cảm nhận lại cuộc sống.
+Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết 🙂 Cùng lúc ấy 1 cô gái gửi tặng cho 1 cuốn.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/toi-tu-hoc-nguyen-duy-can/">
+                <h3 class="media-heading">Tôi tự học - Thu Giang Nguyễn Duy Cần</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Cuốn sách tuy mỏng nhưng rất đáng để đọc, để suy ngẫm về cách tác giả tự học. Nội dung bên trong thiên về hướng tự học thông qua đọc sách nhiều hơn. Trái với tưởng tượng ban đầu của mình, cuốn sách này đề cập khá rộng các vấn đề để có nền tảng văn hoá tốt, bao gồm từ định nghĩ thế nào là người có học, tới việc nên đọc sách gì, đọc thế nào, đánh giá các sự vật, hiện tượng ra sao, rồi cả tâm thế học, thời giờ học.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/git-submodule-multi-repo/">
+                <h3 class="media-heading">[Git] submodule - cùng lúc sài nhiều repo</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Đôi lúc ta cần phải sử dụng các repo khác như là một module của dự án hiện tại, nhưng ta lại muốn quản lý nó riêng biệt giống như việc sử dụng các trình quản lý gói như npm chẳng hạn. Lúc này ta có thể sài git submodule để quản lý các module từ các repo khác. Ví dụ, blog của mình được xây dựng với theme tranquilpeak và mình cần đưa theme này vào thư mục themes của dự án.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/">
+                <h3 class="media-heading">[Git] worktree - cùng lúc sài nhiều branch</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">git worktree cho phép ta có thể sử dụng cùng lúc nhiều nhánh của repo trong cùng một thư mục dự án. Ví dụ, blog của mình được xây dựng với Hugo, trong thư mục blog của mình có thư mục public là thư mục chứa các file được dịch ra từ mã nguồn blog. Còn ở phía repo trên Github, mình có 2 branch là dev lưu mã nguồn và master lưu các file chạy.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/08/a-mind-for-numbers/">
+                <h3 class="media-heading">A Mind For Numbers</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Dưới đây là tổng hợp một vài ý chính từ khóa học &lsquo;Học cách học&rsquo; - trích dẫn từ cuốn sách A Mind for Numbers: How to Excel in Math and Science (Even if You Flunked Algebra), của tác giả Barbara Oakley, xuất bản vào tháng 6, 2014.
+10 cách học hiệu quả 1. Hồi tưởng Sau khi đọc xong một trang, hãy rời mắt ra chỗ khác và hồi tưởng lại các ý chính.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/02/free-ssl-with-let-encrypt/">
+                <h3 class="media-heading">[Web] Cài đặt SSL miễn phí với Let&#39;s Encrypt</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Bài viết này hướng dẫn cài đặt Let&rsquo;s Encrypt - một dịch vụ ngon-bổ-miễn phí cho việc HTTPS hóa máy chủ. Ở đây, mình sử dụng máy chủ CentOS 7 và Nginx để thực hiện, nhưng các bạn hoàn toàn có thể làm tương tự với các môi trường khác.
+Để cài đặt được Let's Encrypt, ta cần có môi trường Python v2.7.x trở lên. Nên nếu máy của bạn chưa có thì cài đặt hoặc cập nhập bản mới đi nhé.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="không tìm thấy kết quả"
+         data-message-one="tìm thấy 1 kết quả "
+         data-message-other="tìm thấy {n} kết quả">
+         30 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://dominhhai.github.io/images/cover-v1.2.0.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+
+
+<script src="https://dominhhai.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+  
+    <script crossorigin="anonymous" integrity="sha384-GR8SEkOO1rBN/jnOcQDFcFmwXAevSLx7/Io9Ps1rkxWp983ZIuUGfxivlF/5f5eJ" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.js"></script>
+  
+
+  
+    <script crossorigin="anonymous" integrity="sha384-cXpztMJlr2xFXyDSIfRWYSMVCXZ9HeGXvzyKTYrn03rsMAlOtIQVzjty5ULbaP8L" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/contrib/auto-render.min.js"></script>
+  
+
+  
+    <script src="https://dominhhai.github.io/js/main.js"></script>
+  
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/dominhhai.github.io\/vi\/2017\/10\/what-is-lstm\/';
+          
+            this.page.identifier = '\/vi\/2017\/10\/what-is-lstm\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+
