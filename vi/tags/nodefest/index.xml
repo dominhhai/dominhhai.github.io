@@ -17,8 +17,7 @@
       <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>https://dominhhai.github.io/vi/2016/11/nodefest-tokyo-2016/</guid>
-      <description>http://nodefest.jp/2016/
- day 1   Paypal/Braintree Workshop Starting TDD with Node.js  Tasting ES2017 Node.jsに縁のない職場でnode.jsを使い始める戦術  Electronで製造ラインアプリ開発  Node.js × Babel で AWS Lambda アプリケーションを開発する  Node.js with WebRTC DataChannel    day 2   Vue.js 2.0 Server Side Rendering Evolution of Electron Evolution of Electron（日本語） PostCSS: Build your own CSS processor Introducing Now and Next.js サイボウズの開発を支えるKAIZEN文化  From Library to Tool - power-assert as a General Purpose Assertion Enhancement Tool How Do We Get Along With Static Types WebAssemblyに足りないもの The Journey to ES Modules JavaScript による並列処理：共有メモリとロック React with Reduxによる大規模商用サービスの開発 Demystifying (JavaScript) Engines Famicom programming with JavaScript Browser is the new Server Building Interactive npm Command Line Applications CHOO BOARDING THE TINY FRAMEWORK Putting TV on the Internet  </description>
+      <description>Mình vừa tham gia NodeFest Tokyo 2 ngày ở Shibuya-Tokyo. 2 ngày đó gặp lại được một số người quen, cũng như gặp được thêm nhiều cao thủ trong giới JS - Node.js mà trước đây mình mới chỉ biết qua Github. Thực sự là rất thú vị và thu được nhiều bài học, mình sẽ viết chi tiết về một số bài đáng chú ý sau, còn hôm nay mình sẽ tổng kết các slide lại ở đây để tiện theo dõi.</description>
     </item>
     
   </channel>

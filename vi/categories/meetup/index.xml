@@ -17,8 +17,7 @@
       <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>https://dominhhai.github.io/vi/2016/11/nodefest-tokyo-2016/</guid>
-      <description>http://nodefest.jp/2016/
- day 1   Paypal/Braintree Workshop Starting TDD with Node.js  Tasting ES2017 Node.jsに縁のない職場でnode.jsを使い始める戦術  Electronで製造ラインアプリ開発  Node.js × Babel で AWS Lambda アプリケーションを開発する  Node.js with WebRTC DataChannel    day 2   Vue.js 2.0 Server Side Rendering Evolution of Electron Evolution of Electron（日本語） PostCSS: Build your own CSS processor Introducing Now and Next.js サイボウズの開発を支えるKAIZEN文化  From Library to Tool - power-assert as a General Purpose Assertion Enhancement Tool How Do We Get Along With Static Types WebAssemblyに足りないもの The Journey to ES Modules JavaScript による並列処理：共有メモリとロック React with Reduxによる大規模商用サービスの開発 Demystifying (JavaScript) Engines Famicom programming with JavaScript Browser is the new Server Building Interactive npm Command Line Applications CHOO BOARDING THE TINY FRAMEWORK Putting TV on the Internet  </description>
+      <description>Mình vừa tham gia NodeFest Tokyo 2 ngày ở Shibuya-Tokyo. 2 ngày đó gặp lại được một số người quen, cũng như gặp được thêm nhiều cao thủ trong giới JS - Node.js mà trước đây mình mới chỉ biết qua Github. Thực sự là rất thú vị và thu được nhiều bài học, mình sẽ viết chi tiết về một số bài đáng chú ý sau, còn hôm nay mình sẽ tổng kết các slide lại ở đây để tiện theo dõi.</description>
     </item>
     
     <item>
@@ -28,7 +27,7 @@
       
       <guid>https://dominhhai.github.io/vi/2015/06/nodeschool-hanoi-2/</guid>
       <description>Ngày 20/6/2015, buổi workshop lần 2 của NodeSchool Hanoi đã diễn ra tốt đẹp với sự tham gia của gần 30 bạn tại công ty CodeLovers Vietnam.
-Về lịch trình Thời gian Thứ 7, ngày 20/6/2015, 13:30 ~ 17:00
+   Về lịch trình Thời gian Thứ 7, ngày 20/6/2015, 13:30 ~ 17:00
 Địa chỉ Cty Codelovers Vietnam - Phòng 404, Toà nhà Cty CP May Nông Nghiệp, Số 1&amp;frasl;120 Truờng Chinh - Ðống Ða
 Hướng dẫn viên dự kiến  @spidercpsf @netcell @vietduc1441 @NgaNguyenDuy @dac2205  Nội dung Lần 2 này vẫn thực hiện theo hướng hướng 1 - tự học (xem thêm các hướng thực hiện đề xuất).</description>
     </item>
@@ -40,7 +39,7 @@ Hướng dẫn viên dự kiến  @spidercpsf @netcell @vietduc1441 @NgaNguyenDu
       
       <guid>https://dominhhai.github.io/vi/2015/05/nodeschool-hanoi-1/</guid>
       <description>Ngày 9/5/2015, buổi workshop đầu tiên của NodeSchool Hanoi đã diễn ra tốt đẹp với sự tài trợ và ủng hộ nhiệt tình của công ty lapnghiep của anh @Logle. Tại buổi đầu tiên có 10 bạn tham gia, nhưng không vì thế mà không khí của buổi gặp mặt đầu tiên kém sôi động.
-Về lịch trình Thời gian Thứ 7, ngày 9/5/2015, 13:30 ~ 16:30</description>
+   Về lịch trình Thời gian Thứ 7, ngày 9/5/2015, 13:30 ~ 16:30</description>
     </item>
     
   </channel>
