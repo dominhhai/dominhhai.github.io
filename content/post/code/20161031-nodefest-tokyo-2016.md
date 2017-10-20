@@ -16,9 +16,13 @@ thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/community/nodefest-t
 metaAlignment: center
 ---
 
-http://nodefest.jp/2016/
+Mình vừa tham gia [NodeFest Tokyo](http://nodefest.jp/2016/) 2 ngày ở Shibuya-Tokyo.
+2 ngày đó gặp lại được một số người quen,
+cũng như gặp được thêm nhiều cao thủ trong giới JS - Node.js mà trước đây mình mới chỉ biết qua Github.
+Thực sự là rất thú vị và thu được nhiều bài học, mình sẽ viết chi tiết về một số bài đáng chú ý sau,
+còn hôm nay mình sẽ tổng kết các slide lại ở đây để tiện theo dõi.
 
-1. day 1
+# 1. Ngày thứ nhất
 
 * [Paypal/Braintree Workshop](http://www.slideshare.net/junichiokamura/tokyo-nodefestival-workshop20161112)
 * [Starting TDD with Node.js ](https://speakerdeck.com/akito0107/starting-tdd-with-node-dot-js)
@@ -28,7 +32,7 @@ http://nodefest.jp/2016/
 * [Node.js × Babel で AWS Lambda アプリケーションを開発する ](http://www.slideshare.net/hiroyukikusu/node2016nodebabellambda-68676928)
 * [Node.js with WebRTC DataChannel ](http://www.slideshare.net/mganeko/nodejs-with-webrtc-datachannel)
 
-2. [day 2](https://nodejs.connpass.com/event/42182/presentation/)
+# 2. Ngày thứ 2
 
 * [Vue.js 2.0 Server Side Rendering](https://speakerdeck.com/kazupon/vue-dot-js-2-dot-0-server-side-rendering)
 * [Evolution of Electron](https://speakerdeck.com/zcbenz/evolution-of-electron-nodefest-2016)
@@ -48,3 +52,5 @@ http://nodefest.jp/2016/
 * [Building Interactive npm Command Line Applications](https://lrlna.github.io/nodefest-2016/#1)
 * [CHOO BOARDING THE TINY FRAMEWORK](http://tacit-fly.surge.sh/)
 * [Putting TV on the Internet](https://mafintosh.github.io/slides/nodefest.jp-2016/#0)
+
+Danh sách tham khảo ngày 2 có thể xem [tại đây](https://nodejs.connpass.com/event/42182/presentation/).
