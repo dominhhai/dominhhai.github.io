@@ -6,10 +6,28 @@
     <description>Recent content on Hai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Fri, 20 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dominhhai.github.io/vi/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[RNN] Cài đặt RNN với Python và Theano</title>
+      <link>https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/</link>
+      <pubDate>Sat, 21 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Bài giới thiệu RNN thứ 2 này được dịch lại từ trang &lt;a href=&#34;http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/&#34; target=&#34;_blank&#34;&gt;blog WILDML&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
+và tối ưu với &lt;a href=&#34;http://deeplearning.net/software/theano/&#34; target=&#34;_blank&#34;&gt;Theano&lt;/a&gt; - một thư viện tính toán trên GPU.
+Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
+còn toàn bộ mã nguồn bạn có thể xem trên &lt;a href=&#34;https://github.com/dennybritz/rnn-tutorial-rnnlm&#34; target=&#34;_blank&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[RNN] LSTM là gì?</title>

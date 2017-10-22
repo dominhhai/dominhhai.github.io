@@ -418,7 +418,7 @@ Anh Andrej Karpathy đã đề cập tới một số kêt quả mà RNN mang l�
 <a href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank">bài viết này</a>, nên tôi sẽ không bàn luận thêm nữa.
 Nhưng tôi vẫn muốn thốt lên rằng chúng thật là quá tuyệt vời.</p>
 
-<p>Đằng sau sự thành côn này chính là sự đóng góp của
+<p>Đằng sau sự thành công này chính là sự đóng góp của
 <a href="https://en.wikipedia.org/wiki/Long_short-term_memory" target="_blank">LSTM</a>.
 LSTM là một dạng đặc biệt của mạng nơ-ron hồi quy,
 với nhiều bài toán thì nó tốt hơn mạng hồi quy thuần.
@@ -551,7 +551,7 @@ thường là một tầng $ tanh $.</p>
 </div>
 
 
-<p>LSTM cũng có kiến trúc dạng cuỗi như vậy, nhưng các mô-đun trong nó có cấu trúc khác với mạng RNN chuẩn.
+<p>LSTM cũng có kiến trúc dạng chuỗi như vậy, nhưng các mô-đun trong nó có cấu trúc khác với mạng RNN chuẩn.
 Thay vì chỉ có một tầng mạng nơ-ron, chúng có tới 4 tầng tương tác với nhau một cách rất đặc biệt.</p>
 
 
@@ -703,7 +703,7 @@ còn $ 0 $ chỉ rằng taonf bộ thông tin sẽ bị bỏ đi.</p>
 
 <p>Quay trở lại với ví dụ mô hình ngôn ngữ dự đoán từ tiếp theo dựa trên tất cả các từ trước đó,
 với những bài toán như vậy, thì trạng thái tế bào có thể sẽ mang
-thông tin về giới của một nhân vật nào đó giúp ta sử dụng được đại từ nhân xưng chuẩn xác.
+thông tin về giới tính của một nhân vật nào đó giúp ta sử dụng được đại từ nhân xưng chuẩn xác.
 Tuy nhiên, khi đề cập tới một người khác thì ta sẽ không muốn nhớ tới giới tính của nhân vật nữa,
 vì nó không còn tác dụng gì với chủ thế mới này.</p>
 
@@ -1010,7 +1010,7 @@ vả chúng còn được kì vọng nhiều hơn nữa trong tương lai.</p>
         <ul class="post-actions post-action-nav">
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/" data-tooltip="[RNN] Cài đặt RNN với Python và Theano">
               
                 <i class="fa fa-angle-left"></i>
                 <span class="hide-xs hide-sm text-small icon-ml">Tiếp</span>
@@ -1167,7 +1167,7 @@ vả chúng còn được kì vọng nhiều hơn nữa trong tương lai.</p>
         <ul class="post-actions post-action-nav">
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/" data-tooltip="[RNN] Cài đặt RNN với Python và Theano">
               
                 <i class="fa fa-angle-left"></i>
                 <span class="hide-xs hide-sm text-small icon-ml">Tiếp</span>
@@ -1303,6 +1303,32 @@ vả chúng còn được kì vọng nhiều hơn nữa trong tương lai.</p>
       <div class="no-result text-color-light text-center">không tìm thấy kết quả</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/">
+                <h3 class="media-heading">[RNN] Cài đặt RNN với Python và Theano</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank">blog WILDML</a>.</p>
+</blockquote>
+
+<p>Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
+và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank">Theano</a> - một thư viện tính toán trên GPU.
+Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
+còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank">Github</a>.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -1476,24 +1502,6 @@ Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết �
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/02/free-ssl-with-let-encrypt/">
-                <h3 class="media-heading">[Web] Cài đặt SSL miễn phí với Let&#39;s Encrypt</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Feb 2, 2017
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">Bài viết này hướng dẫn cài đặt Let&rsquo;s Encrypt - một dịch vụ ngon-bổ-miễn phí cho việc HTTPS hóa máy chủ. Ở đây, mình sử dụng máy chủ CentOS 7 và Nginx để thực hiện, nhưng các bạn hoàn toàn có thể làm tương tự với các môi trường khác.
-Để cài đặt được Let's Encrypt, ta cần có môi trường Python v2.7.x trở lên. Nên nếu máy của bạn chưa có thì cài đặt hoặc cập nhập bản mới đi nhé.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -1501,7 +1509,7 @@ Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết �
          data-message-zero="không tìm thấy kết quả"
          data-message-one="tìm thấy 1 kết quả "
          data-message-other="tìm thấy {n} kết quả">
-         30 posts found
+         31 posts found
       </p>
     </div>
   </div>
