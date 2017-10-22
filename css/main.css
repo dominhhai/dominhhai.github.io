@@ -72,3 +72,6 @@ body {
 /*#TableOfContents ul {
   list-style-type: none;
 }*/
+.post .post-content {
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+}
