@@ -22,23 +22,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.1-BETA">
-    <title>[Atom] Tự động hoàn thiện lệnh</title>
+    <title>[RNN] Tìm hiểu về giải thuật BPTT và vấn đề mất mát đạo hàm</title>
     <meta name="author" content="Do Minh Hai">
-    <meta name="keywords" content="Editor, Atom, Markdown Preview, dominhhai, programming, computer science, machine learning, deep learning">
+    <meta name="keywords" content="Mạng RNN, Học Sâu, Deep Learning, dominhhai, programming, computer science, machine learning, deep learning">
 
     <link rel="icon" href="https://dominhhai.github.io/favicon/golden-buddha-512-79567.png">
     
 
     
-    <meta name="description" content="Các trình soạn thảo mã lệnh hầu hết có tính năng auto-complete (tự động hoàn thiện lệnh) khi gõ. Nhờ có tính năng này mà chúng ta có thể gõ mã nhanh hơn và không cần phải nhớ hết làu làu các API của ngôn ngữ, thư viện nào đó. Hầu hết các API có tên rất dễ liên tưởng tới tính năng của nó nên chỉ cần nhìn là biết ngay nó dùng để làm gì.">
-    <meta property="og:description" content="Các trình soạn thảo mã lệnh hầu hết có tính năng auto-complete (tự động hoàn thiện lệnh) khi gõ. Nhờ có tính năng này mà chúng ta có thể gõ mã nhanh hơn và không cần phải nhớ hết làu làu các API của ngôn ngữ, thư viện nào đó. Hầu hết các API có tên rất dễ liên tưởng tới tính năng của nó nên chỉ cần nhìn là biết ngay nó dùng để làm gì.">
+    <meta name="description" content="
+Bài giới thiệu RNN thứ 3 này được dịch lại từ trang blog WILDML.
+
+
+Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
+Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).
+
+">
+    <meta property="og:description" content="
+Bài giới thiệu RNN thứ 3 này được dịch lại từ trang blog WILDML.
+
+
+Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
+Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).
+
+">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="[Atom] Tự động hoàn thiện lệnh">
-    <meta property="og:url" content="/vi/2016/03/atom-auto-complele/">
+    <meta property="og:title" content="[RNN] Tìm hiểu về giải thuật BPTT và vấn đề mất mát đạo hàm">
+    <meta property="og:url" content="/vi/2017/10/understand-rnn-bptt/">
     <meta property="og:site_name" content="Hai&#39;s Blog">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Hai&#39;s Blog">
-    <meta name="twitter:description" content="Các trình soạn thảo mã lệnh hầu hết có tính năng auto-complete (tự động hoàn thiện lệnh) khi gõ. Nhờ có tính năng này mà chúng ta có thể gõ mã nhanh hơn và không cần phải nhớ hết làu làu các API của ngôn ngữ, thư viện nào đó. Hầu hết các API có tên rất dễ liên tưởng tới tính năng của nó nên chỉ cần nhìn là biết ngay nó dùng để làm gì.">
+    <meta name="twitter:description" content="
+Bài giới thiệu RNN thứ 3 này được dịch lại từ trang blog WILDML.
+
+
+Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
+Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).
+
+">
     
       <meta name="twitter:creator" content="@minhhai3b">
     
@@ -52,7 +73,7 @@
     
 
     
-      <meta property="og:image" content="//res.cloudinary.com/dominhhai/image/upload/editor/atom.png">
+      <meta property="og:image" content="//res.cloudinary.com/dominhhai/image/upload/dl/logo.png">
     
     
     
@@ -235,19 +256,19 @@ ga('send', 'pageview');
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      [Atom] Tự động hoàn thiện lệnh
+      [RNN] Tìm hiểu về giải thuật BPTT và vấn đề mất mát đạo hàm
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2016-03-27T00:00:00Z">
+      <time itemprop="datePublished" datetime="2017-10-22T00:00:00Z">
         
   
   
   
   
-    27 tháng 3, 2016
+    22 tháng 10, 2017
   
 
       </time>
@@ -257,9 +278,11 @@ ga('send', 'pageview');
   
     <span>trong</span>
     
-      <a class="category-link" href="https://dominhhai.github.io/vi/categories/l%e1%ba%adp-tr%c3%acnh">Lập Trình</a>, 
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/h%e1%bb%8dc-m%c3%a1y">Học Máy</a>, 
     
-      <a class="category-link" href="https://dominhhai.github.io/vi/categories/editor">Editor</a>
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/h%e1%bb%8dc-s%c3%a2u">Học Sâu</a>, 
+    
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/rnn">RNN</a>
     
   
 
@@ -270,63 +293,317 @@ ga('send', 'pageview');
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://raw.githubusercontent.com/dominhhai/blog/master/imgs/atom.gif" alt="atom.auto-complete" title="atom auto-complete' width=&quot;800&quot; height=&quot;600" /></p>
+              <blockquote>
+<p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/" target="_blank">blog WILDML</a>.</p>
+</blockquote>
 
-<p>Các trình soạn thảo mã lệnh hầu hết có tính năng auto-complete (tự động hoàn thiện lệnh) khi gõ. Nhờ có tính năng này mà chúng ta có thể gõ mã nhanh hơn và không cần phải nhớ hết làu làu các API của ngôn ngữ, thư viện nào đó. Hầu hết các API có tên rất dễ liên tưởng tới tính năng của nó nên chỉ cần nhìn là biết ngay nó dùng để làm gì. Thử tưởng tượng nếu không có tính năng này thì chúng ta sẽ ra sao.</p>
+<p>Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
+Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).</p>
+
+<p></p>
+
+<p>Vấn đề mất mát đạo hàm được khám phá bởi <a href="http://people.idsia.ch/~juergen/fundamentaldeeplearningproblem.html" target="_blank">Sepp Hochreiter năm 1991</a>
+và đã cuốn hút được sự quan tâm cho lần nữa trong thời gian gần đây khi mà ứng dụng của các kiến trúc sâu ngày một nhiều hơn.</p>
+
+<p>Đây là bài thứ 3 trong chuỗi bài giới thiệu về RNN:</p>
 
 <ul>
-<li>Một là cực kì pro vì nhớ được hết các API (lúc mới học code gì đó thì mình chọn cách này)</li>
-<li>Hai là bạn gõ code như con rùa vì vừa phải gõ vừa phải nhớ và vừa phải Google hay đọc References loạn lên.</li>
+<li>1. <a href="https://dominhhai.github.io/vi/2017/10/what-is-rnn/">Giới thiệu RNN</a></li>
+<li>2. <a href="https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/">Cài đặt RNN với Python và Theano</a></li>
+<li>3. Tìm hiểu về giải thuật BPTT và vấn đề mất mát đạo hàm (bài này)</li>
+<li>4. <a href="https://dominhhai.github.io/vi/2017/10/implement-gru-lstm/">Cài đặt GRU/LSTM</a></li>
 </ul>
 
-<p>Vậy nên khi làm sản phẩm hay biết nhất định về ngôn ngữ ta nên theo hướng sử dụng tính năng tự động hoàn thiện. Với Atom, tin vui là ta có sẵn gói <a href="https://atom.io/packages/autocomplete-plus">autocomplete-plus</a> được cài mặc định.</p>
+<p>Để có thể hiểu được toàn bộ bài viết này, bạn cần có kiến thức về giải tích và cơ bản về giải thuật lan truyền ngược (backpropagation).
+Nếu bạn chưa rõ nó thì có thể đọc tại các bài viết
+<a href="http://cs231n.github.io/optimization-2/" target="_blank">này</a>
+và <a href="http://colah.github.io/posts/2015-08-Backprop/" target="_blank">này</a>
+và cả <a href="http://neuralnetworksanddeeplearning.com/chap2.html" target="_blank">đây</a> nữa (thứ tự khó dần nhé).</p>
 
-<p><img src="https://cloud.githubusercontent.com/assets/744740/7656861/9fb8bcc4-faea-11e4-9814-9dca218ded93.png" alt="autocomplete+" /></p>
+<h1 id="table-of-contents">Mục lục</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#1-lan-truyền-ngược-liên-hồi-bptt">1. Lan truyền ngược liên hồi - BPTT</a></li>
+<li><a href="#2-vấn-đề-mất-mát-đạo-hàm">2. Vấn đề mất mát đạo hàm</a></li>
+</ul>
+</nav>
 
-<p>Gói này mặc định giúp ta tự động được hoàn thiện khá nhiều các lệnh cơ bản với JavaScript, HTML, CSS. Tuy nhiên điểm cool của nó là có thể hỗ trợ được rất nhiều các lệnh khác như của PHP, Ruby hay Java&hellip; bằng cách tích hợp các gói ngôn ngữ con qua <a href="https://github.com/atom/autocomplete-plus/wiki/Provider-API">API provider</a>. Để sử dụng được tính năng này ta chỉ việc gõ và nó sẽ tự động hiển thị ra các lệnh khả thi từ các kí tự ta nhập vào. Sau đó ta chọn bằng phím <code>↑↓</code> rồi gõ <code>Enter</code> hoặc <code>Tab</code> là xong như ví dụ bên dưới đây.</p>
+<h1 id="1-lan-truyền-ngược-liên-hồi-bptt">1. Lan truyền ngược liên hồi - BPTT</h1>
 
-<p><img src="https://raw.githubusercontent.com/dominhhai/blog/master/imgs/acp.gif" alt="autocomplete-plus" title="autocomplete-plus" /></p>
+<p>Nhớ lại chút các công thức cơ bản của RNN. Lưu ý rằng các kí hiệu ở đây có thay đổi 1 chút từ $ o $ thành $ \hat{y} $.
+Việc thay đổi này nhằm thống nhất với một vài tài liệu tôi sẽ tham chiếu tới.</p>
 
-<p>Với Node.js mình cài thêm gói <a href="https://atom.io/packages/atom-ternjs">atom-ternjs</a>. Gói này sẽ tự động hoàn thiện các lệnh của cả JS, Nodejs hay các thư viện nổi tiếng như jQuery, Angular, React&hellip; cực kì tiện lợi.</p>
+<p>$$
+\begin{aligned}
+s_t &amp;= tanh(U x_t + W s_{t-1}) \cr
+\hat{y_t} &amp;= softmax(V s_t)
+\end{aligned}
+$$</p>
 
-<pre><code class="language-json">{
-  &quot;ecmaVersion&quot;: 6,
-  &quot;libs&quot;: [
-    &quot;browser&quot;,
-    &quot;jquery&quot;
-  ],
-  &quot;loadEagerly&quot;: [
-    &quot;path/to/your/js/**/*.js&quot;
-  ],
-  &quot;dontLoad&quot;: [
-    &quot;path/to/your/js/**/*.js&quot;
-  ],
-  &quot;plugins&quot;: {
-    &quot;complete_strings&quot;: {},
-    &quot;node&quot;: {},
-    &quot;lint&quot;: {},
-    &quot;angular&quot;: {},
-    &quot;requirejs&quot;: {},
-    &quot;modules&quot;: {},
-    &quot;es_modules&quot;: {},
-    &quot;doc_comment&quot;: {
-      &quot;fullDocs&quot;: true
-    }
-  }
+<p>Ta cũng định nghĩa hàm mất mát, hay hàm lỗi dạng cross entropy như sau:</p>
+
+<p>$$
+\begin{aligned}
+E_t(y_t, \hat{h_y}) &amp;= -y_t log{\hat{y_t}} \cr
+E(y, \hat(y)        &amp;= \sum_t{E_t(y_t, \hat{h_y})} \cr
+                  \ &amp;= -\sum_t{y_t log{h_y})}
+\end{aligned}
+$$</p>
+
+<p>Ở đây, $ y_t $ là từ chính xác ở bước $ t $, còn $ \hat{y_t} $ là từ mà ta dự đoán.
+Ta coi mỗi chuỗi đầy đủ (một câu) là một mẫu huấn luyện.
+Vì vậy tổng số lỗi chính là tổng của tất cả các lỗi ở mỗi bước (mỗi từ).</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/rnn-bptt1.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/rnn-bptt1.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<p>Mục tiêu của ta là tính đạo hàm của lỗi với tham số $ U, V, W $ tương ứng và sau đó học các tham số này bằng cách sử dụng SGD.
+Tương tự như việc cộng tổng các lỗi, ta cũng sẽ cộng tổng các đạo hàm tại mỗi bước cho mỗi mẫu huấn luyện:
+$ \frac{\partial{E}}{\partial{W}} = \sum_t{\frac{\partial{E_t}}{\partial{W}}} $.</p>
+
+<p>Để tính đạo hàm, ta sử dụng <a href="https://en.wikipedia.org/wiki/Chain_rule" target="_blank">quy tắc chuỗi vi phân</a>.
+Quy tắc này được áp dụng cho việc truyền ngược lỗi của <a href="http://colah.github.io/posts/2015-08-Backprop/" target="_blank">giải thuật lan truyền ngược</a>.</p>
+
+<p>$$
+\begin{aligned}
+\frac{\partial{E_3}}{\partial{V}} &amp;= \frac{\partial{E_3}}{\partial{\hat{y_3}}} \frac{\partial{\hat{y_3}}}{\partial{V}} \cr
+\ &amp;= \frac{\partial{E_3}}{\partial{\hat{y_3}}} \frac{\partial{\hat{y_3}}}{\partial{z_3}} \frac{\partial{z_3}}{\partial{V}} \cr
+\ &amp;= (\hat{y_3} - y_3) \otimes s_3
+\end{aligned}
+$$</p>
+
+<p>Trong đó, $ z_3 = V s_3 $ và $ \otimes $ là <a href="https://en.wikipedia.org/wiki/Outer_product" target="_blank">phép nhân ngoài của 2 véc-tơ </a>.
+Nếu bạn không hiểu phép khai triển trên thì cũng đừng lo lắng gì cả, tôi có bỏ qua 1 vài bước khi khai triển, nếu cần thiết bạn có thể tự tính đạo hàm xem khớp hay không.
+Qua phép khai triển trên, tôi chỉ muốn nói 1 điều là $ \frac{\partial{E_3}}{\partial{V}} $
+chỉ phụ thuộc vào các giá trị ở bước hiện thời: $ \hat{y_3}, y_3, s_3 $ mà thôi.
+Nhìn vào công thức đó, ta thấy rằng tính đạo hàm cho $ V $ chỉ đơn giản là phép nhân ma trận.</p>
+
+<p>Nhưng với $ W $ và $ U $ thì phép tính của ta lại không đơn giản như vậy.</p>
+
+<p>$$
+\frac{\partial{E_3}}{\partial{W}} = \frac{\partial{E_3}}{\partial{\hat{y_3}}} \frac{\partial{\hat{y_3}}}{\partial{s_3}} \frac{\partial{s_3}}{\partial{W}}
+$$</p>
+
+<p>Với $ s_3 = \tanh{U x_t + W s_2} $ phụ thuộc vào $ s_2 $, còn $ s_2 $ lại phụ thuộc vào $ W $ và $ s_1 $,&hellip;
+Vì vậy với W, ta không thể nào coi $ s_2 $ là hẳng số để tính toán như với $ V $ được.
+Ta tiếp tục áp dụng quy tắc chuỗi xem sao:</p>
+
+<p>$$
+\frac{\partial{E_3}}{\partial{W}} = \frac{\partial{E_3}}{\partial{\hat{y_3}}} \frac{\partial{\hat{y_3}}}{\partial{s_3}} \frac{\partial{s_3}}{\partial{s_k}} \frac{\partial{s_k}}{\partial{W}}
+$$</p>
+
+<p>Như vậy, với W ta phải cộng tổng tất cả các đầu ra ở các bước trước để tính được đạo hàm.
+Nói cách khác, ta phải truyền ngược đạo hàm từ $ t = 3 $ về tới $ t = 0 $.</p>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/rnn-bptt-with-gradients.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/rnn-bptt-with-gradients.png" >
+  
+    </a>
+  
+  
+</div>
+
+
+<p>Cách làm này cũng giống hệt như giải thuật truyền ngược chuẩn trong mạng nơ-ron truyền thống.
+Điểm khác ở đây là ta cộng tổng các đạo hàm của W tại mỗi bước thời gian.
+Trong mạng nơ-ron truyền thống, ta không chia sẻ các tham số cho các tầng mạng,
+nên ta không cần phải cộng tổng đạo hàm lại với nhau.
+Cũng tương tự như với lan truyền ngược truyền thống, ta có thể định nghĩa véc-tơ delta khi lan truyền ngược lại:
+$ \delta_x^{(3)} = \frac{\partial{E_3}}{\partial{z_2}} = \frac{\partial{E_3}}{\partial{s_3}} \frac{\partial{s_3}}{\partial{s_2}} \frac{\partial{s_2}}{\partial{z_2}} $ với $ z_2 = U x_2 + W s_1 $. Các công thức tính toán tiếp theo hoàn toàn có thể dạng dụng tương tự.</p>
+
+<p>Dưới đây là mà nguồn thực hiện BPTT:</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>bptt.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight">def bptt(self, x, y):
+    T = len(y)
+    # Perform forward propagation
+    o, s = self.forward_propagation(x)
+    # We accumulate the gradients in these variables
+    dLdU = np.zeros(self.U.shape)
+    dLdV = np.zeros(self.V.shape)
+    dLdW = np.zeros(self.W.shape)
+    delta_o = o
+    delta_o[np.arange(len(y)), y] -= 1.
+    # For each output backwards...
+    for t in np.arange(T)[::-1]:
+        dLdV &#43;= np.outer(delta_o[t], s[t].T)
+        # Initial delta calculation: dL/dz
+        delta_t = self.V.T.dot(delta_o[t]) * (1 - (s[t] ** 2))
+        # Backpropagation through time (for at most self.bptt_truncate steps)
+        for bptt_step in np.arange(max(0, t-self.bptt_truncate), t&#43;1)[::-1]:
+            # print &#34;Backpropagation step t=%d bptt step=%d &#34; % (t, bptt_step)
+            # Add to gradients at each previous step
+            dLdW &#43;= np.outer(delta_t, s[bptt_step-1])              
+            dLdU[:,x[bptt_step]] &#43;= delta_t
+            # Update delta for next step dL/dz at t-1
+            delta_t = self.W.T.dot(delta_t) * (1 - s[bptt_step-1] ** 2)
+    return [dLdU, dLdV, dLdW]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>Nhìn vào đây, ta có thể biết được phần nào mạng RNN chuẩn khó để huấn luyện,
+vì các chuỗi (câu) có thể khá dài đến tận 20 chữ thậm chí nhiều hơn thế nên
+ta cần phải truyền ngược lại thông qua rất nhiều tầng mạng.
+Trong thực tế, người ta sẽ bỏ qua một vài bước truyền ở một số bước.</p>
+
+<h1 id="2-vấn-đề-mất-mát-đạo-hàm">2. Vấn đề mất mát đạo hàm</h1>
+
+<p>Với các câu dài RNN không thể liên kết được các từ ở cách xa nhau nên việc học các câu dài sẽ bị thất bại. Vậy nguyên nhân là gì, ta cùng bắt đầu tìm hiểu từ công thức tính đạo hàm:</p>
+
+<p>$$
+\frac{\partial{E_3}}{\partial{W}} = \sum_{k=0}^3{
+  \frac{\partial{E_3}}{\partial{\hat{y_3}}}
+  \frac{\partial{\hat{y_3}}}{\partial{s_3}}
+  \frac{\partial{s_3}}{\partial{s_k}}
+  \frac{\partial{s_k}}{\partial{W}}
 }
-</code></pre>
+$$</p>
 
-<p>Để sử dụng <a href="https://atom.io/packages/atom-ternjs">atom-ternjs</a>, ta cần tạo file cấu hình cho project của mình, vì nó sẽ dự vào file cấu hình này để biết được các lệnh nào khả dĩ cho ta. Ví dụ ta cần Nodejs thì ta thêm nodejs vào là xong. Sau khi tạo file cấu hình xong bạn nhớ khởi động lại gói này nhé.</p>
+<p>Ở đây, $ \frac{s_3}{s_k} $ cũng tuân theo quy tắc chuỗi đạo hàm.
+Ví dụ: $ \frac{s_3}{s_1} = \frac{s_3}{s_2} \frac{s_2}{s_1} $.
+Nếu bạn để ý thì sẽ thấy các thành phần ở công thức trên đều là véc-tơ vì phép lấy đạo hàm cho véc-tơ cũng là véc-tơ, nên kết quả thu được sẽ là một ma trận
+(<a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant" target="_blank">ma trận Jacobi</a>),
+trong đó các phần tử tương ứng được tính theo phép toán <a href="https://en.wikipedia.org/wiki/Pointwise" target="_blank">pointwise</a> với đạo hàm tương ứng.
+Ta có thể viết lại công thức trên như sau:</p>
 
-<p><img src="https://raw.githubusercontent.com/dominhhai/blog/master/imgs/atom-ternjs.gif" alt="autocomplete-plus" title="atom-ternjs" /></p>
+<p>$$
+\frac{\partial{E_3}}{\partial{W}} = \sum_{k=0}^3{
+  \frac{\partial{E_3}}{\partial{\hat{y_3}}}
+  \frac{\partial{\hat{y_3}}}{\partial{s_3}}
+  \Bigg(
+    \prod_{j=k+1}^3{
+      \frac{\partial{s_j}}{\partial{s_{j-1}}}
+    }
+  \Bigg)
+  \frac{\partial{s_k}}{\partial{W}}
+}
+$$</p>
 
-<p>Tham khảo:</p>
+<p>Tôi không chứng minh ở đây (bạn có thể xem ở <a href="http://www.jmlr.org/proceedings/papers/v28/pascanu13.pdf" target="_blank">đây</a>),
+nhưng phép tính trên cho ta một norm bậc 2.
+Bạn có thể coi nó là một giá trị tuyệt đối có biên trên là 1 của ma trận Jacobi ở trên.
+Vì hàm kích hoạt ($ \tanh $ hay $ sigmoid $) của ta sẽ cho kết quả đầu ra nằm trong đoạn $ [-1, 1] $
+nên đạo hàm của nó sẽ bị đóng trong khoảng $ [0, 1] $ (với $ sigmoid $ thì giá trị sẽ là $ [0, 0.25] $).</p>
 
-<ul>
-<li>[1] <a href="https://atom.io/packages/autocomplete-plus">autocomplete-plus</a></li>
-<li>[2] <a href="https://atom.io/packages/atom-ternjs">atom-ternjs</a></li>
-</ul>
 
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="//nn.readthedocs.org/en/rtd/image/tanh.png" title="tanh and derivative. Source: http://nn.readthedocs.org/en/rtd/transfer/" data-fancybox-group="">
+  
+    <img class="fig-img" src="//nn.readthedocs.org/en/rtd/image/tanh.png"  alt="tanh and derivative. Source: http://nn.readthedocs.org/en/rtd/transfer/">
+  
+    </a>
+  
+   
+    <span class="caption">tanh and derivative. Source: http://nn.readthedocs.org/en/rtd/transfer/</span>
+  
+</div>
+
+
+<p>Nhìn vào hình trên, bạn có thể cả hàm $ \tanh $ lẫn $ sigmoid $ sẽ có đạo hàm bằng $ 0 $ tại 2 đầu.
+Mà khi đạo hàm bằng 0 thì nút mạng tương ứng tại đó sẽ bị bão hòa. Lúc đó các nút phía trước cũng sẽ bị bão hoà theo.
+Nên với các giá trị nhỏ trong ma trận, khi ta thực hiện phép nhân ma trận sẽ đạo hàm tương ứng sẽ bùng nổi rất nhanh, thậm chí nó sẽ bị triệt tiêu chỉ sau vài bước nhân.
+Như vậy, các bước ở xa sẽ không còn tác dụng với nút hiện tại nữa, làm cho RNN không thể học được các phụ thuộc xa.
+Vấn đề này không chỉ xảy ra với mạng RNN mà ngay cả mạng nơ-ron chuẩn khá sâu cũng có hiện tượng này.
+Như bạn đã biết RNN cũng là một mạng chuẩn sâu, với số tầng mạng bằng với số từ đầu vào của một chuỗi, nên hiện tượng này có thể thấy ngay ở RNN.</p>
+
+<p>Với cách nhìn như trên ta có thể suy luận thêm <em>vấn đề bùng nổ đạo hàm</em> của RNN nữa.
+Tùy thuộc vào hàm kích hoạt và tham số của mạng, vấn đề bùng nổ đạo hàm có thể xảy ra khi các giá trị của ma trận là lớn.
+Tuy nhiên, người ta thường nói về vấn đề <em>mất mát đạo hàm</em> nhiều hơn là <em>bùng nổ đạo hàm</em>,
+vì 2 lý do sau. Thứ nhất, bùng nổ đạo hàm có thể theo dõi được
+vì khi đạo hàm bị bùng nổ thì ta sẽ thu được kết quả là một giá trị phi số <em>NaN</em> làm cho chương trình của ta bị dừng hoạt động.
+Lý do thứ 2 là bùng nổ đạo hàm có thể ngăn chặn được khi ta đặt một ngưỡng giá trị trên cho đạo hàm như trong <a href="http://www.jmlr.org/proceedings/papers/v28/pascanu13.pdf" target="_blank">bài viết này</a>.
+Còn việc mất mát đạo hàm lại không theo dõi được mà cũng không biết làm sao để xử lý nó cho hợp lý.</p>
+
+<p>May mắn là giờ đã có nhiều nghiên cứu chỉ ra các cách giải quyết vấn đề này.
+Ví dụ như việc khởi tạo tham số $ W $ hợp lý sẽ giúp giản được hiệu ứng mất mát đạo hàm.
+Một phương pháp được ưu chuộng hơn là thay vì sử dụng $ \tanh $ và $ sigmoid $ cho hàm kích hoạt thì ta sử dụng $ ReLU $.
+Đạo hàm ReLU sẽ là một số hoặc là 0 hoặc là 1, nên có ta có thể kiểm soát được vấn đề mất mát đạo hàm.
+Một phương pháp phổ biến hơn cả là sử dụng kiến trúc nhớ dài-ngắn hạn (LSTM - Long Short-Term Memory) hoặc Gated Recurrent Unit (GRU).
+LSTM được <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank">đề xuất vào năm 1997</a>
+và có lẽ giờ nó là phương pháp phổ biến nhất trong lĩnh vực NLP.
+Còn GRU mới được <a href="http://arxiv.org/pdf/1406.1078v3.pdf" target="_blank">giới thiệu vào năm 2014</a>,
+nó là một phiên bản đơn giản hoá của LSTM.
+Cả 2 kiến trúc RNN đó được thiết kế để tránh vấn đề mất mát đạo hàm và hiệu quả cho việc học các phụ thuộc xa.
+Giờ tôi sẽ dừng bài viết tại đây để dành phần giới thiệu 2 kiến trúc đó ở bài viết sau.</p>
               
             </div>
           </div>
@@ -338,9 +615,7 @@ ga('send', 'pageview');
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">THẺ ĐÁNH DẤU</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://dominhhai.github.io/vi/tags/editor/">Editor</a>
-
-  <a class="tag tag--primary tag--small" href="https://dominhhai.github.io/vi/tags/atom/">Atom</a>
+  <a class="tag tag--primary tag--small" href="https://dominhhai.github.io/vi/tags/rnn/">RNN</a>
 
 
                   </div>
@@ -353,7 +628,7 @@ ga('send', 'pageview');
         <ul class="post-actions post-action-nav">
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2016/03/install-node-oracledb-on-windows/" data-tooltip="[Node.js] Cài đặt Node OracleDB trên Windows">
+                <a class="post-action-btn btn btn--disabled">
               
                 <i class="fa fa-angle-left"></i>
                 <span class="hide-xs hide-sm text-small icon-ml">Tiếp</span>
@@ -361,7 +636,7 @@ ga('send', 'pageview');
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2016/02/nodejs-ecrypt-password-with-bcrypt/" data-tooltip="[Node.js] Mã hoá mật khẩu với Bcrypt">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/" data-tooltip="[RNN] Cài đặt RNN với Python và Theano">
               
                 <span class="hide-xs hide-sm text-small icon-mr">Trước</span>
                 <i class="fa fa-angle-right"></i>
@@ -378,19 +653,19 @@ ga('send', 'pageview');
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2016/03/atom-auto-complele/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2016/03/atom-auto-complele/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2016/03/atom-auto-complele/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -405,7 +680,7 @@ ga('send', 'pageview');
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -510,7 +785,7 @@ ga('send', 'pageview');
         <ul class="post-actions post-action-nav">
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2016/03/install-node-oracledb-on-windows/" data-tooltip="[Node.js] Cài đặt Node OracleDB trên Windows">
+                <a class="post-action-btn btn btn--disabled">
               
                 <i class="fa fa-angle-left"></i>
                 <span class="hide-xs hide-sm text-small icon-ml">Tiếp</span>
@@ -518,7 +793,7 @@ ga('send', 'pageview');
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2016/02/nodejs-ecrypt-password-with-bcrypt/" data-tooltip="[Node.js] Mã hoá mật khẩu với Bcrypt">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/" data-tooltip="[RNN] Cài đặt RNN với Python và Theano">
               
                 <span class="hide-xs hide-sm text-small icon-mr">Trước</span>
                 <i class="fa fa-angle-right"></i>
@@ -535,19 +810,19 @@ ga('send', 'pageview');
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2016/03/atom-auto-complele/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2016/03/atom-auto-complele/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2016/03/atom-auto-complele/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -562,7 +837,7 @@ ga('send', 'pageview');
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -577,19 +852,19 @@ ga('send', 'pageview');
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2016%2F03%2Fatom-auto-complele%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F10%2Funderstand-rnn-bptt%2F">
           <i class="fa fa-facebook-official"></i><span>Chia sẻ với Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2016%2F03%2Fatom-auto-complele%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F10%2Funderstand-rnn-bptt%2F">
           <i class="fa fa-twitter"></i><span>Chia sẻ với Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2016%2F03%2Fatom-auto-complele%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F10%2Funderstand-rnn-bptt%2F">
           <i class="fa fa-google-plus"></i><span>Chia sẻ với Google&#43;</span>
         </a>
       </li>
@@ -908,9 +1183,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/dominhhai.github.io\/vi\/2016\/03\/atom-auto-complele\/';
+          this.page.url = 'https:\/\/dominhhai.github.io\/vi\/2017\/10\/understand-rnn-bptt\/';
           
-            this.page.identifier = '\/vi\/2016\/03\/atom-auto-complele\/'
+            this.page.identifier = '\/vi\/2017\/10\/understand-rnn-bptt\/'
           
         };
         (function() {

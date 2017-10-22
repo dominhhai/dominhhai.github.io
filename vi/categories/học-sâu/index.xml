@@ -6,10 +6,26 @@
     <description>Recent content in Học Sâu on Hai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Sat, 21 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-s%C3%A2u/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[RNN] Tìm hiểu về giải thuật BPTT và vấn đề mất mát đạo hàm</title>
+      <link>https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/</link>
+      <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Bài giới thiệu RNN thứ 3 này được dịch lại từ trang &lt;a href=&#34;http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/&#34; target=&#34;_blank&#34;&gt;blog WILDML&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
+Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[RNN] Cài đặt RNN với Python và Theano</title>
