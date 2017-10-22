@@ -1,7 +1,7 @@
 ﻿---
-title: "[RNN] RNN là gì?"
-slug: what-is-rnn
-date: 2017-10-19
+title: "[RNN] Cài đặt GRU/LSTM"
+slug: implement-gru-lstm
+date: 2017-10-23
 categories:
 - Học Máy
 - Học Sâu
@@ -16,8 +16,9 @@ autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/dl/logo.png
 metaAlignment: center
+draft: true
 ---
-> Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank">blog WILDML</a>.
+> Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank">blog WILDML</a>.
 
 Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.
 
@@ -26,10 +27,10 @@ Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toá
 Tuy nhiên, ta vẫn thiếu các bài viết giải thích tường tận về cách hoạt động, cách xây dựng mạng RNN, nên trong chuỗi bài viết này tôi sẽ viết về các vấn đề đó.
 Chuỗi bài viết được chia thành 4 phần sau:
 
-* 1. Giới thiệu RNN (bài viết này)
+* 1. [Giới thiệu RNN](/vi/2017/10/what-is-rnn/)
 * 2. [Cài đặt RNN với Python và Theano](/vi/2017/10/implement-rnn-with-python/)
 * 3. [Tìm hiểu về giải thuật BPTT và vấn đề mất mát đạo hàm](/vi/2017/10/understand-rnn-bptt/)
-* 4. [Cài đặt GRU/LSTM](/vi/2017/10/implement-gru-lstm/)
+* 4. Cài đặt GRU/LSTM (bài này)
 
 <!-- toc -->
 
