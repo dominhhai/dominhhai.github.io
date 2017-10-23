@@ -6,10 +6,28 @@
     <description>Recent content in Học Máy on Hai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Sun, 22 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[RNN] Cài đặt GRU/LSTM</title>
+      <link>https://dominhhai.github.io/vi/2017/10/implement-gru-lstm/</link>
+      <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/10/implement-gru-lstm/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Bài giới thiệu RNN cuối cùng này được dịch lại từ trang &lt;a href=&#34;http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/&#34; target=&#34;_blank&#34;&gt;blog WILDML&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
+LSTM lần đầu được giới thiệu vào năm 1997 bởi &lt;a href=&#34;http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf&#34; target=&#34;_blank&#34;&gt;Sepp Hochreiter và Jürgen Schmidhuber&lt;/a&gt;.
+Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
+Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[RNN] Tìm hiểu về giải thuật BPTT và vấn đề mất mát đạo hàm</title>
