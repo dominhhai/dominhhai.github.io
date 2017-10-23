@@ -6,7 +6,9 @@ body, h1, h2, h3, h4, h5, h6, html
 ,.post .post-content
 ,.postShorten .postShorten-content
 ,.postShorten .postShorten-excerpt {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  /*font-family: "Open Sans", Helvetica, Arial, sans-serif;*/
+  font-family: Helvetica, Arial, sans-serif;
+  color: inherit;
 }
 
 #footer {
