@@ -270,7 +270,7 @@ showActions:    false
 
 The rest is basically the same as for a regular _[post](#writing-posts)_.
 
-## Math with KaTex ##
+## Math with [KaTex](https://khan.github.io/KaTeX/function-support.html) ##
 
 #### 1. `_{` problem
 
