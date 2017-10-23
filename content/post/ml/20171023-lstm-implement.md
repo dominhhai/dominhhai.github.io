@@ -16,16 +16,17 @@ autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/dl/logo.png
 metaAlignment: center
-draft: true
 ---
 > Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank">blog WILDML</a>.
 
-Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.
+Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
+LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank">Sepp Hochreiter và Jürgen Schmidhuber</a>.
+Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
+Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.
 
 <!--more-->
 
-Tuy nhiên, ta vẫn thiếu các bài viết giải thích tường tận về cách hoạt động, cách xây dựng mạng RNN, nên trong chuỗi bài viết này tôi sẽ viết về các vấn đề đó.
-Chuỗi bài viết được chia thành 4 phần sau:
+Đây là bài cuối trong chuỗi bài giới thiệu về RNN:
 
 * 1. [Giới thiệu RNN](/vi/2017/10/what-is-rnn/)
 * 2. [Cài đặt RNN với Python và Theano](/vi/2017/10/implement-rnn-with-python/)
@@ -34,176 +35,223 @@ Chuỗi bài viết được chia thành 4 phần sau:
 
 <!-- toc -->
 
-# 1. Mô hình ngôn ngữ
+# 1. Mạng LSTM
+LSTM được thiết kế nhằm tránh cho đạo hàm bị triệt tiêu như đã mô tả <a href="/vi/2017/10/understand-rnn-bptt/#2-vấn-đề-mất-mát-đạo-hàm" target="_blank">trong phần 3</a> của chuỗi bài viết.
+Về cơ bản, LSMT có kiến trúc như mạng RNN thuần nhưng khác nhau ở cách tính toán các trạng thái ẩn ($ \circ $ là kí hiệu của phép nhân poitwise - hay còn gọi là phép nhân Hadamard):
 
-Ok, giờ tôi sẽ trình bày về mô hình ngôn ngữ dựa trên RNN.
-Ứng dụng của mô hình ngôn ngữ gồm 2 dạng.
-Một là đánh giá độ chính xác của một câu dựa theo mức độ tương tự của chúng trên thực tế.
-Việc đánh giá này giúp ta ước lượng được độ chính xác của văn phạm lẫn ngữ nghĩa của một câu.
-Những mô hình này thường được ứng dụng trong các hệ thống dịch máy (Machine Translation).
-Hai là tự động sinh văn bản (tôi cho rằng ứng dụng này hấp dẫn hơn).
-Ví dụ huấn luyện mô hình với các tác phẩm của Shakespeare có thể cho phép ta sinh ra
-các câu từ tựa như cách Shakespeare viết.
-Ngoài, nếu có thời gian, các bạn có thể tham khảo thêm <a href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank">bài viết thú vị này</a> (tiếng Anh) của Andrej Karpathy về khả năng của các mô hình ngôn ngữ mức độ từ vựng.
+$$
+\begin{aligned}
+i &= \sigma(x_t U^i + s\_{t-1} W^i) \\cr
+f &= \sigma(x_t U^f + s\_{t-1} W^f) \\cr
+o &= \sigma(x_t U^o + s\_{t-1} W^o) \\cr
+g &= \tanh(x_t U^g + s\_{t-1} W^g) \\cr
+c_t &= {c\_{t-1} \circ f} + {g \circ i} \\cr
+s_t &= \tanh(c_t) \circ o
+\end{aligned}
+$$
 
-Bài viết này dành cho các bạn đã biết cơ bản về mạng nơ-rơn (Neural Network),
-nếu bạn chưa biết về mạng nơ-ron thì hãy đọc bài viết
-<a href="http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/" target="_blank">Cài đặt mạng nơ-ron cơ bản</a>.
-Bài viết đó sẽ giúp bạn có cái nhìn cơ bản về ý tưởng và cách xây dựng một mạng nơ-ron cơ bản - mạng nơ-ron phi hồi quy.
+Những công thức trên nhìn khác phức tạp, nhưng chúng thực sự không khó.
+Với mạng RNN thuần, các trạng thái ẩn được tính toán dựa vào $ s_t = \tanh(U x_t + W s\_{t-1}) $
+với $ s_t $ là trạng thái ẩn mới, $ s\_{t-1} $ là trạng thái ẩn phía trước và $ x_t $ là đầu vào của bước đó. Như vậy, đầu vào và đầu ra của LSTM cũng không khác gì so với RNN thuần, chúng chỉ khác cách tính toán mà thôi.
+Chính cách tính toán đặc biệt này giúp cho LSTM tránh được tình trạng đạo hàm bị triệt tiêu ở các bước phụ thuộc xa.
 
-# 2. Mạng hồi quy RNN là gì?
-Ý tưởng chính của RNN (Recurrent Neural Network) là sử dụng chuỗi các thông tin.
-Trong các mạng nơ-ron truyền thống tất cả các đầu vào và cả đầu ra là độc lập với nhau.
-Tức là chúng không liên kết thành chuỗi với nhau.
-Nhưng mô hình này không phù hợp trong rất nhiều bài toán.
-Ví dụ, nếu muốn đoán từ tiếp theo có thể xuất hiện trong một câu thì ta cũng cần biết các từ trước đó xuất hiện lần lượt thế nào chứ nhỉ?
-RNN được gọi là hồi quy (Recurrent) bởi lẽ chúng thực hiện cùng một tác vụ cho tất cả các phần tử của một chuỗi với đầu ra phụ thuộc vào cả các phép tính trước đó.
-Nói cách khác, RNN có khả năng nhớ các thông tin được tính toán trước đó.
-Trên lý thuyết, RNN có thể sử dụng được thông tin của một văn bản rất dài,
-tuy nhiên thực tế thì nó chỉ có thể nhớ được một vài bước trước đó (ta cùng bàn cụ thể vấn đề này sau) mà thôi.
-Về cơ bản một mạng RNN có dạng như sau:
+{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/gru-lstm.png" >}}
 
-{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/rnn.jpg" title="A recurrent neural network and the unfolding in time of the computation involved in its forward computation. Source: Nature" >}}
+Chi tiết về cách LSTM tránh được chuyện đó bạn có thể đọc bài viết của anh Chirs Olah tại <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">đây</a> (bản dịch tại <a href="/vi/2017/10/what-is-lstm/" target="_blank">đây</a>).
+Về cơ bản ta có thể tóm tắt LSTM như sau:
 
-Mô hình trên mô tả phép triển khai nội dung của một RNN.
-Triển khai ở đây có thể hiểu đơn giản là ta vẽ ra một mạng nơ-ron chuỗi tuần tự.
-Ví dụ ta có một câu gồm 5 chữ "*Đẹp trai lắm gái theo*",
-thì mạng nơ-ron được triển khai sẽ gồm 5 tầng nơ-ron tương ứng với mỗi chữ một tầng.
-Lúc đó việc tính toán bên trong RNN được thực hiện như sau:
+* $ i, f, o $ lần lượt được gọi là cổng vào, cổng quên và cổng ra.
+Từ công thức ở trên, ta có thể thấy giống hệt nhau và chỉ khác nhau ở tham số ma trận.
+Chúng được gọi là cổng bởi nó dùng để lọc thông tin đi qua đó.
+Với đặc điểm của hàm sigmoid nằm trong khoảng $ [0, 1] $ khi nhân với một véc-tơ thì ta có thể quyết định được có bao nhiêu thông tin được giữ lại.
+Ví dụ, với $ 0 $ thì phép nhân sẽ làm triệt tiêu véc-tơ tương đương với việc không có thông tin nào đi qua cổng được.
+Còn với $ 1 $ thì phép nhân không làm thay đổi véc-tơ đi qua, nên ta nói rằng toàn bộ thông tin qua nó được được bảo đảm.
+Cổng vào giúp ta chỉ định được bao nhiêu thông tin của đầu vào sẽ ảnh hưởng tới trạng thái mới.
+Cổng quên thì giúp ta bỏ đi bao nhiêu lượng thông tin ở trạng thái trước đó.
+Còn cổng ra sẽ điều chỉnh lượng thông tin trạng thái trong có thể ra ngoài và truyền tới các nút mạng tiếp theo.
+Ở đây, toàn bộ các cổng có cùng một kích cỡ và bằng số lượng trại thái ẩn của bạn: $ d_s $.
+* $ g $ là trạng thái ẩn ứng cử được tính toán dựa trên đầu vào hiện tại và trạng thái trước.
+Công thức tính của nó không khác gì so với RNN thuần (ta chỉ đổi tên ở công thức trên: $ U = U_g $ và $ W = W_g $).
+Tuy nhiên, thay vì lấy giá trị đó làm trạng thái đầu ra như RNN thuần thì ta sẽ lọc thông tin của nó bằng cổng vào trước khi đưa nó làm trạng thái ẩn mới.
+* $ c_t $ là bộ nhớ trong của LSTM. Nhìn vào công thức trên ta có thể thấy rằng nó là tổng của bộ nhớ trước đã được lọc bởi cổng quên và trạng thái ẩn ứng cử được lọc bởi cổng vào.
+Nói nôm na là nó là sự kết hợp của bộ nhớ trước và đầu vào hiện tại.
+* Sau khi có được $ c_t $ rồi, ta sẽ đưa nó qua cổng ra để lọc thông tin một lần nữa để có được trạng thái mới $ s_t $.
 
-* $ \color{blue}x_t $ là đầu vào tại bước $ \color{blue}t $.
-Ví dụ, $ \color{deeppink}x_1 $ là một vec-tơ one-hot tương ứng với từ thứ 2 của câu (*trai*).
-* $ \color{blue}s_t $ là trạng thái ẩn tại bước $ \color{blue}t $.
-Nó chính là **_bộ nhớ_** của mạng.
-$ \color{blue}s_t $ được tính toán dựa trên cả các trạng thái ẩn phía trước và đầu vào tại bước đó:
-$ \color{blue}s_t = f(U x_t + W s\_{t-1} ) $.
-Hàm $ \color{blue}f $ thường là một hàm phi tuyến tính như
-<a href="//vi.wikipedia.org/wiki/H%C3%A0m_hypebolic" target="_blank">tang hyperbolic (tanh)</a>
-hay <a href="//en.wikipedia.org/wiki/Rectifier_(neural_networks)" target="_blank">ReLu</a>.
-Để làm phép toán cho phần tử ẩn đầu tiên ta cần khởi tạo thêm $ \color{deeppink}s_{-1} $,
-thường giá trị khởi tạo được gắn bằng `0`.
+{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/Screen-Shot-2015-10-23-at-10.00.55-AM.png" title="LSTM Gating. Chung, Junyoung, et al. “Empirical evaluation of gated recurrent neural networks on sequence modeling.” (2014)" >}}
 
-* $ \color{blue}o_t $ là đầu ra tại bước $ \color{blue}t $.
-Ví dụ, ta muốn dự đoán từ tiếp theo có thể xuất hiện trong câu thì
-$ \color{blue}o_t $ chính là một vec-tơ xác xuất các từ trong danh sách từ vựng của ta:
-$ \color{blue}o_t = softmax(V s_t) $
+RNN thuần có thể coi là một trường hợp đặc biệt của LSTM.
+Ở sơ đồ trên, nếu ta để giá trị đầu ra của cổng vào luôn là 1 và đầu ra của cổng quên luôn là 0 (không nhớ trạng thái trước), thì ta sẽ được mô hình RNN thuần.
+Cơ chế cổng của LSTM chính là chìa khóa giúp cho nó không bị mất mát đạo hàm, hay nói cách khác là có thể học được cả phụ thuộc xa.
 
-# 3. Khả năng của RNN
-Trong lĩnh vực xử lý ngôn ngữ tự nhiên (NLP - Natural Language Processing),
-đã ghi nhận được nhiều thành công của RNN cho nhiều vấn đề khác nhau.
-Tại thời điểm này, tôi muốn đề cập tới một mô hình phổ biến nhất được sử dụng của RNN là
-<a href="https://en.wikipedia.org/wiki/Long_short-term_memory" target="_blank">LSTM</a>.
-LSTM (Long Short-Term Memory) thể hiện được sự ưu việt ở điểm có thể nhớ được nhiều bước hơn mô hình RNN truyền thống.
-Nhưng bạn không cần phải quá lo lắng vì LSTM về cơ bản giống với cấu trúc của RNN truyền thống,
-chúng chỉ khác nhau ở cách tính toán của các nút ẩn.
-Chúng ta sẽ cùng xem chi tiết hơn về LSTM trong [bài viết tiếp theo](/vi/2017/10/what-is-rnn/).
-Còn giờ, ta cùng nhau xem một vài ứng dụng của RNN trong xử lý ngôn ngữ tự nhiên dưới đây.
+Lưu ý rằng, mô hình LSTM ở trên chỉ là kiến trúc cơ bản của LSTM mà thôi.
+Trong thực tế có nhiều kiến trúc LSTM đã được xây dựng để giải quyết từng vấn đề cụ thể.
+Nếu bạn cần tìm hiểu sự khác nhau của chúng thì có thể đọc <a href="http://arxiv.org/pdf/1503.04069.pdf" target="_blank">bài này của Odyssey</a>.
+Một kiến trúc phổ biến của LSTM là sử dụng các kết nối *peephole* nhằm giúp các cổng có thể sử dụng được cả trạng thái trong $ c_{t-1} $ để đưa ra phán đoán hợp lý hơn.
 
-## 3.1. Mô hình hóa ngôn ngữ và sinh văn bản
-Mô hình ngôn ngữ cho phép ta dự đoán được xác xuất của một từ nào đó xuất hiện sau một chuỗi các từ đi liền trước nó.
-Do có khả năng ước lượng được độ tương tự của các câu nên nó còn được ứng dụng cho việc dịch máy.
-Một điểm lý thú của việc có thể dự đoán được từ tiếp theo là ta có thể xây dựng được
-một mô hình tự sinh từ cho phép máy tính có thể tự tạo ra các văn bản mới từ tập mẫu và xác xuất đầu ra của mỗi từ.
-Vậy nên, tùy thuộc vào mô hình ngôn ngữ mà ta có thể tạo ra được nhiều
-<a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank">văn bản khác nhau</a>
-khá là thú vị phải không.
-Trong mô hình ngôn ngữ, đầu vào thường là một chuỗi các từ (được mô tả bằng vec-tơ one-hot)
-và đầu ra là một chuỗi các từ dự đoán được.
-Khi huấn luyện mạng, ta sẽ gán $ \color{blue}o_t = x\_{t+1} $ vì ta muốn
-đầu ra tại bước $ \color{blue}t $ chính là từ tiếp theo của câu.
+# 2. Mạng GRU
+Ý tưởng của GRU cũng khá giống với LSTM:
 
-Dưới đây là một vài nghiên cứu về mô hình hoá ngôn ngữ và sinh văn bản:
+$$
+\begin{aligned}
+z &= \sigma(x_t U^z + s\_{t-1} W^z) \\cr
+r &= \sigma(x_t U^r + s\_{t-1} W^r) \\cr
+h &= \tanh(x_t U^h + (s\_{t-1} \circ r) W^h) \\cr
+s_t &= {(1 - z) \circ h} + {z \circ s\_{t-1}}
+\end{aligned}
+$$
 
-* <a href="http://www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf" target="_blank">Recurrent neural network based language model</a>
-* <a href="http://www.fit.vutbr.cz/research/groups/speech/publi/2011/mikolov_icassp2011_5528.pdf" target="_blank">Extensions of Recurrent neural network based language model</a>
-* <a href="http://machinelearning.wustl.edu/mlpapers/paper_files/ICML2011Sutskever_524.pdf" target="_blank">Generating Text with Recurrent Neural Networks</a>
+GRU chỉ có 2 cổng: cổng thiết lập lại $ r $ và cổng cập nhập $ z $.
+Cổng thiết lập lại sẽ quyết định cách kết hợp giữa đầu vào hiện tại với bộ nhớ trước,
+còn cổng cập nhập sẽ chỉ định có bao nhiêu thông tin về bộ nhớ trước nên giữa lại.
+Như vậy RNN thuần cũng là một dạng đặc biệt của GRU, với đầu ra của cổng thiết lập lại là 1 và cổng cập nhập là 0.
+Cùng chung ý tưởng sử dụng cơ chế cổng điều chỉnh thông tin, nhưng chúng khác nhau ở mấy điểm sau:
 
-## 3.2. Dịch máy
-Dịch máy (Machine Translation) tương tự như mô hình hóa ngôn ngữ ở điểm là
-đầu vào là một chuỗi các từ trong ngôn ngữ nguồn (ngôn ngữ cần dịch - ví dụ là tiếng Việt).
-Còn đầu ra sẽ là một chuỗi các từ trong ngôn ngữ đích (ngôn ngữ dịch - ví dụ là tiếng Anh).
-Điểm khác nhau ở đây là đầu ra của ta chỉ xử lý sau khi đã xem xét toàn bộ chuỗi đầu vào.
-Vì từ dịch đầu tiên của câu dịch cần phải có đầy đủ thông tin từ đầu vào cần dịch mới có thể suy luận được.
+* GRU có 2 cổng, còn LSTM có tới 3 cổng.
+* GRU không có bộ nhớ trong $ c_t $ và không có cổng ra như LSTM.
+* 2 cổng vào và cổng quên được kết hợp lại thành cổng cập nhập $ z $ và cổng thiết lập lại $ r $ sẽ được áp dụng trực tiếp cho trạng thái ẩn trước.
+* GRU không sử dụng một hàm phi tuyến tính để tính đầu ra như LSTM.
 
-{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/Screen-Shot-2015-09-17-at-10.39.06-AM-1024x557.png" title="RNN for Machine Translation. Image Source: http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf" >}}
+{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/Screen-Shot-2015-10-23-at-10.36.51-AM.png" title="GRU Gating. Chung, Junyoung, et al. “Empirical evaluation of gated recurrent neural networks on sequence modeling.” (2014)" >}}
 
-Dưới đây là một vài nghiên cứu về dịch máy:
+# 3. GRU vs LSTM
+Cả 2 kiến trúc này đều có thể giải quyết được vấn đề mất mát đạo hàm, nhưng cái nào ngon hơn cái nào?
+GRU còn khá trẻ tuổi (2014) so với ông chú LSTM của mình (1997) và tiềm năng của nó vẫn chưa được khám phá hết.
+Tuy nhiên thông qua một số đánh giá thì không cái nào thực sự là ăn được hẳn cái nào.
+Nhiều bài toán, việc điều chỉnh các siêu tham số (hyperparameters) như số tầng chẳng hạn lại có ý nghĩa hơn là việc chọn kiến trúc LSTM hay GRU.
+Nhưng cũng có những bài toán mà GRU được chọn bởi nó nhanh hơn hoặc cần ít dữ liệu hơn do GRU ít tham số hơn.
+Cũng có những lúc nếu bạn có đủ dữ liệu thì LSTM lại tỏ ra mạnh mẽ hơn và đạt được kết quả tốt hơn.
+Để tìm hiểu thêm về một số đánh giá so sánh giữa 2 mô hình này, bạn có thể tham khảo tại <a href="http://arxiv.org/abs/1412.3555" target="_blank">đây</a> và cả <a href="http://jmlr.org/proceedings/papers/v37/jozefowicz15.pdf" target="_blank">đây</a> nữa.
 
-* <a href="http://www.aclweb.org/anthology/P14-1140.pdf" target="_blank">A Recursive Recurrent Neural Network for Statistical Machine Translation</a>
-* <a href="http://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf" target="_blank">Sequence to Sequence Learning with Neural Networks</a>
-* <a href="http://research.microsoft.com/en-us/um/people/gzweig/Pubs/EMNLP2013RNNMT.pdf" target="_blank">Joint Language and Translation Modeling with Recurrent Neural Networks</a>
+# 4. Cài đặt
+Ta sẽ dựa vào đoạn mã bữa trước ta đã xây dựng với Theano để cài đặt LSTM/GRU.
+Lô-gic chương trình sẽ không thay đổi vì LSTM hay GRU chỉ đơn giản là thay đổi cách tính trạng thái ẩn mà thôi.
+Nên ta chỉ cần thay đổi đoạn mã tính toán đó dựa và các công thức phía trên là được.
+Đoạn mã bên dưới đây sẽ chỉ mô ta việc tính toán đó, còn toàn bộ mã nguồn đầy đủ các bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-gru-lstm" target="_blank">Github</a>.
 
-## 3.3. Nhận dạng giọng nói
-Đưa vào một chuỗi các tín hiệu âm thanh, ta có thể dự đoán được chuỗi các đoạn ngữ âm đi kèm với xác xuất của chúng.
+{{< codeblock "gru.py" "python" >}}
+def forward_prop_step(x_t, s_t1_prev):
+      # This is how we calculated the hidden state in a simple RNN. No longer!
+      # s_t = T.tanh(U[:,x_t] + W.dot(s_t1_prev))
+       
+      # Get the word vector
+      x_e = E[:,x_t]
+       
+      # GRU Layer
+      z_t1 = T.nnet.hard_sigmoid(U[0].dot(x_e) + W[0].dot(s_t1_prev) + b[0])
+      r_t1 = T.nnet.hard_sigmoid(U[1].dot(x_e) + W[1].dot(s_t1_prev) + b[1])
+      c_t1 = T.tanh(U[2].dot(x_e) + W[2].dot(s_t1_prev * r_t1) + b[2])
+      s_t1 = (T.ones_like(z_t1) - z_t1) * c_t1 + z_t1 * s_t1_prev
+       
+      # Final output calculation
+      # Theano's softmax returns a matrix with one row, we only need the row
+      o_t = T.nnet.softmax(V.dot(s_t1) + c)[0]
+ 
+      return [o_t, s_t1]
+{{< /codeblock >}}
 
-Dưới đây là một vài nghiên cứu về nhận dạng giọng nói:
+Nhìn khá đơn giản phải không? Thế còn việc tính đạo hàm thì sao?
+Cũng như phần trước ta có thể tính đạo hàm với `E`, `W`,  `U`,  `b` và `c` một cách tương tự bằng quy tắc chuỗi vi phân.
+Tuy nhiên, ở đây tôi sử dụng luôn thư viện Theano để tính đạo hàm cho tiện. 
 
-* <a href="http://www.jmlr.org/proceedings/papers/v32/graves14.pdf" target="_blank">Towards End-to-End Speech Recognition with Recurrent Neural Networks</a>
+{{< codeblock "gru.py" "python" >}}
+# Gradients using Theano
+dE = T.grad(cost, E)
+dU = T.grad(cost, U)
+dW = T.grad(cost, W)
+db = T.grad(cost, b)
+dV = T.grad(cost, V)
+dc = T.grad(cost, c)
+{{< /codeblock >}}
 
+Giờ thì chương trình của ta đã khá đẹp rồi, nhưng để đạt được kết quả tốt thì cần một số mẹo nữa.
 
-## 3.4. Mô tả hình ảnh
-Cùng với <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network" target="_blank">ConvNet</a>,
-RNN được sử dụng để tự động tạo mô tả cho các ảnh chưa được gán nhãn.
-Sự kết hợp này đã đưa ra được các kết quả khá kinh ngạc.
-Ví dụ như các ảnh dưới đây, các mô tả sinh ra có mức độ chính xác và độ tường tận khá cao.
+## 4.1. Cập nhập tham số với rmsprop
+Giải thuật SGD (Stochastic Gradient Descent) thường sẽ không tìm được điểm tối ưu nếu độ học (learning rate) của ta lớn và sẽ rất chậm nếu độ học nhỏ.
+Để giải quyết vấn đề đó, hàng loạt các biến thể khác nhau của SGD đã được ra đời như
+<a href="http://www.cs.toronto.edu/~fritz/absps/momentum.pdf" target="_blank">Momentum Method</a>,
+<a href="http://www.magicbroom.info/Papers/DuchiHaSi10.pdf" target="_blank">AdaGrad</a>,
+<a href="http://arxiv.org/abs/1212.5701" target="_blank">AdaDelta</a>,
+<a href="http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf" target="_blank">rmsprop</a>...
+Để tìm hiểu thêm các giải thuật này khác nhau ra sao bạn có thể đọc bài <a href="http://cs231n.github.io/neural-networks-3/#update" target="_blank">so sánh này</a> để có một cái nhìn tổng quan về chúng.
+Trong phần này tôi chọn `rmsprop` để thực hiện việc tối ưu tham số.
+Ý tưởng cơ bản của giải thuật này là thay đổi độ học theo từng tham số một dựa vào tổng các đạo hàm trước.
+Một cách trừu tượng, ta có thể nói rằng đối với các thuộc tính thường xảy ra hơn thì sẽ có độ học nhỏ hơn do tổng đạo hàm của chúng lớn hơn, còn các thuộc tính ít xảy ra thì sẽ có độ học lớn hơn.
 
-{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/Screen-Shot-2015-09-17-at-11.44.24-AM-1024x349.png" title="Deep Visual-Semantic Alignments for Generating Image Descriptions. Source: http://cs.stanford.edu/people/karpathy/deepimagesent/" >}}
+Việc cài đặt `rmsprop` khá đơn giản. Với mỗi tham số ta tạo một biến để lưu tạm tham số và sẽ cập nhập dần tham số và biến đó trong quá trình giảm đạo hàm như sau:
 
-# 4. Huấn luyện RNN
-Huấn luyện mạng RNN cũng tương tự như các mạng nơ-ron truyền thống,
-tuy nhiên giải thuật lan truyền ngược (backpropagation) phải thay đổi một chút.
-Đạo hàm tại mỗi đầu ra phụ thuộc không chỉ vào các tính toán tại bước đó,
-mà còn phụ thuộc vào các bước trước đó nữa,
-vì các tham số trong mạng RNN được sử dụng chung cho tất cả các bước trong mạng.
-Ví dụ, để tính đạo hàm tại $ \color{deeppink}t = 4 $ ta phải lan truyền ngược cả 3 bước phía trước
-rồi cộng tổng đạo hàm của chúng lại với nhau.
-Việc tính đạo hàm kiểu này được gọi là lan truyền ngược liên hồi
-(<a href="https://en.wikipedia.org/wiki/Backpropagation_through_time" target="_blank">BPTT</a> - Backpropagation Through Time).
-Nếu giờ bạn chưa thể hiểu được BPTT thế nào thì cũng đừng lo sợ
-vì trong bài sau ta sẽ xem xét cụ thể nó là gì sau.
-Còn giờ, chỉ cần nhớ rằng với các bước phụ thuộc càng xa thì việc học sẽ <a href="//arxiv.org/pdf/1211.5063v2.pdf" target="_blank">càng khó khăn hơn</a>
-vì sẽ xuất hiện vấn đề hao hụt/bùng nổ (vanishing/exploding) của đạo hàm.
-Có một vài phương pháp được đề xuất để giải quyết vấn đề này
-và các kiểu mạng RNN hiện nay đã được thiết kế để triệt tiêu bớt chúng như LSTM chẳng hạn.
+{{< codeblock "gru.py" "python" >}}
+# for W parameter
+cacheW = decay * cacheW + (1 - decay) * dW ** 2
+W = W - learning_rate * dW / np.sqrt(cacheW + 1e-6)
+{{< /codeblock >}}
 
-# 5. RNN mở rộng
-Trong nhiều năm, các nhà nghiên cứu đã phát triển nhiều kiểu RNN tinh vi
-để xử lý các nhược điểm của mô hình RNN truyền thống.
-Chúng ta sẽ xem chi tiết một vài mô hình đó ở các bài viết sau,
-còn ở bài này, tôi chỉ giới thiệu ngắn ngọn 2 mô hình dưới đây.
+`decay` thường là 0.9 hoặc 0.95, còn 1e-6 được cộng thêm vào để tránh việc chia cho 0 khi `cacheW` bằng 0.
 
-## 5.1. RNN 2 chiều
-Ở mô hình RNN 2 chiều (Bidirectional RNN), đầu ra tại bước $ \color{blue}t $
-không những phụ thuộc vào các phần tử phía trước mà còn phụ thuộc cả vào các phần tử phía sau.
-Ví dụ, để dự đoán từ còn thiếu trong câu, thì việc xem xét cả phần trước và phần sau của câu là cần thiết.
-Vì vậy, ta có thể coi mô hình là việc chồng 2 mạng RNN ngược hướng nhau lên nhau.
-Lúc này đầu ra được tính toán dựa vào cả 2 trạng thái ẩn của 2 mạng RNN ngược hướng này.
+## 4.2. Thêm một tầng nhúng
+Sử dụng các từ nhúng như <a href="https://code.google.com/p/word2vec/" target="_blank">word2vec</a> và <a href="http://nlp.stanford.edu/projects/glove/">GloVe</a>
+là một phương pháp phổ biến để cài thiện độ chính xác của mô hình.
+Thay vì sử dụng các véc-tơ one-hot để biểu diễn các từ thì ta sử dụng các véc-tơ có kích cỡ nhỏ như word2vec hay GloVe có mang ngữ nghĩa sẽ mang lại hiệu năng tốt hơn.
+Sử dụng các véc-tơ này tương đương với việc ta sử dụng các đầu vào đã được *huấn luyện trước* (pre-training), nên độ chính xác có thể được cải thiện.
+Một cách trừu tượng, bạn cho mạng nơ-ron biết được các từ nào là tương tự nhau có thể giúp nó hiểu được ngôn ngữ hơn và việc học sẽ được cắt giảm bớt đi.
+Sử dụng các véc-tơ được huấn luyện trước này còn có lợi khi bạn có ít dữ liệu vì nó cho phép mạng có thể sinh ra được nhiều từ mà bạn chưa có trong tập dữ liệu dựa vào các từ đồng nghĩa của véc-tơ.
+Ở đây tôi không thêm tầng nhúng vào, nhưng việc thêm này cũng không khó vì chỉ đơn giản là thay thế ma trậng `E` trong đoạn mã của ta là xong.
 
-{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/bidirectional-rnn-300x196.png" title="Bidirectional RNNs" >}}
+## 4.3. Thêm tầng GRU thứ 2
+Thêm một tầng thứ 2 có thể giúp mô hình của ta tương tác được ở mức độ cao hơn.
+Bạn có thể thêm nhiều tầng hơn nữa, nhưng chắc chắn rằng đừng để mô hình của bạn bị khớp quá (overfitting) khi dữ liệu của bạn không đủ lớn.
+Ở đây tôi không có nhiều dữ liệu, nên tôi cũng chỉ muốn mô hình của mình trả ra kết quả ngay sau 2, 3 tầng mạng.
 
-## 5.2. RNN (2 chiều) sâu
-RNN sâu (Deep (Bidirectional) RNN) cũng tương tự như RNN 2 chiều,
-nhưng khác nhau ở chỗ chúng chứa nhiều tầng ẩn ở mỗi bước.
-Trong thực tế, chúng giúp cho việc học ở mức độ cao hơn,
-tuy nhiên ta cũng cần phải có nhiều dữ liệu huấn luyện hơn.
+{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/gru-lstm-2-layer.png" >}}
 
-{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/Screen-Shot-2015-09-16-at-2.21.51-PM-272x300.png" title="Deep (Bidirectional) RNNs" >}}
+Việc tính toán ở các tầng là tương tự nhau, nên ta chỉ cần thêm đoạn mã tính cho tầng vừa thêm là được.
 
-## 5.3. Mạng LSTM
-Gần đây, mạng LSTM mà ta có đề cập một chút phía trên được chú ý và sử dụng khá phổ biến.
-Về cơ bản mô hình của LSTM không khác mô hình truyền thống của RNN,
-nhưng chúng sử dụng hàm tính toán khác ở các trạng thái ẩn.
-Bộ nhớ của LSTM được gọi là tế bào (Cell) và bạn có thể tưởng tượng ràng chúng là các hộp đen
-nhận đầu vào là trạng thái phía trước $ \color{blue}h_{t-1} $ và đầu vào hiện tại $ \color{blue}x_t $.
-Bên trong hộp đen này sẽ tự quyết định cái gì cần phải nhớ và cái gì sẽ xoá đi.
-Sau đó, chúng sẽ kết hợp với trạng thái phía trước, nhớ hiện tại và đầu vào hiện tại.
-Vì vậy mà ta ta có thể truy xuất được quan hệ của các từ phụ thuộc xa nhau rất hiệu quả.
-Có thể khi mới làm quen với LSTM thì chúng hơi khó hiểu đôi chút, nhưng nếu bạn có hứng thú thì hãy xem
-<a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">bài viết xuất sắc này</a>
-(<a href="/vi/2017/10/what-is-lstm/" target="_blank">bản dịch tại đây</a>).
+{{< codeblock "gru.py" "python" >}}
+# GRU Layer 1
+z_t1 = T.nnet.hard_sigmoid(U[0].dot(x_e) + W[0].dot(s_t1_prev) + b[0])
+r_t1 = T.nnet.hard_sigmoid(U[1].dot(x_e) + W[1].dot(s_t1_prev) + b[1])
+c_t1 = T.tanh(U[2].dot(x_e) + W[2].dot(s_t1_prev * r_t1) + b[2])
+s_t1 = (T.ones_like(z_t1) - z_t1) * c_t1 + z_t1 * s_t1_prev
+ 
+# GRU Layer 2
+z_t2 = T.nnet.hard_sigmoid(U[3].dot(s_t1) + W[3].dot(s_t2_prev) + b[3])
+r_t2 = T.nnet.hard_sigmoid(U[4].dot(s_t1) + W[4].dot(s_t2_prev) + b[4])
+c_t2 = T.tanh(U[5].dot(s_t1) + W[5].dot(s_t2_prev * r_t2) + b[5])
+s_t2 = (T.ones_like(z_t2) - z_t2) * c_t2 + z_t2 * s_t2_prev
+{{< /codeblock >}}
 
-# 6. Kết luận
-Okey, được rồi, tôi hi vọng là bạn đã hiểu cơ bản về RNN và khả năng của chúng.
-Trong bài viết tiếp theo, chúng ta sẽ cài đặt phiên bản đầu tiên của mô hình ngôn ngữ RNN sử dụng `Python`
-và <a href="http://www.deeplearning.net/software/theano/" target="_blank">Theano</a>.
-Giờ nếu bạn có thắc mắc gì thì có thể để lại câu hỏi ở phía dưới nhé!
+Mã đầy đủ tôi có để trên <a href="https://github.com/dennybritz/rnn-tutorial-gru-lstm/blob/master/gru_theano.py" target="_blank">Github</a>, nếu hứng thú các bạn có thể tham khảo trên đó.
+
+## 4.4. Hiệu năng
+Đoạn mã tôi xây dựng ở đây chỉ dành cho mục đích học tập, không phải dành cho phát triển sản phẩm, bởi vậy hiệu năng thực sự là không tốt.
+Để hoàn thiện hơn thì ta cần <a href="http://svail.github.io/" target="_blank">nhiều mẹo khác</a> để tối ưu hiệu năng của RNN,
+nhưng có lẽ quan trọng nhất là cập nhập cùng lúc nhiều tham số.
+Thay vì học từng câu một, ta có thể nhóm các câu có cùng độ dài với nhau (thậm chí có thể thêm các kí tự vào để được các câu có cùng độ dài),
+sau đó thực hiện phép nhân ma trận và cộng tổng đạo hàm lại cùng lúc.
+Vì thực hiện phép nhân một ma trận cỡ lớn có thể thực hiện rất hiệu quả với GPU,
+chứ không cần phải chia nhỏ ra để xử lý sẽ rất chậm.
+
+Ngoài ra, bạn nên sử dụng các <a href="http://www.teglor.com/b/deep-learning-libraries-language-cm569/" target="_blank">thư viện học sâu</a> có sẵn để thực hiện.
+Do các thư viện này đã được tối ưu hóa để đạt được hiệu năng tốt rồi, nên bạn hoàn toàn có thể an tâm sử dụng và tập trung vào nghiệp vụ của chương trình.
+Nhiều mô hình nếu tự xây dựng có thể mất vài ngày tới vài tuần để huấn luyện, nhưng chỉ mất vài giờ huấn luyện nếu sử dụng các thư viện có sẵn.
+Như vậy thì dại gì mà ta lại đi xây dựng lại nữa.
+Tôi thì thích <a href="http://keras.io/" target="_blank">Keras</a> hơn cả do nó khá dễ sử dụng và có nhiều ví dụ dễ hiểu cho RNN.
+
+# 5. Kết quả
+Tôi có luyện sẵn một mô hình với lượng từ vựng là 8000, chuỗi véc-tơ có kích cỡ là 48 và 128 tầng GRU.
+Cách sài nó tôi cũng đã viết đầy đủ để các bạn tiện sử dụng trên <a href="https://github.com/dennybritz/rnn-tutorial-gru-lstm" target="_blank">Github</a>,
+các bạn có thể tải về và chạy xem sao nhé.
+
+Dưới đây là một số kết quả mà tôi chọn lọc ra sau khi chạy chương trình:
+
+* *"I am a bot , and this action was performed automatically ."*
+* *"I enforce myself ridiculously well enough to just youtube."*
+* *"I’ve got a good rhythm going !"*
+* *"There is no problem here, but at least still wave !"*
+* *"It depends on how plausible my judgement is ."*
+* *"( with the constitution which makes it impossible )"*
+
+Trông khá ngon vì ngữ nghĩa có vẻ ổn hơn lần trước.
+Điều đó chứng tỏ mạng của ta đã có thể xử lý được các phụ thuộc xa khá tốt rồi.
+
+Tới đây tôi xin dừng vài giới thiệu về RNN của mình, hi vọng là bạn đã có một cái nhìn tổng qua về mô hình mạng hồi quy và có thể áp dụng nó để làm ra nhiều sản phẩm thú vị.
+Nếu bạn có thắc mắc hay góp ý gì thì đừng quên bình luận ở bên dưới nhé.
