@@ -65,7 +65,7 @@ Về cơ bản call và apply gần giống nhau và được giới thiệu t�
       
       <guid>https://dominhhai.github.io/vi/2015/03/js-do-not-need-semicolon/</guid>
       <description>JavaScript cho phép chúng ta lược bỏ dấu kết thúc lệnh (dấu chấm phẩy). Nhưng trường hợp nào ta phải bắt buộc dùng dấu chấm phải, trường hợp nào thì không và có khi nào ta nên bỏ nó đi? Trước mắt ta xem một chút bộ dịch JavaScript sẽ làm gì với các lệnh của ta.
- ex1.js     1
+ex1.js1
 2
 3
 4
