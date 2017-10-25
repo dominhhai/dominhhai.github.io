@@ -280,7 +280,15 @@ Such as:
 s_t = f(U x_t + W s\_{t-1} )
 ```
 
-#### 2. Aligned layout with empty before `=`
+#### 2. `\` problem
+
+Replace `\` by `\\` to disable Markdown transform.
+Such as:  
+```
+\\{ A\_{i,i} \\}
+```
+
+#### 3. Aligned layout with empty before `=`
 Prepend `\` before `&=`.
 Such as:
 ```

@@ -219,12 +219,12 @@ Với trường hợp này, các véc-tơ và ma trận của ta có kích cỡ 
 
 $$
 \begin{aligned}
-x_t &\in \Re^{8000} \\cr
-o_t &\in \Re^{8000} \\cr
-s_t &\in \Re^{100} \\cr
-U &\in \Re^{100 \times 8000} \\cr
-V &\in \Re^{8000 \times 100} \\cr
-W &\in \Re^{100 \times 100}
+x_t &\in \mathbb{R}^{8000} \\cr
+o_t &\in \mathbb{R}^{8000} \\cr
+s_t &\in \mathbb{R}^{100} \\cr
+U &\in \mathbb{R}^{100 \times 8000} \\cr
+V &\in \mathbb{R}^{8000 \times 100} \\cr
+W &\in \mathbb{R}^{100 \times 100}
 \end{aligned}
 $$
 
