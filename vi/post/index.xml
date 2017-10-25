@@ -97,6 +97,21 @@ Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm v
     </item>
     
     <item>
+      <title>[Ma Trận] Một số khái niệm cơ bản</title>
+      <link>https://dominhhai.github.io/vi/2017/09/what-is-matrix/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/09/what-is-matrix/</guid>
+      <description>&lt;p&gt;Đại số tuyến tính là một công cụ cơ bản cần thiết cho việc tìm hiểu học máy.
+Bài đầu tiên trong &lt;a href=&#34;https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/&#34;&gt;chuỗi chủ đề này&lt;/a&gt;
+sẽ tập trung vào định nghĩa một số khái niệm cơ bản trong đại số tuyến tính.
+Lưu ý rằng các khái niệm tôi viết lại là dưới cái nhìn của người làm lập trình như tôi,
+nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[Make] Sử dụng trên Windows</title>
       <link>https://dominhhai.github.io/vi/2017/09/gnu-make-windows/</link>
       <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
