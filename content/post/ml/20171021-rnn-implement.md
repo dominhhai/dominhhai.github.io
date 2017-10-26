@@ -594,7 +594,7 @@ Các nhà nghiên cứu đã đưa ra được nhiều cách để mô hình c�
 ví dụ như sử dụng softmax phân cấp hay thêm các tầng chiếu để tránh việc nhân các ma trạn lớn.
 (bạn có thể tham khảo chi tiết tại <a href="http://arxiv.org/pdf/1301.3781.pdf" target="_blank">đây</a> và <a href="http://www.fit.vutbr.cz/research/groups/speech/publi/2011/mikolov_icassp2011_5528.pdf" target="_blank">đây</a>).
 Nhưng tôi vẫn muốn giữ cho mô hình của ta đơn giản, nên tôi sẽ cho chạy trên GPU.
-Trước khi làm việc này, ta hay hử chạy SGD với một tập dữ liệu nhỏ và kiểm tra xem lỗi có thực sự giảm sau mỗi vòng lặp hay không.
+Trước khi làm việc này, ta hay thử chạy SGD với một tập dữ liệu nhỏ và kiểm tra xem lỗi có thực sự giảm sau mỗi vòng lặp hay không.
 
 {{< codeblock "train-theano.py" "python" >}}
 np.random.seed(10)
@@ -634,7 +634,7 @@ Lúc này, mỗi bước SGD chạy mất 70ms trên máy Mac của tôi (không
 Nhanh hơn 15 lần so với cách chạy đầu của ta và có nghĩa là ta có thể huấn luyện mô hình của ta trong vài giờ hoặc vài ngày thay vì hàng tuần trời.
 Vẫn có nhiều cách tối ưu hoá khác mà ta có thể làm, nhưng hiện tại cứ để đó đã.
 
-Để tránh việc bạn mấy hàng ngày trời dể huấn luyện mô hình, tôi có huấn luyện sẵn một mô hình Theano với 50 tầng ẩn và 8,000 từ vựng.
+Để tránh việc bạn mấy hàng ngày trời để huấn luyện mô hình, tôi có huấn luyện sẵn một mô hình Theano với 50 tầng ẩn và 8,000 từ vựng.
 Tôi đã huấn luyện nó với 50 vòng lặp trong 20 giờ :D .
 Tuy vậy lỗi vẫn tiếp tục giảm dần, nên một cách trực quan ta có thể nghĩ rằng nếu huấn luyện thêm nữa thì kết quả sẽ tốt hơn.
 Nhưng mà thôi, mất thời gian lắm vì tôi cũng muốn đưa bài này ra lò sớm :D

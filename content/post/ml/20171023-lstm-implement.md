@@ -194,7 +194,7 @@ Thay vì sử dụng các véc-tơ one-hot để biểu diễn các từ thì ta
 Sử dụng các véc-tơ này tương đương với việc ta sử dụng các đầu vào đã được *huấn luyện trước* (pre-training), nên độ chính xác có thể được cải thiện.
 Một cách trừu tượng, bạn cho mạng nơ-ron biết được các từ nào là tương tự nhau có thể giúp nó hiểu được ngôn ngữ hơn và việc học sẽ được cắt giảm bớt đi.
 Sử dụng các véc-tơ được huấn luyện trước này còn có lợi khi bạn có ít dữ liệu vì nó cho phép mạng có thể sinh ra được nhiều từ mà bạn chưa có trong tập dữ liệu dựa vào các từ đồng nghĩa của véc-tơ.
-Ở đây tôi không thêm tầng nhúng vào, nhưng việc thêm này cũng không khó vì chỉ đơn giản là thay thế ma trậng `E` trong đoạn mã của ta là xong.
+Ở đây tôi không thêm tầng nhúng vào, nhưng việc thêm này cũng không khó vì chỉ đơn giản là thay thế ma trận `E` trong đoạn mã của ta là xong.
 
 ## 4.3. Thêm tầng GRU thứ 2
 Thêm một tầng thứ 2 có thể giúp mô hình của ta tương tác được ở mức độ cao hơn.
