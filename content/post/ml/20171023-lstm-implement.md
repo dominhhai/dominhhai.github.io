@@ -50,7 +50,7 @@ s_t &= \tanh(c_t) \circ o
 \end{aligned}
 $$
 
-Những công thức trên nhìn khác phức tạp, nhưng chúng thực sự không khó.
+Những công thức trên nhìn khá phức tạp, nhưng chúng thực sự không khó.
 Với mạng RNN thuần, các trạng thái ẩn được tính toán dựa vào $ s_t = \tanh(U x_t + W s\_{t-1}) $
 với $ s_t $ là trạng thái ẩn mới, $ s\_{t-1} $ là trạng thái ẩn phía trước và $ x_t $ là đầu vào của bước đó. Như vậy, đầu vào và đầu ra của LSTM cũng không khác gì so với RNN thuần, chúng chỉ khác cách tính toán mà thôi.
 Chính cách tính toán đặc biệt này giúp cho LSTM tránh được tình trạng đạo hàm bị triệt tiêu ở các bước phụ thuộc xa.
@@ -132,26 +132,26 @@ Nên ta chỉ cần thay đổi đoạn mã tính toán đó dựa và các côn
 def forward_prop_step(x_t, s_t1_prev):
       # This is how we calculated the hidden state in a simple RNN. No longer!
       # s_t = T.tanh(U[:,x_t] + W.dot(s_t1_prev))
-       
+
       # Get the word vector
       x_e = E[:,x_t]
-       
+
       # GRU Layer
       z_t1 = T.nnet.hard_sigmoid(U[0].dot(x_e) + W[0].dot(s_t1_prev) + b[0])
       r_t1 = T.nnet.hard_sigmoid(U[1].dot(x_e) + W[1].dot(s_t1_prev) + b[1])
       c_t1 = T.tanh(U[2].dot(x_e) + W[2].dot(s_t1_prev * r_t1) + b[2])
       s_t1 = (T.ones_like(z_t1) - z_t1) * c_t1 + z_t1 * s_t1_prev
-       
+
       # Final output calculation
       # Theano's softmax returns a matrix with one row, we only need the row
       o_t = T.nnet.softmax(V.dot(s_t1) + c)[0]
- 
+
       return [o_t, s_t1]
 {{< /codeblock >}}
 
 Nhìn khá đơn giản phải không? Thế còn việc tính đạo hàm thì sao?
 Cũng như phần trước ta có thể tính đạo hàm với `E`, `W`,  `U`,  `b` và `c` một cách tương tự bằng quy tắc chuỗi vi phân.
-Tuy nhiên, ở đây tôi sử dụng luôn thư viện Theano để tính đạo hàm cho tiện. 
+Tuy nhiên, ở đây tôi sử dụng luôn thư viện Theano để tính đạo hàm cho tiện.
 
 {{< codeblock "gru.py" "python" >}}
 # Gradients using Theano
@@ -211,7 +211,7 @@ z_t1 = T.nnet.hard_sigmoid(U[0].dot(x_e) + W[0].dot(s_t1_prev) + b[0])
 r_t1 = T.nnet.hard_sigmoid(U[1].dot(x_e) + W[1].dot(s_t1_prev) + b[1])
 c_t1 = T.tanh(U[2].dot(x_e) + W[2].dot(s_t1_prev * r_t1) + b[2])
 s_t1 = (T.ones_like(z_t1) - z_t1) * c_t1 + z_t1 * s_t1_prev
- 
+
 # GRU Layer 2
 z_t2 = T.nnet.hard_sigmoid(U[3].dot(s_t1) + W[3].dot(s_t2_prev) + b[3])
 r_t2 = T.nnet.hard_sigmoid(U[4].dot(s_t1) + W[4].dot(s_t2_prev) + b[4])
