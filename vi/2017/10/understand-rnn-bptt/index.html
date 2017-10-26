@@ -508,7 +508,7 @@ def bptt(self, x, y):
 </figure>
 
 <p>Nhìn vào đây, ta có thể biết được phần nào mạng RNN chuẩn khó để huấn luyện,
-vì các chuỗi (câu) có thể khá dài đến tận 20 chữ thậm chí nhiều hơn thế nên
+vì các chuỗi (câu) có thể khá dài đến tận 20 từ thậm chí nhiều hơn thế nên
 ta cần phải truyền ngược lại thông qua rất nhiều tầng mạng.
 Trong thực tế, người ta sẽ bỏ qua một vài bước truyền ở một số bước.</p>
 
@@ -595,7 +595,7 @@ Lý do thứ 2 là bùng nổ đạo hàm có thể ngăn chặn được khi ta
 Còn việc mất mát đạo hàm lại không theo dõi được mà cũng không biết làm sao để xử lý nó cho hợp lý.</p>
 
 <p>May mắn là giờ đã có nhiều nghiên cứu chỉ ra các cách giải quyết vấn đề này.
-Ví dụ như việc khởi tạo tham số $ W $ hợp lý sẽ giúp giản được hiệu ứng mất mát đạo hàm.
+Ví dụ như việc khởi tạo tham số $ W $ hợp lý sẽ giúp giảm được hiệu ứng mất mát đạo hàm.
 Một phương pháp được ưu chuộng hơn là thay vì sử dụng $ \tanh $ và $ sigmoid $ cho hàm kích hoạt thì ta sử dụng $ ReLU $.
 Đạo hàm ReLU sẽ là một số hoặc là 0 hoặc là 1, nên có ta có thể kiểm soát được vấn đề mất mát đạo hàm.
 Một phương pháp phổ biến hơn cả là sử dụng kiến trúc nhớ dài-ngắn hạn (LSTM - Long Short-Term Memory) hoặc Gated Recurrent Unit (GRU).
