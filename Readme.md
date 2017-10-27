@@ -13,6 +13,7 @@
         * [Fancybox](#fancybox)
 - [Writing pages](#writing-pages)
 - [Math with KaTex](#math-with-katex)
+- [Useful Links](#useful-links)
 
 ## Writing posts
 
@@ -272,6 +273,8 @@ The rest is basically the same as for a regular _[post](#writing-posts)_.
 
 ## Math with [KaTex](https://khan.github.io/KaTeX/function-support.html) ##
 
+More in this [Hugo HP](https://gohugo.io/content-management/formats/#mathjax-with-hugo).
+
 #### 1. `_{` problem
 
 Replace `_{` by `\_{` to disable Markdown transform.
@@ -298,3 +301,7 @@ E(y, \hat{y})       &= \sum_t{E_t(y_t, \hat{h_y})} \\cr
                   \ &= -\sum_t{y_t log{h_y})}
 \end{aligned}
 ```
+
+## Useful Links
+* [Math Dict](http://www.tudientoan.com/)
+* [KaTex Functions](https://khan.github.io/KaTeX/function-support.html)
