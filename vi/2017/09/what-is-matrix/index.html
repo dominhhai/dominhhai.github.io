@@ -315,6 +315,7 @@ nên không chắc đảm bảo được tính chặt chẽ về mặt toán h�
 <li><a href="#2-6-ma-trận-hàng">2.6. Ma trận hàng</a></li>
 <li><a href="#2-7-ma-trận-chuyển-vị">2.7. Ma trận chuyển vị</a></li>
 </ul></li>
+<li><a href="#3-các-kí-hiệu">3. Các kí hiệu</a></li>
 </ul>
 </nav>
 
@@ -478,7 +479,7 @@ $$</p>
 \begin{cases}
 A \in \mathbb{R}^{m,n} \cr
 B \in \mathbb{R}^{n,m} \cr
-A_{i,j} = B_{j,i} = 1, \forall{i,j}
+A_{i,j} = B_{j,i}, \forall{i,j}
 \end{cases}
 $$</p>
 
@@ -488,7 +489,27 @@ $$</p>
 Sử dụng phép chuyển vị ta có thể biến một véc-tơ hàng thành véc-tơ cột và ngược lại.
 Đôi lúc để viết cho ngắn gọi người ta thường sử dụng phép chuyển vị để định nghĩa véc-tơ cột giống như: $ x = [x_1, x_2, &hellip;, x_n]^\intercal $.</p>
 
-<p>Trên đây là một số khái niệm cơ bản để nhập môn đại số tuyến tính, trong phần sau tôi sẽ đề cập tới các phép toán của ma trận.
+<h1 id="3-các-kí-hiệu">3. Các kí hiệu</h1>
+
+<p>Để thuận tiện, từ nay về sau tôi sẽ mặc định các vô hướng, phần tử của ma trận (bao gồm cả véc-tơ) mà chúng ta làm việc là thuộc trường số thực $ \mathbb{R} $. Tôi cũng sẽ sử dụng một số kí hiệu bổ sung như dưới đây.</p>
+
+<p>Các ma trận sẽ được kí hiệu: $ [A_{ij}]_{mn} $, trong đó $ A $ là tên của ma trận;
+$ m, n $ là cấp của ma trận; còn $ A_{ij} $ là các phần tử của ma trận tại hàng $ i $ và cột $ j $.</p>
+
+<p>Các véc-tơ ta cũng sẽ biểu diễn tương tự.
+Véc-tơ hàng: $ [x_i]_n $, trong đó $ x $ là tên của véc-tơ;
+$ n $ là cấp của véc-tơ; $ x_i $ là phần tử của véc-tơ tại vị trí $ i $.
+Véc-tơ cột ta sẽ biểu diễn thông qua phép chuyển vị của véc-tơ hàng: $ [x_i]_n ^\intercal  $.</p>
+
+<p>Ngoài ra, nếu một ma trận được biểu diễn dưới dạng: $ [A_{1j}]_{1n} $ thì ta cũng sẽ hiểu ngầm luôn nó là véc-tơ hàng.
+Tương tự, với $ [A_{i1}]_{m1} $ thì ta có thể hiểu ngầm với nhau rằng nó là véc-tơ cột.</p>
+
+<p>Một điểm cần lưu ý nữa là các giá trị $ m, n, i, j $ khi được biểu điễn tường minh dưới dạng số,
+ta cần phải chèn dấu phẩy <code>,</code> vào giữa chúng.
+Ví dụ: $ [A_{ij}]_{9,4} $ là ma trận có cấp là <code>9, 4</code>. $ A_{5,25} $ là phần tử tại hàng <code>5</code> và cột <code>25</code>.
+Việc này giúp ta phân biệt được giữa ma trận và véc-tơ, nếu không ta sẽ bị nhầm ma trận thành véc-tơ.</p>
+
+<p>Trên đây là một số khái niệm cơ bản để làm việc với ma trận, trong phần sau tôi sẽ đề cập tới các phép toán của ma trận.
 Việc biến đổi ma trận và các phép toán trên ma trận là rất cần thiết để làm việc với các bài toán về học máy sau này. <em>Nếu bạn có thắc mắc hay góp ý gì thì đừng quên bình luận ở bên dưới nhé</em> m(.)_(.)m.</p>
               
             </div>
@@ -1003,7 +1024,7 @@ Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">Cuốn tiểu thuyết đầu tiên mình đọc 🙂
-1. Bối cảnh đọc   Bỗng 1 ngày nhận ra tâm hồn khô cứng của bản thân. Thế rồi bỗng dưng muốn cho chút thay đổi nào đó. Bỗng dưng muốn trách xa những trang sách kĩ thuật với những công thức, dòng code nhảy múa. Muốn trốn vào đâu đó để cảm nhận lại cuộc sống.
+1. Bối cảnh đọc Bỗng 1 ngày nhận ra tâm hồn khô cứng của bản thân. Thế rồi bỗng dưng muốn cho chút thay đổi nào đó. Bỗng dưng muốn trách xa những trang sách kĩ thuật với những công thức, dòng code nhảy múa. Muốn trốn vào đâu đó để cảm nhận lại cuộc sống.
 Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết 🙂 Cùng lúc ấy 1 cô gái gửi tặng cho 1 cuốn.</div>
             </div>
             <div style="clear:both;"></div>
