@@ -49,7 +49,7 @@
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
     <meta property="og:site_name" content="{{ .Site.Title }}">
-    <meta property="og:locale" content="{{ .Site.LanguageCode }}">
+    <meta property="og:locale" content="{{ .Lang }}">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}">
     <meta name="twitter:url" content="{{ .Permalink }}">
