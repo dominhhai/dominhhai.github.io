@@ -40,11 +40,11 @@ Các đoạn mã của JavaScript được thực thi trong một ngữ cảnh n
 
 Mỗi ngữ cảnh thực thi này có tương ứng một `ThisBinding` có giá trị không đổi đại diện cho ngữ cảnh thực thi đó. Và từ khoá `this` sẽ bằng giá trị `ThisBinding` trong ngữ cảnh đang thực thi hiện thời. Như vậy `this` sẽ đại diện cho ngữ cảnh đang thực thi và nó cần được đánh giá lại tham chiếu khi ngữ cảnh thực thi thay đổi.
 
-Có 3 kiểu ngữ cảnh thực thi là toàn cục (global), eval và hàm (function). Global là ngữ cảnh ở mức trên cùng của toàn bộ chương trình, tức là nó chứa các đoạn mã không nằm trong function hay được gọi bởi eval và global sẽ là ngữ cảnh thực thi chương trình mặc định. Eval là ngữ cảnh chứa các mã được gọi bởi hàm <a href="https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/eval" title="eval" target="_blank">`eval`</a>. Còn function là các đoạn mã nằm trong một function nào đó. Ta sẽ xem chi tiết từng ngữ cảnh thực thi qua phần dưới đây.
+Có 3 kiểu ngữ cảnh thực thi là toàn cục (global), eval và hàm (function). Global là ngữ cảnh ở mức trên cùng của toàn bộ chương trình, tức là nó chứa các đoạn mã không nằm trong function hay được gọi bởi eval và global sẽ là ngữ cảnh thực thi chương trình mặc định. Eval là ngữ cảnh chứa các mã được gọi bởi hàm <a href="https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/eval" title="eval" target="_blank" rel="noopener noreferrer">`eval`</a>. Còn function là các đoạn mã nằm trong một function nào đó. Ta sẽ xem chi tiết từng ngữ cảnh thực thi qua phần dưới đây.
 
 ### 2. Các ngữ cảnh thực thi
 #### 2.1. Toàn cục - Global
-Là ngữ cảnh thực thi nằm ở trên cùng của ngăn xếp ngữ cảnh, tức là ngữ cảnh đầu tiên thực thi chương trình. Ví dụ trong các mã thực thi phía máy khách trong trang web thì ngữ cảnh toàn cục này nằm ngay sau thẻ . Trong ngữ cảnh toàn cục này thì `ThisBinding` sẽ được thiết lập giá trị là đối tượng toàn cục (Global Object). Trong Nodejs thì đối tượng toàn cục là đối tượng toàn cục của Nodejs - khởi đầu là một đối tượng trống, trong trình duyệt thì nó là đối tượng window, nhưng cần chú ý là nếu ở trong chế độ <a href="https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Strict_mode" title="strict mode" target="_blank">`strict mode`</a> thì đối tượng toàn cục là `undefined`. Ta có thể cùng nhau xem xét ví dụ dưới đây.
+Là ngữ cảnh thực thi nằm ở trên cùng của ngăn xếp ngữ cảnh, tức là ngữ cảnh đầu tiên thực thi chương trình. Ví dụ trong các mã thực thi phía máy khách trong trang web thì ngữ cảnh toàn cục này nằm ngay sau thẻ . Trong ngữ cảnh toàn cục này thì `ThisBinding` sẽ được thiết lập giá trị là đối tượng toàn cục (Global Object). Trong Nodejs thì đối tượng toàn cục là đối tượng toàn cục của Nodejs - khởi đầu là một đối tượng trống, trong trình duyệt thì nó là đối tượng window, nhưng cần chú ý là nếu ở trong chế độ <a href="https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Strict_mode" title="strict mode" target="_blank" rel="noopener noreferrer">`strict mode`</a> thì đối tượng toàn cục là `undefined`. Ta có thể cùng nhau xem xét ví dụ dưới đây.
 
 ```javascript
 console.log(this) // đối tượng toàn cục trong ngữ cảnh toàn cục
@@ -117,7 +117,7 @@ Khi hàm được gọi thì ngữ cảnh thực thi của nó sẽ phụ thuộ
 > 3. Else if Type(thisValue) không là Object, ThisBinding được gắn là ToObject(thisValue).
 > 4. Else ThisBinding được gắn là thisValue
 
-Xem thêm về cách gắn `thisBinding` <a href="http://es5.github.io/#x10.4.3" title="Entering Function Code" target="_blank">ở đây</a>.
+Xem thêm về cách gắn `thisBinding` <a href="http://es5.github.io/#x10.4.3" title="Entering Function Code" target="_blank" rel="noopener noreferrer">ở đây</a>.
 
 Để rõ ràng hơn ta xét một số tình huống cụ với việc gọi hàm.
 ##### 2.3.1. Gọi thông qua ngữ cảnh toàn cục
@@ -254,7 +254,7 @@ var oMethod = obj.mMethod.bind(obj) // this trong oMethod sẽ bị ép thành g
 oMethod()
 ```
 
-Vì sao lại là `bind` mà không phải là `call` hay `apply`? Vì `bind` sẽ giữ giá trị của `obj` để gọi nhiều lần chứ không chỉ gọi một lần như với `call` hay `apply`. Các bạn có thể đọc thêm <a href="https://dofeet.wordpress.com/2015/03/07/js-apply-call-va-bind-khac-gi-nhau" title="[JS] apply, call và bind khác gì nhau?" target="_blank">ở đây</a>.
+Vì sao lại là `bind` mà không phải là `call` hay `apply`? Vì `bind` sẽ giữ giá trị của `obj` để gọi nhiều lần chứ không chỉ gọi một lần như với `call` hay `apply`. Các bạn có thể đọc thêm <a href="https://dofeet.wordpress.com/2015/03/07/js-apply-call-va-bind-khac-gi-nhau" title="[JS] apply, call và bind khác gì nhau?" target="_blank" rel="noopener noreferrer">ở đây</a>.
 Với trường hợp gọi một lần với `call` hoặc `apply` ta có thể cùng nhau xem ví dụ sau:
 
 ```javascript
@@ -371,4 +371,4 @@ Từ khoá `this` hơi rắc rối một chút nên khi lập trình ta cần ch
 
 Về việc sử dụng Call, Apply và Bind cụ thể ra sao thì các bạn đọc thêm ở [bài viết này](https://dofeet.wordpress.com/2015/03/07/js-apply-call-va-bind-khac-gi-nhau/ "[JS] apply, call và bind khác gì nhau?").
 
-Ngoài ra, bạn có thể tham khảo về chuẩn ECMAScript 5.1 <a href="http://es5.github.io" title="Entering Function Code" target="_blank">ở đây</a>.
+Ngoài ra, bạn có thể tham khảo về chuẩn ECMAScript 5.1 <a href="http://es5.github.io" title="Entering Function Code" target="_blank" rel="noopener noreferrer">ở đây</a>.

@@ -16,8 +16,8 @@ thumbnailImagePosition: left
 thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/book/a-mind-for-numbers.jpg
 metaAlignment: center
 ---
-Dưới đây là tổng hợp một vài ý chính từ khóa học 'Học cách học' - trích dẫn từ cuốn sách <a href="https://mathblog.com/book-review-a-mind-for-numbers/" target="_blank">A Mind for Numbers: How to Excel in Math and Science (Even if You Flunked Algebra)</a>,
-của tác giả <a href="https://en.wikipedia.org/wiki/Barbara_Oakley" target="_blank">Barbara Oakley</a>, xuất bản vào tháng 6, 2014.
+Dưới đây là tổng hợp một vài ý chính từ khóa học 'Học cách học' - trích dẫn từ cuốn sách <a href="https://mathblog.com/book-review-a-mind-for-numbers/" target="_blank" rel="noopener noreferrer">A Mind for Numbers: How to Excel in Math and Science (Even if You Flunked Algebra)</a>,
+của tác giả <a href="https://en.wikipedia.org/wiki/Barbara_Oakley" target="_blank" rel="noopener noreferrer">Barbara Oakley</a>, xuất bản vào tháng 6, 2014.
 
 
 ## 10 cách học hiệu quả

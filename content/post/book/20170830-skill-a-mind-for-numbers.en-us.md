@@ -17,8 +17,8 @@ metaAlignment: center
 canonical: false
 ---
 These rules form a synthesis of some of the main ideas of the course--
-they are excerpted from the book {{< link href="https://mathblog.com/book-review-a-mind-for-numbers/" name="A Mind for Numbers: How to Excel in Math and Science (Even if You Flunked Algebra)" >}},
-by {{< link href="https://en.wikipedia.org/wiki/Barbara_Oakley" name="Barbara Oakley" >}}, Penguin, July, 2014.
+they are excerpted from the book <a href="https://mathblog.com/book-review-a-mind-for-numbers/" target="_blank" rel="noopener noreferrer">A Mind for Numbers: How to Excel in Math and Science (Even if You Flunked Algebra)</a>,
+by <a href="https://en.wikipedia.org/wiki/Barbara_Oakley" target="_blank" rel="noopener noreferrer">Barbara Oakley</a>, Penguin, July, 2014.
 Feel free to copy these rules and redistribute them, as long as you keep the original wording and this citation.
 
 ## 10 Rules of Good Studying

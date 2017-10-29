@@ -15,9 +15,9 @@ thumbnailImagePosition: left
 thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/git.png
 metaAlignment: center
 ---
-<a href="https://git-scm.com/docs/git-worktree" target="_blank">git worktree</a> cho phép ta có thể sử dụng cùng lúc nhiều nhánh của repo trong cùng một thư mục dự án.
-Ví dụ, blog của mình được xây dựng với <a href="https://gohugo.io/" target="_blank">Hugo</a>, trong thư mục blog của mình có thư mục `public`
-là thư mục chứa các file được dịch ra từ mã nguồn blog. Còn ở phía <a href="https://github.com/dominhhai/dominhhai.github.io" target="_blank">repo trên Github</a>, mình có 2 branch là
+<a href="https://git-scm.com/docs/git-worktree" target="_blank" rel="noopener noreferrer">git worktree</a> cho phép ta có thể sử dụng cùng lúc nhiều nhánh của repo trong cùng một thư mục dự án.
+Ví dụ, blog của mình được xây dựng với <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>, trong thư mục blog của mình có thư mục `public`
+là thư mục chứa các file được dịch ra từ mã nguồn blog. Còn ở phía <a href="https://github.com/dominhhai/dominhhai.github.io" target="_blank" rel="noopener noreferrer">repo trên Github</a>, mình có 2 branch là
 `dev` lưu mã nguồn và `master` lưu các file chạy. Như vậy, thư mục `blog` trên máy tính của mình sẽ trỏ tới nhánh `dev`,
 còn thư mục `public` sẽ trỏ tới nhánh `master`.
 

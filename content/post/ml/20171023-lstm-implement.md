@@ -17,10 +17,10 @@ thumbnailImagePosition: left
 thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/dl/logo.png
 metaAlignment: center
 ---
-> Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank">blog WILDML</a>.
+> Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.
 
 Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank">Sepp Hochreiter và Jürgen Schmidhuber</a>.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.
 
@@ -36,7 +36,7 @@ Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn
 <!-- toc -->
 
 # 1. Mạng LSTM
-LSTM được thiết kế nhằm tránh cho đạo hàm bị triệt tiêu như đã mô tả <a href="/vi/2017/10/understand-rnn-bptt/#2-vấn-đề-mất-mát-đạo-hàm" target="_blank">trong phần 3</a> của chuỗi bài viết.
+LSTM được thiết kế nhằm tránh cho đạo hàm bị triệt tiêu như đã mô tả <a href="/vi/2017/10/understand-rnn-bptt/#2-vấn-đề-mất-mát-đạo-hàm" target="_blank" rel="noopener noreferrer">trong phần 3</a> của chuỗi bài viết.
 Về cơ bản, LSMT có kiến trúc như mạng RNN thuần nhưng khác nhau ở cách tính toán các trạng thái ẩn ($ \circ $ là kí hiệu của phép nhân poitwise - hay còn gọi là phép nhân Hadamard):
 
 $$
@@ -57,7 +57,7 @@ Chính cách tính toán đặc biệt này giúp cho LSTM tránh được tình
 
 {{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/gru-lstm.png" >}}
 
-Chi tiết về cách LSTM tránh được chuyện đó bạn có thể đọc bài viết của anh Chirs Olah tại <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">đây</a> (bản dịch tại <a href="/vi/2017/10/what-is-lstm/" target="_blank">đây</a>).
+Chi tiết về cách LSTM tránh được chuyện đó bạn có thể đọc bài viết của anh Chirs Olah tại <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener noreferrer">đây</a> (bản dịch tại <a href="/vi/2017/10/what-is-lstm/" target="_blank" rel="noopener noreferrer">đây</a>).
 Về cơ bản ta có thể tóm tắt LSTM như sau:
 
 * $ i, f, o $ lần lượt được gọi là cổng vào, cổng quên và cổng ra.
@@ -85,7 +85,7 @@ Cơ chế cổng của LSTM chính là chìa khóa giúp cho nó không bị m�
 
 Lưu ý rằng, mô hình LSTM ở trên chỉ là kiến trúc cơ bản của LSTM mà thôi.
 Trong thực tế có nhiều kiến trúc LSTM đã được xây dựng để giải quyết từng vấn đề cụ thể.
-Nếu bạn cần tìm hiểu sự khác nhau của chúng thì có thể đọc <a href="http://arxiv.org/pdf/1503.04069.pdf" target="_blank">bài này của Odyssey</a>.
+Nếu bạn cần tìm hiểu sự khác nhau của chúng thì có thể đọc <a href="http://arxiv.org/pdf/1503.04069.pdf" target="_blank" rel="noopener noreferrer">bài này của Odyssey</a>.
 Một kiến trúc phổ biến của LSTM là sử dụng các kết nối *peephole* nhằm giúp các cổng có thể sử dụng được cả trạng thái trong $ c_{t-1} $ để đưa ra phán đoán hợp lý hơn.
 
 # 2. Mạng GRU
@@ -120,13 +120,13 @@ Tuy nhiên thông qua một số đánh giá thì không cái nào thực sự l
 Nhiều bài toán, việc điều chỉnh các siêu tham số (hyperparameters) như số tầng chẳng hạn lại có ý nghĩa hơn là việc chọn kiến trúc LSTM hay GRU.
 Nhưng cũng có những bài toán mà GRU được chọn bởi nó nhanh hơn hoặc cần ít dữ liệu hơn do GRU ít tham số hơn.
 Cũng có những lúc nếu bạn có đủ dữ liệu thì LSTM lại tỏ ra mạnh mẽ hơn và đạt được kết quả tốt hơn.
-Để tìm hiểu thêm về một số đánh giá so sánh giữa 2 mô hình này, bạn có thể tham khảo tại <a href="http://arxiv.org/abs/1412.3555" target="_blank">đây</a> và cả <a href="http://jmlr.org/proceedings/papers/v37/jozefowicz15.pdf" target="_blank">đây</a> nữa.
+Để tìm hiểu thêm về một số đánh giá so sánh giữa 2 mô hình này, bạn có thể tham khảo tại <a href="http://arxiv.org/abs/1412.3555" target="_blank" rel="noopener noreferrer">đây</a> và cả <a href="http://jmlr.org/proceedings/papers/v37/jozefowicz15.pdf" target="_blank" rel="noopener noreferrer">đây</a> nữa.
 
 # 4. Cài đặt
 Ta sẽ dựa vào đoạn mã bữa trước ta đã xây dựng với Theano để cài đặt LSTM/GRU.
 Lô-gic chương trình sẽ không thay đổi vì LSTM hay GRU chỉ đơn giản là thay đổi cách tính trạng thái ẩn mà thôi.
 Nên ta chỉ cần thay đổi đoạn mã tính toán đó dựa và các công thức phía trên là được.
-Đoạn mã bên dưới đây sẽ chỉ mô ta việc tính toán đó, còn toàn bộ mã nguồn đầy đủ các bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-gru-lstm" target="_blank">Github</a>.
+Đoạn mã bên dưới đây sẽ chỉ mô ta việc tính toán đó, còn toàn bộ mã nguồn đầy đủ các bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-gru-lstm" target="_blank" rel="noopener noreferrer">Github</a>.
 
 {{< codeblock "gru.py" "python" >}}
 def forward_prop_step(x_t, s_t1_prev):
@@ -168,11 +168,11 @@ Giờ thì chương trình của ta đã khá đẹp rồi, nhưng để đạt 
 ## 4.1. Cập nhập tham số với rmsprop
 Giải thuật SGD (Stochastic Gradient Descent) thường sẽ không tìm được điểm tối ưu nếu độ học (learning rate) của ta lớn và sẽ rất chậm nếu độ học nhỏ.
 Để giải quyết vấn đề đó, hàng loạt các biến thể khác nhau của SGD đã được ra đời như
-<a href="http://www.cs.toronto.edu/~fritz/absps/momentum.pdf" target="_blank">Momentum Method</a>,
-<a href="http://www.magicbroom.info/Papers/DuchiHaSi10.pdf" target="_blank">AdaGrad</a>,
-<a href="http://arxiv.org/abs/1212.5701" target="_blank">AdaDelta</a>,
-<a href="http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf" target="_blank">rmsprop</a>...
-Để tìm hiểu thêm các giải thuật này khác nhau ra sao bạn có thể đọc bài <a href="http://cs231n.github.io/neural-networks-3/#update" target="_blank">so sánh này</a> để có một cái nhìn tổng quan về chúng.
+<a href="http://www.cs.toronto.edu/~fritz/absps/momentum.pdf" target="_blank" rel="noopener noreferrer">Momentum Method</a>,
+<a href="http://www.magicbroom.info/Papers/DuchiHaSi10.pdf" target="_blank" rel="noopener noreferrer">AdaGrad</a>,
+<a href="http://arxiv.org/abs/1212.5701" target="_blank" rel="noopener noreferrer">AdaDelta</a>,
+<a href="http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf" target="_blank" rel="noopener noreferrer">rmsprop</a>...
+Để tìm hiểu thêm các giải thuật này khác nhau ra sao bạn có thể đọc bài <a href="http://cs231n.github.io/neural-networks-3/#update" target="_blank" rel="noopener noreferrer">so sánh này</a> để có một cái nhìn tổng quan về chúng.
 Trong phần này tôi chọn `rmsprop` để thực hiện việc tối ưu tham số.
 Ý tưởng cơ bản của giải thuật này là thay đổi độ học theo từng tham số một dựa vào tổng các đạo hàm trước.
 Một cách trừu tượng, ta có thể nói rằng đối với các thuộc tính thường xảy ra hơn thì sẽ có độ học nhỏ hơn do tổng đạo hàm của chúng lớn hơn, còn các thuộc tính ít xảy ra thì sẽ có độ học lớn hơn.
@@ -188,7 +188,7 @@ W = W - learning_rate * dW / np.sqrt(cacheW + 1e-6)
 `decay` thường là 0.9 hoặc 0.95, còn 1e-6 được cộng thêm vào để tránh việc chia cho 0 khi `cacheW` bằng 0.
 
 ## 4.2. Thêm một tầng nhúng
-Sử dụng các từ nhúng như <a href="https://code.google.com/p/word2vec/" target="_blank">word2vec</a> và <a href="http://nlp.stanford.edu/projects/glove/">GloVe</a>
+Sử dụng các từ nhúng như <a href="https://code.google.com/p/word2vec/" target="_blank" rel="noopener noreferrer">word2vec</a> và <a href="http://nlp.stanford.edu/projects/glove/">GloVe</a>
 là một phương pháp phổ biến để cài thiện độ chính xác của mô hình.
 Thay vì sử dụng các véc-tơ one-hot để biểu diễn các từ thì ta sử dụng các véc-tơ có kích cỡ nhỏ như word2vec hay GloVe có mang ngữ nghĩa sẽ mang lại hiệu năng tốt hơn.
 Sử dụng các véc-tơ này tương đương với việc ta sử dụng các đầu vào đã được *huấn luyện trước* (pre-training), nên độ chính xác có thể được cải thiện.
@@ -219,26 +219,26 @@ c_t2 = T.tanh(U[5].dot(s_t1) + W[5].dot(s_t2_prev * r_t2) + b[5])
 s_t2 = (T.ones_like(z_t2) - z_t2) * c_t2 + z_t2 * s_t2_prev
 {{< /codeblock >}}
 
-Mã đầy đủ tôi có để trên <a href="https://github.com/dennybritz/rnn-tutorial-gru-lstm/blob/master/gru_theano.py" target="_blank">Github</a>, nếu hứng thú các bạn có thể tham khảo trên đó.
+Mã đầy đủ tôi có để trên <a href="https://github.com/dennybritz/rnn-tutorial-gru-lstm/blob/master/gru_theano.py" target="_blank" rel="noopener noreferrer">Github</a>, nếu hứng thú các bạn có thể tham khảo trên đó.
 
 ## 4.4. Hiệu năng
 Đoạn mã tôi xây dựng ở đây chỉ dành cho mục đích học tập, không phải dành cho phát triển sản phẩm, bởi vậy hiệu năng thực sự là không tốt.
-Để hoàn thiện hơn thì ta cần <a href="http://svail.github.io/" target="_blank">nhiều mẹo khác</a> để tối ưu hiệu năng của RNN,
+Để hoàn thiện hơn thì ta cần <a href="http://svail.github.io/" target="_blank" rel="noopener noreferrer">nhiều mẹo khác</a> để tối ưu hiệu năng của RNN,
 nhưng có lẽ quan trọng nhất là cập nhập cùng lúc nhiều tham số.
 Thay vì học từng câu một, ta có thể nhóm các câu có cùng độ dài với nhau (thậm chí có thể thêm các kí tự vào để được các câu có cùng độ dài),
 sau đó thực hiện phép nhân ma trận và cộng tổng đạo hàm lại cùng lúc.
 Vì thực hiện phép nhân một ma trận cỡ lớn có thể thực hiện rất hiệu quả với GPU,
 chứ không cần phải chia nhỏ ra để xử lý sẽ rất chậm.
 
-Ngoài ra, bạn nên sử dụng các <a href="http://www.teglor.com/b/deep-learning-libraries-language-cm569/" target="_blank">thư viện học sâu</a> có sẵn để thực hiện.
+Ngoài ra, bạn nên sử dụng các <a href="http://www.teglor.com/b/deep-learning-libraries-language-cm569/" target="_blank" rel="noopener noreferrer">thư viện học sâu</a> có sẵn để thực hiện.
 Do các thư viện này đã được tối ưu hóa để đạt được hiệu năng tốt rồi, nên bạn hoàn toàn có thể an tâm sử dụng và tập trung vào nghiệp vụ của chương trình.
 Nhiều mô hình nếu tự xây dựng có thể mất vài ngày tới vài tuần để huấn luyện, nhưng chỉ mất vài giờ huấn luyện nếu sử dụng các thư viện có sẵn.
 Như vậy thì dại gì mà ta lại đi xây dựng lại nữa.
-Tôi thì thích <a href="http://keras.io/" target="_blank">Keras</a> hơn cả do nó khá dễ sử dụng và có nhiều ví dụ dễ hiểu cho RNN.
+Tôi thì thích <a href="http://keras.io/" target="_blank" rel="noopener noreferrer">Keras</a> hơn cả do nó khá dễ sử dụng và có nhiều ví dụ dễ hiểu cho RNN.
 
 # 5. Kết quả
 Tôi có luyện sẵn một mô hình với lượng từ vựng là 8000, chuỗi véc-tơ có kích cỡ là 48 và 128 tầng GRU.
-Cách sài nó tôi cũng đã viết đầy đủ để các bạn tiện sử dụng trên <a href="https://github.com/dennybritz/rnn-tutorial-gru-lstm" target="_blank">Github</a>,
+Cách sài nó tôi cũng đã viết đầy đủ để các bạn tiện sử dụng trên <a href="https://github.com/dennybritz/rnn-tutorial-gru-lstm" target="_blank" rel="noopener noreferrer">Github</a>,
 các bạn có thể tải về và chạy xem sao nhé.
 
 Dưới đây là một số kết quả mà tôi chọn lọc ra sau khi chạy chương trình:
