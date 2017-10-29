@@ -19,7 +19,7 @@
       <ul>
         {{ range $category := $.Site.Params.categories }}
         <li>
-          <a href="{{ $.Site.LanguagePrefix }}/categories/{{ $category | urlize }}">{{ $category }}</a>
+          <a href="{{ $.Site.LanguagePrefix }}/categories/{{ $category | urlize }}/">{{ $category }}</a>
         </li>
         {{ end }}
       </ul>
