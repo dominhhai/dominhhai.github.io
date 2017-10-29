@@ -21,6 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.1-BETA">
     <title>[Node.js] Triển khai dịch vụ Node.js trên Windows</title>
     <meta name="author" content="Do Minh Hai">
@@ -30,18 +31,24 @@
     
 
     
+      <link rel="canonical" href="https://dominhhai.github.io/vi/2016/04/deploy-nodejs-on-windows/" />
+    
+
+    
     <meta name="description" content="Để triển khai ứng dụng Node.js bằng Windows, ta có nhiều phương án như dưới đây:
- Sử dụng forever Sử dụng issnode Sử dụng NSSM  Cả 3 softwares trên đều có hướng dẫn rất chi tiết trên trang chủ tương ứng, nhưng ta nên chọn cái nào để triển khai ứng dụng? Trong bài này ta sẽ liệt kê 1 vài điểm mạnh yếu của chúng.
-    Tên Điểm mạnh Điểm yếu     1 forever Lệnh đơn giản, có API phong phú.">
-    <meta property="og:description" content="Để triển khai ứng dụng Node.js bằng Windows, ta có nhiều phương án như dưới đây:
  Sử dụng forever Sử dụng issnode Sử dụng NSSM  Cả 3 softwares trên đều có hướng dẫn rất chi tiết trên trang chủ tương ứng, nhưng ta nên chọn cái nào để triển khai ứng dụng? Trong bài này ta sẽ liệt kê 1 vài điểm mạnh yếu của chúng.
     Tên Điểm mạnh Điểm yếu     1 forever Lệnh đơn giản, có API phong phú.">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="[Node.js] Triển khai dịch vụ Node.js trên Windows">
-    <meta property="og:url" content="/vi/2016/04/deploy-nodejs-on-windows/">
+    <meta property="og:url" content="https://dominhhai.github.io/vi/2016/04/deploy-nodejs-on-windows/">
+    <meta property="og:description" content="Để triển khai ứng dụng Node.js bằng Windows, ta có nhiều phương án như dưới đây:
+ Sử dụng forever Sử dụng issnode Sử dụng NSSM  Cả 3 softwares trên đều có hướng dẫn rất chi tiết trên trang chủ tương ứng, nhưng ta nên chọn cái nào để triển khai ứng dụng? Trong bài này ta sẽ liệt kê 1 vài điểm mạnh yếu của chúng.
+    Tên Điểm mạnh Điểm yếu     1 forever Lệnh đơn giản, có API phong phú.">
     <meta property="og:site_name" content="Hai&#39;s Blog">
+    <meta property="og:locale" content="vi">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Hai&#39;s Blog">
+    <meta name="twitter:title" content="[Node.js] Triển khai dịch vụ Node.js trên Windows">
+    <meta name="twitter:url" content="https://dominhhai.github.io/vi/2016/04/deploy-nodejs-on-windows/">
     <meta name="twitter:description" content="Để triển khai ứng dụng Node.js bằng Windows, ta có nhiều phương án như dưới đây:
  Sử dụng forever Sử dụng issnode Sử dụng NSSM  Cả 3 softwares trên đều có hướng dẫn rất chi tiết trên trang chủ tương ứng, nhưng ta nên chọn cái nào để triển khai ứng dụng? Trong bài này ta sẽ liệt kê 1 vài điểm mạnh yếu của chúng.
     Tên Điểm mạnh Điểm yếu     1 forever Lệnh đơn giản, có API phong phú.">
@@ -55,14 +62,18 @@
 
     
       <meta property="og:image" content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640">
+      <meta name="twitter:image" content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640">
     
 
     
       <meta property="og:image" content="//res.cloudinary.com/dominhhai/image/upload/code/nodejs_svg.svg">
+      <meta name="twitter:image" content="//res.cloudinary.com/dominhhai/image/upload/code/nodejs_svg.svg">
     
     
     
 
+    
+      <link rel="publisher" href="https://plus.google.com/115106277658014197977">
     
 
     
@@ -75,11 +86,11 @@
     
     
       
-        <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css" integrity="sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx" rel="stylesheet"></script>
+        <link rel="stylesheet"  crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css" integrity="sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx">
       
     
       
-        <link href="https://dominhhai.github.io/css/main.css" rel="stylesheet"></script>
+        <link rel="stylesheet"  href="https://dominhhai.github.io/css/main.css">
       
     
 
@@ -472,23 +483,23 @@ timeout 10
       <ul>
         
         <li>
-          <a href="https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh">Lập Trình</a>
+          <a href="https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/">Lập Trình</a>
         </li>
         
         <li>
-          <a href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y">Học Máy</a>
+          <a href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y/">Học Máy</a>
         </li>
         
         <li>
-          <a href="https://dominhhai.github.io/vi/categories/to%C3%A1n">Toán</a>
+          <a href="https://dominhhai.github.io/vi/categories/to%C3%A1n/">Toán</a>
         </li>
         
         <li>
-          <a href="https://dominhhai.github.io/vi/categories/x%C3%A1c-su%E1%BA%A5t">Xác Suất</a>
+          <a href="https://dominhhai.github.io/vi/categories/x%C3%A1c-su%E1%BA%A5t/">Xác Suất</a>
         </li>
         
         <li>
-          <a href="https://dominhhai.github.io/vi/categories/s%C3%A1ch">Sách</a>
+          <a href="https://dominhhai.github.io/vi/categories/s%C3%A1ch/">Sách</a>
         </li>
         
       </ul>

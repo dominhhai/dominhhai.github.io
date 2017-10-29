@@ -21,6 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.1-BETA">
     <title>[Atom] Hiển thị mã Markdown với Atom</title>
     <meta name="author" content="Do Minh Hai">
@@ -30,16 +31,22 @@
     
 
     
+      <link rel="canonical" href="https://dominhhai.github.io/vi/2016/01/atom-markdown-preview/" />
+    
+
+    
     <meta name="description" content="Đầu năm rảnh rỗi ngồi viết bậy lúc cho vui tay. Tiện chúc anh em bạn bè năm mới tràn đầy niềm vui và hạnh phúc, sớm thành các tay lập trình lão luyện thuộc top world class.
-Xem trước một cách real-time hiển thị của mã Markdown trên Atom (phiên bản hiện tại là 1.x) cực kì dễ dàng. Chỉ cần mở tab đang soạn thảo mã Markdown của bạn và ấn tổ hợp phím CONTROL &#43; SHIFT &#43; M là có thể xem ngay mã Markdown trong khi đang soạn thảo.">
-    <meta property="og:description" content="Đầu năm rảnh rỗi ngồi viết bậy lúc cho vui tay. Tiện chúc anh em bạn bè năm mới tràn đầy niềm vui và hạnh phúc, sớm thành các tay lập trình lão luyện thuộc top world class.
 Xem trước một cách real-time hiển thị của mã Markdown trên Atom (phiên bản hiện tại là 1.x) cực kì dễ dàng. Chỉ cần mở tab đang soạn thảo mã Markdown của bạn và ấn tổ hợp phím CONTROL &#43; SHIFT &#43; M là có thể xem ngay mã Markdown trong khi đang soạn thảo.">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="[Atom] Hiển thị mã Markdown với Atom">
-    <meta property="og:url" content="/vi/2016/01/atom-markdown-preview/">
+    <meta property="og:url" content="https://dominhhai.github.io/vi/2016/01/atom-markdown-preview/">
+    <meta property="og:description" content="Đầu năm rảnh rỗi ngồi viết bậy lúc cho vui tay. Tiện chúc anh em bạn bè năm mới tràn đầy niềm vui và hạnh phúc, sớm thành các tay lập trình lão luyện thuộc top world class.
+Xem trước một cách real-time hiển thị của mã Markdown trên Atom (phiên bản hiện tại là 1.x) cực kì dễ dàng. Chỉ cần mở tab đang soạn thảo mã Markdown của bạn và ấn tổ hợp phím CONTROL &#43; SHIFT &#43; M là có thể xem ngay mã Markdown trong khi đang soạn thảo.">
     <meta property="og:site_name" content="Hai&#39;s Blog">
+    <meta property="og:locale" content="vi">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Hai&#39;s Blog">
+    <meta name="twitter:title" content="[Atom] Hiển thị mã Markdown với Atom">
+    <meta name="twitter:url" content="https://dominhhai.github.io/vi/2016/01/atom-markdown-preview/">
     <meta name="twitter:description" content="Đầu năm rảnh rỗi ngồi viết bậy lúc cho vui tay. Tiện chúc anh em bạn bè năm mới tràn đầy niềm vui và hạnh phúc, sớm thành các tay lập trình lão luyện thuộc top world class.
 Xem trước một cách real-time hiển thị của mã Markdown trên Atom (phiên bản hiện tại là 1.x) cực kì dễ dàng. Chỉ cần mở tab đang soạn thảo mã Markdown của bạn và ấn tổ hợp phím CONTROL &#43; SHIFT &#43; M là có thể xem ngay mã Markdown trong khi đang soạn thảo.">
     
@@ -52,14 +59,18 @@ Xem trước một cách real-time hiển thị của mã Markdown trên Atom (p
 
     
       <meta property="og:image" content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640">
+      <meta name="twitter:image" content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640">
     
 
     
       <meta property="og:image" content="//res.cloudinary.com/dominhhai/image/upload/editor/atom.png">
+      <meta name="twitter:image" content="//res.cloudinary.com/dominhhai/image/upload/editor/atom.png">
     
     
     
 
+    
+      <link rel="publisher" href="https://plus.google.com/115106277658014197977">
     
 
     
@@ -72,11 +83,11 @@ Xem trước một cách real-time hiển thị của mã Markdown trên Atom (p
     
     
       
-        <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css" integrity="sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx" rel="stylesheet"></script>
+        <link rel="stylesheet"  crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css" integrity="sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx">
       
     
       
-        <link href="https://dominhhai.github.io/css/main.css" rel="stylesheet"></script>
+        <link rel="stylesheet"  href="https://dominhhai.github.io/css/main.css">
       
     
 
@@ -563,23 +574,23 @@ ga('send', 'pageview');
       <ul>
         
         <li>
-          <a href="https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh">Lập Trình</a>
+          <a href="https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/">Lập Trình</a>
         </li>
         
         <li>
-          <a href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y">Học Máy</a>
+          <a href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y/">Học Máy</a>
         </li>
         
         <li>
-          <a href="https://dominhhai.github.io/vi/categories/to%C3%A1n">Toán</a>
+          <a href="https://dominhhai.github.io/vi/categories/to%C3%A1n/">Toán</a>
         </li>
         
         <li>
-          <a href="https://dominhhai.github.io/vi/categories/x%C3%A1c-su%E1%BA%A5t">Xác Suất</a>
+          <a href="https://dominhhai.github.io/vi/categories/x%C3%A1c-su%E1%BA%A5t/">Xác Suất</a>
         </li>
         
         <li>
-          <a href="https://dominhhai.github.io/vi/categories/s%C3%A1ch">Sách</a>
+          <a href="https://dominhhai.github.io/vi/categories/s%C3%A1ch/">Sách</a>
         </li>
         
       </ul>
