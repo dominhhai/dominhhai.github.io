@@ -302,7 +302,7 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <blockquote>
-<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.</p>
@@ -351,11 +351,11 @@ Những mô hình này thường được ứng dụng trong các hệ thống d
 Hai là tự động sinh văn bản (tôi cho rằng ứng dụng này hấp dẫn hơn).
 Ví dụ huấn luyện mô hình với các tác phẩm của Shakespeare có thể cho phép ta sinh ra
 các câu từ tựa như cách Shakespeare viết.
-Ngoài ra, nếu có thời gian, các bạn có thể tham khảo thêm <a href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank">bài viết thú vị này</a> (tiếng Anh) của Andrej Karpathy về khả năng của các mô hình ngôn ngữ mức độ từ vựng.</p>
+Ngoài ra, nếu có thời gian, các bạn có thể tham khảo thêm <a href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank" rel="noopener noreferrer">bài viết thú vị này</a> (tiếng Anh) của Andrej Karpathy về khả năng của các mô hình ngôn ngữ mức độ từ vựng.</p>
 
 <p>Bài viết này dành cho các bạn đã biết cơ bản về mạng nơ-rơn (Neural Network),
 nếu bạn chưa biết về mạng nơ-ron thì hãy đọc bài viết
-<a href="http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/" target="_blank">Cài đặt mạng nơ-ron cơ bản</a>.
+<a href="http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/" target="_blank" rel="noopener noreferrer">Cài đặt mạng nơ-ron cơ bản</a>.
 Bài viết đó sẽ giúp bạn có cái nhìn cơ bản về ý tưởng và cách xây dựng một mạng nơ-ron cơ bản - mạng nơ-ron phi hồi quy.</p>
 
 <h1 id="2-mạng-hồi-quy-rnn-là-gì">2. Mạng hồi quy RNN là gì?</h1>
@@ -413,8 +413,8 @@ Nó chính là <strong><em>bộ nhớ</em></strong> của mạng.
 $ \color{blue}s_t $ được tính toán dựa trên cả các trạng thái ẩn phía trước và đầu vào tại bước đó:
 $ \color{blue}s_t = f(U x_t + W s_{t-1} ) $.
 Hàm $ \color{blue}f $ thường là một hàm phi tuyến tính như
-<a href="//vi.wikipedia.org/wiki/H%C3%A0m_hypebolic" target="_blank">tang hyperbolic (tanh)</a>
-hay <a href="//en.wikipedia.org/wiki/Rectifier_(neural_networks)" target="_blank">ReLu</a>.
+<a href="//vi.wikipedia.org/wiki/H%C3%A0m_hypebolic" target="_blank" rel="noopener noreferrer">tang hyperbolic (tanh)</a>
+hay <a href="//en.wikipedia.org/wiki/Rectifier_(neural_networks)" target="_blank" rel="noopener noreferrer">ReLu</a>.
 Để làm phép toán cho phần tử ẩn đầu tiên ta cần khởi tạo thêm $ \color{deeppink}s_{-1} $,
 thường giá trị khởi tạo được gắn bằng <code>0</code>.</p></li>
 
@@ -429,7 +429,7 @@ $ \color{blue}o_t = softmax(V s_t) $</p></li>
 <p>Trong lĩnh vực xử lý ngôn ngữ tự nhiên (NLP - Natural Language Processing),
 đã ghi nhận được nhiều thành công của RNN cho nhiều vấn đề khác nhau.
 Tại thời điểm này, tôi muốn đề cập tới một mô hình phổ biến nhất được sử dụng của RNN là
-<a href="https://en.wikipedia.org/wiki/Long_short-term_memory" target="_blank">LSTM</a>.
+<a href="https://en.wikipedia.org/wiki/Long_short-term_memory" target="_blank" rel="noopener noreferrer">LSTM</a>.
 LSTM (Long Short-Term Memory) thể hiện được sự ưu việt ở điểm có thể nhớ được nhiều bước hơn mô hình RNN truyền thống.
 Nhưng bạn không cần phải quá lo lắng vì LSTM về cơ bản giống với cấu trúc của RNN truyền thống,
 chúng chỉ khác nhau ở cách tính toán của các nút ẩn.
@@ -443,7 +443,7 @@ Do có khả năng ước lượng được độ tương tự của các câu n
 Một điểm lý thú của việc có thể dự đoán được từ tiếp theo là ta có thể xây dựng được
 một mô hình tự sinh từ cho phép máy tính có thể tự tạo ra các văn bản mới từ tập mẫu và xác xuất đầu ra của mỗi từ.
 Vậy nên, tùy thuộc vào mô hình ngôn ngữ mà ta có thể tạo ra được nhiều
-<a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank">văn bản khác nhau</a>
+<a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank" rel="noopener noreferrer">văn bản khác nhau</a>
 khá là thú vị phải không.
 Trong mô hình ngôn ngữ, đầu vào thường là một chuỗi các từ (được mô tả bằng vec-tơ one-hot)
 và đầu ra là một chuỗi các từ dự đoán được.
@@ -453,9 +453,9 @@ Khi huấn luyện mạng, ta sẽ gán $ \color{blue}o_t = x_{t+1} $ vì ta mu�
 <p>Dưới đây là một vài nghiên cứu về mô hình hoá ngôn ngữ và sinh văn bản:</p>
 
 <ul>
-<li><a href="http://www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf" target="_blank">Recurrent neural network based language model</a></li>
-<li><a href="http://www.fit.vutbr.cz/research/groups/speech/publi/2011/mikolov_icassp2011_5528.pdf" target="_blank">Extensions of Recurrent neural network based language model</a></li>
-<li><a href="http://machinelearning.wustl.edu/mlpapers/paper_files/ICML2011Sutskever_524.pdf" target="_blank">Generating Text with Recurrent Neural Networks</a></li>
+<li><a href="http://www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf" target="_blank" rel="noopener noreferrer">Recurrent neural network based language model</a></li>
+<li><a href="http://www.fit.vutbr.cz/research/groups/speech/publi/2011/mikolov_icassp2011_5528.pdf" target="_blank" rel="noopener noreferrer">Extensions of Recurrent neural network based language model</a></li>
+<li><a href="http://machinelearning.wustl.edu/mlpapers/paper_files/ICML2011Sutskever_524.pdf" target="_blank" rel="noopener noreferrer">Generating Text with Recurrent Neural Networks</a></li>
 </ul>
 
 <h2 id="3-2-dịch-máy">3.2. Dịch máy</h2>
@@ -497,9 +497,9 @@ Vì từ dịch đầu tiên của câu dịch cần phải có đầy đủ th�
 <p>Dưới đây là một vài nghiên cứu về dịch máy:</p>
 
 <ul>
-<li><a href="http://www.aclweb.org/anthology/P14-1140.pdf" target="_blank">A Recursive Recurrent Neural Network for Statistical Machine Translation</a></li>
-<li><a href="http://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf" target="_blank">Sequence to Sequence Learning with Neural Networks</a></li>
-<li><a href="http://research.microsoft.com/en-us/um/people/gzweig/Pubs/EMNLP2013RNNMT.pdf" target="_blank">Joint Language and Translation Modeling with Recurrent Neural Networks</a></li>
+<li><a href="http://www.aclweb.org/anthology/P14-1140.pdf" target="_blank" rel="noopener noreferrer">A Recursive Recurrent Neural Network for Statistical Machine Translation</a></li>
+<li><a href="http://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf" target="_blank" rel="noopener noreferrer">Sequence to Sequence Learning with Neural Networks</a></li>
+<li><a href="http://research.microsoft.com/en-us/um/people/gzweig/Pubs/EMNLP2013RNNMT.pdf" target="_blank" rel="noopener noreferrer">Joint Language and Translation Modeling with Recurrent Neural Networks</a></li>
 </ul>
 
 <h2 id="3-3-nhận-dạng-giọng-nói">3.3. Nhận dạng giọng nói</h2>
@@ -509,12 +509,12 @@ Vì từ dịch đầu tiên của câu dịch cần phải có đầy đủ th�
 <p>Dưới đây là một vài nghiên cứu về nhận dạng giọng nói:</p>
 
 <ul>
-<li><a href="http://www.jmlr.org/proceedings/papers/v32/graves14.pdf" target="_blank">Towards End-to-End Speech Recognition with Recurrent Neural Networks</a></li>
+<li><a href="http://www.jmlr.org/proceedings/papers/v32/graves14.pdf" target="_blank" rel="noopener noreferrer">Towards End-to-End Speech Recognition with Recurrent Neural Networks</a></li>
 </ul>
 
 <h2 id="3-4-mô-tả-hình-ảnh">3.4. Mô tả hình ảnh</h2>
 
-<p>Cùng với <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network" target="_blank">ConvNet</a>,
+<p>Cùng với <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network" target="_blank" rel="noopener noreferrer">ConvNet</a>,
 RNN được sử dụng để tự động tạo mô tả cho các ảnh chưa được gán nhãn.
 Sự kết hợp này đã đưa ra được các kết quả khá kinh ngạc.
 Ví dụ như các ảnh dưới đây, các mô tả sinh ra có mức độ chính xác và độ tường tận khá cao.</p>
@@ -557,10 +557,10 @@ vì các tham số trong mạng RNN được sử dụng chung cho tất cả c�
 Ví dụ, để tính đạo hàm tại $ \color{deeppink}t = 4 $ ta phải lan truyền ngược cả 3 bước phía trước
 rồi cộng tổng đạo hàm của chúng lại với nhau.
 Việc tính đạo hàm kiểu này được gọi là lan truyền ngược liên hồi
-(<a href="https://en.wikipedia.org/wiki/Backpropagation_through_time" target="_blank">BPTT</a> - Backpropagation Through Time).
+(<a href="https://en.wikipedia.org/wiki/Backpropagation_through_time" target="_blank" rel="noopener noreferrer">BPTT</a> - Backpropagation Through Time).
 Nếu giờ bạn chưa thể hiểu được BPTT thế nào thì cũng đừng lo sợ
 vì trong bài sau ta sẽ xem xét cụ thể nó là gì sau.
-Còn giờ, chỉ cần nhớ rằng với các bước phụ thuộc càng xa thì việc học sẽ <a href="//arxiv.org/pdf/1211.5063v2.pdf" target="_blank">càng khó khăn hơn</a>
+Còn giờ, chỉ cần nhớ rằng với các bước phụ thuộc càng xa thì việc học sẽ <a href="//arxiv.org/pdf/1211.5063v2.pdf" target="_blank" rel="noopener noreferrer">càng khó khăn hơn</a>
 vì sẽ xuất hiện vấn đề hao hụt/bùng nổ (vanishing/exploding) của đạo hàm.
 Có một vài phương pháp được đề xuất để giải quyết vấn đề này
 và các kiểu mạng RNN hiện nay đã được thiết kế để triệt tiêu bớt chúng như LSTM chẳng hạn.</p>
@@ -654,14 +654,14 @@ Bên trong hộp đen này sẽ tự quyết định cái gì cần phải nhớ
 Sau đó, chúng sẽ kết hợp với trạng thái phía trước, nhớ hiện tại và đầu vào hiện tại.
 Vì vậy mà ta ta có thể truy xuất được quan hệ của các từ phụ thuộc xa nhau rất hiệu quả.
 Có thể khi mới làm quen với LSTM thì chúng hơi khó hiểu đôi chút, nhưng nếu bạn có hứng thú thì hãy xem
-<a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">bài viết xuất sắc này</a>
-(<a href="https://dominhhai.github.io/vi/2017/10/what-is-lstm/" target="_blank">bản dịch tại đây</a>).</p>
+<a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener noreferrer">bài viết xuất sắc này</a>
+(<a href="https://dominhhai.github.io/vi/2017/10/what-is-lstm/" target="_blank" rel="noopener noreferrer">bản dịch tại đây</a>).</p>
 
 <h1 id="6-kết-luận">6. Kết luận</h1>
 
 <p>Okey, được rồi, tôi hi vọng là bạn đã hiểu cơ bản về RNN và khả năng của chúng.
 Trong bài viết tiếp theo, chúng ta sẽ cài đặt phiên bản đầu tiên của mô hình ngôn ngữ RNN sử dụng <code>Python</code>
-và <a href="http://www.deeplearning.net/software/theano/" target="_blank">Theano</a>.
+và <a href="http://www.deeplearning.net/software/theano/" target="_blank" rel="noopener noreferrer">Theano</a>.
 Giờ nếu bạn có thắc mắc gì thì có thể để lại câu hỏi ở phía dưới nhé!</p>
               
             </div>
@@ -993,11 +993,11 @@ Giờ nếu bạn có thắc mắc gì thì có thể để lại câu hỏi ở
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank">Sepp Hochreiter và Jürgen Schmidhuber</a>.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.</p>
 
@@ -1019,7 +1019,7 @@ Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
@@ -1043,13 +1043,13 @@ Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
-và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank">Theano</a> - một thư viện tính toán trên GPU.
+và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank" rel="noopener noreferrer">Theano</a> - một thư viện tính toán trên GPU.
 Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
-còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank">Github</a>.</p>
+còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank" rel="noopener noreferrer">Github</a>.</p>
 
 <p></p></div>
             </div>
@@ -1069,12 +1069,12 @@ còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.co
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">colah&rsquo;s blog</a>.</p>
+<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener noreferrer">colah&rsquo;s blog</a>.</p>
 </blockquote>
 
 <p>LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
 Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
-<a href="https://github.com/colah/" target="_blank">Christopher Olah</a>.
+<a href="https://github.com/colah/" target="_blank" rel="noopener noreferrer">Christopher Olah</a>.
 Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.</p>
 
 <p></p></div>
@@ -1095,7 +1095,7 @@ Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm v
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.</p>
@@ -1119,7 +1119,7 @@ Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm v
               </span>
               <div class="media-content hide-xs font-merryweather"><p>Phần tiếp theo của <a href="https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/">chuỗi chủ đề về ma trận</a>
 sẽ đề cập tới các phép toán của ma trận.
-Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href="https://github.com/numpy/numpy" target="_blank">Numpy</a> để lập trình với ma trận.</p>
+Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href="https://github.com/numpy/numpy" target="_blank" rel="noopener noreferrer">Numpy</a> để lập trình với ma trận.</p>
 
 <p></p></div>
             </div>

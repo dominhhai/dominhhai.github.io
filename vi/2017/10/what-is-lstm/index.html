@@ -311,12 +311,12 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <blockquote>
-<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">colah&rsquo;s blog</a>.</p>
+<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener noreferrer">colah&rsquo;s blog</a>.</p>
 </blockquote>
 
 <p>LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
 Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
-<a href="https://github.com/colah/" target="_blank">Christopher Olah</a>.
+<a href="https://github.com/colah/" target="_blank" rel="noopener noreferrer">Christopher Olah</a>.
 Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.</p>
 
 <p></p>
@@ -426,11 +426,11 @@ Các nút của mạng vẫn nhận đầu vào và có đầu ra hệt như m�
 trong nhiều lĩnh vực: nhận dạng giọng nói, mô hình hóa ngôn ngữ, dịch máy, mô tả ảnh,&hellip;
 Danh sách vẫn còn đang được mở rộng tiếp.
 Anh Andrej Karpathy đã đề cập tới một số kêt quả mà RNN mang lại tại
-<a href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank">bài viết này</a>, nên tôi sẽ không bàn luận thêm nữa.
+<a href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank" rel="noopener noreferrer">bài viết này</a>, nên tôi sẽ không bàn luận thêm nữa.
 Nhưng tôi vẫn muốn thốt lên rằng chúng thật là quá tuyệt vời.</p>
 
 <p>Đằng sau sự thành công này chính là sự đóng góp của
-<a href="https://en.wikipedia.org/wiki/Long_short-term_memory" target="_blank">LSTM</a>.
+<a href="https://en.wikipedia.org/wiki/Long_short-term_memory" target="_blank" rel="noopener noreferrer">LSTM</a>.
 LSTM là một dạng đặc biệt của mạng nơ-ron hồi quy,
 với nhiều bài toán thì nó tốt hơn mạng hồi quy thuần.
 Hầu hết các kết quả thú vị thu được từ mạng RNN là được sử dụng với LSTM.
@@ -861,7 +861,7 @@ Thực tế, các bài báo về LTSM đều sử dụng một phiên bản hơi
 Sự khác nhau không lớn, nhưng chúng giúp giải quyết phần nào đó trong cấu trúc của LTSM.</p>
 
 <p>Một dạng LTSM phổ biến được giới thiệu bởi
-<a href="ftp://ftp.idsia.ch/pub/juergen/TimeCount-IJCNN2000.pdf" target="_blank">Gers &amp; Schmidhuber (2000)</a> được thêm các đường kết nối &ldquo;peephole connections&rdquo;,
+<a href="ftp://ftp.idsia.ch/pub/juergen/TimeCount-IJCNN2000.pdf" target="_blank" rel="noopener noreferrer">Gers &amp; Schmidhuber (2000)</a> được thêm các đường kết nối &ldquo;peephole connections&rdquo;,
 làm cho các tầng cổng nhận được giá trị đầu vào là trạng thái tế bào.</p>
 
 
@@ -926,7 +926,7 @@ Ta chỉ đưa thông tin mới vào khi ta bỏ thông tin cũ nào đó đi.</
 
 
 <p>Một biến thể khá thú vị khác của LSTM là Gated Recurrent Unit, hay GRU được giới thiệu bởi
-<a href="http://arxiv.org/pdf/1406.1078v3.pdf" target="_blank">Cho, et al. (2014)</a>.
+<a href="http://arxiv.org/pdf/1406.1078v3.pdf" target="_blank" rel="noopener noreferrer">Cho, et al. (2014)</a>.
 Nó kết hợp các cổng loại trừ và đầu vào thành một cổng &ldquo;cổng cập nhập&rdquo; (update gate).
 Nó cũng hợp trạng thái tế bào và trạng thái ẩn với nhau tạo ra một thay đổi khác.
 Kết quả là mô hình của ta sẽ đơn giản hơn mô hình LSTM chuẩn và ngày càng trở nên phổ biến.</p>
@@ -959,14 +959,14 @@ Kết quả là mô hình của ta sẽ đơn giản hơn mô hình LSTM chuẩn
 
 <p>Trên đây chỉ là một vài biến thế được chú ý nhiều nhất thôi,
 thực tế có rất nhiều các biến thể khác nhau của LSTM như
-Depth Gated RNNs của <a href="http://arxiv.org/pdf/1508.03790v2.pdf" target="_blank">Yao, et al. (2015)</a>.
+Depth Gated RNNs của <a href="http://arxiv.org/pdf/1508.03790v2.pdf" target="_blank" rel="noopener noreferrer">Yao, et al. (2015)</a>.
 Cũng có những biến thể mà chiến lực xử lý phụ thuộc xa hoàn toàn khác như
-Clockwork RNNs của <a href="http://arxiv.org/pdf/1402.3511v1.pdf" target="_blank">Koutnik, et al. (2014)</a>.</p>
+Clockwork RNNs của <a href="http://arxiv.org/pdf/1402.3511v1.pdf" target="_blank" rel="noopener noreferrer">Koutnik, et al. (2014)</a>.</p>
 
 <p>Nếu bạn muốn tìm hiểu xem biến thể nào là tốt nhất và chúng khác nhau thế nào,
 thì có thể đọc bài so sánh khá hay này của
-<a href="http://arxiv.org/pdf/1503.04069.pdf" target="_blank">Greff, et al. (2015)</a>.
-Ngoài ra thì <a href="http://jmlr.org/proceedings/papers/v37/jozefowicz15.pdf" target="_blank">Jozefowicz, et al. (2015)</a>
+<a href="http://arxiv.org/pdf/1503.04069.pdf" target="_blank" rel="noopener noreferrer">Greff, et al. (2015)</a>.
+Ngoài ra thì <a href="http://jmlr.org/proceedings/papers/v37/jozefowicz15.pdf" target="_blank" rel="noopener noreferrer">Jozefowicz, et al. (2015)</a>
 thậm chí còn thử hàng chục nghìn kiến trúc RNN khác nhau
 và tìm ra một vài mô hình hoạt động tốt hơn cả LSTM ở một số bài toán.</p>
 
@@ -984,15 +984,15 @@ Nhưng hi vọng là thông qua các bước phân tích trong bày này có th�
 từ một tập thông tin lớn hơn.
 Ví dụ, nếu bạn sử dụng RNN để tạo mô tả cho một bức ảnh,
 nó có thể lấy một phần ảnh để dự đoán mô tả từ tất cả các từ đầu vào.
-Bằng chứng là <a href="http://arxiv.org/pdf/1502.03044v2.pdf" target="_blank">Xu, et al. (2015)</a> đã thực hiện được chính xác việc này.
+Bằng chứng là <a href="http://arxiv.org/pdf/1502.03044v2.pdf" target="_blank" rel="noopener noreferrer">Xu, et al. (2015)</a> đã thực hiện được chính xác việc này.
 Hiện nay cũng đã có nhiều kết qua thực sự rất thú vị được chú ý
 và dường như có nhiều kết quả hơn chúng ta vẫn biết.</p>
 
 <p>Sự chú ý không chỉ gói gọn trong nhóm nghiên cứ RNN.
-Ví dụ <a href="http://arxiv.org/pdf/1507.01526v1.pdf" target="_blank">Grid LSTMs của Kalchbrenner, et al. (2015)</a> có vẻ như cũng rất tiềm năng.
+Ví dụ <a href="http://arxiv.org/pdf/1507.01526v1.pdf" target="_blank" rel="noopener noreferrer">Grid LSTMs của Kalchbrenner, et al. (2015)</a> có vẻ như cũng rất tiềm năng.
 Cũng có người sử dụng RNN trong các mô hình sinh như
-<a href="http://arxiv.org/pdf/1502.04623.pdf" target="_blank">Gregor, et al. (2015)</a>, <a href="http://arxiv.org/pdf/1506.02216v3.pdf">Chung, et al. (2015)</a>,
-hay <a href="http://arxiv.org/pdf/1411.7610v3.pdf" target="_blank">Bayer &amp; Osendorfer (2015)</a> cũng rất thú vị.
+<a href="http://arxiv.org/pdf/1502.04623.pdf" target="_blank" rel="noopener noreferrer">Gregor, et al. (2015)</a>, <a href="http://arxiv.org/pdf/1506.02216v3.pdf">Chung, et al. (2015)</a>,
+hay <a href="http://arxiv.org/pdf/1411.7610v3.pdf" target="_blank" rel="noopener noreferrer">Bayer &amp; Osendorfer (2015)</a> cũng rất thú vị.
 Mấy năm gần đây là quãng thời gian rất sôi nổi của mạng nơ-ron hồi quy,
 và chúng còn được kì vọng nhiều hơn nữa trong tương lai.</p>
               
@@ -1327,11 +1327,11 @@ và chúng còn được kì vọng nhiều hơn nữa trong tương lai.</p>
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank">Sepp Hochreiter và Jürgen Schmidhuber</a>.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.</p>
 
@@ -1353,7 +1353,7 @@ Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
@@ -1377,13 +1377,13 @@ Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
-và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank">Theano</a> - một thư viện tính toán trên GPU.
+và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank" rel="noopener noreferrer">Theano</a> - một thư viện tính toán trên GPU.
 Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
-còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank">Github</a>.</p>
+còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank" rel="noopener noreferrer">Github</a>.</p>
 
 <p></p></div>
             </div>
@@ -1403,12 +1403,12 @@ còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.co
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">colah&rsquo;s blog</a>.</p>
+<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener noreferrer">colah&rsquo;s blog</a>.</p>
 </blockquote>
 
 <p>LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
 Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
-<a href="https://github.com/colah/" target="_blank">Christopher Olah</a>.
+<a href="https://github.com/colah/" target="_blank" rel="noopener noreferrer">Christopher Olah</a>.
 Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.</p>
 
 <p></p></div>
@@ -1429,7 +1429,7 @@ Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm v
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.</p>
@@ -1453,7 +1453,7 @@ Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm v
               </span>
               <div class="media-content hide-xs font-merryweather"><p>Phần tiếp theo của <a href="https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/">chuỗi chủ đề về ma trận</a>
 sẽ đề cập tới các phép toán của ma trận.
-Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href="https://github.com/numpy/numpy" target="_blank">Numpy</a> để lập trình với ma trận.</p>
+Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href="https://github.com/numpy/numpy" target="_blank" rel="noopener noreferrer">Numpy</a> để lập trình với ma trận.</p>
 
 <p></p></div>
             </div>

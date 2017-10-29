@@ -307,13 +307,13 @@ _mMethod();  // (2)
 
 <p>Mỗi ngữ cảnh thực thi này có tương ứng một <code>ThisBinding</code> có giá trị không đổi đại diện cho ngữ cảnh thực thi đó. Và từ khoá <code>this</code> sẽ bằng giá trị <code>ThisBinding</code> trong ngữ cảnh đang thực thi hiện thời. Như vậy <code>this</code> sẽ đại diện cho ngữ cảnh đang thực thi và nó cần được đánh giá lại tham chiếu khi ngữ cảnh thực thi thay đổi.</p>
 
-<p>Có 3 kiểu ngữ cảnh thực thi là toàn cục (global), eval và hàm (function). Global là ngữ cảnh ở mức trên cùng của toàn bộ chương trình, tức là nó chứa các đoạn mã không nằm trong function hay được gọi bởi eval và global sẽ là ngữ cảnh thực thi chương trình mặc định. Eval là ngữ cảnh chứa các mã được gọi bởi hàm <a href="https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/eval" title="eval" target="_blank"><code>eval</code></a>. Còn function là các đoạn mã nằm trong một function nào đó. Ta sẽ xem chi tiết từng ngữ cảnh thực thi qua phần dưới đây.</p>
+<p>Có 3 kiểu ngữ cảnh thực thi là toàn cục (global), eval và hàm (function). Global là ngữ cảnh ở mức trên cùng của toàn bộ chương trình, tức là nó chứa các đoạn mã không nằm trong function hay được gọi bởi eval và global sẽ là ngữ cảnh thực thi chương trình mặc định. Eval là ngữ cảnh chứa các mã được gọi bởi hàm <a href="https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/eval" title="eval" target="_blank" rel="noopener noreferrer"><code>eval</code></a>. Còn function là các đoạn mã nằm trong một function nào đó. Ta sẽ xem chi tiết từng ngữ cảnh thực thi qua phần dưới đây.</p>
 
 <h3 id="2-các-ngữ-cảnh-thực-thi">2. Các ngữ cảnh thực thi</h3>
 
 <h4 id="2-1-toàn-cục-global">2.1. Toàn cục - Global</h4>
 
-<p>Là ngữ cảnh thực thi nằm ở trên cùng của ngăn xếp ngữ cảnh, tức là ngữ cảnh đầu tiên thực thi chương trình. Ví dụ trong các mã thực thi phía máy khách trong trang web thì ngữ cảnh toàn cục này nằm ngay sau thẻ . Trong ngữ cảnh toàn cục này thì <code>ThisBinding</code> sẽ được thiết lập giá trị là đối tượng toàn cục (Global Object). Trong Nodejs thì đối tượng toàn cục là đối tượng toàn cục của Nodejs - khởi đầu là một đối tượng trống, trong trình duyệt thì nó là đối tượng window, nhưng cần chú ý là nếu ở trong chế độ <a href="https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Strict_mode" title="strict mode" target="_blank"><code>strict mode</code></a> thì đối tượng toàn cục là <code>undefined</code>. Ta có thể cùng nhau xem xét ví dụ dưới đây.</p>
+<p>Là ngữ cảnh thực thi nằm ở trên cùng của ngăn xếp ngữ cảnh, tức là ngữ cảnh đầu tiên thực thi chương trình. Ví dụ trong các mã thực thi phía máy khách trong trang web thì ngữ cảnh toàn cục này nằm ngay sau thẻ . Trong ngữ cảnh toàn cục này thì <code>ThisBinding</code> sẽ được thiết lập giá trị là đối tượng toàn cục (Global Object). Trong Nodejs thì đối tượng toàn cục là đối tượng toàn cục của Nodejs - khởi đầu là một đối tượng trống, trong trình duyệt thì nó là đối tượng window, nhưng cần chú ý là nếu ở trong chế độ <a href="https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Strict_mode" title="strict mode" target="_blank" rel="noopener noreferrer"><code>strict mode</code></a> thì đối tượng toàn cục là <code>undefined</code>. Ta có thể cùng nhau xem xét ví dụ dưới đây.</p>
 
 <pre><code class="language-javascript">console.log(this) // đối tượng toàn cục trong ngữ cảnh toàn cục
 
@@ -393,7 +393,7 @@ mEval(&quot;console.log(this)&quot;) // gọi gián tiếp eval qua biến mEval
 </ol>
 </blockquote>
 
-<p>Xem thêm về cách gắn <code>thisBinding</code> <a href="http://es5.github.io/#x10.4.3" title="Entering Function Code" target="_blank">ở đây</a>.</p>
+<p>Xem thêm về cách gắn <code>thisBinding</code> <a href="http://es5.github.io/#x10.4.3" title="Entering Function Code" target="_blank" rel="noopener noreferrer">ở đây</a>.</p>
 
 <p>Để rõ ràng hơn ta xét một số tình huống cụ với việc gọi hàm.</p>
 
@@ -534,7 +534,7 @@ var oMethod = obj.mMethod.bind(obj) // this trong oMethod sẽ bị ép thành g
 oMethod()
 </code></pre>
 
-<p>Vì sao lại là <code>bind</code> mà không phải là <code>call</code> hay <code>apply</code>? Vì <code>bind</code> sẽ giữ giá trị của <code>obj</code> để gọi nhiều lần chứ không chỉ gọi một lần như với <code>call</code> hay <code>apply</code>. Các bạn có thể đọc thêm <a href="https://dofeet.wordpress.com/2015/03/07/js-apply-call-va-bind-khac-gi-nhau" title="[JS] apply, call và bind khác gì nhau?" target="_blank">ở đây</a>.
+<p>Vì sao lại là <code>bind</code> mà không phải là <code>call</code> hay <code>apply</code>? Vì <code>bind</code> sẽ giữ giá trị của <code>obj</code> để gọi nhiều lần chứ không chỉ gọi một lần như với <code>call</code> hay <code>apply</code>. Các bạn có thể đọc thêm <a href="https://dofeet.wordpress.com/2015/03/07/js-apply-call-va-bind-khac-gi-nhau" title="[JS] apply, call và bind khác gì nhau?" target="_blank" rel="noopener noreferrer">ở đây</a>.
 Với trường hợp gọi một lần với <code>call</code> hoặc <code>apply</code> ta có thể cùng nhau xem ví dụ sau:</p>
 
 <pre><code class="language-javascript">var obj = {
@@ -648,7 +648,7 @@ obj.mMethod()
 
 <p>Về việc sử dụng Call, Apply và Bind cụ thể ra sao thì các bạn đọc thêm ở <a href="https://dofeet.wordpress.com/2015/03/07/js-apply-call-va-bind-khac-gi-nhau/" title="[JS] apply, call và bind khác gì nhau?">bài viết này</a>.</p>
 
-<p>Ngoài ra, bạn có thể tham khảo về chuẩn ECMAScript 5.1 <a href="http://es5.github.io" title="Entering Function Code" target="_blank">ở đây</a>.</p>
+<p>Ngoài ra, bạn có thể tham khảo về chuẩn ECMAScript 5.1 <a href="http://es5.github.io" title="Entering Function Code" target="_blank" rel="noopener noreferrer">ở đây</a>.</p>
 
               
             </div>
@@ -982,11 +982,11 @@ obj.mMethod()
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank">Sepp Hochreiter và Jürgen Schmidhuber</a>.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.</p>
 
@@ -1008,7 +1008,7 @@ Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
@@ -1032,13 +1032,13 @@ Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
-và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank">Theano</a> - một thư viện tính toán trên GPU.
+và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank" rel="noopener noreferrer">Theano</a> - một thư viện tính toán trên GPU.
 Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
-còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank">Github</a>.</p>
+còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank" rel="noopener noreferrer">Github</a>.</p>
 
 <p></p></div>
             </div>
@@ -1058,12 +1058,12 @@ còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.co
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">colah&rsquo;s blog</a>.</p>
+<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener noreferrer">colah&rsquo;s blog</a>.</p>
 </blockquote>
 
 <p>LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
 Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
-<a href="https://github.com/colah/" target="_blank">Christopher Olah</a>.
+<a href="https://github.com/colah/" target="_blank" rel="noopener noreferrer">Christopher Olah</a>.
 Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.</p>
 
 <p></p></div>
@@ -1084,7 +1084,7 @@ Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm v
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.</p>
@@ -1108,7 +1108,7 @@ Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm v
               </span>
               <div class="media-content hide-xs font-merryweather"><p>Phần tiếp theo của <a href="https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/">chuỗi chủ đề về ma trận</a>
 sẽ đề cập tới các phép toán của ma trận.
-Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href="https://github.com/numpy/numpy" target="_blank">Numpy</a> để lập trình với ma trận.</p>
+Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href="https://github.com/numpy/numpy" target="_blank" rel="noopener noreferrer">Numpy</a> để lập trình với ma trận.</p>
 
 <p></p></div>
             </div>

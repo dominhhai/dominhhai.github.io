@@ -305,7 +305,7 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <blockquote>
-<p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
@@ -313,7 +313,7 @@ Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing
 
 <p></p>
 
-<p>Vấn đề mất mát đạo hàm được khám phá bởi <a href="http://people.idsia.ch/~juergen/fundamentaldeeplearningproblem.html" target="_blank">Sepp Hochreiter năm 1991</a>
+<p>Vấn đề mất mát đạo hàm được khám phá bởi <a href="http://people.idsia.ch/~juergen/fundamentaldeeplearningproblem.html" target="_blank" rel="noopener noreferrer">Sepp Hochreiter năm 1991</a>
 và đã cuốn hút được sự quan tâm cho lần nữa trong thời gian gần đây khi mà ứng dụng của các kiến trúc sâu ngày một nhiều hơn.</p>
 
 <p>Đây là bài thứ 3 trong chuỗi bài giới thiệu về RNN:</p>
@@ -327,9 +327,9 @@ và đã cuốn hút được sự quan tâm cho lần nữa trong thời gian g
 
 <p>Để có thể hiểu được toàn bộ bài viết này, bạn cần có kiến thức về giải tích và cơ bản về giải thuật lan truyền ngược (backpropagation).
 Nếu bạn chưa rõ nó thì có thể đọc tại các bài viết
-<a href="http://cs231n.github.io/optimization-2/" target="_blank">này</a>
-và <a href="http://colah.github.io/posts/2015-08-Backprop/" target="_blank">này</a>
-và cả <a href="http://neuralnetworksanddeeplearning.com/chap2.html" target="_blank">đây</a> nữa (thứ tự khó dần nhé).</p>
+<a href="http://cs231n.github.io/optimization-2/" target="_blank" rel="noopener noreferrer">này</a>
+và <a href="http://colah.github.io/posts/2015-08-Backprop/" target="_blank" rel="noopener noreferrer">này</a>
+và cả <a href="http://neuralnetworksanddeeplearning.com/chap2.html" target="_blank" rel="noopener noreferrer">đây</a> nữa (thứ tự khó dần nhé).</p>
 
 <h1 id="table-of-contents">Mục lục</h1><nav id="TableOfContents">
 <ul>
@@ -394,8 +394,8 @@ Vì vậy tổng số lỗi chính là tổng của tất cả các lỗi ở m�
 Tương tự như việc cộng tổng các lỗi, ta cũng sẽ cộng tổng các đạo hàm tại mỗi bước cho mỗi mẫu huấn luyện:
 $ \frac{\partial{E}}{\partial{W}} = \sum_t{\frac{\partial{E_t}}{\partial{W}}} $.</p>
 
-<p>Để tính đạo hàm, ta sử dụng <a href="https://en.wikipedia.org/wiki/Chain_rule" target="_blank">quy tắc chuỗi vi phân</a>.
-Quy tắc này được áp dụng cho việc truyền ngược lỗi của <a href="http://colah.github.io/posts/2015-08-Backprop/" target="_blank">giải thuật lan truyền ngược</a>.</p>
+<p>Để tính đạo hàm, ta sử dụng <a href="https://en.wikipedia.org/wiki/Chain_rule" target="_blank" rel="noopener noreferrer">quy tắc chuỗi vi phân</a>.
+Quy tắc này được áp dụng cho việc truyền ngược lỗi của <a href="http://colah.github.io/posts/2015-08-Backprop/" target="_blank" rel="noopener noreferrer">giải thuật lan truyền ngược</a>.</p>
 
 <p>$$
 \begin{aligned}
@@ -405,7 +405,7 @@ Quy tắc này được áp dụng cho việc truyền ngược lỗi của <a h
 \end{aligned}
 $$</p>
 
-<p>Trong đó, $ z_3 = V s_3 $ và $ \otimes $ là <a href="https://en.wikipedia.org/wiki/Outer_product" target="_blank">phép nhân ngoài của 2 véc-tơ </a>.
+<p>Trong đó, $ z_3 = V s_3 $ và $ \otimes $ là <a href="https://en.wikipedia.org/wiki/Outer_product" target="_blank" rel="noopener noreferrer">phép nhân ngoài của 2 véc-tơ </a>.
 Nếu bạn không hiểu phép khai triển trên thì cũng đừng lo lắng gì cả, tôi có bỏ qua 1 vài bước khi khai triển, nếu cần thiết bạn có thể tự tính đạo hàm xem khớp hay không.
 Qua phép khai triển trên, tôi chỉ muốn nói 1 điều là $ \frac{\partial{E_3}}{\partial{V}} $
 chỉ phụ thuộc vào các giá trị ở bước hiện thời: $ \hat{y_3}, y_3, s_3 $ mà thôi.
@@ -538,8 +538,8 @@ $$</p>
 <p>Ở đây, $ \frac{s_3}{s_k} $ cũng tuân theo quy tắc chuỗi đạo hàm.
 Ví dụ: $ \frac{s_3}{s_1} = \frac{s_3}{s_2} \frac{s_2}{s_1} $.
 Nếu bạn để ý thì sẽ thấy các thành phần ở công thức trên đều là véc-tơ vì phép lấy đạo hàm cho véc-tơ cũng là véc-tơ, nên kết quả thu được sẽ là một ma trận
-(<a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant" target="_blank">ma trận Jacobi</a>),
-trong đó các phần tử tương ứng được tính theo phép toán <a href="https://en.wikipedia.org/wiki/Pointwise" target="_blank">pointwise</a> với đạo hàm tương ứng.
+(<a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant" target="_blank" rel="noopener noreferrer">ma trận Jacobi</a>),
+trong đó các phần tử tương ứng được tính theo phép toán <a href="https://en.wikipedia.org/wiki/Pointwise" target="_blank" rel="noopener noreferrer">pointwise</a> với đạo hàm tương ứng.
 Ta có thể viết lại công thức trên như sau:</p>
 
 <p>$$
@@ -555,7 +555,7 @@ Ta có thể viết lại công thức trên như sau:</p>
 }
 $$</p>
 
-<p>Tôi không chứng minh ở đây (bạn có thể xem ở <a href="http://www.jmlr.org/proceedings/papers/v28/pascanu13.pdf" target="_blank">đây</a>),
+<p>Tôi không chứng minh ở đây (bạn có thể xem ở <a href="http://www.jmlr.org/proceedings/papers/v28/pascanu13.pdf" target="_blank" rel="noopener noreferrer">đây</a>),
 nhưng phép tính trên cho ta một norm bậc 2.
 Bạn có thể coi nó là một giá trị tuyệt đối có biên trên là 1 của ma trận Jacobi ở trên.
 Vì hàm kích hoạt ($ \tanh $ hay $ sigmoid $) của ta sẽ cho kết quả đầu ra nằm trong đoạn $ [-1, 1] $
@@ -601,7 +601,7 @@ Tùy thuộc vào hàm kích hoạt và tham số của mạng, vấn đề bùn
 Tuy nhiên, người ta thường nói về vấn đề <em>mất mát đạo hàm</em> nhiều hơn là <em>bùng nổ đạo hàm</em>,
 vì 2 lý do sau. Thứ nhất, bùng nổ đạo hàm có thể theo dõi được
 vì khi đạo hàm bị bùng nổ thì ta sẽ thu được kết quả là một giá trị phi số <em>NaN</em> làm cho chương trình của ta bị dừng hoạt động.
-Lý do thứ 2 là bùng nổ đạo hàm có thể ngăn chặn được khi ta đặt một ngưỡng giá trị trên cho đạo hàm như trong <a href="http://www.jmlr.org/proceedings/papers/v28/pascanu13.pdf" target="_blank">bài viết này</a>.
+Lý do thứ 2 là bùng nổ đạo hàm có thể ngăn chặn được khi ta đặt một ngưỡng giá trị trên cho đạo hàm như trong <a href="http://www.jmlr.org/proceedings/papers/v28/pascanu13.pdf" target="_blank" rel="noopener noreferrer">bài viết này</a>.
 Còn việc mất mát đạo hàm lại không theo dõi được mà cũng không biết làm sao để xử lý nó cho hợp lý.</p>
 
 <p>May mắn là giờ đã có nhiều nghiên cứu chỉ ra các cách giải quyết vấn đề này.
@@ -609,9 +609,9 @@ Ví dụ như việc khởi tạo tham số $ W $ hợp lý sẽ giúp giảm đ
 Một phương pháp được ưu chuộng hơn là thay vì sử dụng $ \tanh $ và $ sigmoid $ cho hàm kích hoạt thì ta sử dụng $ ReLU $.
 Đạo hàm ReLU sẽ là một số hoặc là 0 hoặc là 1, nên có ta có thể kiểm soát được vấn đề mất mát đạo hàm.
 Một phương pháp phổ biến hơn cả là sử dụng kiến trúc nhớ dài-ngắn hạn (LSTM - Long Short-Term Memory) hoặc Gated Recurrent Unit (GRU).
-LSTM được <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank">đề xuất vào năm 1997</a>
+LSTM được <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">đề xuất vào năm 1997</a>
 và có lẽ giờ nó là phương pháp phổ biến nhất trong lĩnh vực NLP.
-Còn GRU mới được <a href="http://arxiv.org/pdf/1406.1078v3.pdf" target="_blank">giới thiệu vào năm 2014</a>,
+Còn GRU mới được <a href="http://arxiv.org/pdf/1406.1078v3.pdf" target="_blank" rel="noopener noreferrer">giới thiệu vào năm 2014</a>,
 nó là một phiên bản đơn giản hoá của LSTM.
 Cả 2 kiến trúc RNN đó được thiết kế để tránh vấn đề mất mát đạo hàm và hiệu quả cho việc học các phụ thuộc xa.
 Giờ tôi sẽ dừng bài viết tại đây để dành phần giới thiệu 2 kiến trúc đó ở bài viết sau.</p>
@@ -945,11 +945,11 @@ Giờ tôi sẽ dừng bài viết tại đây để dành phần giới thiệu
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank">Sepp Hochreiter và Jürgen Schmidhuber</a>.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.</p>
 
@@ -971,7 +971,7 @@ Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
@@ -995,13 +995,13 @@ Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
-và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank">Theano</a> - một thư viện tính toán trên GPU.
+và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank" rel="noopener noreferrer">Theano</a> - một thư viện tính toán trên GPU.
 Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
-còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank">Github</a>.</p>
+còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank" rel="noopener noreferrer">Github</a>.</p>
 
 <p></p></div>
             </div>
@@ -1021,12 +1021,12 @@ còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.co
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">colah&rsquo;s blog</a>.</p>
+<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener noreferrer">colah&rsquo;s blog</a>.</p>
 </blockquote>
 
 <p>LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
 Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
-<a href="https://github.com/colah/" target="_blank">Christopher Olah</a>.
+<a href="https://github.com/colah/" target="_blank" rel="noopener noreferrer">Christopher Olah</a>.
 Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.</p>
 
 <p></p></div>
@@ -1047,7 +1047,7 @@ Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm v
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank">blog WILDML</a>.</p>
+<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
 <p>Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.</p>
@@ -1071,7 +1071,7 @@ Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm v
               </span>
               <div class="media-content hide-xs font-merryweather"><p>Phần tiếp theo của <a href="https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/">chuỗi chủ đề về ma trận</a>
 sẽ đề cập tới các phép toán của ma trận.
-Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href="https://github.com/numpy/numpy" target="_blank">Numpy</a> để lập trình với ma trận.</p>
+Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href="https://github.com/numpy/numpy" target="_blank" rel="noopener noreferrer">Numpy</a> để lập trình với ma trận.</p>
 
 <p></p></div>
             </div>
