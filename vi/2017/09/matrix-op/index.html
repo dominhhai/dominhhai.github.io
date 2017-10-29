@@ -615,6 +615,83 @@ print(a)
   </table>
 </figure></p>
 
+<p>Để truy cập các phần tử trong Numpy cũng tương tự như với lists của Python
+và có thêm một số mở rộng như truy cập qua 1 mảng địa chỉ.</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight"># vector
+a = np.array([3, 4, 2, 8, 10, 5, 9, 8, 6])
+# a_3
+print(a[2])
+# 2
+
+# a_3 ~ a_6
+print(a[2:6])
+# [ 2  8 10  5]
+
+# a_3 ~
+print(a[2:])
+# [ 2  8 10  5  9  8  6]
+
+# matrix
+a = np.array([[3, 4, 2, 8, 10, 5, 9, 8, 6], [1, 2, 3, 4, 5, 6, 7, 8, 9], [9, 8, 7, 6, 5, 4, 3, 2, 1]])
+
+# a_1,:
+print(a[0])
+# [ 3  4  2  8 10  5  9  8  6]
+
+# a_:,3
+print(a[:, 2])
+# [2 3 7]
+
+# a_:,2~3
+print(a[:, 1:3])
+# [[4 2]
+#  [2 3]
+#  [8 7]]
+
+# a_1,4
+print(a[0, 3])
+# 8
+
+# using array of indices
+i = np.array([0, 2])
+print(a[i])
+# [[ 3  4  2  8 10  5  9  8  6]
+#  [ 9  8  7  6  5  4  3  2  1]]
+
+j = np.array([3, 1])
+print(a[i, j])
+# [8 8]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
 <h1 id="2-các-phép-toán-ma-trận">2. Các phép toán ma trận</h1>
 
 <p>Các phép toán trên ma trận là những tính toán cơ bản khi làm việc với học máy.
