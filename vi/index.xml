@@ -6,10 +6,20 @@
     <description>Recent content on Hai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Mon, 23 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dominhhai.github.io/vi/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Windows] Đổi tên file với .bat file</title>
+      <link>https://dominhhai.github.io/vi/2017/10/sql-test-data/</link>
+      <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/10/sql-test-data/</guid>
+      <description>Gần đây Gmail không cho phép gửi các file có đuôi là mã nguồn ngôn ngữ lập trình như .js, .vb chẳng hạn. Ngay cả việc đổi đuôi của các file nén cũng không có hiệu quả như trước, nên buộc phải tìm cách đổi toàn bộ đuôi 1 phát.
+Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng .bat file của Windows, tuy nhiên hoàn toàn có thể sử dụng để làm những chuyện khác với các file này như đổi tên chẳng hạn.</description>
+    </item>
     
     <item>
       <title>[RNN] Cài đặt GRU/LSTM</title>
@@ -150,7 +160,7 @@ Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt 
       
       <guid>https://dominhhai.github.io/vi/2017/09/gatsby-vi-dai/</guid>
       <description>Cuốn tiểu thuyết đầu tiên mình đọc 🙂
-1. Bối cảnh đọc   Bỗng 1 ngày nhận ra tâm hồn khô cứng của bản thân. Thế rồi bỗng dưng muốn cho chút thay đổi nào đó. Bỗng dưng muốn trách xa những trang sách kĩ thuật với những công thức, dòng code nhảy múa. Muốn trốn vào đâu đó để cảm nhận lại cuộc sống.
+1. Bối cảnh đọc Bỗng 1 ngày nhận ra tâm hồn khô cứng của bản thân. Thế rồi bỗng dưng muốn cho chút thay đổi nào đó. Bỗng dưng muốn trách xa những trang sách kĩ thuật với những công thức, dòng code nhảy múa. Muốn trốn vào đâu đó để cảm nhận lại cuộc sống.
 Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết 🙂 Cùng lúc ấy 1 cô gái gửi tặng cho 1 cuốn.</description>
     </item>
     
@@ -218,7 +228,7 @@ Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết �
       <guid>https://dominhhai.github.io/vi/2016/12/iterm2-cool-terminal/</guid>
       <description>Bài viết này hướng dẫn cách cài đặt để sài iTerm2 &amp;ldquo;đẹp trai&amp;rdquo; thay cho Terminal &amp;ldquo;xấu xí&amp;rdquo; trên MacOS.
 Lưu ý là cái này không sử dụng được trên Windows nhé. Nhưng chưa có Mac thì cứ đọc để có động lực mua Mac cũng hay :D
-    Cài đặt iTerm2  Cách nhẹ nhàng nhất là tải iTerm2 từ trang chủ về rồi kéo vào thư mục Application của máy.</description>
+ Cài đặt iTerm2  Cách nhẹ nhàng nhất là tải iTerm2 từ trang chủ về rồi kéo vào thư mục Application của máy.</description>
     </item>
     
     <item>
@@ -247,7 +257,7 @@ function wait(ms, cb) { setTimeout(cb, ms) } function main() { console.</descrip
       
       <guid>https://dominhhai.github.io/vi/2016/06/alias-for-command-on-macos/</guid>
       <description>Để tạo được tên thay thế (alias) cho các lệnh trên Mac khá đơn giản. Ta chỉ cần thêm các lệnh alias vào file .bash_profile tại thư mục home là OK. Trường hợp máy chưa có file .bash_profile thì ta có thể tạo mới file này là OK.
-   Lệnh tạo alias:
+Lệnh tạo alias:
 alias YOUR_ALIAS=&#39;YOUR_COMMAND&#39;  Ví dụ ta tạo alias cho lệnh react-native với tên là rn như sau:</description>
     </item>
     
@@ -338,7 +348,7 @@ Chắc mọi người cũng biết lệnh curl của linux là một lệnh khá
       
       <guid>https://dominhhai.github.io/vi/2015/06/nodeschool-hanoi-2/</guid>
       <description>Ngày 20/6/2015, buổi workshop lần 2 của NodeSchool Hanoi đã diễn ra tốt đẹp với sự tham gia của gần 30 bạn tại công ty CodeLovers Vietnam.
-   Về lịch trình Thời gian Thứ 7, ngày 20/6/2015, 13:30 ~ 17:00
+Về lịch trình Thời gian Thứ 7, ngày 20/6/2015, 13:30 ~ 17:00
 Địa chỉ Cty Codelovers Vietnam - Phòng 404, Toà nhà Cty CP May Nông Nghiệp, Số 1&amp;frasl;120 Truờng Chinh - Ðống Ða
 Hướng dẫn viên dự kiến  @spidercpsf @netcell @vietduc1441 @NgaNguyenDuy @dac2205  Nội dung Lần 2 này vẫn thực hiện theo hướng hướng 1 - tự học (xem thêm các hướng thực hiện đề xuất).</description>
     </item>
@@ -350,7 +360,7 @@ Hướng dẫn viên dự kiến  @spidercpsf @netcell @vietduc1441 @NgaNguyenDu
       
       <guid>https://dominhhai.github.io/vi/2015/05/nodeschool-hanoi-1/</guid>
       <description>Ngày 9/5/2015, buổi workshop đầu tiên của NodeSchool Hanoi đã diễn ra tốt đẹp với sự tài trợ và ủng hộ nhiệt tình của công ty lapnghiep của anh @Logle. Tại buổi đầu tiên có 10 bạn tham gia, nhưng không vì thế mà không khí của buổi gặp mặt đầu tiên kém sôi động.
-   Về lịch trình Thời gian Thứ 7, ngày 9/5/2015, 13:30 ~ 16:30</description>
+Về lịch trình Thời gian Thứ 7, ngày 9/5/2015, 13:30 ~ 16:30</description>
     </item>
     
     <item>
@@ -388,7 +398,7 @@ Về cơ bản call và apply gần giống nhau và được giới thiệu t�
       
       <guid>https://dominhhai.github.io/vi/2015/03/js-do-not-need-semicolon/</guid>
       <description>JavaScript cho phép chúng ta lược bỏ dấu kết thúc lệnh (dấu chấm phẩy). Nhưng trường hợp nào ta phải bắt buộc dùng dấu chấm phải, trường hợp nào thì không và có khi nào ta nên bỏ nó đi? Trước mắt ta xem một chút bộ dịch JavaScript sẽ làm gì với các lệnh của ta.
- ex1.js     1
+ex1.js1
 2
 3
 4
