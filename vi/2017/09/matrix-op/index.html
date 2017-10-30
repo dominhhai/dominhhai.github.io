@@ -316,7 +316,11 @@ Song song với việc lý giải các phép toán, ta cũng sẽ học sử d�
 <li><a href="#2-6-phép-nhân-từng-phần-tử-hadamard">2.6. Phép nhân từng phần tử Hadamard</a></li>
 <li><a href="#2-7-các-phép-toán-theo-từng-phần-tử-hadamard-khác">2.7. Các phép toán theo từng phần tử (Hadamard) khác</a></li>
 </ul></li>
-<li><a href="#3-numpy-thường-nhật">3. Numpy thường nhật</a></li>
+<li><a href="#3-numpy-thường-nhật">3. Numpy thường nhật</a>
+<ul>
+<li><a href="#3-1-biến-hình">3.1. Biến hình</a></li>
+<li><a href="#3-2-tự-động-mở-rộng">3.2. Tự động mở rộng</a></li>
+</ul></li>
 </ul>
 </nav>
 
@@ -376,7 +380,7 @@ Ví dụ dưới đây sẽ tạo ra ma trận $ [A]_{mn} $:</p>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre>
         </td>
         <td class="code">
           <pre class="python code-highlight">
@@ -408,8 +412,7 @@ print(A.size)
 
 # element&#39;s data type
 print(A.dtype)
-# dtype(&#39;int64&#39;)
-</pre>
+# dtype(&#39;int64&#39;)</pre>
         </td>
       </tr>
     </tbody>
@@ -441,7 +444,7 @@ lúc này kiểu dữ liệu của mảng Numpy sẽ là kiểu dữ liệu củ
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
         </td>
         <td class="code">
           <pre class="python code-highlight">
@@ -466,8 +469,7 @@ c = np.array([(0, 0, 1), [0, 1, 0], [1, 0, 0]])
 print(b)
 # [[0, 0, 1]
 #  [0, 1, 0]
-#  [1, 0, 0]]
-</pre>
+#  [1, 0, 0]]</pre>
         </td>
       </tr>
     </tbody>
@@ -496,7 +498,7 @@ print(b)
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre>
         </td>
         <td class="code">
           <pre class="python code-highlight">
@@ -518,8 +520,7 @@ print(c)
 # with non-integer step
 a = np.linspace(2.0, 3.0, num=5)
 print(a)
-# [ 2.  ,  2.25,  2.5 ,  2.75,  3.  ]
-</pre>
+# [ 2.  ,  2.25,  2.5 ,  2.75,  3.  ]</pre>
         </td>
       </tr>
     </tbody>
@@ -548,7 +549,7 @@ print(a)
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
         </td>
         <td class="code">
           <pre class="python code-highlight">
@@ -573,8 +574,7 @@ b = 5 &#43; 2 * np.random.randn(3,2)
 print(b)
 # [[ 3.53328499  5.15966328]
 #  [ 3.38333745  4.522973  ]
-#  [ 2.6586514   4.8483927 ]]
-</pre>
+#  [ 2.6586514   4.8483927 ]]</pre>
         </td>
       </tr>
     </tbody>
@@ -603,7 +603,7 @@ print(b)
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
         </td>
         <td class="code">
           <pre class="python code-highlight">
@@ -628,8 +628,7 @@ a = np.empty((3, 2))
 print(a)
 # [[  1.72723371e-077   1.72723371e-077]
 #  [  1.33397724e-322   1.27319747e-313]
-#  [  1.27319747e-313   1.27319747e-313]]
-</pre>
+#  [  1.27319747e-313   1.27319747e-313]]</pre>
         </td>
       </tr>
     </tbody>
@@ -660,7 +659,7 @@ và có thêm một số mở rộng như truy cập qua 1 mảng địa chỉ.<
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre>
         </td>
         <td class="code">
           <pre class="python code-highlight">
@@ -707,8 +706,7 @@ print(a[i])
 
 j = np.array([3, 1])
 print(a[i, j])
-# [8 8]
-</pre>
+# [8 8]</pre>
         </td>
       </tr>
     </tbody>
@@ -772,7 +770,7 @@ còn nhân với 0 sẽ biến ma trận thành ma trận không $ 0A = \varnoth
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
         </td>
         <td class="code">
           <pre class="python code-highlight">
@@ -792,8 +790,7 @@ print(b)
 b = -1 * a
 print(b)
 # [[-1 -2 -3]
-#  [-4 -5 -6]]
-</pre>
+#  [-4 -5 -6]]</pre>
         </td>
       </tr>
     </tbody>
@@ -856,7 +853,7 @@ $$</p>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre>
         </td>
         <td class="code">
           <pre class="python code-highlight">
@@ -892,8 +889,7 @@ print(c)
 c = a - b
 print(c)
 # [[  1  -3 -22]
-#  [  0  -4  -3]]
-</pre>
+#  [  0  -4  -3]]</pre>
         </td>
       </tr>
     </tbody>
@@ -981,7 +977,7 @@ $$</p>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
         </td>
         <td class="code">
           <pre class="python code-highlight">
@@ -1006,8 +1002,7 @@ print(C)
 
 C = np.dot(A, B)
 # [[35 23]
-#  [74 65]]
-</pre>
+#  [74 65]]</pre>
         </td>
       </tr>
     </tbody>
@@ -1041,7 +1036,8 @@ $$</p>
 <li>$ (cA)^\intercal = cA^\intercal $</li>
 </ul>
 
-<p>Ngoài ra, ta có thể thực hiện phép nhân số học với 2 véc-tơ để thu được 1 vô hướng bằng cách nhân với chuyển của 1 trong 2 véc-tơ: $ ab = a^\intercal b $.</p>
+<p>Ngoài ra, ta có thể thực hiện phép nhân số học với 2 véc-tơ để thu được 1 vô hướng bằng cách nhân với chuyển của 1 trong 2 véc-tơ: $ ab = a^\intercal b $.
+Phép nhân kiểu này còn được gọi là phép nhân vô hướng, tức là tổng của tích mỗi phần tử tương ứng của 2 ma trận.</p>
 
 
   
@@ -1064,7 +1060,7 @@ $$</p>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre>
         </td>
         <td class="code">
           <pre class="python code-highlight">
@@ -1077,12 +1073,24 @@ print(B)
 # [[1 4]
 #  [2 5]
 #  [3 6]]
-</pre>
+
+# vector inner product
+a = np.arange(10)
+b = np.ones(10)
+c = a.dot(b)
+print(c)
+# 45.0
+
+c = np.inner(a, b)
+print(c)
+# 45.0</pre>
         </td>
       </tr>
     </tbody>
   </table>
 </figure>
+
+<p>Từ đoạn mã trên, ta có thể thấy rằng với Numpy, ta có thể thực hiện ngay được phép nhân vô hướng của 2 véc-tơ (inner product) mà không cần phải chuyển vị ma trận.</p>
 
 <h2 id="2-5-ma-trận-nghịch-đảo">2.5. Ma trận nghịch đảo</h2>
 
@@ -1127,7 +1135,7 @@ Tạm thời bạn cứ nắm được khái niệm của nó và cách lập tr
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
         </td>
         <td class="code">
           <pre class="python code-highlight">
@@ -1138,8 +1146,7 @@ A = np.array([[1., 2.], [3., 4.]])
 B = np.linalg.inv(A)
 print(B)
 # [[-2.   1. ]
-#  [ 1.5 -0.5]]
-</pre>
+#  [ 1.5 -0.5]]</pre>
         </td>
       </tr>
     </tbody>
@@ -1197,7 +1204,7 @@ $$</p>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
         </td>
         <td class="code">
           <pre class="python code-highlight">
@@ -1222,8 +1229,7 @@ print(c)
 c = np.multiply(a, b)
 print(c)
 # [[ 0 10 75]
-#  [16 45 54]]
-</pre>
+#  [16 45 54]]</pre>
         </td>
       </tr>
     </tbody>
@@ -1261,7 +1267,7 @@ print(c)
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
         </td>
         <td class="code">
           <pre class="python code-highlight">
@@ -1287,8 +1293,7 @@ print(c)
 c = a ** 2
 print(c)
 # [[  1.   4.   9.]
-#  [ 16.  25.  36.]]
-</pre>
+#  [ 16.  25.  36.]]</pre>
         </td>
       </tr>
     </tbody>
@@ -1296,6 +1301,69 @@ print(c)
 </figure>
 
 <h1 id="3-numpy-thường-nhật">3. Numpy thường nhật</h1>
+
+<h2 id="3-1-biến-hình">3.1. Biến hình</h2>
+
+<p>Các mảng trong Numpy đều định quy định bằng một khung (shape) với các chiều tương ứng với các chiều của mảng.
+Ví dụ như véc-tơ (mảng 1 chiều) có 10 phần tử sẽ có khung là (10,),
+ma trận (mảng 2 chiều) có 5 hàng và 3 cột sẽ có khung là (5, 3).</p>
+
+<p>Đôi lúc ta cần biến đổi hình dạng của các mảng này cho phù hợp với bài toán của ta như biến đối mảng 1 chiều thành 2 chiều (véc-tơ thành ma trận).
+Để làm được việc này ta có thể sử dụng phép biến hình <code>np.reshape(a, newshape, order='C')</code> của Numpy cực dễ dàng:</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight">
+a = np.eye(5, 3)
+print(a.shape)
+# (5, 3)
+
+b = a.reshape(15)
+print(b.shape)
+# (15,)</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>Giờ câu hỏi đặt ra là quy tắc biến hình được thực hiện ra sao?</p>
+
+<p>Đầu tiên, lượng phần tử cần phải được giữ nguyên sau khi biến hình, tức là hình mới được sinh ra phải đảm bảo được ràng buộc này.
+Ví dụ ở trên ta có một ma trận chéo kích thước (5, 3) có số phần tử là 15, nên khi biến nó thành véc-tơ thì véc-tơ này cũng phải có kích thước là 15 tương ứng.</p>
+
+<p>Tiếp theo, là cách tổ chức các phần tử khi biến hình.
+Numpy cho phép ta thực hiện biến hình với 3 kiểu sắp xếp phần tử như sau:</p>
+
+<ul>
+<li><code>C</code>: Cho phép ta nhặt phần tử từ mảng cũ ra theo thứ tự ngôn ngữ lập trình <code>C</code>, tức là tọa độ sau sẽ thay đổi nhanh hơn tọa độ trước. Cụ thể là phần từ phía sau của <code>A[0, 0]</code> là <code>A[0, 1]</code>. Lưu ý rằng, thứ tự này là giá trị mặc định của <code>reshape</code>.</li>
+<li><code>F</code>: Cho phép ta nhặt phần tử từ mảng cũ ra theo thứ tự ngôn ngữ lập trình <code>Fortran</code>, tức là tọa độ trước sẽ thay đổi nhanh hơn tọa độ sau. Cụ thể là phần từ phía sau của <code>A[0, 1]</code> là <code>A[0, 1]</code></li>
+<li><code>A</code>: Cho phép ta nhặt phần từ theo kiểu <code>F</code> nếu mảng cũ của ta được tổ chức dưới dạng bộ nhớ liên tục của Fortran. Còn các trường hợp khác nó sẽ nhặt theo kiểu <code>C</code>. Lưu ý rằng, kiểu <code>F</code> và <code>C</code> chỉ đề cập tới thứ tự địa chỉ khi lập trình chứ không phải địa chỉ trong bộ nhớ máy tính.</li>
+</ul>
+
+<h2 id="3-2-tự-động-mở-rộng">3.2. Tự động mở rộng</h2>
 
 <p>Ngoài các hàm tiện ích của Numpy phía trên, ta còn có nhiều hàm hữu dụng khác để thao tác với ma trận mà tôi không đề cập ở đây,
 nhưng các bạn có thể xem chi tiết trên trang hướng dẫn của <a href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html" target="_blank" rel="noopener noreferrer">Numpy tại đây</a>.</p>
