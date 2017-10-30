@@ -484,11 +484,10 @@ $ \delta_x^{(3)} = \frac{\partial{E_3}}{\partial{z_2}} = \frac{\partial{E_3}}{\p
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">
-def bptt(self, x, y):
+          <pre class="python code-highlight">def bptt(self, x, y):
     T = len(y)
     # Perform forward propagation
     o, s = self.forward_propagation(x)
@@ -511,7 +510,7 @@ def bptt(self, x, y):
             dLdU[:,x[bptt_step]] &#43;= delta_t
             # Update delta for next step dL/dz at t-1
             delta_t = self.W.T.dot(delta_t) * (1 - s[bptt_step-1] ** 2)
-    return [dLdU, dLdV, dLdW]</pre>
+    return [dLdU, dLdV, dLdW]</pre>
         </td>
       </tr>
     </tbody>
