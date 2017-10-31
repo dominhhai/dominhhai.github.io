@@ -1,27 +1,386 @@
-<!doctype html><html lang=vi><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=generator content="Hugo 0.26 with theme Tranquilpeak 0.4.1-BETA"><title>[Ma Trận] Các phép toán</title><meta name=author content="Do Minh Hai"><meta name=keywords content="Matrix,Ma Trận,dominhhai,programming,computer science,machine learning,deep learning"><link rel=icon href=https://dominhhai.github.io/favicon/golden-buddha-512-79567.png><link rel=canonical href=https://dominhhai.github.io/vi/2017/09/matrix-op/><meta name=description content="Phần tiếp theo của chuỗi chủ đề về ma trận
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.1-BETA">
+    <title>[Ma Trận] Các phép toán</title>
+    <meta name="author" content="Do Minh Hai">
+    <meta name="keywords" content="Matrix, Ma Trận, dominhhai, programming, computer science, machine learning, deep learning">
+
+    <link rel="icon" href="https://dominhhai.github.io/favicon/golden-buddha-512-79567.png">
+    
+
+    
+      <link rel="canonical" href="https://dominhhai.github.io/vi/2017/09/matrix-op/" />
+    
+
+    
+    <meta name="description" content="Phần tiếp theo của chuỗi chủ đề về ma trận
 sẽ đề cập tới các phép toán của ma trận.
-Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện Numpy để lập trình với ma trận."><meta property=og:type content=blog><meta property=og:title content="[Ma Trận] Các phép toán"><meta property=og:url content=https://dominhhai.github.io/vi/2017/09/matrix-op/><meta property=og:description content="Phần tiếp theo của chuỗi chủ đề về ma trận
+Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện Numpy để lập trình với ma trận.
+">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="[Ma Trận] Các phép toán">
+    <meta property="og:url" content="https://dominhhai.github.io/vi/2017/09/matrix-op/">
+    <meta property="og:description" content="Phần tiếp theo của chuỗi chủ đề về ma trận
 sẽ đề cập tới các phép toán của ma trận.
-Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện Numpy để lập trình với ma trận."><meta property=og:site_name content="Hai's Blog"><meta property=og:locale content=vi><meta name=twitter:card content=summary><meta name=twitter:title content="[Ma Trận] Các phép toán"><meta name=twitter:url content=https://dominhhai.github.io/vi/2017/09/matrix-op/><meta name=twitter:description content="Phần tiếp theo của chuỗi chủ đề về ma trận
+Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện Numpy để lập trình với ma trận.
+">
+    <meta property="og:site_name" content="Hai&#39;s Blog">
+    <meta property="og:locale" content="vi">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="[Ma Trận] Các phép toán">
+    <meta name="twitter:url" content="https://dominhhai.github.io/vi/2017/09/matrix-op/">
+    <meta name="twitter:description" content="Phần tiếp theo của chuỗi chủ đề về ma trận
 sẽ đề cập tới các phép toán của ma trận.
-Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện Numpy để lập trình với ma trận."><meta name=twitter:creator content=@minhhai3b><meta property=og:image content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640"><meta name=twitter:image content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640"><meta property=og:image content=//res.cloudinary.com/dominhhai/image/upload/math/katex.png><meta name=twitter:image content=//res.cloudinary.com/dominhhai/image/upload/math/katex.png><link rel=publisher href=https://plus.google.com/115106277658014197977><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin=anonymous><link rel=stylesheet href=https://dominhhai.github.io/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css><link rel=stylesheet crossorigin=anonymous href=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css integrity=sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx><link rel=stylesheet href=https://dominhhai.github.io/css/main.css><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-105333519-1','auto');ga('send','pageview');</script><div id=blog><header id=header data-behavior=5><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://dominhhai.github.io/vi/>Hai&#39;s Blog</a></div><a class=header-right-picture href=https://dominhhai.github.io/#about><img class=header-picture src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=90" alt="Ảnh đại diện"></a></header><nav id=sidebar data-behavior=5><div class=sidebar-container><div class=sidebar-profile><a href=https://dominhhai.github.io/#about><img class=sidebar-profile-picture src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện"></a><h4 class=sidebar-profile-name>Do Minh Hai</h4><h5 class=sidebar-profile-bio>Just a developer<br>Enjoy life as a journey</h5></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://dominhhai.github.io/vi/><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Trang chủ</span></a><li class=sidebar-button><a class=sidebar-button-link href=https://dominhhai.github.io/vi/categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Danh mục</span></a><li class=sidebar-button><a class=sidebar-button-link href=https://dominhhai.github.io/vi/tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Thẻ thông tin</span></a><li class=sidebar-button><a class=sidebar-button-link href=https://dominhhai.github.io/vi/archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Lưu trữ</span></a><li class=sidebar-button><a class=sidebar-button-link href=https://dominhhai.github.io/vi/#about><i class="sidebar-button-icon fa fa-lg fa-question"></i><span class=sidebar-button-desc>Thông tin</span></a></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://github.com/dominhhai target=_blank rel=noopener><i class="sidebar-button-icon fa fa-lg fa-github"></i><span class=sidebar-button-desc>GitHub</span></a><li class=sidebar-button><a class=sidebar-button-link href=https://twitter.com/minhhai3b target=_blank rel=noopener><i class="sidebar-button-icon fa fa-lg fa-twitter"></i><span class=sidebar-button-desc>Twitter</span></a></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://dominhhai.github.io/vi/index.xml><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></ul></div></nav><div id=main data-behavior=5 class=hasCoverMetaIn><article class=post itemscope itemtype=http://schema.org/BlogPosting><div class="post-header main-content-wrap text-center"><h1 class=post-title itemprop=headline>[Ma Trận] Các phép toán</h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2017-09-27T00:00:00Z>27 tháng 9, 2017</time>
-<span>mục</span>
-<a class=category-link href=https://dominhhai.github.io/vi/categories/to%c3%a1n>Toán</a>,
-<a class=category-link href=https://dominhhai.github.io/vi/categories/ma-tr%e1%ba%adn>Ma Trận</a></div></div><div class="post-content markdown" itemprop=articleBody><div class=main-content-wrap><p>Phần tiếp theo của <a href=https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/>chuỗi chủ đề về ma trận</a>
+Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện Numpy để lập trình với ma trận.
+">
+    
+      <meta name="twitter:creator" content="@minhhai3b">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640">
+      <meta name="twitter:image" content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640">
+    
+
+    
+      <meta property="og:image" content="//res.cloudinary.com/dominhhai/image/upload/math/katex.png">
+      <meta name="twitter:image" content="//res.cloudinary.com/dominhhai/image/upload/math/katex.png">
+    
+    
+    
+
+    
+      <link rel="publisher" href="https://plus.google.com/115106277658014197977">
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://dominhhai.github.io/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css" integrity="sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx">
+      
+    
+      
+        <link rel="stylesheet"  href="https://dominhhai.github.io/css/main.css">
+      
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-105333519-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://dominhhai.github.io/vi/">Hai&#39;s Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://dominhhai.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=90" alt="Ảnh đại diện" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://dominhhai.github.io/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện" />
+        </a>
+        <h4 class="sidebar-profile-name">Do Minh Hai</h4>
+        
+          <h5 class="sidebar-profile-bio">Just a developer<br>Enjoy life as a journey</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Trang chủ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Danh mục</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Thẻ thông tin</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Lưu trữ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">Thông tin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/dominhhai" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/minhhai3b" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      [Ma Trận] Các phép toán
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-09-27T00:00:00Z">
+        
+  
+  
+  
+  
+    27 tháng 9, 2017
+  
+
+      </time>
+    
+    
+  
+  
+    <span>mục</span>
+    
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/to%c3%a1n">Toán</a>, 
+    
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/ma-tr%e1%ba%adn">Ma Trận</a>
+    
+  
+
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Phần tiếp theo của <a href="https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/">chuỗi chủ đề về ma trận</a>
 sẽ đề cập tới các phép toán của ma trận.
-Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href=https://github.com/numpy/numpy target=_blank rel="noopener noreferrer">Numpy</a> để lập trình với ma trận.<h1 id=table-of-contents>Mục lục</h1><nav id=TableOfContents><ul><li><a href=#1-numpy-và-ma-trận>1. Numpy và ma trận</a><ul><li><a href=#1-1-giới-thiệu-về-numpy>1.1. Giới thiệu về Numpy</a><li><a href=#1-2-sử-dụng-numpy-cho-ma-trận>1.2. Sử dụng Numpy cho ma trận</a></ul><li><a href=#2-các-phép-toán-ma-trận>2. Các phép toán ma trận</a><ul><li><a href=#2-1-nhân-ma-trận-với-một-vô-hướng>2.1. Nhân ma trận với một vô hướng</a><li><a href=#2-2-cộng-2-ma-trận>2.2. Cộng 2 ma trận</a><li><a href=#2-3-nhân-2-ma-trận>2.3. Nhân 2 ma trận</a><li><a href=#2-4-chuyển-vị-ma-trận>2.4. Chuyển vị ma trận</a><li><a href=#2-5-ma-trận-nghịch-đảo>2.5. Ma trận nghịch đảo</a><li><a href=#2-6-phép-nhân-từng-phần-tử-hadamard>2.6. Phép nhân từng phần tử Hadamard</a><li><a href=#2-7-các-phép-toán-theo-từng-phần-tử-hadamard-khác>2.7. Các phép toán theo từng phần tử (Hadamard) khác</a><li><a href=#2-8-norm>2.8. Norm</a></ul><li><a href=#3-numpy-thường-nhật>3. Numpy thường nhật</a><ul><li><a href=#3-1-biến-hình>3.1. Biến hình</a><li><a href=#3-2-tự-động-mở-rộng>3.2. Tự động mở rộng</a></ul></ul></nav><h1 id=1-numpy-và-ma-trận>1. Numpy và ma trận</h1><h2 id=1-1-giới-thiệu-về-numpy>1.1. Giới thiệu về Numpy</h2><p><a href=https://github.com/numpy/numpy target=_blank rel="noopener noreferrer">Numpy</a> là thư viện được viết bằng Python nhằm phục vụ cho việc tính toán khoa học.
-Trong gói phần mềm này gồm một số thứ cơ bản sau:<ul><li>Tập các mảng đa nhiều mạnh mẽ<li>Tập các hàm tính toán tinh vi<li>Có thể tích hợp với C/C++ và Fortran<li>Thuận tiện khi làm việc với đại số tuyến tính<li>Hỗ trợ biến đổi Fourier<li>Khả năng tạo các số ngẫu nhiên mạnh mẽ</ul><p>Có lẽ đây là thư viện được sử dụng phổ biến nhất hiện nay để làm việc với các phép toán khoa học, kĩ thuật bằng ngôn ngữ Python.
+Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href="https://github.com/numpy/numpy" target="_blank" rel="noopener noreferrer">Numpy</a> để lập trình với ma trận.
+</p>
+
+<h1 id="table-of-contents">Mục lục</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#1-numpy-và-ma-trận">1. Numpy và ma trận</a>
+<ul>
+<li><a href="#1-1-giới-thiệu-về-numpy">1.1. Giới thiệu về Numpy</a></li>
+<li><a href="#1-2-sử-dụng-numpy-cho-ma-trận">1.2. Sử dụng Numpy cho ma trận</a></li>
+</ul></li>
+<li><a href="#2-các-phép-toán-ma-trận">2. Các phép toán ma trận</a>
+<ul>
+<li><a href="#2-1-nhân-ma-trận-với-một-vô-hướng">2.1. Nhân ma trận với một vô hướng</a></li>
+<li><a href="#2-2-cộng-2-ma-trận">2.2. Cộng 2 ma trận</a></li>
+<li><a href="#2-3-nhân-2-ma-trận">2.3. Nhân 2 ma trận</a></li>
+<li><a href="#2-4-chuyển-vị-ma-trận">2.4. Chuyển vị ma trận</a></li>
+<li><a href="#2-5-ma-trận-nghịch-đảo">2.5. Ma trận nghịch đảo</a></li>
+<li><a href="#2-6-phép-nhân-từng-phần-tử-hadamard">2.6. Phép nhân từng phần tử Hadamard</a></li>
+<li><a href="#2-7-các-phép-toán-theo-từng-phần-tử-hadamard-khác">2.7. Các phép toán theo từng phần tử (Hadamard) khác</a></li>
+<li><a href="#2-8-norm">2.8. Norm</a></li>
+</ul></li>
+<li><a href="#3-numpy-thường-nhật">3. Numpy thường nhật</a>
+<ul>
+<li><a href="#3-1-biến-hình">3.1. Biến hình</a></li>
+<li><a href="#3-2-tự-động-mở-rộng">3.2. Tự động mở rộng</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="1-numpy-và-ma-trận">1. Numpy và ma trận</h1>
+
+<h2 id="1-1-giới-thiệu-về-numpy">1.1. Giới thiệu về Numpy</h2>
+
+<p><a href="https://github.com/numpy/numpy" target="_blank" rel="noopener noreferrer">Numpy</a> là thư viện được viết bằng Python nhằm phục vụ cho việc tính toán khoa học.
+Trong gói phần mềm này gồm một số thứ cơ bản sau:</p>
+
+<ul>
+<li>Tập các mảng đa nhiều mạnh mẽ</li>
+<li>Tập các hàm tính toán tinh vi</li>
+<li>Có thể tích hợp với C/C++ và Fortran</li>
+<li>Thuận tiện khi làm việc với đại số tuyến tính</li>
+<li>Hỗ trợ biến đổi Fourier</li>
+<li>Khả năng tạo các số ngẫu nhiên mạnh mẽ</li>
+</ul>
+
+<p>Có lẽ đây là thư viện được sử dụng phổ biến nhất hiện nay để làm việc với các phép toán khoa học, kĩ thuật bằng ngôn ngữ Python.
 Trong đó bao gồm cả lĩnh vực học máy, các gói phần mềm nền để xây dựng các bài toán học máy hầu hết được viết bằng Python và có sử dụng Numpy.
 Như vậy, việc nắm được cách sử dụng Numpy là một lợi thế để giúp bạn tiếp cận được với học máy.
 Không chỉ vậy, Numpy còn có nhiều kiểu dữ liệu đa chiều giúp cho việc tính toán,
 lập trình, làm việc với các hệ cơ sở dữ liệu cực kì thuận tiện.
-Nên ngoài tính toán khoa học ra, việc sử dụng chúng khi lập trình cũng rất hữu ích.<p>Trong phần này, tôi không đi chi tiết vào Numpy mà chỉ đề cập tới một số API có thể làm việc được trong bài viết này.
-Tôi khuyên các bạn nên tìm hiểu thêm về nó qua <a href=http://www.numpy.org/ target=_blank rel="noopener noreferrer">trang chủ của Numpy</a>.<h2 id=1-2-sử-dụng-numpy-cho-ma-trận>1.2. Sử dụng Numpy cho ma trận</h2><p>Để tạo một ma trận ta có thể sử dụng <code>ndarray</code> (viết gọn là <code>array</code>) của Numpy.
+Nên ngoài tính toán khoa học ra, việc sử dụng chúng khi lập trình cũng rất hữu ích.</p>
+
+<p>Trong phần này, tôi không đi chi tiết vào Numpy mà chỉ đề cập tới một số API có thể làm việc được trong bài viết này.
+Tôi khuyên các bạn nên tìm hiểu thêm về nó qua <a href="http://www.numpy.org/" target="_blank" rel="noopener noreferrer">trang chủ của Numpy</a>.</p>
+
+<h2 id="1-2-sử-dụng-numpy-cho-ma-trận">1.2. Sử dụng Numpy cho ma trận</h2>
+
+<p>Để tạo một ma trận ta có thể sử dụng <code>ndarray</code> (viết gọn là <code>array</code>) của Numpy.
 Lưu ý rằng mảng <code>array</code> của Numpy là khác với mảng thuần của Python.
 Mảng thuần của Python không có được nhiều tiện ích tính toán như của Numpy.
 Về cơ bản, <code>array</code> này là một đối tượng mảng đa chiều thuần nhất tức là mọi phần tử đều cùng 1 kiểu.
 Thường các phần tử của ta là dạng số và được đánh địa chỉ bằng 1 cặp số nguyên dương bắt đầu từ <code>(0, 0)</code>.
-Ví dụ dưới đây sẽ tạo ra ma trận $ [A]_{mn} $:<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br><span class=line>21</span><br><span class=line>22</span><br><span class=line>23</span><br><span class=line>24</span><br><span class=line>25</span><br><span class=line>26</span><br><span class=line>27</span><br><span class=line>28</span><br><span class=line>29</span><br></pre><td class=code><pre class="python code-highlight">import numpy as np
+Ví dụ dưới đây sẽ tạo ra ma trận $ [A]_{mn} $:</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight">import numpy as np
 
 # create a matrix A
 A = np.array([(1, 2, 3), (4, 5, 6)])
@@ -49,8 +408,42 @@ print(A.size)
 
 # element&#39;s data type
 print(A.dtype)
-# dtype(&#39;int64&#39;)</pre></table></figure><p>Để tạo ma trận ta có thể sử dụng một số cách như sau:<p>Tạo mảng từ <code>list</code> hoặc <code>tuple</code> của Python bằng hàm <a href=https://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.array.html#numpy.array><code>array</code></a> của Numpy,
-lúc này kiểu dữ liệu của mảng Numpy sẽ là kiểu dữ liệu của đầu vào cho mảng.<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br><span class=line>21</span><br><span class=line>22</span><br></pre><td class=code><pre class="python code-highlight">import numpy as np
+# dtype(&#39;int64&#39;)</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>Để tạo ma trận ta có thể sử dụng một số cách như sau:</p>
+
+<p>Tạo mảng từ <code>list</code> hoặc <code>tuple</code> của Python bằng hàm <a href="https://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.array.html#numpy.array"><code>array</code></a> của Numpy,
+lúc này kiểu dữ liệu của mảng Numpy sẽ là kiểu dữ liệu của đầu vào cho mảng.
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight">import numpy as np
 
 # from 1-dimesional array
 a = np.array([1.5, 0.0, 0.8])
@@ -71,7 +464,39 @@ c = np.array([(0, 0, 1), [0, 1, 0], [1, 0, 0]])
 print(b)
 # [[0, 0, 1]
 #  [0, 1, 0]
-#  [1, 0, 0]]</pre></table></figure><p>Tạo mảng từ một dãy số với <a href=https://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.arange.html#numpy.arange><code>arange</code></a> và <a href=https://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.linspace.html#numpy.linspace><code>linspace</code></a>:<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br></pre><td class=code><pre class="python code-highlight">import numpy as np
+#  [1, 0, 0]]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure></p>
+
+<p>Tạo mảng từ một dãy số với <a href="https://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.arange.html#numpy.arange"><code>arange</code></a> và <a href="https://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.linspace.html#numpy.linspace"><code>linspace</code></a>:
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight">import numpy as np
 
 # with integer step
 a = np.arange(10, 15, 1)
@@ -89,7 +514,39 @@ print(c)
 # with non-integer step
 a = np.linspace(2.0, 3.0, num=5)
 print(a)
-# [ 2.  ,  2.25,  2.5 ,  2.75,  3.  ]</pre></table></figure><p>Tạo mảng ngẫu nhiên:<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br><span class=line>21</span><br><span class=line>22</span><br></pre><td class=code><pre class="python code-highlight">import numpy as np
+# [ 2.  ,  2.25,  2.5 ,  2.75,  3.  ]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure></p>
+
+<p>Tạo mảng ngẫu nhiên:
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight">import numpy as np
 
 # from uniform distribution
 a = np.random.rand(3,2)
@@ -110,7 +567,39 @@ b = 5 &#43; 2 * np.random.randn(3,2)
 print(b)
 # [[ 3.53328499  5.15966328]
 #  [ 3.38333745  4.522973  ]
-#  [ 2.6586514   4.8483927 ]]</pre></table></figure><p>Tạo mảng với các giá trị mặc định:<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br><span class=line>21</span><br><span class=line>22</span><br></pre><td class=code><pre class="python code-highlight">import numpy as np
+#  [ 2.6586514   4.8483927 ]]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure></p>
+
+<p>Tạo mảng với các giá trị mặc định:
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight">import numpy as np
 
 # all elements is 0
 a = np.zeros((3, 2))
@@ -131,8 +620,41 @@ a = np.empty((3, 2))
 print(a)
 # [[  1.72723371e-077   1.72723371e-077]
 #  [  1.33397724e-322   1.27319747e-313]
-#  [  1.27319747e-313   1.27319747e-313]]</pre></table></figure><p>Để truy cập các phần tử trong Numpy cũng tương tự như với lists của Python
-và có thêm một số mở rộng như truy cập qua 1 mảng địa chỉ.<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br><span class=line>21</span><br><span class=line>22</span><br><span class=line>23</span><br><span class=line>24</span><br><span class=line>25</span><br><span class=line>26</span><br><span class=line>27</span><br><span class=line>28</span><br><span class=line>29</span><br><span class=line>30</span><br><span class=line>31</span><br><span class=line>32</span><br><span class=line>33</span><br><span class=line>34</span><br><span class=line>35</span><br><span class=line>36</span><br><span class=line>37</span><br><span class=line>38</span><br><span class=line>39</span><br><span class=line>40</span><br><span class=line>41</span><br><span class=line>42</span><br><span class=line>43</span><br><span class=line>44</span><br></pre><td class=code><pre class="python code-highlight"># vector
+#  [  1.27319747e-313   1.27319747e-313]]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure></p>
+
+<p>Để truy cập các phần tử trong Numpy cũng tương tự như với lists của Python
+và có thêm một số mở rộng như truy cập qua 1 mảng địa chỉ.</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight"># vector
 a = np.array([3, 4, 2, 8, 10, 5, 9, 8, 6])
 # a_3
 print(a[2])
@@ -175,20 +697,74 @@ print(a[i])
 
 j = np.array([3, 1])
 print(a[i, j])
-# [8 8]</pre></table></figure><h1 id=2-các-phép-toán-ma-trận>2. Các phép toán ma trận</h1><p>Các phép toán trên ma trận là những tính toán cơ bản khi làm việc với học máy.
+# [8 8]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h1 id="2-các-phép-toán-ma-trận">2. Các phép toán ma trận</h1>
+
+<p>Các phép toán trên ma trận là những tính toán cơ bản khi làm việc với học máy.
 Trong phần này, tôi không đề cập đầy đủ tất cả các phép toán của nó,
-mà chỉ đề cập tới các phép toán cơ bản để có thể sài được với học máy cơ bản.<h2 id=2-1-nhân-ma-trận-với-một-vô-hướng>2.1. Nhân ma trận với một vô hướng</h2><p>Nhân ma trận với một số (vô hướng) là phép nhân số đó với từng phần tử của ma trận.<p>$$ \alpha [A_{ij}]_{mn} = [\alpha . A_{ij}]_{mn} $$<p>Ví dụ:
+mà chỉ đề cập tới các phép toán cơ bản để có thể sài được với học máy cơ bản.</p>
+
+<h2 id="2-1-nhân-ma-trận-với-một-vô-hướng">2.1. Nhân ma trận với một vô hướng</h2>
+
+<p>Nhân ma trận với một số (vô hướng) là phép nhân số đó với từng phần tử của ma trận.</p>
+
+<p>$$ \alpha [A_{ij}]_{mn} = [\alpha . A_{ij}]_{mn} $$</p>
+
+<p>Ví dụ:
 $$
 5 \begin{bmatrix}
 1 &amp; 2 &amp; 3 \cr
 4 &amp; 5 &amp; 6
 \end{bmatrix}
-= \begin{bmatrix}
+ = \begin{bmatrix}
 5 &amp; 10 &amp; 15 \cr
 20 &amp; 25 &amp; 30
 \end{bmatrix}
-$$<p>Các tính chất:<ul><li>Tính giao hoán: $ \alpha A = A \alpha $<li>Tính kết hợp: $ \alpha(\beta A) = (\alpha \beta) A $<li>Tính phân phối: $ (\alpha + \beta) A = \alpha A + \beta A $</ul><p>Ngoài ra, nhân ma trận với 1 sẽ không làm thay đổi ma trận: $ 1A = A $,
-còn nhân với 0 sẽ biến ma trận thành ma trận không $ 0A = \varnothing $.<p>Cách biểu diễn với Numpy:<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br></pre><td class=code><pre class="python code-highlight"># create matrix a
+$$</p>
+
+<p>Các tính chất:</p>
+
+<ul>
+<li>Tính giao hoán: $ \alpha A = A \alpha $</li>
+<li>Tính kết hợp: $ \alpha(\beta A) = (\alpha \beta) A $</li>
+<li>Tính phân phối: $ (\alpha + \beta) A = \alpha A + \beta A $</li>
+</ul>
+
+<p>Ngoài ra, nhân ma trận với 1 sẽ không làm thay đổi ma trận: $ 1A = A $,
+còn nhân với 0 sẽ biến ma trận thành ma trận không $ 0A = \varnothing $.</p>
+
+<p>Cách biểu diễn với Numpy:
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight"># create matrix a
 a = np.array([(1, 2, 3), (4, 5, 6)])
 print(a)
 # [[1 2 3]
@@ -204,7 +780,20 @@ print(b)
 b = -1 * a
 print(b)
 # [[-1 -2 -3]
-#  [-4 -5 -6]]</pre></table></figure><h2 id=2-2-cộng-2-ma-trận>2.2. Cộng 2 ma trận</h2><p>Là phép cộng từng phần tử tương ứng của<span class="highlight-text yellow"> 2 ma trận cùng cấp </span>với nhau.<p>$$ [A_{ij}]_{mn} + [B_{ij}]_{mn} = [A_{ij} + B_{ij}]_{mn} $$<p>Ví dụ:
+#  [-4 -5 -6]]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure></p>
+
+<h2 id="2-2-cộng-2-ma-trận">2.2. Cộng 2 ma trận</h2>
+
+<p>Là phép cộng từng phần tử tương ứng của<span class="highlight-text yellow"> 2 ma trận cùng cấp </span>với nhau.</p>
+
+<p>$$ [A_{ij}]_{mn} + [B_{ij}]_{mn} = [A_{ij} + B_{ij}]_{mn} $$</p>
+
+<p>Ví dụ:
 $$
 \begin{bmatrix}
 5 &amp; 10 &amp; 15 \cr
@@ -218,7 +807,46 @@ $$
 6 &amp; 12 &amp; 18 \cr
 24 &amp; 29 &amp; 36
 \end{bmatrix}
-$$<p>Các tính chất:<ul><li>Tính giao hoán: $ A + B = B + A $<li>Tính kết hợp: $ A + (B + C) = (A + B) + C $<li>Tính phân phối: $ \alpha (A + B) = \alpha A + \alpha B $</ul><p>Ngoài ra, dễ dàng thấy rằng cộng một ma trận với ma trận không thì không làm thay đổi ma trận đó: $ A + \varnothing = A $.<p>Từ phép nhân ma trận với một số, ta có thể định nghĩa được phép trừ ma trận là phép trừ từng phần tử tương ứng trong ma trận: $ A - \lambda B = A + (-\lambda)B, \lambda \in \mathbb{R} $.<p>Cách biểu diễn với Numpy:<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br><span class=line>21</span><br><span class=line>22</span><br><span class=line>23</span><br><span class=line>24</span><br><span class=line>25</span><br><span class=line>26</span><br><span class=line>27</span><br><span class=line>28</span><br><span class=line>29</span><br><span class=line>30</span><br><span class=line>31</span><br><span class=line>32</span><br><span class=line>33</span><br></pre><td class=code><pre class="python code-highlight"># create matrix a
+$$</p>
+
+<p>Các tính chất:</p>
+
+<ul>
+<li>Tính giao hoán: $ A + B = B + A $</li>
+<li>Tính kết hợp: $ A + (B + C) = (A + B) + C $</li>
+<li>Tính phân phối: $ \alpha (A + B) = \alpha A + \alpha B $</li>
+</ul>
+
+<p>Ngoài ra, dễ dàng thấy rằng cộng một ma trận với ma trận không thì không làm thay đổi ma trận đó: $ A + \varnothing = A $.</p>
+
+<p>Từ phép nhân ma trận với một số, ta có thể định nghĩa được phép trừ ma trận là phép trừ từng phần tử tương ứng trong ma trận: $ A - \lambda B = A + (-\lambda)B, \lambda \in \mathbb{R} $.</p>
+
+<p>Cách biểu diễn với Numpy:
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight"># create matrix a
 a = np.array([(1, 2, 3), (4, 5, 6)])
 print(a)
 # [[1 2 3]
@@ -250,12 +878,25 @@ print(c)
 c = a - b
 print(c)
 # [[  1  -3 -22]
-#  [  0  -4  -3]]</pre></table></figure><h2 id=2-3-nhân-2-ma-trận>2.3. Nhân 2 ma trận</h2><p>Nhân 2 ma trận là phép lấy tổng của tích từng phần tử của hàng tương ứng với cột tương ứng.
+#  [  0  -4  -3]]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure></p>
+
+<h2 id="2-3-nhân-2-ma-trận">2.3. Nhân 2 ma trận</h2>
+
+<p>Nhân 2 ma trận là phép lấy tổng của tích từng phần tử của hàng tương ứng với cột tương ứng.
 Phép nhân này chỉ<span class="highlight-text yellow"> khả thi khi số cột của ma trận bên trái bằng với số hàng của ma trận bên phải</span>.
-Cho 2 ma trận $ [A]mp $ và $ [B]pn $, tích chúng theo thứ tự đó sẽ là một ma trận có số hàng bằng với số hàng của $ A $ và số cột bằng với số cột của $ B $: $ [AB]mn $.<p>$$
+Cho 2 ma trận $ [A]mp $ và $ [B]pn $, tích chúng theo thứ tự đó sẽ là một ma trận có số hàng bằng với số hàng của $ A $ và số cột bằng với số cột của $ B $: $ [AB]mn $.</p>
+
+<p>$$
 C_{ij} = AB_{ij} = \sum_{k=1}^p{A_{ik} B_{kj}}
 ~~~, \forall{i = \overline{1,m}; j = \overline{1,n}}
-$$<p>Ví dụ:
+$$</p>
+
+<p>Ví dụ:
 $$
 \begin{bmatrix}
 1 &amp; 2 &amp; 3 \cr
@@ -271,7 +912,9 @@ $$
 49 &amp; 64
 \end{bmatrix}
 ~~~~~~~~~~~ (1)
-$$<p>$$
+$$</p>
+
+<p>$$
 \begin{bmatrix}
 1 &amp; 2 &amp; 3 \cr
 4 &amp; 5 &amp; 6
@@ -286,7 +929,47 @@ $$<p>$$
 4 &amp; 5 &amp; 6
 \end{bmatrix}
 ~~~ (2)
-$$<p>Các tính chất:<ul><li>Tính kết hợp: $ A(BC) = (AB)C $<li>Tính phân phối: $ A(B+C) = AB + AC $, $ (A+B)C = AC + BC $.</ul><div class="alert danger"><p>Lưu ý là phép nhân 2 ma trận không có tính chất giao hoán: $ AB \not = BA $.</div><p>Nếu bạn để ý ở công thứ 2 phía trên thì sẽ thấy rằng việc nhân với ma trận đơn vị không làm thay đổi ma trận đó: $ AI = IA = A $.<p>Cách biểu diễn với Numpy:<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br><span class=line>21</span><br><span class=line>22</span><br></pre><td class=code><pre class="python code-highlight"># create matrix A
+$$</p>
+
+<p>Các tính chất:</p>
+
+<ul>
+<li>Tính kết hợp: $ A(BC) = (AB)C $</li>
+<li>Tính phân phối: $ A(B+C) = AB + AC $, $ (A+B)C = AC + BC $.</li>
+</ul>
+
+<div class="alert danger ">
+  <p>Lưu ý là phép nhân 2 ma trận không có tính chất giao hoán: $ AB \not = BA $.</p>
+</div>
+
+<p>Nếu bạn để ý ở công thứ 2 phía trên thì sẽ thấy rằng việc nhân với ma trận đơn vị không làm thay đổi ma trận đó: $ AI = IA = A $.</p>
+
+<p>Cách biểu diễn với Numpy:
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight"># create matrix A
 A = np.array([(1, 2, 3), (4, 5, 6)])
 print(A)
 # [[1 2 3]
@@ -307,7 +990,16 @@ print(C)
 
 C = np.dot(A, B)
 # [[35 23]
-#  [74 65]]</pre></table></figure><h2 id=2-4-chuyển-vị-ma-trận>2.4. Chuyển vị ma trận</h2><p>Chuyển vị là phép biến cột thành hàng và hàng thành cột của một ma trận.
+#  [74 65]]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure></p>
+
+<h2 id="2-4-chuyển-vị-ma-trận">2.4. Chuyển vị ma trận</h2>
+
+<p>Chuyển vị là phép biến cột thành hàng và hàng thành cột của một ma trận.
 Cho ma trận $ [A]_{mn} $ thì chuyển vị của nó là $ [B_{ij}]_{nm} = [A_{ji}]_{mn}^\intercal $ ($ \intercal $ là kí hiệu của phép chuyển vị)
 có $ B_{ij} = A_{ji} ~~~, \forall i,j $. Ví dụ:
 $$
@@ -321,8 +1013,45 @@ $$
 1 &amp; 3 &amp; 5 \cr
 2 &amp; 4 &amp; 6
 \end{bmatrix}
-$$<p>Các tính chất:<ul><li>$ (A^\intercal)^\intercal = A $<li>$ (A + B)^\intercal = A^\intercal + B^\intercal $<li>$ (AB)^\intercal = B^\intercal A^\intercal $<li>$ (cA)^\intercal = cA^\intercal $</ul><p>Ngoài ra, ta có thể thực hiện phép nhân số học với 2 véc-tơ để thu được 1 vô hướng bằng cách nhân với chuyển của 1 trong 2 véc-tơ: $ ab = a^\intercal b $.
-Phép nhân kiểu này còn được gọi là phép nhân vô hướng, tức là tổng của tích mỗi phần tử tương ứng của 2 ma trận.<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br></pre><td class=code><pre class="python code-highlight"># create matrix a
+$$</p>
+
+<p>Các tính chất:</p>
+
+<ul>
+<li>$ (A^\intercal)^\intercal = A $</li>
+<li>$ (A + B)^\intercal = A^\intercal + B^\intercal $</li>
+<li>$ (AB)^\intercal = B^\intercal A^\intercal $</li>
+<li>$ (cA)^\intercal = cA^\intercal $</li>
+</ul>
+
+<p>Ngoài ra, ta có thể thực hiện phép nhân số học với 2 véc-tơ để thu được 1 vô hướng bằng cách nhân với chuyển của 1 trong 2 véc-tơ: $ ab = a^\intercal b $.
+Phép nhân kiểu này còn được gọi là phép nhân vô hướng, tức là tổng của tích mỗi phần tử tương ứng của 2 ma trận.</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight"># create matrix a
 A = np.array([[1, 2, 3], [4, 5, 6]])
 
 # transpose matrix of A
@@ -341,18 +1070,82 @@ print(c)
 
 c = np.inner(a, b)
 print(c)
-# 45.0</pre></table></figure><p>Từ đoạn mã trên, ta có thể thấy rằng với Numpy, ta có thể thực hiện ngay được phép nhân vô hướng của 2 véc-tơ (inner product) mà không cần phải chuyển vị ma trận.<h2 id=2-5-ma-trận-nghịch-đảo>2.5. Ma trận nghịch đảo</h2><p>Ma trận của ma trận<span class="highlight-text yellow"> vuông khả nghịch </span>$ A $ cấp n là ma trận $ B $ sao cho tích của chúng là ma trận đơn vị cùng cấp: $ AB = I_n $.
-Ma trận khả nghịch được kí hiệu là: $ A^{-1} $. Tức là $ A A^{-1} = I_n $.<p>Các tính chất:<ul><li>$ (A^{-1})^{-1} = A $<li>$ (kA)^{-1} = k^{-1} A^{-1} ~~~, \forall k \not = 0 $<li>$ (AB)^{-1} = B^{-1} A^{-1} $<li>$ (A^\intercal)^{-1} = (A^{-1})^\intercal $</ul><p>Ngoài ra nếu để ý sẽ thấy ma trận đơn vị luôn có nghịch đảo là chính nó: $ I_n^{-1} = I_n $,
-còn ma trận không không tồn tại nghịch đảo - hay ta gọi nó là không khả nghịch.<p>Để xem một ma trận vuông có khả nghịch hay không
+# 45.0</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>Từ đoạn mã trên, ta có thể thấy rằng với Numpy, ta có thể thực hiện ngay được phép nhân vô hướng của 2 véc-tơ (inner product) mà không cần phải chuyển vị ma trận.</p>
+
+<h2 id="2-5-ma-trận-nghịch-đảo">2.5. Ma trận nghịch đảo</h2>
+
+<p>Ma trận của ma trận<span class="highlight-text yellow"> vuông khả nghịch </span>$ A $ cấp n là ma trận $ B $ sao cho tích của chúng là ma trận đơn vị cùng cấp: $ AB = I_n $.
+Ma trận khả nghịch được kí hiệu là: $ A^{-1} $. Tức là $ A A^{-1} = I_n $.</p>
+
+<p>Các tính chất:</p>
+
+<ul>
+<li>$ (A^{-1})^{-1} = A $</li>
+<li>$ (kA)^{-1} = k^{-1} A^{-1} ~~~, \forall k \not = 0 $</li>
+<li>$ (AB)^{-1} = B^{-1} A^{-1} $</li>
+<li>$ (A^\intercal)^{-1} = (A^{-1})^\intercal $</li>
+</ul>
+
+<p>Ngoài ra nếu để ý sẽ thấy ma trận đơn vị luôn có nghịch đảo là chính nó: $ I_n^{-1} = I_n $,
+còn ma trận không không tồn tại nghịch đảo - hay ta gọi nó là không khả nghịch.</p>
+
+<p>Để xem một ma trận vuông có khả nghịch hay không
 và cách tìm ma trận nghịch đảo tương ứng của nó tôi sẽ trình bày trong bài viết tới.
-Tạm thời bạn cứ nắm được khái niệm của nó và cách lập trình đã nhé.<p>Cách biểu diễn với Numpy:<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br></pre><td class=code><pre class="python code-highlight"># create matrix a
+Tạm thời bạn cứ nắm được khái niệm của nó và cách lập trình đã nhé.</p>
+
+<p>Cách biểu diễn với Numpy:
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight"># create matrix a
 A = np.array([[1., 2.], [3., 4.]])
 
 # inverse matrix of A
 B = np.linalg.inv(A)
 print(B)
 # [[-2.   1. ]
-#  [ 1.5 -0.5]]</pre></table></figure><h2 id=2-6-phép-nhân-từng-phần-tử-hadamard>2.6. Phép nhân từng phần tử Hadamard</h2><p>Là phép nhân từng phần tử tương ứng của<span class="highlight-text yellow"> 2 ma trận cùng cấp </span>với nhau.<p>$$ [A_{ij}]_{mn} \circ [B_{ij}]_{mn} = [A_{ij} B_{ij}]_{mn} $$<p>Ví dụ:
+#  [ 1.5 -0.5]]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure></p>
+
+<h2 id="2-6-phép-nhân-từng-phần-tử-hadamard">2.6. Phép nhân từng phần tử Hadamard</h2>
+
+<p>Là phép nhân từng phần tử tương ứng của<span class="highlight-text yellow"> 2 ma trận cùng cấp </span>với nhau.</p>
+
+<p>$$ [A_{ij}]_{mn} \circ [B_{ij}]_{mn} = [A_{ij}  B_{ij}]_{mn} $$</p>
+
+<p>Ví dụ:
 $$
 \begin{bmatrix}
 5 &amp; 10 &amp; 15 \cr
@@ -366,7 +1159,41 @@ $$
 5 &amp; 20 &amp; 45 \cr
 80 &amp; 115 &amp; 180
 \end{bmatrix}
-$$<p>Các tính chất:<ul><li>Tính giao hoán: $ A \circ B = B \circ A $<li>Tính kết hợp: $ A \circ (B \circ C) = (A \circ B) \circ C $<li>Tính phân phối: $ A \circ (B + C) = A \circ B + A \circ C $</ul><figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br><span class=line>21</span><br><span class=line>22</span><br></pre><td class=code><pre class="python code-highlight"># create matrix a
+$$</p>
+
+<p>Các tính chất:</p>
+
+<ul>
+<li>Tính giao hoán: $ A \circ B = B \circ A $</li>
+<li>Tính kết hợp: $ A \circ (B \circ C) = (A \circ B) \circ C $</li>
+<li>Tính phân phối: $ A \circ (B + C) = A \circ B + A \circ C $</li>
+</ul>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight"># create matrix a
 a = np.array([(1, 2, 3), (4, 5, 6)])
 print(a)
 # [[1 2 3]
@@ -387,7 +1214,48 @@ print(c)
 c = np.multiply(a, b)
 print(c)
 # [[ 0 10 75]
-#  [16 45 54]]</pre></table></figure><h2 id=2-7-các-phép-toán-theo-từng-phần-tử-hadamard-khác>2.7. Các phép toán theo từng phần tử (Hadamard) khác</h2><p>Ngoài phép nhân Hadamard theo từng phần tử, ta cũng có các phép biến đổi khác tương tự như:<p>Phép chia Hadamard: $ [A_{ij}]_{mn} \oslash [B_{ij}]_{mn} = [A_{ij} / B_{ij}]_{mn} $.<p>Phép lũy thừa Hadamard: $ [A_{ij}]_{mn}^p = [A_{ij}^p]_{mn} ~~~, \forall p \in \mathbb{R} $<p>Từ phép lũy thừa với số mũ phân số, ta có thể viết lại dưới dạng phép khai căn Hadamard: $ \sqrt[p]{[A_{ij}]_{mn}} = [\sqrt[p]{A_{ij}}]_{mn} ~~~, \forall p \in \mathbb{N} $<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br><span class=line>21</span><br><span class=line>22</span><br><span class=line>23</span><br></pre><td class=code><pre class="python code-highlight"># create matrix a
+#  [16 45 54]]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h2 id="2-7-các-phép-toán-theo-từng-phần-tử-hadamard-khác">2.7. Các phép toán theo từng phần tử (Hadamard) khác</h2>
+
+<p>Ngoài phép nhân Hadamard theo từng phần tử, ta cũng có các phép biến đổi khác tương tự như:</p>
+
+<p>Phép chia Hadamard: $ [A_{ij}]_{mn} \oslash [B_{ij}]_{mn} = [A_{ij} / B_{ij}]_{mn} $.</p>
+
+<p>Phép lũy thừa Hadamard: $ [A_{ij}]_{mn}^p = [A_{ij}^p]_{mn} ~~~, \forall p \in \mathbb{R} $</p>
+
+<p>Từ phép lũy thừa với số mũ phân số, ta có thể viết lại dưới dạng phép khai căn Hadamard: $ \sqrt[p]{[A_{ij}]_{mn}} = [\sqrt[p]{A_{ij}}]_{mn} ~~~, \forall p \in \mathbb{N} $</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight"># create matrix a
 a = np.array([(1., 2., 3.), (4., 5., 6.)])
 print(a)
 # [[1. 2. 3.]
@@ -409,18 +1277,75 @@ print(c)
 c = a ** 2
 print(c)
 # [[  1.   4.   9.]
-#  [ 16.  25.  36.]]</pre></table></figure><h2 id=2-8-norm>2.8. Norm</h2><p>Trong không gian véc-tơ, Norm là một công cụ để đo độ dài của véc-tơ hay nói cách khác là đo khoảng cách giữa 2 điểm trong không gian.
+#  [ 16.  25.  36.]]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h2 id="2-8-norm">2.8. Norm</h2>
+
+<p>Trong không gian véc-tơ, Norm là một công cụ để đo độ dài của véc-tơ hay nói cách khác là đo khoảng cách giữa 2 điểm trong không gian.
 Đáng lẽ ta phải tìm hiểu không gian véc-tơ là gì các tính chất của nó ra sao để có thể hiểu rõ được độ dài của các véc-tơ và quan hệ của chúng ra sao,
 nhưng tạm thời lúc này bạn cứ hiểu nôm na nó là một tập chứa các véc-tơ và khoảng cách 2 điểm như một đường bay nối thẳng 2 điểm đó như ở không gian 2 chiều nhé.
-Nếu có dịp tôi sẽ trình bày kĩ hơn về không gian véc-tơ sau.<p>Thường một norm cấp $ p $ (kí hiệu: $ L^p $) hay sử dụng trong học máy được mô tả bằng công thức:<p>$$ \|x\|_p = \Bigg(\sum_i{|x_i|^p}\Bigg)^ \frac{1}{p} $$<p>Trong đó $ p \in \mathbb{R} $ và $ p \ge 1 $, còn $ x_i $ là phẩn tử thứ $ i $ của véc-tơ.
-Dễ nhận thấy rằng một norm không thể nào nhỏ hơn $ 0 $ được, vì làm gì có khoảng cách nào âm đúng không.<p>Ví dụ trong không gian Euclide n chiều quen thuộc, ta có độ dài của véc-tơ chính là một norm cấp 2 ($ L^2 $): $\displaystyle \|x\| = \sqrt{ \sum_{i=1}^n{x_i^2} } $.
-Trong đó $ x_i $ là phần tử thứ $ i $ của véc-tơ, hay nói cách khác là tọa độ trên trục thứ $ i $ tương ứng của véc-tơ trong không gian.<p>Một norm cấp 2 thường được kí hiệu đơn giản là $ \|x\| $ chứ không phải là $ \|x\|_2 $ nhé.
+Nếu có dịp tôi sẽ trình bày kĩ hơn về không gian véc-tơ sau.</p>
+
+<p>Thường một norm cấp $ p $ (kí hiệu: $ L^p $) hay sử dụng trong học máy được mô tả bằng công thức:</p>
+
+<p>$$ \|x\|_p = \Bigg(\sum_i{|x_i|^p}\Bigg)^ \frac{1}{p} $$</p>
+
+<p>Trong đó $ p \in \mathbb{R} $ và $ p \ge 1 $, còn $ x_i $ là phẩn tử thứ $ i $ của véc-tơ.
+Dễ nhận thấy rằng một norm không thể nào nhỏ hơn $ 0 $ được, vì làm gì có khoảng cách nào âm đúng không.</p>
+
+<p>Ví dụ trong không gian Euclide n chiều quen thuộc, ta có độ dài của véc-tơ chính là một norm cấp 2 ($ L^2 $): $\displaystyle \|x\| = \sqrt{ \sum_{i=1}^n{x_i^2} } $.
+Trong đó $ x_i $ là phần tử thứ $ i $ của véc-tơ, hay nói cách khác là tọa độ trên trục thứ $ i $ tương ứng của véc-tơ trong không gian.</p>
+
+<p>Một norm cấp 2 thường được kí hiệu đơn giản là $ \|x\| $ chứ không phải là $ \|x\|_2 $ nhé.
 Nguyên nhân là do chúng rất hay được sử dụng trong các bài toán học máy, nên phần định danh dưới được bỏ đi cho tiện làm việc.
-Nếu để ý sẽ thấy, với công thức trên ta có thể dễ dàng tính được $ L^2 $ của một véc-tơ bằng phép nhân vô hướng của chúng: $ \|x\| = x * x^\intercal $.<p>Đôi lúc ta cũng sử dụng cả norm cấp 1 để đo khoảng cách giữa các phần tử tại vị trí 0 và vì trị rất gần với 0 thay vì norm cấp 2.
+Nếu để ý sẽ thấy, với công thức trên ta có thể dễ dàng tính được $ L^2 $ của một véc-tơ bằng phép nhân vô hướng của chúng: $ \|x\| = x * x^\intercal $.</p>
+
+<p>Đôi lúc ta cũng sử dụng cả norm cấp 1 để đo khoảng cách giữa các phần tử tại vị trí 0 và vì trị rất gần với 0 thay vì norm cấp 2.
 Vì norm cấp 2 lấy bình phương từng khoảng cách lên sẽ cho số rất nhỏ do khoảng cách giữa chúng đã rất nhỏ rồi, việc này dẫn tới sự triệt tiêu khoảng cách khi tính toán.
-Những lúc này ta sẽ sử dụng $ L ^ 1$ để tính toán, vì nó chỉ lấy trị tuyệt đối khoảng cách: $\displaystyle \|x\|_1 = \sum_i{|x_i|} $.<p>Cũng có khi ta phải dùng giả norm bậc 0 ($ L^0 $) để đo độ dài của véc-tơ khi nó quá bé để có thể thoải mái tính toán với các norm khác.
-Lưu ý rằng, ta không thực sự có $ L^0 $ nhé, mà khi nhắc tới nó ta phải hiểu ngầm với nhau rằng chúng là giả norm. $ L^0 $ được tính đơn giản bằng cách đếm số lượng các phần tử khác 0 của véc-tơ.<p>Một dạng norm khác cũng được sử dụng phổ biến trong học máy là $ L^\infty$ hay còn được gọi là norm lớn nhất (max norm) được đo bằng cách lấy trị tuyệt đối của phần tử lớn nhất: $\displaystyle \|x\|_\infty = \max_i{|x_i|} $.<p>Đó là với cách tính norm cho véc-tơ, thế còn norm áp dụng cho ma trận thì sao?
-Norm cho ma trận được tính bằng nhiều phương pháp khác nhau, nhưng trong học máy thường ta chỉ dùng tới chuẩn norm Frobenius - tương tự như $ L^2 $ cho véc-tơ, như sau:<p>$$ \|A\|_F = \sqrt{\sum_{i,j}{A_{ij}^2}} $$<p>Để thực hiện việc tính norm với Numpy, ta có thể sử dụng hàm <code>norm</code> trong gói <code>linalg</code> (gói đại số tuyến tính) như sau:<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br></pre><td class=code><pre class="python code-highlight"># for vector
+Những lúc này ta sẽ sử dụng $ L ^ 1$ để tính toán, vì nó chỉ lấy trị tuyệt đối khoảng cách: $\displaystyle \|x\|_1 = \sum_i{|x_i|} $.</p>
+
+<p>Cũng có khi ta phải dùng giả norm bậc 0 ($ L^0 $) để đo độ dài của véc-tơ khi nó quá bé để có thể thoải mái tính toán với các norm khác.
+Lưu ý rằng, ta không thực sự có $ L^0 $ nhé, mà khi nhắc tới nó ta phải hiểu ngầm với nhau rằng chúng là giả norm. $ L^0 $ được tính đơn giản bằng cách đếm số lượng các phần tử khác 0 của véc-tơ.</p>
+
+<p>Một dạng norm khác cũng được sử dụng phổ biến trong học máy là $ L^\infty$ hay còn được gọi là norm lớn nhất (max norm) được đo bằng cách lấy trị tuyệt đối của phần tử lớn nhất: $\displaystyle \|x\|_\infty = \max_i{|x_i|} $.</p>
+
+<p>Đó là với cách tính norm cho véc-tơ, thế còn norm áp dụng cho ma trận thì sao?
+Norm cho ma trận được tính bằng nhiều phương pháp khác nhau, nhưng trong học máy thường ta chỉ dùng tới chuẩn norm Frobenius - tương tự như $ L^2 $ cho véc-tơ, như sau:</p>
+
+<p>$$ \|A\|_F = \sqrt{\sum_{i,j}{A_{ij}^2}} $$</p>
+
+<p>Để thực hiện việc tính norm với Numpy, ta có thể sử dụng hàm <code>norm</code> trong gói <code>linalg</code> (gói đại số tuyến tính) như sau:</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight"># for vector
 v = np.arange(10)
 print(v)
 # [0 1 2 3 4 5 6 7 8 9]
@@ -433,23 +1358,115 @@ print(A)
 # [[0 1 2 3 4]
 #  [5 6 7 8 9]]
 print(np.linalg.norm(A))
-# 16.881943016134134</pre></table></figure><h1 id=3-numpy-thường-nhật>3. Numpy thường nhật</h1><h2 id=3-1-biến-hình>3.1. Biến hình</h2><p>Các mảng trong Numpy đều định quy định bằng một khung (shape) với các chiều tương ứng với các chiều của mảng.
+# 16.881943016134134</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h1 id="3-numpy-thường-nhật">3. Numpy thường nhật</h1>
+
+<h2 id="3-1-biến-hình">3.1. Biến hình</h2>
+
+<p>Các mảng trong Numpy đều định quy định bằng một khung (shape) với các chiều tương ứng với các chiều của mảng.
 Ví dụ như véc-tơ (mảng 1 chiều) có 10 phần tử sẽ có khung là (10,),
-ma trận (mảng 2 chiều) có 5 hàng và 3 cột sẽ có khung là (5, 3).<p>Đôi lúc ta cần biến đổi hình dạng của các mảng này cho phù hợp với bài toán của ta như biến đối mảng 1 chiều thành 2 chiều (véc-tơ thành ma trận).
-Để làm được việc này ta có thể sử dụng phép biến hình <code>np.reshape(a, newshape, order='C')</code> của Numpy cực dễ dàng:<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br></pre><td class=code><pre class="python code-highlight">a = np.eye(5, 3)
+ma trận (mảng 2 chiều) có 5 hàng và 3 cột sẽ có khung là (5, 3).</p>
+
+<p>Đôi lúc ta cần biến đổi hình dạng của các mảng này cho phù hợp với bài toán của ta như biến đối mảng 1 chiều thành 2 chiều (véc-tơ thành ma trận).
+Để làm được việc này ta có thể sử dụng phép biến hình <code>np.reshape(a, newshape, order='C')</code> của Numpy cực dễ dàng:</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight">a = np.eye(5, 3)
 print(a.shape)
 # (5, 3)
 
 b = a.reshape(15)
 print(b.shape)
-# (15,)</pre></table></figure><p>Giờ câu hỏi đặt ra là quy tắc biến hình được thực hiện ra sao?<p>Đầu tiên, lượng phần tử cần phải được giữ nguyên sau khi biến hình, tức là hình mới được sinh ra phải đảm bảo được ràng buộc này.
-Ví dụ ở trên ta có một ma trận chéo kích thước (5, 3) có số phần tử là 15, nên khi biến nó thành véc-tơ thì véc-tơ này cũng phải có kích thước là 15 tương ứng.<p>Tiếp theo, là cách tổ chức các phần tử khi biến hình.
-Numpy cho phép ta thực hiện biến hình với 3 kiểu sắp xếp phần tử như sau:<ul><li><code>C</code>: Cho phép ta nhặt phần tử từ mảng cũ ra theo thứ tự ngôn ngữ lập trình <code>C</code>, tức là tọa độ sau sẽ thay đổi nhanh hơn tọa độ trước. Cụ thể là phần từ phía sau của <code>A[0, 0]</code> là <code>A[0, 1]</code>. Lưu ý rằng, thứ tự này là giá trị mặc định của <code>reshape</code>.<li><code>F</code>: Cho phép ta nhặt phần tử từ mảng cũ ra theo thứ tự ngôn ngữ lập trình <code>Fortran</code>, tức là tọa độ trước sẽ thay đổi nhanh hơn tọa độ sau. Cụ thể là phần từ phía sau của <code>A[0, 1]</code> là <code>A[1, 1]</code><li><code>A</code>: Cho phép ta nhặt phần từ theo kiểu <code>F</code> nếu mảng cũ của ta được tổ chức dưới dạng bộ nhớ liên tục của Fortran. Còn các trường hợp khác nó sẽ nhặt theo kiểu <code>C</code>. Lưu ý rằng, kiểu <code>F</code> và <code>C</code> chỉ đề cập tới thứ tự địa chỉ khi lập trình chứ không phải địa chỉ trong bộ nhớ máy tính.</ul><blockquote><p>Tổ chức dưới dạng bộ nhớ liên tục có nghĩa là thứ tự của phần tử trong mảng đúng với thứ tự liên tục trong bộ nhớ máy tính.
+# (15,)</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>Giờ câu hỏi đặt ra là quy tắc biến hình được thực hiện ra sao?</p>
+
+<p>Đầu tiên, lượng phần tử cần phải được giữ nguyên sau khi biến hình, tức là hình mới được sinh ra phải đảm bảo được ràng buộc này.
+Ví dụ ở trên ta có một ma trận chéo kích thước (5, 3) có số phần tử là 15, nên khi biến nó thành véc-tơ thì véc-tơ này cũng phải có kích thước là 15 tương ứng.</p>
+
+<p>Tiếp theo, là cách tổ chức các phần tử khi biến hình.
+Numpy cho phép ta thực hiện biến hình với 3 kiểu sắp xếp phần tử như sau:</p>
+
+<ul>
+<li><code>C</code>: Cho phép ta nhặt phần tử từ mảng cũ ra theo thứ tự ngôn ngữ lập trình <code>C</code>, tức là tọa độ sau sẽ thay đổi nhanh hơn tọa độ trước. Cụ thể là phần từ phía sau của <code>A[0, 0]</code> là <code>A[0, 1]</code>. Lưu ý rằng, thứ tự này là giá trị mặc định của <code>reshape</code>.</li>
+<li><code>F</code>: Cho phép ta nhặt phần tử từ mảng cũ ra theo thứ tự ngôn ngữ lập trình <code>Fortran</code>, tức là tọa độ trước sẽ thay đổi nhanh hơn tọa độ sau. Cụ thể là phần từ phía sau của <code>A[0, 1]</code> là <code>A[1, 1]</code></li>
+<li><code>A</code>: Cho phép ta nhặt phần từ theo kiểu <code>F</code> nếu mảng cũ của ta được tổ chức dưới dạng bộ nhớ liên tục của Fortran. Còn các trường hợp khác nó sẽ nhặt theo kiểu <code>C</code>. Lưu ý rằng, kiểu <code>F</code> và <code>C</code> chỉ đề cập tới thứ tự địa chỉ khi lập trình chứ không phải địa chỉ trong bộ nhớ máy tính.</li>
+</ul>
+
+<blockquote>
+<p>Tổ chức dưới dạng bộ nhớ liên tục có nghĩa là thứ tự của phần tử trong mảng đúng với thứ tự liên tục trong bộ nhớ máy tính.
 Ví dụ, với <code>Fortran</code> hai phần tử <code>A[0, 0]</code> và <code>A[1, 0]</code> sẽ có địa chỉ bộ nhớ cạnh nhau theo đúng thứ tự đó,
 còn với <code>C</code> thì <code>A[0, 0]</code> và <code>A[0, 1]</code> sẽ có địa chỉ bộ nhớ cạnh nhau theo đúng thứ tự đó.
-Nếu bạn chưa hiểu thì có thể đọc thêm ở <a href=https://stackoverflow.com/a/26999092/3431378 target=_blank rel="noopener noreferrer">bài viết này</a>.</blockquote><h2 id=3-2-tự-động-mở-rộng>3.2. Tự động mở rộng</h2><p>Một trong những tính năng đặc biệt của Numpy là khả năng tự mở rộng mảng (broadcasting), nhờ có tính năng này mà ta có thể thực hiện được các phép toán của các hàm phổ cập (universal functions).
+Nếu bạn chưa hiểu thì có thể đọc thêm ở <a href="https://stackoverflow.com/a/26999092/3431378" target="_blank" rel="noopener noreferrer">bài viết này</a>.</p>
+</blockquote>
+
+<h2 id="3-2-tự-động-mở-rộng">3.2. Tự động mở rộng</h2>
+
+<p>Một trong những tính năng đặc biệt của Numpy là khả năng tự mở rộng mảng (broadcasting), nhờ có tính năng này mà ta có thể thực hiện được các phép toán của các hàm phổ cập (universal functions).
 Khi thực hiện phép toán giữa 2 mảng không cùng số chiều với nhau, Numpy sẽ tự mở rộng mảng có số chiều ít hơn lên cho bằng với mảng có số chiều lớn hơn.
-Việc này được thực hiện bằng cách lặp đi lặp lại 1 số lần nào đó của mảng có số chiều nhỏ hơn cho tới khi đạt được số chiều mảng kia.<p>Cụ thể bạn có thể coi 1 số ví dụ dưới đây:<figure class="highlight python"><figcaption><span>numpy-matrix.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br></pre><td class=code><pre class="python code-highlight">A = np.array([(10, 8, 9), (5, 6, 4)])
+Việc này được thực hiện bằng cách lặp đi lặp lại 1 số lần nào đó của mảng có số chiều nhỏ hơn cho tới khi đạt được số chiều mảng kia.</p>
+
+<p>Cụ thể bạn có thể coi 1 số ví dụ dưới đây:</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight">A = np.array([(10, 8, 9), (5, 6, 4)])
 b = np.arange(3)
 
 # A &#43; b or b &#43; A
@@ -462,37 +1479,642 @@ print(C)
 C = b * A
 print(C)
 # [[ 0  8 18]
-#  [ 0  6  8]]</pre></table></figure><p>Nhìn vào ví dụ trên ta có thể thấy véc-tơ <code>b</code> đã tự động mở rộng số hàng của mình cho bằng với số hàng của ma trận <code>A</code> để thực hiện các phép toán với <code>A</code>.
+#  [ 0  6  8]]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>Nhìn vào ví dụ trên ta có thể thấy véc-tơ <code>b</code> đã tự động mở rộng số hàng của mình cho bằng với số hàng của ma trận <code>A</code> để thực hiện các phép toán với <code>A</code>.
 Việc mở rộng này là được áp dụng cho tất cả các hàm phổ thông của Numpy,
-tức là không chỉ 2 phép cộng và nhân phía trên ta còn thực hiện được với nhiều phép toán khác như phép chia, phép trừ, phép lấy mũ,&hellip;<blockquote><p>Các hàm phổ cập (universal functions) là các hàm tính toán số học thông dụng như <code>sin</code>, <code>cos</code>, <code>exp</code> của Numpy.
-Cụ thể các hàm ra sao bạn có tham khảo <a href=https://docs.scipy.org/doc/numpy-dev/user/quickstart.html#universal-functions target=_blank rel="noopener noreferrer">ở đây</a>.</blockquote><p>Ngoài các hàm tiện ích của Numpy phía trên, ta còn có nhiều hàm hữu dụng khác để thao tác với ma trận mà tôi không đề cập ở đây,
-nhưng các bạn có thể xem chi tiết trên trang hướng dẫn của <a href=https://docs.scipy.org/doc/numpy-dev/user/quickstart.html target=_blank rel="noopener noreferrer">Numpy tại đây</a>.<p>Hi vọng qua bài viết này, bạn có thể nắm được các phép toán cơ bản của ma trận cùng với các lệnh thao tác tương ứng của Numpy.
-<em>Nếu có thắc mắc hay góp ý gì thì hãy để lại bình luận phía dưới cho mình nhé</em>.</div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">THẺ ĐÁNH DẤU</span><br><a class="tag tag--primary tag--small" href=https://dominhhai.github.io/vi/tags/ma-tr%E1%BA%ADn/>Ma Trận</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://dominhhai.github.io/vi/2017/10/what-is-rnn/ data-tooltip="[RNN] RNN là gì?"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">Tiếp</span></a><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://dominhhai.github.io/vi/2017/09/what-is-matrix/ data-tooltip="[Ma Trận] Một số khái niệm cơ bản"><span class="hide-xs hide-sm text-small icon-mr">Trước</span>
-<i class="fa fa-angle-right"></i></a></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions><i class="fa fa-share-alt"></i></a><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2017/09/matrix-op/"><i class="fa fa-facebook-official"></i></a><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2017/09/matrix-op/"><i class="fa fa-twitter"></i></a><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2017/09/matrix-op/"><i class="fa fa-google-plus"></i></a><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread><i class="fa fa-comment-o"></i></a><li class=post-action><a class="post-action-btn btn btn--default" href=#table-of-contents><i class="fa fa-list"></i></a></ul></div><div id=disqus_thread><noscript>Please enable JavaScript to view the <a href=//disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></div></article><footer id=footer class=main-content-wrap><div id=helpinfo><div id=author><label id=home>Hai's Blog</label><div class=language><label for=language>Other Languages:</label>
-<select id=language>
-<option title="Tiếng Việt" value=vi selected>Tiếng Việt (vi)
-<option title=English value=en-us>English (en-us)
-<option title=日本語 value=ja>日本語 (ja)</select></div></div><div id=topic><label>Chủ đề</label><ul><li><a href=https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/>Lập Trình</a><li><a href=https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y/>Học Máy</a><li><a href=https://dominhhai.github.io/vi/categories/to%C3%A1n/>Toán</a><li><a href=https://dominhhai.github.io/vi/categories/x%C3%A1c-su%E1%BA%A5t/>Xác Suất</a><li><a href=https://dominhhai.github.io/vi/categories/s%C3%A1ch/>Sách</a></ul></div><div id=contact><label>Liên hệ</label><ul><li><a href=https://github.com/dominhhai/dominhhai.github.io/issues/new target=_blank><i class="fa fa-lg fa-inbox"></i>Gửi tin nhắn</a><li id=follow><a href=https://github.com/dominhhai target=_blank><i class="sidebar-button-icon fa fa-lg fa-github"></i></a><a href=https://twitter.com/minhhai3b target=_blank><i class="sidebar-button-icon fa fa-lg fa-twitter"></i></a></ul></div></div><div id=contentinfo><span class=copyrights>&copy; 2017 <a href=https://github.com/dominhhai>Do Minh Hai</a>. All Rights Reserved</span></div></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=5><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://dominhhai.github.io/vi/2017/10/what-is-rnn/ data-tooltip="[RNN] RNN là gì?"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">Tiếp</span></a><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://dominhhai.github.io/vi/2017/09/what-is-matrix/ data-tooltip="[Ma Trận] Một số khái niệm cơ bản"><span class="hide-xs hide-sm text-small icon-mr">Trước</span>
-<i class="fa fa-angle-right"></i></a></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions><i class="fa fa-share-alt"></i></a><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2017/09/matrix-op/"><i class="fa fa-facebook-official"></i></a><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2017/09/matrix-op/"><i class="fa fa-twitter"></i></a><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2017/09/matrix-op/"><i class="fa fa-google-plus"></i></a><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread><i class="fa fa-comment-o"></i></a><li class=post-action><a class="post-action-btn btn btn--default" href=#table-of-contents><i class="fa fa-list"></i></a></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=5><i id=btn-close-shareoptions class="fa fa-close"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F09%2Fmatrix-op%2F"><i class="fa fa-facebook-official"></i><span>Chia sẻ với Facebook</span></a><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F09%2Fmatrix-op%2F"><i class="fa fa-twitter"></i><span>Chia sẻ với Twitter</span></a><li class=share-option><a class=share-option-btn target=new href="https://plus.google.com/share?url=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F09%2Fmatrix-op%2F"><i class="fa fa-google-plus"></i><span>Chia sẻ với Google&#43;</span></a></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-remove"></i></div><img id=about-card-picture src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện"><h4 id=about-card-name>Do Minh Hai</h4><div id=about-card-bio>Just a developer<br>Enjoy life as a journey</div><div id=about-card-job><i class="fa fa-briefcase"></i><br>Freelancer</div><div id=about-card-location><i class="fa fa-map-marker"></i><br>Japan</div></div></div><div id=algolia-search-modal class=modal-container><div class=modal><div class=modal-header><span class=close-button><i class="fa fa-close"></i></span><a href=https://algolia.com target=_blank rel=noopener class="searchby-algolia text-color-light link-unstyled"><span class="searchby-algolia-text text-color-light text-small">by</span>
-<img class=searchby-algolia-logo src=https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg></a>
-<i class="search-icon fa fa-search"></i><form id=algolia-search-form><input id=algolia-search-input name=search class="form-control input--large search-input" placeholder="Tìm kiếm"></form></div><div class=modal-body><div class="no-result text-color-light text-center">không tìm thấy kết quả</div><div class=results><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/10/sql-test-data/><h3 class=media-heading>[Windows] Đổi tên file với .bat file</h3></a><span class=media-meta><span class="media-date text-small">Oct 10, 2017</span></span><div class="media-content hide-xs font-merryweather">Gần đây Gmail không cho phép gửi các file có đuôi là mã nguồn ngôn ngữ lập trình như .js, .vb chẳng hạn. Ngay cả việc đổi đuôi của các file nén cũng không có hiệu quả như trước, nên buộc phải tìm cách đổi toàn bộ đuôi 1 phát.
-Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng .bat file của Windows, tuy nhiên hoàn toàn có thể sử dụng để làm những chuyện khác với các file này như đổi tên chẳng hạn.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/10/implement-gru-lstm/><h3 class=media-heading>[RNN] Cài đặt GRU/LSTM</h3></a><span class=media-meta><span class="media-date text-small">Oct 10, 2017</span></span><div class="media-content hide-xs font-merryweather"><blockquote><p>Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href=http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/ target=_blank rel="noopener noreferrer">blog WILDML</a>.</blockquote><p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href=http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf target=_blank rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
+tức là không chỉ 2 phép cộng và nhân phía trên ta còn thực hiện được với nhiều phép toán khác như phép chia, phép trừ, phép lấy mũ,&hellip;</p>
+
+<blockquote>
+<p>Các hàm phổ cập (universal functions) là các hàm tính toán số học thông dụng như <code>sin</code>, <code>cos</code>, <code>exp</code> của Numpy.
+Cụ thể các hàm ra sao bạn có tham khảo <a href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html#universal-functions" target="_blank" rel="noopener noreferrer">ở đây</a>.</p>
+</blockquote>
+
+<p>Ngoài các hàm tiện ích của Numpy phía trên, ta còn có nhiều hàm hữu dụng khác để thao tác với ma trận mà tôi không đề cập ở đây,
+nhưng các bạn có thể xem chi tiết trên trang hướng dẫn của <a href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html" target="_blank" rel="noopener noreferrer">Numpy tại đây</a>.</p>
+
+<p>Hi vọng qua bài viết này, bạn có thể nắm được các phép toán cơ bản của ma trận cùng với các lệnh thao tác tương ứng của Numpy.
+<em>Nếu có thắc mắc hay góp ý gì thì hãy để lại bình luận phía dưới cho mình nhé</em>.</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">THẺ ĐÁNH DẤU</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://dominhhai.github.io/vi/tags/ma-tr%E1%BA%ADn/">Ma Trận</a>
+
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/10/what-is-rnn/" data-tooltip="[RNN] RNN là gì?">
+              
+                <i class="fa fa-angle-left"></i>
+                <span class="hide-xs hide-sm text-small icon-ml">Tiếp</span>
+              </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/09/what-is-matrix/" data-tooltip="[Ma Trận] Một số khái niệm cơ bản">
+              
+                <span class="hide-xs hide-sm text-small icon-mr">Trước</span>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2017/09/matrix-op/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2017/09/matrix-op/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2017/09/matrix-op/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <div id="helpinfo">
+    <div id="author">
+      <label id="home">Hai's Blog</label>
+      <div class="language">
+        <label for="language">Other Languages:</label>
+        <select id="language">
+          
+          
+            <option title="Tiếng Việt" value="vi" selected>
+              Tiếng Việt (vi)
+            </option>
+          
+            <option title="English" value="en-us" >
+              English (en-us)
+            </option>
+          
+            <option title="日本語" value="ja" >
+              日本語 (ja)
+            </option>
+          
+        </select>
+      </div>
+    </div>
+    <div id="topic">
+      <label>Chủ đề</label>
+      <ul>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/">Lập Trình</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y/">Học Máy</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/to%C3%A1n/">Toán</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/x%C3%A1c-su%E1%BA%A5t/">Xác Suất</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/s%C3%A1ch/">Sách</a>
+        </li>
+        
+      </ul>
+    </div>
+    <div id="contact">
+      <label>Liên hệ</label>
+      <ul>
+        <li>
+          <a href="https://github.com/dominhhai/dominhhai.github.io/issues/new" target="_blank">
+            <i class="fa fa-lg fa-inbox"></i> Gửi tin nhắn
+          </a>
+        </li>
+        <li id="follow">
+          
+            <a href="https://github.com/dominhhai" target="_blank">
+              <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+            </a>
+          
+            <a href="https://twitter.com/minhhai3b" target="_blank">
+              <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+            </a>
+          
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="contentinfo">
+    <span class="copyrights">
+      &copy; 2017 <a href="https://github.com/dominhhai">Do Minh Hai</a>. All Rights Reserved
+    </span>
+  </div>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/10/what-is-rnn/" data-tooltip="[RNN] RNN là gì?">
+              
+                <i class="fa fa-angle-left"></i>
+                <span class="hide-xs hide-sm text-small icon-ml">Tiếp</span>
+              </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/09/what-is-matrix/" data-tooltip="[Ma Trận] Một số khái niệm cơ bản">
+              
+                <span class="hide-xs hide-sm text-small icon-mr">Trước</span>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2017/09/matrix-op/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2017/09/matrix-op/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2017/09/matrix-op/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F09%2Fmatrix-op%2F">
+          <i class="fa fa-facebook-official"></i><span>Chia sẻ với Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F09%2Fmatrix-op%2F">
+          <i class="fa fa-twitter"></i><span>Chia sẻ với Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F09%2Fmatrix-op%2F">
+          <i class="fa fa-google-plus"></i><span>Chia sẻ với Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện" />
+    
+    <h4 id="about-card-name">Do Minh Hai</h4>
+    
+      <div id="about-card-bio">Just a developer<br>Enjoy life as a journey</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Freelancer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Japan
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Tìm kiếm" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">không tìm thấy kết quả</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/sql-test-data/">
+                <h3 class="media-heading">[Windows] Đổi tên file với .bat file</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Gần đây Gmail không cho phép gửi các file có đuôi là mã nguồn ngôn ngữ lập trình như .js, .vb chẳng hạn. Ngay cả việc đổi đuôi của các file nén cũng không có hiệu quả như trước, nên buộc phải tìm cách đổi toàn bộ đuôi 1 phát.
+Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng .bat file của Windows, tuy nhiên hoàn toàn có thể sử dụng để làm những chuyện khác với các file này như đổi tên chẳng hạn.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/implement-gru-lstm/">
+                <h3 class="media-heading">[RNN] Cài đặt GRU/LSTM</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
+</blockquote>
+
+<p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
+LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
-Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/><h3 class=media-heading>[RNN] Tìm hiểu về giải thuật BPTT và vấn đề mất mát đạo hàm</h3></a><span class=media-meta><span class="media-date text-small">Oct 10, 2017</span></span><div class="media-content hide-xs font-merryweather"><blockquote><p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href=http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/ target=_blank rel="noopener noreferrer">blog WILDML</a>.</blockquote><p>Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
-Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/><h3 class=media-heading>[RNN] Cài đặt RNN với Python và Theano</h3></a><span class=media-meta><span class="media-date text-small">Oct 10, 2017</span></span><div class="media-content hide-xs font-merryweather"><blockquote><p>Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href=http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/ target=_blank rel="noopener noreferrer">blog WILDML</a>.</blockquote><p>Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
-và tối ưu với <a href=http://deeplearning.net/software/theano/ target=_blank rel="noopener noreferrer">Theano</a> - một thư viện tính toán trên GPU.
+Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/">
+                <h3 class="media-heading">[RNN] Tìm hiểu về giải thuật BPTT và vấn đề mất mát đạo hàm</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
+</blockquote>
+
+<p>Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
+Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/">
+                <h3 class="media-heading">[RNN] Cài đặt RNN với Python và Theano</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
+</blockquote>
+
+<p>Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
+và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank" rel="noopener noreferrer">Theano</a> - một thư viện tính toán trên GPU.
 Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
-còn toàn bộ mã nguồn bạn có thể xem trên <a href=https://github.com/dennybritz/rnn-tutorial-rnnlm target=_blank rel="noopener noreferrer">Github</a>.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/10/what-is-lstm/><h3 class=media-heading>[RNN] LSTM là gì?</h3></a><span class=media-meta><span class="media-date text-small">Oct 10, 2017</span></span><div class="media-content hide-xs font-merryweather"><blockquote><p>Bài LSTM này được dịch lại từ trang <a href=//colah.github.io/posts/2015-08-Understanding-LSTMs/ target=_blank rel="noopener noreferrer">colah&rsquo;s blog</a>.</blockquote><p>LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
+còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank" rel="noopener noreferrer">Github</a>.
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/what-is-lstm/">
+                <h3 class="media-heading">[RNN] LSTM là gì?</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener noreferrer">colah&rsquo;s blog</a>.</p>
+</blockquote>
+
+<p>LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
 Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
-<a href=https://github.com/colah/ target=_blank rel="noopener noreferrer">Christopher Olah</a>.
-Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/10/what-is-rnn/><h3 class=media-heading>[RNN] RNN là gì?</h3></a><span class=media-meta><span class="media-date text-small">Oct 10, 2017</span></span><div class="media-content hide-xs font-merryweather"><blockquote><p>Bài giới thiệu RNN này được dịch lại từ trang <a href=http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/ target=_blank rel="noopener noreferrer">blog WILDML</a>.</blockquote><p>Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/09/matrix-op/><h3 class=media-heading>[Ma Trận] Các phép toán</h3></a><span class=media-meta><span class="media-date text-small">Sep 9, 2017</span></span><div class="media-content hide-xs font-merryweather"><p>Phần tiếp theo của <a href=https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/>chuỗi chủ đề về ma trận</a>
+<a href="https://github.com/colah/" target="_blank" rel="noopener noreferrer">Christopher Olah</a>.
+Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/what-is-rnn/">
+                <h3 class="media-heading">[RNN] RNN là gì?</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
+</blockquote>
+
+<p>Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/matrix-op/">
+                <h3 class="media-heading">[Ma Trận] Các phép toán</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Phần tiếp theo của <a href="https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/">chuỗi chủ đề về ma trận</a>
 sẽ đề cập tới các phép toán của ma trận.
-Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href=https://github.com/numpy/numpy target=_blank rel="noopener noreferrer">Numpy</a> để lập trình với ma trận.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/09/what-is-matrix/><h3 class=media-heading>[Ma Trận] Một số khái niệm cơ bản</h3></a><span class=media-meta><span class="media-date text-small">Sep 9, 2017</span></span><div class="media-content hide-xs font-merryweather"><p>Đại số tuyến tính là một công cụ cơ bản cần thiết cho việc tìm hiểu học máy.
-Bài đầu tiên trong <a href=https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/>chuỗi chủ đề này</a>
+Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href="https://github.com/numpy/numpy" target="_blank" rel="noopener noreferrer">Numpy</a> để lập trình với ma trận.
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/what-is-matrix/">
+                <h3 class="media-heading">[Ma Trận] Một số khái niệm cơ bản</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Đại số tuyến tính là một công cụ cơ bản cần thiết cho việc tìm hiểu học máy.
+Bài đầu tiên trong <a href="https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/">chuỗi chủ đề này</a>
 sẽ tập trung vào định nghĩa một số khái niệm cơ bản trong đại số tuyến tính.
 Lưu ý rằng các khái niệm tôi viết lại là dưới cái nhìn của người làm lập trình như tôi,
-nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/09/gnu-make-windows/><h3 class=media-heading>[Make] Sử dụng trên Windows</h3></a><span class=media-meta><span class="media-date text-small">Sep 9, 2017</span></span><div class="media-content hide-xs font-merryweather">Makefile là một công cụ giúp ta có thể dễ dàng thực thi các các khối lệnh mà không cần nhờ tới ngôn ngữ lập trình. Mặc dù Make được sử dụng rất rộng rãi trên Unix, Linux hay MacOS, thì trên Windows chắc vẫn còn hiếm hoi. Trên Windows, ta thường file .bat để thực thi các khối lệnh, tuy nhiên các file này chỉ thực thi được trên môi trường Windows.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/09/sql-test-data/><h3 class=media-heading>[SQL] Tạo lượng lớn dữ liệu test</h3></a><span class=media-meta><span class="media-date text-small">Sep 9, 2017</span></span><div class="media-content hide-xs font-merryweather">Ta thường xuyên cần một lượng vừa đủ các dữ liệu để test và dev trong quá trình phát triển hệ thống. Để làm việc này ta có thể viết code để migrate và seed dữ liệu. Tuy nhiên ta cũng có thể sử dụng chính lệnh SQL để tạo dữ liệu cực kì đơn giản.
-Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt là:</div></div><div style=clear:both></div><hr></div></div></div><div class=modal-footer><p class="results-count text-medium" data-message-zero="không tìm thấy kết quả" data-message-one="tìm thấy 1 kết quả" data-message-other="tìm thấy {n} kết quả">37 posts found</div></div></div><div id=cover style=background-image:url(https://dominhhai.github.io/images/cover-v1.2.0.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin=anonymous></script><script src=https://dominhhai.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js></script><script crossorigin=anonymous integrity=sha384-GR8SEkOO1rBN/jnOcQDFcFmwXAevSLx7/Io9Ps1rkxWp983ZIuUGfxivlF/5f5eJ src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.js></script><script crossorigin=anonymous integrity=sha384-cXpztMJlr2xFXyDSIfRWYSMVCXZ9HeGXvzyKTYrn03rsMAlOtIQVzjty5ULbaP8L src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/contrib/auto-render.min.js></script><script src=https://dominhhai.github.io/js/main.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script><script>var disqus_config=function(){this.page.url='https:\/\/dominhhai.github.io\/vi\/2017\/09\/matrix-op\/';this.page.identifier='\/vi\/2017\/09\/matrix-op\/'};(function(){if(window.location.hostname=="localhost"){return;}
-var d=document,s=d.createElement('script');var disqus_shortname='tranquilpeak';s.src='//'+disqus_shortname+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script>
+nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/gnu-make-windows/">
+                <h3 class="media-heading">[Make] Sử dụng trên Windows</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Makefile là một công cụ giúp ta có thể dễ dàng thực thi các các khối lệnh mà không cần nhờ tới ngôn ngữ lập trình. Mặc dù Make được sử dụng rất rộng rãi trên Unix, Linux hay MacOS, thì trên Windows chắc vẫn còn hiếm hoi. Trên Windows, ta thường file .bat để thực thi các khối lệnh, tuy nhiên các file này chỉ thực thi được trên môi trường Windows.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/sql-test-data/">
+                <h3 class="media-heading">[SQL] Tạo lượng lớn dữ liệu test</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Ta thường xuyên cần một lượng vừa đủ các dữ liệu để test và dev trong quá trình phát triển hệ thống. Để làm việc này ta có thể viết code để migrate và seed dữ liệu. Tuy nhiên ta cũng có thể sử dụng chính lệnh SQL để tạo dữ liệu cực kì đơn giản.
+Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt là:</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="không tìm thấy kết quả"
+         data-message-one="tìm thấy 1 kết quả "
+         data-message-other="tìm thấy {n} kết quả">
+         37 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://dominhhai.github.io/images/cover-v1.2.0.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+
+
+<script src="https://dominhhai.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+  
+    <script crossorigin="anonymous" integrity="sha384-GR8SEkOO1rBN/jnOcQDFcFmwXAevSLx7/Io9Ps1rkxWp983ZIuUGfxivlF/5f5eJ" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.js"></script>
+  
+
+  
+    <script crossorigin="anonymous" integrity="sha384-cXpztMJlr2xFXyDSIfRWYSMVCXZ9HeGXvzyKTYrn03rsMAlOtIQVzjty5ULbaP8L" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/contrib/auto-render.min.js"></script>
+  
+
+  
+    <script src="https://dominhhai.github.io/js/main.js"></script>
+  
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/dominhhai.github.io\/vi\/2017\/09\/matrix-op\/';
+          
+            this.page.identifier = '\/vi\/2017\/09\/matrix-op\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

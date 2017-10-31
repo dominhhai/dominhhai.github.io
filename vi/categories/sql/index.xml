@@ -1,2 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sql on Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/categories/sql/</link><description>Recent content in Sql on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Wed, 20 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/vi/categories/sql/index.xml" rel="self" type="application/rss+xml"/><item><title>[SQL] Tạo lượng lớn dữ liệu test</title><link>https://dominhhai.github.io/vi/2017/09/sql-test-data/</link><pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/09/sql-test-data/</guid><description>Ta thường xuyên cần một lượng vừa đủ các dữ liệu để test và dev trong quá trình phát triển hệ thống. Để làm việc này ta có thể viết code để migrate và seed dữ liệu. Tuy nhiên ta cũng có thể sử dụng chính lệnh SQL để tạo dữ liệu cực kì đơn giản.
-Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt là:</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sql on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/categories/sql/</link>
+    <description>Recent content in Sql on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Wed, 20 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dominhhai.github.io/vi/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[SQL] Tạo lượng lớn dữ liệu test</title>
+      <link>https://dominhhai.github.io/vi/2017/09/sql-test-data/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/09/sql-test-data/</guid>
+      <description>Ta thường xuyên cần một lượng vừa đủ các dữ liệu để test và dev trong quá trình phát triển hệ thống. Để làm việc này ta có thể viết code để migrate và seed dữ liệu. Tuy nhiên ta cũng có thể sử dụng chính lệnh SQL để tạo dữ liệu cực kì đơn giản.
+Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt là:</description>
+    </item>
+    
+  </channel>
+</rss>

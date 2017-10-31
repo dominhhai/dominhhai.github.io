@@ -1,31 +1,352 @@
-<!doctype html><html lang=vi><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=generator content="Hugo 0.26 with theme Tranquilpeak 0.4.1-BETA"><title>[Ma Trận] Một số khái niệm cơ bản</title><meta name=author content="Do Minh Hai"><meta name=keywords content="Matrix,Ma Trận,dominhhai,programming,computer science,machine learning,deep learning"><link rel=icon href=https://dominhhai.github.io/favicon/golden-buddha-512-79567.png><link rel=canonical href=https://dominhhai.github.io/vi/2017/09/what-is-matrix/><meta name=description content="Đại số tuyến tính là một công cụ cơ bản cần thiết cho việc tìm hiểu học máy.
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.1-BETA">
+    <title>[Ma Trận] Một số khái niệm cơ bản</title>
+    <meta name="author" content="Do Minh Hai">
+    <meta name="keywords" content="Matrix, Ma Trận, dominhhai, programming, computer science, machine learning, deep learning">
+
+    <link rel="icon" href="https://dominhhai.github.io/favicon/golden-buddha-512-79567.png">
+    
+
+    
+      <link rel="canonical" href="https://dominhhai.github.io/vi/2017/09/what-is-matrix/" />
+    
+
+    
+    <meta name="description" content="Đại số tuyến tính là một công cụ cơ bản cần thiết cho việc tìm hiểu học máy.
 Bài đầu tiên trong chuỗi chủ đề này
 sẽ tập trung vào định nghĩa một số khái niệm cơ bản trong đại số tuyến tính.
 Lưu ý rằng các khái niệm tôi viết lại là dưới cái nhìn của người làm lập trình như tôi,
-nên không chắc đảm bảo được tính chặt chẽ về mặt toán học."><meta property=og:type content=blog><meta property=og:title content="[Ma Trận] Một số khái niệm cơ bản"><meta property=og:url content=https://dominhhai.github.io/vi/2017/09/what-is-matrix/><meta property=og:description content="Đại số tuyến tính là một công cụ cơ bản cần thiết cho việc tìm hiểu học máy.
+nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.
+">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="[Ma Trận] Một số khái niệm cơ bản">
+    <meta property="og:url" content="https://dominhhai.github.io/vi/2017/09/what-is-matrix/">
+    <meta property="og:description" content="Đại số tuyến tính là một công cụ cơ bản cần thiết cho việc tìm hiểu học máy.
 Bài đầu tiên trong chuỗi chủ đề này
 sẽ tập trung vào định nghĩa một số khái niệm cơ bản trong đại số tuyến tính.
 Lưu ý rằng các khái niệm tôi viết lại là dưới cái nhìn của người làm lập trình như tôi,
-nên không chắc đảm bảo được tính chặt chẽ về mặt toán học."><meta property=og:site_name content="Hai's Blog"><meta property=og:locale content=vi><meta name=twitter:card content=summary><meta name=twitter:title content="[Ma Trận] Một số khái niệm cơ bản"><meta name=twitter:url content=https://dominhhai.github.io/vi/2017/09/what-is-matrix/><meta name=twitter:description content="Đại số tuyến tính là một công cụ cơ bản cần thiết cho việc tìm hiểu học máy.
+nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.
+">
+    <meta property="og:site_name" content="Hai&#39;s Blog">
+    <meta property="og:locale" content="vi">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="[Ma Trận] Một số khái niệm cơ bản">
+    <meta name="twitter:url" content="https://dominhhai.github.io/vi/2017/09/what-is-matrix/">
+    <meta name="twitter:description" content="Đại số tuyến tính là một công cụ cơ bản cần thiết cho việc tìm hiểu học máy.
 Bài đầu tiên trong chuỗi chủ đề này
 sẽ tập trung vào định nghĩa một số khái niệm cơ bản trong đại số tuyến tính.
 Lưu ý rằng các khái niệm tôi viết lại là dưới cái nhìn của người làm lập trình như tôi,
-nên không chắc đảm bảo được tính chặt chẽ về mặt toán học."><meta name=twitter:creator content=@minhhai3b><meta property=og:image content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640"><meta name=twitter:image content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640"><meta property=og:image content=//res.cloudinary.com/dominhhai/image/upload/math/katex.png><meta name=twitter:image content=//res.cloudinary.com/dominhhai/image/upload/math/katex.png><link rel=publisher href=https://plus.google.com/115106277658014197977><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin=anonymous><link rel=stylesheet href=https://dominhhai.github.io/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css><link rel=stylesheet crossorigin=anonymous href=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css integrity=sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx><link rel=stylesheet href=https://dominhhai.github.io/css/main.css><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-105333519-1','auto');ga('send','pageview');</script><div id=blog><header id=header data-behavior=5><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://dominhhai.github.io/vi/>Hai&#39;s Blog</a></div><a class=header-right-picture href=https://dominhhai.github.io/#about><img class=header-picture src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=90" alt="Ảnh đại diện"></a></header><nav id=sidebar data-behavior=5><div class=sidebar-container><div class=sidebar-profile><a href=https://dominhhai.github.io/#about><img class=sidebar-profile-picture src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện"></a><h4 class=sidebar-profile-name>Do Minh Hai</h4><h5 class=sidebar-profile-bio>Just a developer<br>Enjoy life as a journey</h5></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://dominhhai.github.io/vi/><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Trang chủ</span></a><li class=sidebar-button><a class=sidebar-button-link href=https://dominhhai.github.io/vi/categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Danh mục</span></a><li class=sidebar-button><a class=sidebar-button-link href=https://dominhhai.github.io/vi/tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Thẻ thông tin</span></a><li class=sidebar-button><a class=sidebar-button-link href=https://dominhhai.github.io/vi/archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Lưu trữ</span></a><li class=sidebar-button><a class=sidebar-button-link href=https://dominhhai.github.io/vi/#about><i class="sidebar-button-icon fa fa-lg fa-question"></i><span class=sidebar-button-desc>Thông tin</span></a></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://github.com/dominhhai target=_blank rel=noopener><i class="sidebar-button-icon fa fa-lg fa-github"></i><span class=sidebar-button-desc>GitHub</span></a><li class=sidebar-button><a class=sidebar-button-link href=https://twitter.com/minhhai3b target=_blank rel=noopener><i class="sidebar-button-icon fa fa-lg fa-twitter"></i><span class=sidebar-button-desc>Twitter</span></a></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://dominhhai.github.io/vi/index.xml><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></ul></div></nav><div id=main data-behavior=5 class=hasCoverMetaIn><article class=post itemscope itemtype=http://schema.org/BlogPosting><div class="post-header main-content-wrap text-center"><h1 class=post-title itemprop=headline>[Ma Trận] Một số khái niệm cơ bản</h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2017-09-26T00:00:00Z>26 tháng 9, 2017</time>
-<span>mục</span>
-<a class=category-link href=https://dominhhai.github.io/vi/categories/to%c3%a1n>Toán</a>,
-<a class=category-link href=https://dominhhai.github.io/vi/categories/ma-tr%e1%ba%adn>Ma Trận</a></div></div><div class="post-content markdown" itemprop=articleBody><div class=main-content-wrap><p>Đại số tuyến tính là một công cụ cơ bản cần thiết cho việc tìm hiểu học máy.
-Bài đầu tiên trong <a href=https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/>chuỗi chủ đề này</a>
+nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.
+">
+    
+      <meta name="twitter:creator" content="@minhhai3b">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640">
+      <meta name="twitter:image" content="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640">
+    
+
+    
+      <meta property="og:image" content="//res.cloudinary.com/dominhhai/image/upload/math/katex.png">
+      <meta name="twitter:image" content="//res.cloudinary.com/dominhhai/image/upload/math/katex.png">
+    
+    
+    
+
+    
+      <link rel="publisher" href="https://plus.google.com/115106277658014197977">
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://dominhhai.github.io/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css" integrity="sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx">
+      
+    
+      
+        <link rel="stylesheet"  href="https://dominhhai.github.io/css/main.css">
+      
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-105333519-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://dominhhai.github.io/vi/">Hai&#39;s Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://dominhhai.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=90" alt="Ảnh đại diện" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://dominhhai.github.io/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện" />
+        </a>
+        <h4 class="sidebar-profile-name">Do Minh Hai</h4>
+        
+          <h5 class="sidebar-profile-bio">Just a developer<br>Enjoy life as a journey</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Trang chủ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Danh mục</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Thẻ thông tin</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Lưu trữ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">Thông tin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/dominhhai" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/minhhai3b" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dominhhai.github.io/vi/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      [Ma Trận] Một số khái niệm cơ bản
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-09-26T00:00:00Z">
+        
+  
+  
+  
+  
+    26 tháng 9, 2017
+  
+
+      </time>
+    
+    
+  
+  
+    <span>mục</span>
+    
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/to%c3%a1n">Toán</a>, 
+    
+      <a class="category-link" href="https://dominhhai.github.io/vi/categories/ma-tr%e1%ba%adn">Ma Trận</a>
+    
+  
+
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Đại số tuyến tính là một công cụ cơ bản cần thiết cho việc tìm hiểu học máy.
+Bài đầu tiên trong <a href="https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/">chuỗi chủ đề này</a>
 sẽ tập trung vào định nghĩa một số khái niệm cơ bản trong đại số tuyến tính.
 Lưu ý rằng các khái niệm tôi viết lại là dưới cái nhìn của người làm lập trình như tôi,
-nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.<h1 id=table-of-contents>Mục lục</h1><nav id=TableOfContents><ul><li><a href=#1-một-số-khái-niệm>1. Một số khái niệm</a><ul><li><a href=#1-1-vô-hướng-scalar>1.1. Vô hướng (Scalar)</a><li><a href=#1-2-véc-tơ-vector>1.2. Véc-tơ (Vector)</a><li><a href=#1-3-ma-trận-matrix>1.3. Ma trận (Matrix)</a><li><a href=#1-4-ten-xơ-ternsor>1.4. Ten-xơ (Ternsor)</a></ul><li><a href=#2-một-số-ma-trận-đặc-biệt>2. Một số ma trận đặc biệt</a><ul><li><a href=#2-1-ma-trận-không>2.1. Ma trận không</a><li><a href=#2-2-ma-trận-vuông>2.2. Ma trận vuông</a><li><a href=#2-3-ma-trận-chéo>2.3. Ma trận chéo</a><li><a href=#2-4-ma-trận-đơn-vị>2.4. Ma trận đơn vị</a><li><a href=#2-5-ma-trận-cột>2.5. Ma trận cột</a><li><a href=#2-6-ma-trận-hàng>2.6. Ma trận hàng</a><li><a href=#2-7-ma-trận-chuyển-vị>2.7. Ma trận chuyển vị</a></ul><li><a href=#3-các-kí-hiệu>3. Các kí hiệu</a></ul></nav><h1 id=1-một-số-khái-niệm>1. Một số khái niệm</h1><h2 id=1-1-vô-hướng-scalar>1.1. Vô hướng (Scalar)</h2><p>Một vô hướng là một số bất kì thuộc tập số nào đó.
+nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.
+</p>
+
+<h1 id="table-of-contents">Mục lục</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#1-một-số-khái-niệm">1. Một số khái niệm</a>
+<ul>
+<li><a href="#1-1-vô-hướng-scalar">1.1. Vô hướng (Scalar)</a></li>
+<li><a href="#1-2-véc-tơ-vector">1.2. Véc-tơ (Vector)</a></li>
+<li><a href="#1-3-ma-trận-matrix">1.3. Ma trận (Matrix)</a></li>
+<li><a href="#1-4-ten-xơ-ternsor">1.4. Ten-xơ (Ternsor)</a></li>
+</ul></li>
+<li><a href="#2-một-số-ma-trận-đặc-biệt">2. Một số ma trận đặc biệt</a>
+<ul>
+<li><a href="#2-1-ma-trận-không">2.1. Ma trận không</a></li>
+<li><a href="#2-2-ma-trận-vuông">2.2. Ma trận vuông</a></li>
+<li><a href="#2-3-ma-trận-chéo">2.3. Ma trận chéo</a></li>
+<li><a href="#2-4-ma-trận-đơn-vị">2.4. Ma trận đơn vị</a></li>
+<li><a href="#2-5-ma-trận-cột">2.5. Ma trận cột</a></li>
+<li><a href="#2-6-ma-trận-hàng">2.6. Ma trận hàng</a></li>
+<li><a href="#2-7-ma-trận-chuyển-vị">2.7. Ma trận chuyển vị</a></li>
+</ul></li>
+<li><a href="#3-các-kí-hiệu">3. Các kí hiệu</a></li>
+</ul>
+</nav>
+
+<h1 id="1-một-số-khái-niệm">1. Một số khái niệm</h1>
+
+<h2 id="1-1-vô-hướng-scalar">1.1. Vô hướng (Scalar)</h2>
+
+<p>Một vô hướng là một số bất kì thuộc tập số nào đó.
 Khi định nghĩa một số ta phải chỉ rõ tập số mà nó thuộc vào.
 Ví dụ, $ n $ là số tự nhiên sẽ được kí hiệu: $ n \in \mathbb{N} $,
 hoặc $ r $ là số thực sẽ được kí hiệu: $ r \in \mathbb{R} $.
 Một số thường có thể định nghĩa được bằng một kiểu dữ liệu nguyên thủy của các ngôn ngữ lập trình.
-Như số tự nhiên có thể là kiểu <code>int</code>, số thực có thể là kiểu <code>float</code> trong Python.<h2 id=1-2-véc-tơ-vector>1.2. Véc-tơ (Vector)</h2><p>Véc-tơ là 1 mảng của các vô hướng tương tự như mảng 1 chiều trong các ngôn ngữ lập trình.
+Như số tự nhiên có thể là kiểu <code>int</code>, số thực có thể là kiểu <code>float</code> trong Python.</p>
+
+<h2 id="1-2-véc-tơ-vector">1.2. Véc-tơ (Vector)</h2>
+
+<p>Véc-tơ là 1 mảng của các vô hướng tương tự như mảng 1 chiều trong các ngôn ngữ lập trình.
 Các phần tử trong véc-tơ cũng được đánh địa chỉ và có thể truy cập nó qua các địa chỉ tương ứng của nó.
 Trong toán học, một véc-tơ có thể là véc-tơ cột nếu các nó được biểu diễn dạng cột,
-hoặc có thể là véc-tơ hàng nếu nó được biểu diễn dưới dạng cột của các phần tử.<p>Một véc-tơ cột có dạng như sau:<p>$$
+hoặc có thể là véc-tơ hàng nếu nó được biểu diễn dưới dạng cột của các phần tử.</p>
+
+<p>Một véc-tơ cột có dạng như sau:</p>
+
+<p>$$
 x =
 \begin{bmatrix}
 x_1 \cr
@@ -33,7 +354,9 @@ x_2 \cr
 \vdots \cr
 x_n
 \end{bmatrix}
-$$<p>Một véc-tơ hàng có dạng như sau:
+$$</p>
+
+<p>Một véc-tơ hàng có dạng như sau:
 $$
 x =
 \begin{bmatrix}
@@ -42,39 +365,77 @@ x_2 &amp;
 \cdots &amp;
 x_n
 \end{bmatrix}
-$$<p>Trong đó, $ x_1 $, $ x_2 $, &hellip;, $ x_n $ là các phần tử <code>thứ 1</code>, <code>thứ 2</code>, &hellip; <code>thứ n</code> của véc-tơ.<h2 id=1-3-ma-trận-matrix>1.3. Ma trận (Matrix)</h2><p>Ma trận là một mảng 2 chiều của các vô hướng tương tự như mảng 2 chiều trong các ngôn ngữ lập trình. Ví dụ dưới đây là một ma trận có $ m $ hàng và $ n $ cột:
+$$</p>
+
+<p>Trong đó, $ x_1 $, $ x_2 $, &hellip;, $ x_n $ là các phần tử <code>thứ 1</code>, <code>thứ 2</code>, &hellip; <code>thứ n</code> của véc-tơ.</p>
+
+<h2 id="1-3-ma-trận-matrix">1.3. Ma trận (Matrix)</h2>
+
+<p>Ma trận là một mảng 2 chiều của các vô hướng tương tự như mảng 2 chiều trong các ngôn ngữ lập trình. Ví dụ dưới đây là một ma trận có $ m $ hàng và $ n $ cột:
 $$
 A =
 \begin{bmatrix}
 A_{1, 1} &amp; A_{1, 2} &amp; \cdots &amp; A_{1, n} \cr
 A_{2, 1} &amp; A_{2, 2} &amp; \cdots &amp; A_{2, n} \cr
-\vdots &amp; \vdots &amp; \vdots &amp; \vdots \cr
+\vdots    &amp; \vdots    &amp; \vdots &amp; \vdots    \cr
 A_{m, 1} &amp; A_{m, 2} &amp; \cdots &amp; A_{m, n}
 \end{bmatrix}
-$$<p>Khi định nghĩa một ma trận ta cần chỉ rõ số hàng và số cột cùng trường số của các phần tử có nó.
+$$</p>
+
+<p>Khi định nghĩa một ma trận ta cần chỉ rõ số hàng và số cột cùng trường số của các phần tử có nó.
 Lúc này, $ mn $ được gọi là cấp của ma trận.
-Ví dụ, ma trận số thực $ A $ có m hàng và n cột được kí hiệu là: $ A \in \mathbb{R}^{m \times n} $.<p>Các phần tử trong ma trận được định danh bằng 2 địa chỉ hàng $ i $ và cột $ j $ tương ứng.
+Ví dụ, ma trận số thực $ A $ có m hàng và n cột được kí hiệu là: $ A \in \mathbb{R}^{m \times n} $.</p>
+
+<p>Các phần tử trong ma trận được định danh bằng 2 địa chỉ hàng $ i $ và cột $ j $ tương ứng.
 Ví dụ phần tử hàng thứ 3, cột thứ 2 sẽ được kí hiệu là: $ A_{3,2} $.
 Ta cũng có thể kí hiệu các phần tử của hàng $ i $ là $ A_{i,:} $ và của cột $ j $ là $ A_{:,j} $.
 Nếu bạn để ý thì sẽ thấy $ A_{i,:} $ chính là véc-tơ hàng, còn $ A_{:,j} $ là véc-tơ cột.
-Như vậy, véc-tơ có thể coi là trường hợp đặt biệt của ma trận với số hàng hoặc số cột là 1.<h2 id=1-4-ten-xơ-ternsor>1.4. Ten-xơ (Ternsor)</h2><p>Ten-xơ là một mảng nhiều chiều, nó là trưởng hợp tổng quát của việc biểu diễn số chiều.
-Như vậy, ma trận có thể coi là một ten-xơ 2 chiều, véc-tơ là ten-xơ một nhiều còn vô hướng là ten-xơ vô chiều.<p>Các phần tử của một ten-xơ cần được định danh bằng số địa chỉ tương ứng với số chiều của ten-xơ đó. Ví dụ mộ ten-xơ $ \mathsf{A} $ 3 chiều có phần tử tại hàng $ i $, cột $ j $, cao $ k $ được kí hiệu là: $ \mathsf{A}_{i,j,k} $.<h1 id=2-một-số-ma-trận-đặc-biệt>2. Một số ma trận đặc biệt</h1><h2 id=2-1-ma-trận-không>2.1. Ma trận không</h2><p>Ma trận không là ma trận mà tất cả các phần tử của nó đều bằng 0: $ A_{i,j} = 0, \forall{i,j} $. Ví dụ:<p>$$
+Như vậy, véc-tơ có thể coi là trường hợp đặt biệt của ma trận với số hàng hoặc số cột là 1.</p>
+
+<h2 id="1-4-ten-xơ-ternsor">1.4. Ten-xơ (Ternsor)</h2>
+
+<p>Ten-xơ là một mảng nhiều chiều, nó là trưởng hợp tổng quát của việc biểu diễn số chiều.
+Như vậy, ma trận có thể coi là một ten-xơ 2 chiều, véc-tơ là ten-xơ một nhiều còn vô hướng là ten-xơ vô chiều.</p>
+
+<p>Các phần tử của một ten-xơ cần được định danh bằng số địa chỉ tương ứng với số chiều của ten-xơ đó. Ví dụ mộ ten-xơ $ \mathsf{A} $ 3 chiều có phần tử tại hàng $ i $, cột $ j $, cao $ k $ được kí hiệu là: $ \mathsf{A}_{i,j,k} $.</p>
+
+<h1 id="2-một-số-ma-trận-đặc-biệt">2. Một số ma trận đặc biệt</h1>
+
+<h2 id="2-1-ma-trận-không">2.1. Ma trận không</h2>
+
+<p>Ma trận không là ma trận mà tất cả các phần tử của nó đều bằng 0: $ A_{i,j} = 0, \forall{i,j}  $. Ví dụ:</p>
+
+<p>$$
 \varnothing =
 \begin{bmatrix}
 0 &amp; 0 &amp; 0 &amp; 0 \cr
 0 &amp; 0 &amp; 0 &amp; 0 \cr
 0 &amp; 0 &amp; 0 &amp; 0
 \end{bmatrix}
-$$<h2 id=2-2-ma-trận-vuông>2.2. Ma trận vuông</h2><p>Ma trận vuông là ma trận có số hàng bằng với số cột: $ A \in R^{n \times n} $.
-Ví dụ một ma trận vuông cấp 3 (số hàng và số cột là 3) có dạng như sau:<p>$$
+$$</p>
+
+<h2 id="2-2-ma-trận-vuông">2.2. Ma trận vuông</h2>
+
+<p>Ma trận vuông là ma trận có số hàng bằng với số cột: $ A \in R^{n \times n} $.
+Ví dụ một ma trận vuông cấp 3 (số hàng và số cột là 3) có dạng như sau:</p>
+
+<p>$$
 A =
 \begin{bmatrix}
 2 &amp; 1 &amp; 9 \cr
 4 &amp; 5 &amp; 9 \cr
 8 &amp; 0 &amp; 5
 \end{bmatrix}
-$$<p>Với ma trận vuông, đường chéo bắt đầu từ góc trái trên cùng tới góc phải dưới cùng được gọi là đường chéo chính: $ \{ A_{i,i} \} $<h2 id=2-3-ma-trận-chéo>2.3. Ma trận chéo</h2><p>Ma trận chéo là ma trận vuông có các phần từ nằm ngoài đường chéo chính bằng 0: $ A_{i,j} = 0, \forall{i \not = j} $.
-Ví dụ ma trận chéo cấp 4 (có 4 hàng và 4 cột) có dạng như sau:<p>$$
+$$</p>
+
+<p>Với ma trận vuông, đường chéo bắt đầu từ góc trái trên cùng tới góc phải dưới cùng được gọi là đường chéo chính: $ \{ A_{i,i} \} $</p>
+
+<h2 id="2-3-ma-trận-chéo">2.3. Ma trận chéo</h2>
+
+<p>Ma trận chéo là ma trận vuông có các phần từ nằm ngoài đường chéo chính bằng 0: $ A_{i,j} = 0, \forall{i \not = j} $.
+Ví dụ ma trận chéo cấp 4 (có 4 hàng và 4 cột) có dạng như sau:</p>
+
+<p>$$
 A =
 \begin{bmatrix}
 1 &amp; 0 &amp; 0 &amp; 0 \cr
@@ -82,62 +443,696 @@ A =
 0 &amp; 0 &amp; 3 &amp; 0 \cr
 0 &amp; 0 &amp; 0 &amp; 4
 \end{bmatrix}
-$$<blockquote><p>Lưu ý rằng ma trận vuông không (ma trận vuông có các phần tử bằng 0) cũng là một ma trận chéo.</blockquote><h2 id=2-4-ma-trận-đơn-vị>2.4. Ma trận đơn vị</h2><p>Là ma trận chéo có các phần tử trên đường chéo bằng 1:
+$$</p>
+
+<blockquote>
+<p>Lưu ý rằng ma trận vuông không (ma trận vuông có các phần tử bằng 0) cũng là một ma trận chéo.</p>
+</blockquote>
+
+<h2 id="2-4-ma-trận-đơn-vị">2.4. Ma trận đơn vị</h2>
+
+<p>Là ma trận chéo có các phần tử trên đường chéo bằng 1:
 $$
 \begin{cases}
 A_{i,j} = 0, \forall{i \not = j} \cr
 A_{i,j} = 1, \forall{i = j}
 \end{cases}
-$$<p>Ma trận đơn vị được kí hiệu là $ I_n $ với $ n $ là cấp của ma trận. Ví dụ ma trận đơn vị có cấp 3 được biểu diễn như sau:<p>$$
+$$</p>
+
+<p>Ma trận đơn vị được kí hiệu là $ I_n $ với $ n $ là cấp của ma trận. Ví dụ ma trận đơn vị có cấp 3 được biểu diễn như sau:</p>
+
+<p>$$
 I_{3} =
 \begin{bmatrix}
 1 &amp; 0 &amp; 0 \cr
 0 &amp; 1 &amp; 0 \cr
 0 &amp; 0 &amp; 1
 \end{bmatrix}
-$$<h2 id=2-5-ma-trận-cột>2.5. Ma trận cột</h2><p>Ma trận cột chính là véc-tơ cột, tức là ma trận chỉ có 1 cột.<h2 id=2-6-ma-trận-hàng>2.6. Ma trận hàng</h2><p>Tương tự như ma trận cột, ma trận hàng chính là véc-tơ hàng, tức là ma trận chỉ có 1 hàng.<h2 id=2-7-ma-trận-chuyển-vị>2.7. Ma trận chuyển vị</h2><p>Ma trận chuyển vị là ma trận nhận được sau khi ta đổi hàng thành cột và cột thành hàng.<p>$$
+$$</p>
+
+<h2 id="2-5-ma-trận-cột">2.5. Ma trận cột</h2>
+
+<p>Ma trận cột chính là véc-tơ cột, tức là ma trận chỉ có 1 cột.</p>
+
+<h2 id="2-6-ma-trận-hàng">2.6. Ma trận hàng</h2>
+
+<p>Tương tự như ma trận cột, ma trận hàng chính là véc-tơ hàng, tức là ma trận chỉ có 1 hàng.</p>
+
+<h2 id="2-7-ma-trận-chuyển-vị">2.7. Ma trận chuyển vị</h2>
+
+<p>Ma trận chuyển vị là ma trận nhận được sau khi ta đổi hàng thành cột và cột thành hàng.</p>
+
+<p>$$
 \begin{cases}
 A \in \mathbb{R}^{m,n} \cr
 B \in \mathbb{R}^{n,m} \cr
 A_{i,j} = B_{j,i}, \forall{i,j}
 \end{cases}
-$$<p>Ma trận chuyển vị của $ A $ được kí hiệu là $ A^\intercal $. Như vậy: $ (A^\intercal)_{i,j} = A_{j,i} $.<p>Véc-tơ cũng là một ma trận nên mọi phép toán với ma trận đều có thể áp dụng được, bao gồm cả phép chuyển vị ma trận.
+$$</p>
+
+<p>Ma trận chuyển vị của $ A $ được kí hiệu là $ A^\intercal $. Như vậy: $ (A^\intercal)_{i,j} = A_{j,i} $.</p>
+
+<p>Véc-tơ cũng là một ma trận nên mọi phép toán với ma trận đều có thể áp dụng được, bao gồm cả phép chuyển vị ma trận.
 Sử dụng phép chuyển vị ta có thể biến một véc-tơ hàng thành véc-tơ cột và ngược lại.
-Đôi lúc để viết cho ngắn gọi người ta thường sử dụng phép chuyển vị để định nghĩa véc-tơ cột giống như: $ x = [x_1, x_2, &hellip;, x_n]^\intercal $.<h1 id=3-các-kí-hiệu>3. Các kí hiệu</h1><p>Để thuận tiện, từ nay về sau tôi sẽ mặc định các vô hướng, phần tử của ma trận (bao gồm cả véc-tơ) mà chúng ta làm việc là thuộc trường số thực $ \mathbb{R} $. Tôi cũng sẽ sử dụng một số kí hiệu bổ sung như dưới đây.<p>Các ma trận sẽ được kí hiệu: $ [A_{ij}]_{mn} $, trong đó $ A $ là tên của ma trận;
-$ m, n $ là cấp của ma trận; còn $ A_{ij} $ là các phần tử của ma trận tại hàng $ i $ và cột $ j $.<p>Các véc-tơ ta cũng sẽ biểu diễn tương tự.
+Đôi lúc để viết cho ngắn gọi người ta thường sử dụng phép chuyển vị để định nghĩa véc-tơ cột giống như: $ x = [x_1, x_2, &hellip;, x_n]^\intercal $.</p>
+
+<h1 id="3-các-kí-hiệu">3. Các kí hiệu</h1>
+
+<p>Để thuận tiện, từ nay về sau tôi sẽ mặc định các vô hướng, phần tử của ma trận (bao gồm cả véc-tơ) mà chúng ta làm việc là thuộc trường số thực $ \mathbb{R} $. Tôi cũng sẽ sử dụng một số kí hiệu bổ sung như dưới đây.</p>
+
+<p>Các ma trận sẽ được kí hiệu: $ [A_{ij}]_{mn} $, trong đó $ A $ là tên của ma trận;
+$ m, n $ là cấp của ma trận; còn $ A_{ij} $ là các phần tử của ma trận tại hàng $ i $ và cột $ j $.</p>
+
+<p>Các véc-tơ ta cũng sẽ biểu diễn tương tự.
 Véc-tơ hàng: $ [x_i]_n $, trong đó $ x $ là tên của véc-tơ;
 $ n $ là cấp của véc-tơ; $ x_i $ là phần tử của véc-tơ tại vị trí $ i $.
-Véc-tơ cột ta sẽ biểu diễn thông qua phép chuyển vị của véc-tơ hàng: $ [x_i]_n ^\intercal $.<p>Ngoài ra, nếu một ma trận được biểu diễn dưới dạng: $ [A_{1j}]_{1n} $ thì ta cũng sẽ hiểu ngầm luôn nó là véc-tơ hàng.
-Tương tự, với $ [A_{i1}]_{m1} $ thì ta có thể hiểu ngầm với nhau rằng nó là véc-tơ cột.<p>Một điểm cần lưu ý nữa là các giá trị $ m, n, i, j $ khi được biểu điễn tường minh dưới dạng số,
+Véc-tơ cột ta sẽ biểu diễn thông qua phép chuyển vị của véc-tơ hàng: $ [x_i]_n ^\intercal  $.</p>
+
+<p>Ngoài ra, nếu một ma trận được biểu diễn dưới dạng: $ [A_{1j}]_{1n} $ thì ta cũng sẽ hiểu ngầm luôn nó là véc-tơ hàng.
+Tương tự, với $ [A_{i1}]_{m1} $ thì ta có thể hiểu ngầm với nhau rằng nó là véc-tơ cột.</p>
+
+<p>Một điểm cần lưu ý nữa là các giá trị $ m, n, i, j $ khi được biểu điễn tường minh dưới dạng số,
 ta cần phải chèn dấu phẩy <code>,</code> vào giữa chúng.
 Ví dụ: $ [A_{ij}]_{9,4} $ là ma trận có cấp là <code>9, 4</code>. $ A_{5,25} $ là phần tử tại hàng <code>5</code> và cột <code>25</code>.
-Việc này giúp ta phân biệt được giữa ma trận và véc-tơ, nếu không ta sẽ bị nhầm ma trận thành véc-tơ.<p>Trên đây là một số khái niệm cơ bản để làm việc với ma trận, trong phần sau tôi sẽ đề cập tới các phép toán của ma trận.
-Việc biến đổi ma trận và các phép toán trên ma trận là rất cần thiết để làm việc với các bài toán về học máy sau này. <em>Nếu bạn có thắc mắc hay góp ý gì thì đừng quên bình luận ở bên dưới nhé</em> m(.)_(.)m.</div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">THẺ ĐÁNH DẤU</span><br><a class="tag tag--primary tag--small" href=https://dominhhai.github.io/vi/tags/ma-tr%E1%BA%ADn/>Ma Trận</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://dominhhai.github.io/vi/2017/09/matrix-op/ data-tooltip="[Ma Trận] Các phép toán"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">Tiếp</span></a><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://dominhhai.github.io/vi/2017/09/gnu-make-windows/ data-tooltip="[Make] Sử dụng trên Windows"><span class="hide-xs hide-sm text-small icon-mr">Trước</span>
-<i class="fa fa-angle-right"></i></a></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions><i class="fa fa-share-alt"></i></a><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2017/09/what-is-matrix/"><i class="fa fa-facebook-official"></i></a><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2017/09/what-is-matrix/"><i class="fa fa-twitter"></i></a><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2017/09/what-is-matrix/"><i class="fa fa-google-plus"></i></a><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread><i class="fa fa-comment-o"></i></a><li class=post-action><a class="post-action-btn btn btn--default" href=#table-of-contents><i class="fa fa-list"></i></a></ul></div><div id=disqus_thread><noscript>Please enable JavaScript to view the <a href=//disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></div></article><footer id=footer class=main-content-wrap><div id=helpinfo><div id=author><label id=home>Hai's Blog</label><div class=language><label for=language>Other Languages:</label>
-<select id=language>
-<option title="Tiếng Việt" value=vi selected>Tiếng Việt (vi)
-<option title=English value=en-us>English (en-us)
-<option title=日本語 value=ja>日本語 (ja)</select></div></div><div id=topic><label>Chủ đề</label><ul><li><a href=https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/>Lập Trình</a><li><a href=https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y/>Học Máy</a><li><a href=https://dominhhai.github.io/vi/categories/to%C3%A1n/>Toán</a><li><a href=https://dominhhai.github.io/vi/categories/x%C3%A1c-su%E1%BA%A5t/>Xác Suất</a><li><a href=https://dominhhai.github.io/vi/categories/s%C3%A1ch/>Sách</a></ul></div><div id=contact><label>Liên hệ</label><ul><li><a href=https://github.com/dominhhai/dominhhai.github.io/issues/new target=_blank><i class="fa fa-lg fa-inbox"></i>Gửi tin nhắn</a><li id=follow><a href=https://github.com/dominhhai target=_blank><i class="sidebar-button-icon fa fa-lg fa-github"></i></a><a href=https://twitter.com/minhhai3b target=_blank><i class="sidebar-button-icon fa fa-lg fa-twitter"></i></a></ul></div></div><div id=contentinfo><span class=copyrights>&copy; 2017 <a href=https://github.com/dominhhai>Do Minh Hai</a>. All Rights Reserved</span></div></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=5><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://dominhhai.github.io/vi/2017/09/matrix-op/ data-tooltip="[Ma Trận] Các phép toán"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">Tiếp</span></a><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://dominhhai.github.io/vi/2017/09/gnu-make-windows/ data-tooltip="[Make] Sử dụng trên Windows"><span class="hide-xs hide-sm text-small icon-mr">Trước</span>
-<i class="fa fa-angle-right"></i></a></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions><i class="fa fa-share-alt"></i></a><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2017/09/what-is-matrix/"><i class="fa fa-facebook-official"></i></a><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2017/09/what-is-matrix/"><i class="fa fa-twitter"></i></a><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2017/09/what-is-matrix/"><i class="fa fa-google-plus"></i></a><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread><i class="fa fa-comment-o"></i></a><li class=post-action><a class="post-action-btn btn btn--default" href=#table-of-contents><i class="fa fa-list"></i></a></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=5><i id=btn-close-shareoptions class="fa fa-close"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F09%2Fwhat-is-matrix%2F"><i class="fa fa-facebook-official"></i><span>Chia sẻ với Facebook</span></a><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F09%2Fwhat-is-matrix%2F"><i class="fa fa-twitter"></i><span>Chia sẻ với Twitter</span></a><li class=share-option><a class=share-option-btn target=new href="https://plus.google.com/share?url=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F09%2Fwhat-is-matrix%2F"><i class="fa fa-google-plus"></i><span>Chia sẻ với Google&#43;</span></a></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-remove"></i></div><img id=about-card-picture src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện"><h4 id=about-card-name>Do Minh Hai</h4><div id=about-card-bio>Just a developer<br>Enjoy life as a journey</div><div id=about-card-job><i class="fa fa-briefcase"></i><br>Freelancer</div><div id=about-card-location><i class="fa fa-map-marker"></i><br>Japan</div></div></div><div id=algolia-search-modal class=modal-container><div class=modal><div class=modal-header><span class=close-button><i class="fa fa-close"></i></span><a href=https://algolia.com target=_blank rel=noopener class="searchby-algolia text-color-light link-unstyled"><span class="searchby-algolia-text text-color-light text-small">by</span>
-<img class=searchby-algolia-logo src=https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg></a>
-<i class="search-icon fa fa-search"></i><form id=algolia-search-form><input id=algolia-search-input name=search class="form-control input--large search-input" placeholder="Tìm kiếm"></form></div><div class=modal-body><div class="no-result text-color-light text-center">không tìm thấy kết quả</div><div class=results><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/10/sql-test-data/><h3 class=media-heading>[Windows] Đổi tên file với .bat file</h3></a><span class=media-meta><span class="media-date text-small">Oct 10, 2017</span></span><div class="media-content hide-xs font-merryweather">Gần đây Gmail không cho phép gửi các file có đuôi là mã nguồn ngôn ngữ lập trình như .js, .vb chẳng hạn. Ngay cả việc đổi đuôi của các file nén cũng không có hiệu quả như trước, nên buộc phải tìm cách đổi toàn bộ đuôi 1 phát.
-Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng .bat file của Windows, tuy nhiên hoàn toàn có thể sử dụng để làm những chuyện khác với các file này như đổi tên chẳng hạn.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/10/implement-gru-lstm/><h3 class=media-heading>[RNN] Cài đặt GRU/LSTM</h3></a><span class=media-meta><span class="media-date text-small">Oct 10, 2017</span></span><div class="media-content hide-xs font-merryweather"><blockquote><p>Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href=http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/ target=_blank rel="noopener noreferrer">blog WILDML</a>.</blockquote><p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href=http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf target=_blank rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
+Việc này giúp ta phân biệt được giữa ma trận và véc-tơ, nếu không ta sẽ bị nhầm ma trận thành véc-tơ.</p>
+
+<p>Trên đây là một số khái niệm cơ bản để làm việc với ma trận, trong phần sau tôi sẽ đề cập tới các phép toán của ma trận.
+Việc biến đổi ma trận và các phép toán trên ma trận là rất cần thiết để làm việc với các bài toán về học máy sau này. <em>Nếu bạn có thắc mắc hay góp ý gì thì đừng quên bình luận ở bên dưới nhé</em> m(.)_(.)m.</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">THẺ ĐÁNH DẤU</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://dominhhai.github.io/vi/tags/ma-tr%E1%BA%ADn/">Ma Trận</a>
+
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/09/matrix-op/" data-tooltip="[Ma Trận] Các phép toán">
+              
+                <i class="fa fa-angle-left"></i>
+                <span class="hide-xs hide-sm text-small icon-ml">Tiếp</span>
+              </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/09/gnu-make-windows/" data-tooltip="[Make] Sử dụng trên Windows">
+              
+                <span class="hide-xs hide-sm text-small icon-mr">Trước</span>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2017/09/what-is-matrix/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2017/09/what-is-matrix/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2017/09/what-is-matrix/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <div id="helpinfo">
+    <div id="author">
+      <label id="home">Hai's Blog</label>
+      <div class="language">
+        <label for="language">Other Languages:</label>
+        <select id="language">
+          
+          
+            <option title="Tiếng Việt" value="vi" selected>
+              Tiếng Việt (vi)
+            </option>
+          
+            <option title="English" value="en-us" >
+              English (en-us)
+            </option>
+          
+            <option title="日本語" value="ja" >
+              日本語 (ja)
+            </option>
+          
+        </select>
+      </div>
+    </div>
+    <div id="topic">
+      <label>Chủ đề</label>
+      <ul>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/">Lập Trình</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-m%C3%A1y/">Học Máy</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/to%C3%A1n/">Toán</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/x%C3%A1c-su%E1%BA%A5t/">Xác Suất</a>
+        </li>
+        
+        <li>
+          <a href="https://dominhhai.github.io/vi/categories/s%C3%A1ch/">Sách</a>
+        </li>
+        
+      </ul>
+    </div>
+    <div id="contact">
+      <label>Liên hệ</label>
+      <ul>
+        <li>
+          <a href="https://github.com/dominhhai/dominhhai.github.io/issues/new" target="_blank">
+            <i class="fa fa-lg fa-inbox"></i> Gửi tin nhắn
+          </a>
+        </li>
+        <li id="follow">
+          
+            <a href="https://github.com/dominhhai" target="_blank">
+              <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+            </a>
+          
+            <a href="https://twitter.com/minhhai3b" target="_blank">
+              <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+            </a>
+          
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="contentinfo">
+    <span class="copyrights">
+      &copy; 2017 <a href="https://github.com/dominhhai">Do Minh Hai</a>. All Rights Reserved
+    </span>
+  </div>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/09/matrix-op/" data-tooltip="[Ma Trận] Các phép toán">
+              
+                <i class="fa fa-angle-left"></i>
+                <span class="hide-xs hide-sm text-small icon-ml">Tiếp</span>
+              </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dominhhai.github.io/vi/2017/09/gnu-make-windows/" data-tooltip="[Make] Sử dụng trên Windows">
+              
+                <span class="hide-xs hide-sm text-small icon-mr">Trước</span>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2017/09/what-is-matrix/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2017/09/what-is-matrix/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2017/09/what-is-matrix/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F09%2Fwhat-is-matrix%2F">
+          <i class="fa fa-facebook-official"></i><span>Chia sẻ với Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F09%2Fwhat-is-matrix%2F">
+          <i class="fa fa-twitter"></i><span>Chia sẻ với Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fdominhhai.github.io%2Fvi%2F2017%2F09%2Fwhat-is-matrix%2F">
+          <i class="fa fa-google-plus"></i><span>Chia sẻ với Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=110" alt="Ảnh đại diện" />
+    
+    <h4 id="about-card-name">Do Minh Hai</h4>
+    
+      <div id="about-card-bio">Just a developer<br>Enjoy life as a journey</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Freelancer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Japan
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Tìm kiếm" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">không tìm thấy kết quả</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/sql-test-data/">
+                <h3 class="media-heading">[Windows] Đổi tên file với .bat file</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Gần đây Gmail không cho phép gửi các file có đuôi là mã nguồn ngôn ngữ lập trình như .js, .vb chẳng hạn. Ngay cả việc đổi đuôi của các file nén cũng không có hiệu quả như trước, nên buộc phải tìm cách đổi toàn bộ đuôi 1 phát.
+Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng .bat file của Windows, tuy nhiên hoàn toàn có thể sử dụng để làm những chuyện khác với các file này như đổi tên chẳng hạn.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/implement-gru-lstm/">
+                <h3 class="media-heading">[RNN] Cài đặt GRU/LSTM</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
+</blockquote>
+
+<p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
+LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
-Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/><h3 class=media-heading>[RNN] Tìm hiểu về giải thuật BPTT và vấn đề mất mát đạo hàm</h3></a><span class=media-meta><span class="media-date text-small">Oct 10, 2017</span></span><div class="media-content hide-xs font-merryweather"><blockquote><p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href=http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/ target=_blank rel="noopener noreferrer">blog WILDML</a>.</blockquote><p>Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
-Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/><h3 class=media-heading>[RNN] Cài đặt RNN với Python và Theano</h3></a><span class=media-meta><span class="media-date text-small">Oct 10, 2017</span></span><div class="media-content hide-xs font-merryweather"><blockquote><p>Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href=http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/ target=_blank rel="noopener noreferrer">blog WILDML</a>.</blockquote><p>Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
-và tối ưu với <a href=http://deeplearning.net/software/theano/ target=_blank rel="noopener noreferrer">Theano</a> - một thư viện tính toán trên GPU.
+Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/">
+                <h3 class="media-heading">[RNN] Tìm hiểu về giải thuật BPTT và vấn đề mất mát đạo hàm</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài giới thiệu RNN thứ 3 này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
+</blockquote>
+
+<p>Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
+Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/">
+                <h3 class="media-heading">[RNN] Cài đặt RNN với Python và Theano</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
+</blockquote>
+
+<p>Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
+và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank" rel="noopener noreferrer">Theano</a> - một thư viện tính toán trên GPU.
 Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
-còn toàn bộ mã nguồn bạn có thể xem trên <a href=https://github.com/dennybritz/rnn-tutorial-rnnlm target=_blank rel="noopener noreferrer">Github</a>.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/10/what-is-lstm/><h3 class=media-heading>[RNN] LSTM là gì?</h3></a><span class=media-meta><span class="media-date text-small">Oct 10, 2017</span></span><div class="media-content hide-xs font-merryweather"><blockquote><p>Bài LSTM này được dịch lại từ trang <a href=//colah.github.io/posts/2015-08-Understanding-LSTMs/ target=_blank rel="noopener noreferrer">colah&rsquo;s blog</a>.</blockquote><p>LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
+còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank" rel="noopener noreferrer">Github</a>.
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/what-is-lstm/">
+                <h3 class="media-heading">[RNN] LSTM là gì?</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài LSTM này được dịch lại từ trang <a href="//colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener noreferrer">colah&rsquo;s blog</a>.</p>
+</blockquote>
+
+<p>LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
 Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
-<a href=https://github.com/colah/ target=_blank rel="noopener noreferrer">Christopher Olah</a>.
-Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/10/what-is-rnn/><h3 class=media-heading>[RNN] RNN là gì?</h3></a><span class=media-meta><span class="media-date text-small">Oct 10, 2017</span></span><div class="media-content hide-xs font-merryweather"><blockquote><p>Bài giới thiệu RNN này được dịch lại từ trang <a href=http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/ target=_blank rel="noopener noreferrer">blog WILDML</a>.</blockquote><p>Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/09/matrix-op/><h3 class=media-heading>[Ma Trận] Các phép toán</h3></a><span class=media-meta><span class="media-date text-small">Sep 9, 2017</span></span><div class="media-content hide-xs font-merryweather"><p>Phần tiếp theo của <a href=https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/>chuỗi chủ đề về ma trận</a>
+<a href="https://github.com/colah/" target="_blank" rel="noopener noreferrer">Christopher Olah</a>.
+Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/10/what-is-rnn/">
+                <h3 class="media-heading">[RNN] RNN là gì?</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
+</blockquote>
+
+<p>Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/matrix-op/">
+                <h3 class="media-heading">[Ma Trận] Các phép toán</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Phần tiếp theo của <a href="https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/">chuỗi chủ đề về ma trận</a>
 sẽ đề cập tới các phép toán của ma trận.
-Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href=https://github.com/numpy/numpy target=_blank rel="noopener noreferrer">Numpy</a> để lập trình với ma trận.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/09/what-is-matrix/><h3 class=media-heading>[Ma Trận] Một số khái niệm cơ bản</h3></a><span class=media-meta><span class="media-date text-small">Sep 9, 2017</span></span><div class="media-content hide-xs font-merryweather"><p>Đại số tuyến tính là một công cụ cơ bản cần thiết cho việc tìm hiểu học máy.
-Bài đầu tiên trong <a href=https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/>chuỗi chủ đề này</a>
+Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href="https://github.com/numpy/numpy" target="_blank" rel="noopener noreferrer">Numpy</a> để lập trình với ma trận.
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/what-is-matrix/">
+                <h3 class="media-heading">[Ma Trận] Một số khái niệm cơ bản</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Đại số tuyến tính là một công cụ cơ bản cần thiết cho việc tìm hiểu học máy.
+Bài đầu tiên trong <a href="https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/">chuỗi chủ đề này</a>
 sẽ tập trung vào định nghĩa một số khái niệm cơ bản trong đại số tuyến tính.
 Lưu ý rằng các khái niệm tôi viết lại là dưới cái nhìn của người làm lập trình như tôi,
-nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/09/gnu-make-windows/><h3 class=media-heading>[Make] Sử dụng trên Windows</h3></a><span class=media-meta><span class="media-date text-small">Sep 9, 2017</span></span><div class="media-content hide-xs font-merryweather">Makefile là một công cụ giúp ta có thể dễ dàng thực thi các các khối lệnh mà không cần nhờ tới ngôn ngữ lập trình. Mặc dù Make được sử dụng rất rộng rãi trên Unix, Linux hay MacOS, thì trên Windows chắc vẫn còn hiếm hoi. Trên Windows, ta thường file .bat để thực thi các khối lệnh, tuy nhiên các file này chỉ thực thi được trên môi trường Windows.</div></div><div style=clear:both></div><hr></div><div class=media><div class=media-body><a class=link-unstyled href=https://dominhhai.github.io/vi/2017/09/sql-test-data/><h3 class=media-heading>[SQL] Tạo lượng lớn dữ liệu test</h3></a><span class=media-meta><span class="media-date text-small">Sep 9, 2017</span></span><div class="media-content hide-xs font-merryweather">Ta thường xuyên cần một lượng vừa đủ các dữ liệu để test và dev trong quá trình phát triển hệ thống. Để làm việc này ta có thể viết code để migrate và seed dữ liệu. Tuy nhiên ta cũng có thể sử dụng chính lệnh SQL để tạo dữ liệu cực kì đơn giản.
-Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt là:</div></div><div style=clear:both></div><hr></div></div></div><div class=modal-footer><p class="results-count text-medium" data-message-zero="không tìm thấy kết quả" data-message-one="tìm thấy 1 kết quả" data-message-other="tìm thấy {n} kết quả">37 posts found</div></div></div><div id=cover style=background-image:url(https://dominhhai.github.io/images/cover-v1.2.0.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin=anonymous></script><script src=https://dominhhai.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js></script><script crossorigin=anonymous integrity=sha384-GR8SEkOO1rBN/jnOcQDFcFmwXAevSLx7/Io9Ps1rkxWp983ZIuUGfxivlF/5f5eJ src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.js></script><script crossorigin=anonymous integrity=sha384-cXpztMJlr2xFXyDSIfRWYSMVCXZ9HeGXvzyKTYrn03rsMAlOtIQVzjty5ULbaP8L src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/contrib/auto-render.min.js></script><script src=https://dominhhai.github.io/js/main.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script><script>var disqus_config=function(){this.page.url='https:\/\/dominhhai.github.io\/vi\/2017\/09\/what-is-matrix\/';this.page.identifier='\/vi\/2017\/09\/what-is-matrix\/'};(function(){if(window.location.hostname=="localhost"){return;}
-var d=document,s=d.createElement('script');var disqus_shortname='tranquilpeak';s.src='//'+disqus_shortname+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script>
+nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/gnu-make-windows/">
+                <h3 class="media-heading">[Make] Sử dụng trên Windows</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Makefile là một công cụ giúp ta có thể dễ dàng thực thi các các khối lệnh mà không cần nhờ tới ngôn ngữ lập trình. Mặc dù Make được sử dụng rất rộng rãi trên Unix, Linux hay MacOS, thì trên Windows chắc vẫn còn hiếm hoi. Trên Windows, ta thường file .bat để thực thi các khối lệnh, tuy nhiên các file này chỉ thực thi được trên môi trường Windows.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://dominhhai.github.io/vi/2017/09/sql-test-data/">
+                <h3 class="media-heading">[SQL] Tạo lượng lớn dữ liệu test</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Ta thường xuyên cần một lượng vừa đủ các dữ liệu để test và dev trong quá trình phát triển hệ thống. Để làm việc này ta có thể viết code để migrate và seed dữ liệu. Tuy nhiên ta cũng có thể sử dụng chính lệnh SQL để tạo dữ liệu cực kì đơn giản.
+Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt là:</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="không tìm thấy kết quả"
+         data-message-one="tìm thấy 1 kết quả "
+         data-message-other="tìm thấy {n} kết quả">
+         37 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://dominhhai.github.io/images/cover-v1.2.0.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+
+
+<script src="https://dominhhai.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+  
+    <script crossorigin="anonymous" integrity="sha384-GR8SEkOO1rBN/jnOcQDFcFmwXAevSLx7/Io9Ps1rkxWp983ZIuUGfxivlF/5f5eJ" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.js"></script>
+  
+
+  
+    <script crossorigin="anonymous" integrity="sha384-cXpztMJlr2xFXyDSIfRWYSMVCXZ9HeGXvzyKTYrn03rsMAlOtIQVzjty5ULbaP8L" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/contrib/auto-render.min.js"></script>
+  
+
+  
+    <script src="https://dominhhai.github.io/js/main.js"></script>
+  
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/dominhhai.github.io\/vi\/2017\/09\/what-is-matrix\/';
+          
+            this.page.identifier = '\/vi\/2017\/09\/what-is-matrix\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

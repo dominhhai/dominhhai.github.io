@@ -1,5 +1,67 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Js Tips on Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/tags/js-tips/</link><description>Recent content in Js Tips on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Mon, 31 Oct 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/vi/tags/js-tips/index.xml" rel="self" type="application/rss+xml"/><item><title>[JS] Async Await cực đơn giản</title><link>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</link><pubDate>Mon, 31 Oct 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</guid><description>&lt;p&gt;Với các đặc tả JavaScript cũ, ta phải sử dụng các hàm phản hồi để xử lý các thao tác bất đồng bộ. Tuy nhiên việc này dẫn tới tình trạng &lt;a href=&#34;https://stackoverflow.com/questions/25098066/what-is-callback-hell-and-how-and-why-rx-solves-it&#34;&gt;callback hell&lt;/a&gt; khi ta có nhiều thao tác bất đồng bộ phải chờ nhau thực hiện. Call hell làm cho mã nguồn của ta rất rối và khó bảo trì.
-&lt;!--toc--&gt;&lt;/p&gt;</description></item><item><title>[JS] Apply, Call và Bind khác gì nhau?</title><link>https://dominhhai.github.io/vi/2015/03/js-how-apply-call-bind/</link><pubDate>Sat, 28 Mar 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/03/js-how-apply-call-bind/</guid><description>&lt;p&gt;Như trong bài về &lt;a href=&#34;https://dominhhai.github.io/vi/2015/03/js-what-is-this/&#34;&gt;từ khóa &lt;code&gt;this&lt;/code&gt;&lt;/a&gt; đã đề cập tới ngữ cảnh thực thi với mối tương quan tới từ khóa &lt;code&gt;this&lt;/code&gt; và việc thay đổi được ngữ cảnh thực thi một cách trực tiếp bằng cách sử dụng &lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; và &lt;code&gt;bind&lt;/code&gt;, thì bài viết này sẽ làm rõ ràng hơn 3 phương thức này và sự khác nhau cũng như tính hữu dụng của nó.
-&lt;!--toc--&gt;&lt;/p&gt;</description></item><item><title>[JS] Hiểu thế nào cho đúng về biến this</title><link>https://dominhhai.github.io/vi/2015/03/js-what-is-this/</link><pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/03/js-what-is-this/</guid><description>JavaScript (JS) là một ngôn ngữ lập trình khá linh hoạt và thú vị. Nhưng để có được điều đó nó cũng mang tới không ít phiền phức, dễ nhầm lẫn với những người không chuyên. Với những người mới sờ vào JS, họ thường nghĩ ngay chắc JS cũng lơ lớ như các ngôn ngữ lập trình khác như Java hay C#. Nhưng nhiều điểm ở JS lại khá khác với suy nghĩ ở các ngôn ngữ khác gây nên những hiểu lầm cho người mới vào nghề.</description></item><item><title>[JS] Bất ngờ nhỏ với mảng</title><link>https://dominhhai.github.io/vi/2015/03/js-work-with-array/</link><pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/03/js-work-with-array/</guid><description>Từng làm việc với một vài ngôn ngữ lập trình (Java, C, C++, C#, Objective-C, PHP), mỗi ngôn ngữ đều có cái hay riêng. Nhưng khi tiếp xúc với JavaScript (JS) lại tự dưng thấy yêu nó, yêu cái vẻ sexy và bất ngờ của nó. Ví như mảng trong JS rất đặc biệt và bất ngờ. Trong bài này sẽ viết lại một số điểm có thể là bất ngờ với một số người như mình.</description></item><item><title>[JS] Tản mạn dấu chấm phẩy</title><link>https://dominhhai.github.io/vi/2015/03/js-do-not-need-semicolon/</link><pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/03/js-do-not-need-semicolon/</guid><description>&lt;p&gt;JavaScript cho phép chúng ta lược bỏ dấu kết thúc lệnh (dấu chấm phẩy). Nhưng trường hợp nào ta phải bắt buộc dùng dấu chấm phải, trường hợp nào thì không và có khi nào ta nên bỏ nó đi?
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Js Tips on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/tags/js-tips/</link>
+    <description>Recent content in Js Tips on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Mon, 31 Oct 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dominhhai.github.io/vi/tags/js-tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[JS] Async Await cực đơn giản</title>
+      <link>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</link>
+      <pubDate>Mon, 31 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</guid>
+      <description>&lt;p&gt;Với các đặc tả JavaScript cũ, ta phải sử dụng các hàm phản hồi để xử lý các thao tác bất đồng bộ. Tuy nhiên việc này dẫn tới tình trạng &lt;a href=&#34;https://stackoverflow.com/questions/25098066/what-is-callback-hell-and-how-and-why-rx-solves-it&#34;&gt;callback hell&lt;/a&gt; khi ta có nhiều thao tác bất đồng bộ phải chờ nhau thực hiện. Call hell làm cho mã nguồn của ta rất rối và khó bảo trì.
+
+&lt;!--toc--&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[JS] Apply, Call và Bind khác gì nhau?</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-how-apply-call-bind/</link>
+      <pubDate>Sat, 28 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-how-apply-call-bind/</guid>
+      <description>&lt;p&gt;Như trong bài về &lt;a href=&#34;https://dominhhai.github.io/vi/2015/03/js-what-is-this/&#34;&gt;từ khóa &lt;code&gt;this&lt;/code&gt;&lt;/a&gt; đã đề cập tới ngữ cảnh thực thi với mối tương quan tới từ khóa &lt;code&gt;this&lt;/code&gt; và việc thay đổi được ngữ cảnh thực thi một cách trực tiếp bằng cách sử dụng &lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; và &lt;code&gt;bind&lt;/code&gt;, thì bài viết này sẽ làm rõ ràng hơn 3 phương thức này và sự khác nhau cũng như tính hữu dụng của nó.
+
+&lt;!--toc--&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[JS] Hiểu thế nào cho đúng về biến this</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-what-is-this/</link>
+      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-what-is-this/</guid>
+      <description>JavaScript (JS) là một ngôn ngữ lập trình khá linh hoạt và thú vị. Nhưng để có được điều đó nó cũng mang tới không ít phiền phức, dễ nhầm lẫn với những người không chuyên. Với những người mới sờ vào JS, họ thường nghĩ ngay chắc JS cũng lơ lớ như các ngôn ngữ lập trình khác như Java hay C#. Nhưng nhiều điểm ở JS lại khá khác với suy nghĩ ở các ngôn ngữ khác gây nên những hiểu lầm cho người mới vào nghề.</description>
+    </item>
+    
+    <item>
+      <title>[JS] Bất ngờ nhỏ với mảng</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-work-with-array/</link>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-work-with-array/</guid>
+      <description>Từng làm việc với một vài ngôn ngữ lập trình (Java, C, C++, C#, Objective-C, PHP), mỗi ngôn ngữ đều có cái hay riêng. Nhưng khi tiếp xúc với JavaScript (JS) lại tự dưng thấy yêu nó, yêu cái vẻ sexy và bất ngờ của nó. Ví như mảng trong JS rất đặc biệt và bất ngờ. Trong bài này sẽ viết lại một số điểm có thể là bất ngờ với một số người như mình.</description>
+    </item>
+    
+    <item>
+      <title>[JS] Tản mạn dấu chấm phẩy</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-do-not-need-semicolon/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-do-not-need-semicolon/</guid>
+      <description>&lt;p&gt;JavaScript cho phép chúng ta lược bỏ dấu kết thúc lệnh (dấu chấm phẩy). Nhưng trường hợp nào ta phải bắt buộc dùng dấu chấm phải, trường hợp nào thì không và có khi nào ta nên bỏ nó đi?
 Trước mắt ta xem một chút bộ dịch JavaScript sẽ làm gì với các lệnh của ta.
-&lt;!-- toc --&gt;&lt;/p&gt;</description></item></channel></rss>
+
+&lt;!-- toc --&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

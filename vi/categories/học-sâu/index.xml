@@ -1,31 +1,95 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Học Sâu on Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-s%C3%A2u/</link><description>Recent content in Học Sâu on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Mon, 23 Oct 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-s%C3%A2u/index.xml" rel="self" type="application/rss+xml"/><item><title>[RNN] Cài đặt GRU/LSTM</title><link>https://dominhhai.github.io/vi/2017/10/implement-gru-lstm/</link><pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/10/implement-gru-lstm/</guid><description>&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Học Sâu on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-s%C3%A2u/</link>
+    <description>Recent content in Học Sâu on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Mon, 23 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dominhhai.github.io/vi/categories/h%E1%BB%8Dc-s%C3%A2u/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[RNN] Cài đặt GRU/LSTM</title>
+      <link>https://dominhhai.github.io/vi/2017/10/implement-gru-lstm/</link>
+      <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/10/implement-gru-lstm/</guid>
+      <description>&lt;blockquote&gt;
 &lt;p&gt;Bài giới thiệu RNN cuối cùng này được dịch lại từ trang &lt;a href=&#34;http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;blog WILDML&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
+
 &lt;p&gt;Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
 LSTM lần đầu được giới thiệu vào năm 1997 bởi &lt;a href=&#34;http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Sepp Hochreiter và Jürgen Schmidhuber&lt;/a&gt;.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.
-&lt;/p&gt;</description></item><item><title>[RNN] Tìm hiểu về giải thuật BPTT và vấn đề mất mát đạo hàm</title><link>https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/</link><pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/</guid><description>&lt;blockquote&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[RNN] Tìm hiểu về giải thuật BPTT và vấn đề mất mát đạo hàm</title>
+      <link>https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/</link>
+      <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/10/understand-rnn-bptt/</guid>
+      <description>&lt;blockquote&gt;
 &lt;p&gt;Bài giới thiệu RNN thứ 3 này được dịch lại từ trang &lt;a href=&#34;http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;blog WILDML&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
+
 &lt;p&gt;Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
 Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).
-&lt;/p&gt;</description></item><item><title>[RNN] Cài đặt RNN với Python và Theano</title><link>https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/</link><pubDate>Sat, 21 Oct 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/</guid><description>&lt;blockquote&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[RNN] Cài đặt RNN với Python và Theano</title>
+      <link>https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/</link>
+      <pubDate>Sat, 21 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/10/implement-rnn-with-python/</guid>
+      <description>&lt;blockquote&gt;
 &lt;p&gt;Bài giới thiệu RNN thứ 2 này được dịch lại từ trang &lt;a href=&#34;http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;blog WILDML&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
+
 &lt;p&gt;Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
 và tối ưu với &lt;a href=&#34;http://deeplearning.net/software/theano/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Theano&lt;/a&gt; - một thư viện tính toán trên GPU.
 Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
 còn toàn bộ mã nguồn bạn có thể xem trên &lt;a href=&#34;https://github.com/dennybritz/rnn-tutorial-rnnlm&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Github&lt;/a&gt;.
-&lt;/p&gt;</description></item><item><title>[RNN] LSTM là gì?</title><link>https://dominhhai.github.io/vi/2017/10/what-is-lstm/</link><pubDate>Fri, 20 Oct 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/10/what-is-lstm/</guid><description>&lt;blockquote&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[RNN] LSTM là gì?</title>
+      <link>https://dominhhai.github.io/vi/2017/10/what-is-lstm/</link>
+      <pubDate>Fri, 20 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/10/what-is-lstm/</guid>
+      <description>&lt;blockquote&gt;
 &lt;p&gt;Bài LSTM này được dịch lại từ trang &lt;a href=&#34;//colah.github.io/posts/2015-08-Understanding-LSTMs/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;colah&amp;rsquo;s blog&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
+
 &lt;p&gt;LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
 Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
 &lt;a href=&#34;https://github.com/colah/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Christopher Olah&lt;/a&gt;.
 Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.
-&lt;/p&gt;</description></item><item><title>[RNN] RNN là gì?</title><link>https://dominhhai.github.io/vi/2017/10/what-is-rnn/</link><pubDate>Thu, 19 Oct 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/10/what-is-rnn/</guid><description>&lt;blockquote&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[RNN] RNN là gì?</title>
+      <link>https://dominhhai.github.io/vi/2017/10/what-is-rnn/</link>
+      <pubDate>Thu, 19 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/10/what-is-rnn/</guid>
+      <description>&lt;blockquote&gt;
 &lt;p&gt;Bài giới thiệu RNN này được dịch lại từ trang &lt;a href=&#34;http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;blog WILDML&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
+
 &lt;p&gt;Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.
-&lt;/p&gt;</description></item></channel></rss>
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

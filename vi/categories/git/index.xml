@@ -1,2 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/categories/git/</link><description>Recent content in Git on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Sun, 03 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/vi/categories/git/index.xml" rel="self" type="application/rss+xml"/><item><title>[Git] submodule - cùng lúc sài nhiều repo</title><link>https://dominhhai.github.io/vi/2017/09/git-submodule-multi-repo/</link><pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/09/git-submodule-multi-repo/</guid><description>Đôi lúc ta cần phải sử dụng các repo khác như là một module của dự án hiện tại, nhưng ta lại muốn quản lý nó riêng biệt giống như việc sử dụng các trình quản lý gói như npm chẳng hạn. Lúc này ta có thể sài git submodule để quản lý các module từ các repo khác. Ví dụ, blog của mình được xây dựng với theme tranquilpeak và mình cần đưa theme này vào thư mục themes của dự án.</description></item><item><title>[Git] worktree - cùng lúc sài nhiều branch</title><link>https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/</link><pubDate>Sat, 02 Sep 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/</guid><description>git worktree cho phép ta có thể sử dụng cùng lúc nhiều nhánh của repo trong cùng một thư mục dự án. Ví dụ, blog của mình được xây dựng với Hugo, trong thư mục blog của mình có thư mục public là thư mục chứa các file được dịch ra từ mã nguồn blog. Còn ở phía repo trên Github, mình có 2 branch là dev lưu mã nguồn và master lưu các file chạy.</description></item><item><title>[Git] GitFlow - một mô hình làm việc hiệu quả</title><link>https://dominhhai.github.io/vi/2015/11/gitflow-simple-effective-git-model/</link><pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/11/gitflow-simple-effective-git-model/</guid><description>&lt;p&gt;Gần đây mới được tiếp xúc với git-flow thấy cách làm việc hay quá, muốn chia sẻ lại đôi chút. Về cơ bản git-flow là một tập hợp các lệnh mở rộng cho git nhằm hỗ trợ cho quy trình làm việc hiệu quả hơn.
-&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/categories/git/</link>
+    <description>Recent content in Git on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Sun, 03 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dominhhai.github.io/vi/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Git] submodule - cùng lúc sài nhiều repo</title>
+      <link>https://dominhhai.github.io/vi/2017/09/git-submodule-multi-repo/</link>
+      <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/09/git-submodule-multi-repo/</guid>
+      <description>Đôi lúc ta cần phải sử dụng các repo khác như là một module của dự án hiện tại, nhưng ta lại muốn quản lý nó riêng biệt giống như việc sử dụng các trình quản lý gói như npm chẳng hạn. Lúc này ta có thể sài git submodule để quản lý các module từ các repo khác. Ví dụ, blog của mình được xây dựng với theme tranquilpeak và mình cần đưa theme này vào thư mục themes của dự án.</description>
+    </item>
+    
+    <item>
+      <title>[Git] worktree - cùng lúc sài nhiều branch</title>
+      <link>https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/</link>
+      <pubDate>Sat, 02 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/</guid>
+      <description>git worktree cho phép ta có thể sử dụng cùng lúc nhiều nhánh của repo trong cùng một thư mục dự án. Ví dụ, blog của mình được xây dựng với Hugo, trong thư mục blog của mình có thư mục public là thư mục chứa các file được dịch ra từ mã nguồn blog. Còn ở phía repo trên Github, mình có 2 branch là dev lưu mã nguồn và master lưu các file chạy.</description>
+    </item>
+    
+    <item>
+      <title>[Git] GitFlow - một mô hình làm việc hiệu quả</title>
+      <link>https://dominhhai.github.io/vi/2015/11/gitflow-simple-effective-git-model/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/11/gitflow-simple-effective-git-model/</guid>
+      <description>&lt;p&gt;Gần đây mới được tiếp xúc với git-flow thấy cách làm việc hay quá, muốn chia sẻ lại đôi chút. Về cơ bản git-flow là một tập hợp các lệnh mở rộng cho git nhằm hỗ trợ cho quy trình làm việc hiệu quả hơn.
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

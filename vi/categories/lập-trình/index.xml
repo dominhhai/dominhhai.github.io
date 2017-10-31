@@ -1,30 +1,284 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lập Trình on Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/</link><description>Recent content in Lập Trình on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Mon, 30 Oct 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/index.xml" rel="self" type="application/rss+xml"/><item><title>[Windows] Đổi tên file với .bat file</title><link>https://dominhhai.github.io/vi/2017/10/sql-test-data/</link><pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/10/sql-test-data/</guid><description>Gần đây Gmail không cho phép gửi các file có đuôi là mã nguồn ngôn ngữ lập trình như .js, .vb chẳng hạn. Ngay cả việc đổi đuôi của các file nén cũng không có hiệu quả như trước, nên buộc phải tìm cách đổi toàn bộ đuôi 1 phát.
-Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng .bat file của Windows, tuy nhiên hoàn toàn có thể sử dụng để làm những chuyện khác với các file này như đổi tên chẳng hạn.</description></item><item><title>[Make] Sử dụng trên Windows</title><link>https://dominhhai.github.io/vi/2017/09/gnu-make-windows/</link><pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/09/gnu-make-windows/</guid><description>Makefile là một công cụ giúp ta có thể dễ dàng thực thi các các khối lệnh mà không cần nhờ tới ngôn ngữ lập trình. Mặc dù Make được sử dụng rất rộng rãi trên Unix, Linux hay MacOS, thì trên Windows chắc vẫn còn hiếm hoi. Trên Windows, ta thường file .bat để thực thi các khối lệnh, tuy nhiên các file này chỉ thực thi được trên môi trường Windows.</description></item><item><title>[SQL] Tạo lượng lớn dữ liệu test</title><link>https://dominhhai.github.io/vi/2017/09/sql-test-data/</link><pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/09/sql-test-data/</guid><description>Ta thường xuyên cần một lượng vừa đủ các dữ liệu để test và dev trong quá trình phát triển hệ thống. Để làm việc này ta có thể viết code để migrate và seed dữ liệu. Tuy nhiên ta cũng có thể sử dụng chính lệnh SQL để tạo dữ liệu cực kì đơn giản.
-Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt là:</description></item><item><title>[Git] submodule - cùng lúc sài nhiều repo</title><link>https://dominhhai.github.io/vi/2017/09/git-submodule-multi-repo/</link><pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/09/git-submodule-multi-repo/</guid><description>Đôi lúc ta cần phải sử dụng các repo khác như là một module của dự án hiện tại, nhưng ta lại muốn quản lý nó riêng biệt giống như việc sử dụng các trình quản lý gói như npm chẳng hạn. Lúc này ta có thể sài git submodule để quản lý các module từ các repo khác. Ví dụ, blog của mình được xây dựng với theme tranquilpeak và mình cần đưa theme này vào thư mục themes của dự án.</description></item><item><title>[Git] worktree - cùng lúc sài nhiều branch</title><link>https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/</link><pubDate>Sat, 02 Sep 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/</guid><description>git worktree cho phép ta có thể sử dụng cùng lúc nhiều nhánh của repo trong cùng một thư mục dự án. Ví dụ, blog của mình được xây dựng với Hugo, trong thư mục blog của mình có thư mục public là thư mục chứa các file được dịch ra từ mã nguồn blog. Còn ở phía repo trên Github, mình có 2 branch là dev lưu mã nguồn và master lưu các file chạy.</description></item><item><title>[Web] Cài đặt SSL miễn phí với Let&#39;s Encrypt</title><link>https://dominhhai.github.io/vi/2017/02/free-ssl-with-let-encrypt/</link><pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/02/free-ssl-with-let-encrypt/</guid><description>Bài viết này hướng dẫn cài đặt Let&amp;rsquo;s Encrypt - một dịch vụ ngon-bổ-miễn phí cho việc HTTPS hóa máy chủ. Ở đây, mình sử dụng máy chủ CentOS 7 và Nginx để thực hiện, nhưng các bạn hoàn toàn có thể làm tương tự với các môi trường khác.
-Để cài đặt được Let&#39;s Encrypt, ta cần có môi trường Python v2.7.x trở lên. Nên nếu máy của bạn chưa có thì cài đặt hoặc cập nhập bản mới đi nhé.</description></item><item><title>[Tor] Một cách cài đặt đơn giản trên MacOS</title><link>https://dominhhai.github.io/vi/2017/01/tor-on-mac/</link><pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/01/tor-on-mac/</guid><description>&lt;p&gt;Bài này sẽ nói về một cách cực kì đơn giản để cài đặt và sử dụng &lt;a href=&#34;https://www.torproject.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Tor&lt;/a&gt; trên máy MacOS.
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lập Trình on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/</link>
+    <description>Recent content in Lập Trình on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Mon, 30 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dominhhai.github.io/vi/categories/l%E1%BA%ADp-tr%C3%ACnh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Windows] Đổi tên file với .bat file</title>
+      <link>https://dominhhai.github.io/vi/2017/10/sql-test-data/</link>
+      <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/10/sql-test-data/</guid>
+      <description>Gần đây Gmail không cho phép gửi các file có đuôi là mã nguồn ngôn ngữ lập trình như .js, .vb chẳng hạn. Ngay cả việc đổi đuôi của các file nén cũng không có hiệu quả như trước, nên buộc phải tìm cách đổi toàn bộ đuôi 1 phát.
+Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng .bat file của Windows, tuy nhiên hoàn toàn có thể sử dụng để làm những chuyện khác với các file này như đổi tên chẳng hạn.</description>
+    </item>
+    
+    <item>
+      <title>[Make] Sử dụng trên Windows</title>
+      <link>https://dominhhai.github.io/vi/2017/09/gnu-make-windows/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/09/gnu-make-windows/</guid>
+      <description>Makefile là một công cụ giúp ta có thể dễ dàng thực thi các các khối lệnh mà không cần nhờ tới ngôn ngữ lập trình. Mặc dù Make được sử dụng rất rộng rãi trên Unix, Linux hay MacOS, thì trên Windows chắc vẫn còn hiếm hoi. Trên Windows, ta thường file .bat để thực thi các khối lệnh, tuy nhiên các file này chỉ thực thi được trên môi trường Windows.</description>
+    </item>
+    
+    <item>
+      <title>[SQL] Tạo lượng lớn dữ liệu test</title>
+      <link>https://dominhhai.github.io/vi/2017/09/sql-test-data/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/09/sql-test-data/</guid>
+      <description>Ta thường xuyên cần một lượng vừa đủ các dữ liệu để test và dev trong quá trình phát triển hệ thống. Để làm việc này ta có thể viết code để migrate và seed dữ liệu. Tuy nhiên ta cũng có thể sử dụng chính lệnh SQL để tạo dữ liệu cực kì đơn giản.
+Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt là:</description>
+    </item>
+    
+    <item>
+      <title>[Git] submodule - cùng lúc sài nhiều repo</title>
+      <link>https://dominhhai.github.io/vi/2017/09/git-submodule-multi-repo/</link>
+      <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/09/git-submodule-multi-repo/</guid>
+      <description>Đôi lúc ta cần phải sử dụng các repo khác như là một module của dự án hiện tại, nhưng ta lại muốn quản lý nó riêng biệt giống như việc sử dụng các trình quản lý gói như npm chẳng hạn. Lúc này ta có thể sài git submodule để quản lý các module từ các repo khác. Ví dụ, blog của mình được xây dựng với theme tranquilpeak và mình cần đưa theme này vào thư mục themes của dự án.</description>
+    </item>
+    
+    <item>
+      <title>[Git] worktree - cùng lúc sài nhiều branch</title>
+      <link>https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/</link>
+      <pubDate>Sat, 02 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/09/git-worktree-multi-branchs/</guid>
+      <description>git worktree cho phép ta có thể sử dụng cùng lúc nhiều nhánh của repo trong cùng một thư mục dự án. Ví dụ, blog của mình được xây dựng với Hugo, trong thư mục blog của mình có thư mục public là thư mục chứa các file được dịch ra từ mã nguồn blog. Còn ở phía repo trên Github, mình có 2 branch là dev lưu mã nguồn và master lưu các file chạy.</description>
+    </item>
+    
+    <item>
+      <title>[Web] Cài đặt SSL miễn phí với Let&#39;s Encrypt</title>
+      <link>https://dominhhai.github.io/vi/2017/02/free-ssl-with-let-encrypt/</link>
+      <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/02/free-ssl-with-let-encrypt/</guid>
+      <description>Bài viết này hướng dẫn cài đặt Let&amp;rsquo;s Encrypt - một dịch vụ ngon-bổ-miễn phí cho việc HTTPS hóa máy chủ. Ở đây, mình sử dụng máy chủ CentOS 7 và Nginx để thực hiện, nhưng các bạn hoàn toàn có thể làm tương tự với các môi trường khác.
+Để cài đặt được Let&#39;s Encrypt, ta cần có môi trường Python v2.7.x trở lên. Nên nếu máy của bạn chưa có thì cài đặt hoặc cập nhập bản mới đi nhé.</description>
+    </item>
+    
+    <item>
+      <title>[Tor] Một cách cài đặt đơn giản trên MacOS</title>
+      <link>https://dominhhai.github.io/vi/2017/01/tor-on-mac/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/01/tor-on-mac/</guid>
+      <description>&lt;p&gt;Bài này sẽ nói về một cách cực kì đơn giản để cài đặt và sử dụng &lt;a href=&#34;https://www.torproject.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Tor&lt;/a&gt; trên máy MacOS.
 Tôi thử nghiệm trên Mac Sierra, nhưng về cơ bản có thể thực hiện được trên tất cả các phiên bản khác mà Tor có hỗ trợ một cách tương tự.
-&lt;/p&gt;</description></item><item><title>[JS] Async Queue kèm điều kiện</title><link>https://dominhhai.github.io/vi/2016/12/js-conditional-async-queue/</link><pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/12/js-conditional-async-queue/</guid><description>Có lẽ nhiều người đã từng sử dụng queue hoặc priority queue của async để thực thi danh sách các tác vụ 1 lần. Nhưng nếu để ý thì ta có thể nhận thấy thư viện này không hỗ trợ việc thiết lập điều kiện thực thi cho từng tác vụ riêng biệt, mà chỉ đơn giản là có tác vụ thì sẽ chạy. Điều này làm nảy sinh vấn đề là thiếu sự đồng bộ khi cần thực thi một loạt các tác vụ có liên quan nhau.</description></item><item><title>[Terminal] Cool Terminal - iTerm2</title><link>https://dominhhai.github.io/vi/2016/12/iterm2-cool-terminal/</link><pubDate>Thu, 15 Dec 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/12/iterm2-cool-terminal/</guid><description>Bài viết này hướng dẫn cách cài đặt để sài iTerm2 &amp;ldquo;đẹp trai&amp;rdquo; thay cho Terminal &amp;ldquo;xấu xí&amp;rdquo; trên MacOS.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[JS] Async Queue kèm điều kiện</title>
+      <link>https://dominhhai.github.io/vi/2016/12/js-conditional-async-queue/</link>
+      <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/12/js-conditional-async-queue/</guid>
+      <description>Có lẽ nhiều người đã từng sử dụng queue hoặc priority queue của async để thực thi danh sách các tác vụ 1 lần. Nhưng nếu để ý thì ta có thể nhận thấy thư viện này không hỗ trợ việc thiết lập điều kiện thực thi cho từng tác vụ riêng biệt, mà chỉ đơn giản là có tác vụ thì sẽ chạy. Điều này làm nảy sinh vấn đề là thiếu sự đồng bộ khi cần thực thi một loạt các tác vụ có liên quan nhau.</description>
+    </item>
+    
+    <item>
+      <title>[Terminal] Cool Terminal - iTerm2</title>
+      <link>https://dominhhai.github.io/vi/2016/12/iterm2-cool-terminal/</link>
+      <pubDate>Thu, 15 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/12/iterm2-cool-terminal/</guid>
+      <description>Bài viết này hướng dẫn cách cài đặt để sài iTerm2 &amp;ldquo;đẹp trai&amp;rdquo; thay cho Terminal &amp;ldquo;xấu xí&amp;rdquo; trên MacOS.
 Lưu ý là cái này không sử dụng được trên Windows nhé. Nhưng chưa có Mac thì cứ đọc để có động lực mua Mac cũng hay :D
-1. Cài đặt iTerm2 Cách nhẹ nhàng nhất là tải iTerm2 từ trang chủ về rồi kéo vào thư mục Application của máy.</description></item><item><title>[NodeFest] NodeFest Tokyo 2016</title><link>https://dominhhai.github.io/vi/2016/11/nodefest-tokyo-2016/</link><pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/11/nodefest-tokyo-2016/</guid><description>Mình vừa tham gia NodeFest Tokyo 2 ngày ở Shibuya-Tokyo. 2 ngày đó gặp lại được một số người quen, cũng như gặp được thêm nhiều cao thủ trong giới JS - Node.js mà trước đây mình mới chỉ biết qua Github. Thực sự là rất thú vị và thu được nhiều bài học, mình sẽ viết chi tiết về một số bài đáng chú ý sau, còn hôm nay mình sẽ tổng kết các slide lại ở đây để tiện theo dõi.</description></item><item><title>[JS] Async Await cực đơn giản</title><link>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</link><pubDate>Mon, 31 Oct 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</guid><description>&lt;p&gt;Với các đặc tả JavaScript cũ, ta phải sử dụng các hàm phản hồi để xử lý các thao tác bất đồng bộ. Tuy nhiên việc này dẫn tới tình trạng &lt;a href=&#34;https://stackoverflow.com/questions/25098066/what-is-callback-hell-and-how-and-why-rx-solves-it&#34;&gt;callback hell&lt;/a&gt; khi ta có nhiều thao tác bất đồng bộ phải chờ nhau thực hiện. Call hell làm cho mã nguồn của ta rất rối và khó bảo trì.
-&lt;!--toc--&gt;&lt;/p&gt;</description></item><item><title>[Terminal] Tạo Alias cho lệnh trên MacOS</title><link>https://dominhhai.github.io/vi/2016/06/alias-for-command-on-macos/</link><pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/06/alias-for-command-on-macos/</guid><description>&lt;p&gt;Để tạo được tên thay thế (alias) cho các lệnh trên Mac khá đơn giản. Ta chỉ cần thêm các lệnh alias vào file &lt;code&gt;.bash_profile&lt;/code&gt; tại thư mục &lt;code&gt;home&lt;/code&gt; là OK. Trường hợp máy chưa có file &lt;code&gt;.bash_profile&lt;/code&gt; thì ta có thể tạo mới file này là OK.
-&lt;/p&gt;</description></item><item><title>[Node.js] Triển khai dịch vụ Node.js trên Windows</title><link>https://dominhhai.github.io/vi/2016/04/deploy-nodejs-on-windows/</link><pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/04/deploy-nodejs-on-windows/</guid><description>&lt;p&gt;Để triển khai ứng dụng Node.js bằng Windows, ta có nhiều phương án như dưới đây:&lt;/p&gt;
+   1. Cài đặt iTerm2 Cách nhẹ nhàng nhất là tải iTerm2 từ trang chủ về rồi kéo vào thư mục Application của máy.</description>
+    </item>
+    
+    <item>
+      <title>[NodeFest] NodeFest Tokyo 2016</title>
+      <link>https://dominhhai.github.io/vi/2016/11/nodefest-tokyo-2016/</link>
+      <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/11/nodefest-tokyo-2016/</guid>
+      <description>Mình vừa tham gia NodeFest Tokyo 2 ngày ở Shibuya-Tokyo. 2 ngày đó gặp lại được một số người quen, cũng như gặp được thêm nhiều cao thủ trong giới JS - Node.js mà trước đây mình mới chỉ biết qua Github. Thực sự là rất thú vị và thu được nhiều bài học, mình sẽ viết chi tiết về một số bài đáng chú ý sau, còn hôm nay mình sẽ tổng kết các slide lại ở đây để tiện theo dõi.</description>
+    </item>
+    
+    <item>
+      <title>[JS] Async Await cực đơn giản</title>
+      <link>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</link>
+      <pubDate>Mon, 31 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</guid>
+      <description>&lt;p&gt;Với các đặc tả JavaScript cũ, ta phải sử dụng các hàm phản hồi để xử lý các thao tác bất đồng bộ. Tuy nhiên việc này dẫn tới tình trạng &lt;a href=&#34;https://stackoverflow.com/questions/25098066/what-is-callback-hell-and-how-and-why-rx-solves-it&#34;&gt;callback hell&lt;/a&gt; khi ta có nhiều thao tác bất đồng bộ phải chờ nhau thực hiện. Call hell làm cho mã nguồn của ta rất rối và khó bảo trì.
+
+&lt;!--toc--&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Terminal] Tạo Alias cho lệnh trên MacOS</title>
+      <link>https://dominhhai.github.io/vi/2016/06/alias-for-command-on-macos/</link>
+      <pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/06/alias-for-command-on-macos/</guid>
+      <description>&lt;p&gt;Để tạo được tên thay thế (alias) cho các lệnh trên Mac khá đơn giản. Ta chỉ cần thêm các lệnh alias vào file &lt;code&gt;.bash_profile&lt;/code&gt; tại thư mục &lt;code&gt;home&lt;/code&gt; là OK. Trường hợp máy chưa có file &lt;code&gt;.bash_profile&lt;/code&gt; thì ta có thể tạo mới file này là OK.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Node.js] Triển khai dịch vụ Node.js trên Windows</title>
+      <link>https://dominhhai.github.io/vi/2016/04/deploy-nodejs-on-windows/</link>
+      <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/04/deploy-nodejs-on-windows/</guid>
+      <description>&lt;p&gt;Để triển khai ứng dụng Node.js bằng Windows, ta có nhiều phương án như dưới đây:&lt;/p&gt;
+
 &lt;ol&gt;
 &lt;li&gt;Sử dụng &lt;a href=&#34;https://github.com/foreverjs/forever&#34;&gt;forever&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Sử dụng &lt;a href=&#34;https://github.com/tjanczuk/iisnode&#34;&gt;issnode&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Sử dụng &lt;a href=&#34;https://nssm.cc/&#34;&gt;NSSM&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
 &lt;p&gt;Cả 3 softwares trên đều có hướng dẫn rất chi tiết trên trang chủ tương ứng, nhưng ta nên chọn cái nào để triển khai ứng dụng? Trong bài này ta sẽ liệt kê 1 vài điểm mạnh yếu của chúng.
-&lt;/p&gt;</description></item><item><title>[Node.js] Copy Node OracleDB Module trên Windows</title><link>https://dominhhai.github.io/vi/2016/04/copy-node-oracledb-on-windows/</link><pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/04/copy-node-oracledb-on-windows/</guid><description>Trong bài Chạy Oracle DB trên Nodejs mình đã viết lại quá trình cài đặt node-oracle trên wins, thì bài này sẽ tập trung vào việc triển khai node-oracle khi deploy ứng dụng.
-Việc cài đặt node-oracledb không đơn giản tẹo nào khi ta phải cài thằng Visual Studio mất tới 20 phút rồi. Nếu việc này mà lặp lại lần nữa khi muốn deploy hay dev trên một máy khác thì đúng là ác mộng.</description></item><item><title>[Node.js] Cài đặt Node OracleDB trên Windows</title><link>https://dominhhai.github.io/vi/2016/03/install-node-oracledb-on-windows/</link><pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/03/install-node-oracledb-on-windows/</guid><description>&lt;p&gt;Bài viết này nhằm mục tiêu lưu lại 1 ngày vất vả vật lộn với cái &lt;a href=&#34;https://github.com/oracle/node-oracledb&#34;&gt;node-oracledb&lt;/a&gt; trên con Windows Server 2008 của mình.
-&lt;!--toc--&gt;&lt;/p&gt;</description></item><item><title>[Atom] Tự động hoàn thiện lệnh</title><link>https://dominhhai.github.io/vi/2016/03/atom-auto-complele/</link><pubDate>Sun, 27 Mar 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/03/atom-auto-complele/</guid><description>Các trình soạn thảo mã lệnh hầu hết có tính năng auto-complete (tự động hoàn thiện lệnh) khi gõ. Nhờ có tính năng này mà chúng ta có thể gõ mã nhanh hơn và không cần phải nhớ hết làu làu các API của ngôn ngữ, thư viện nào đó. Hầu hết các API có tên rất dễ liên tưởng tới tính năng của nó nên chỉ cần nhìn là biết ngay nó dùng để làm gì.</description></item><item><title>[Node.js] Mã hoá mật khẩu với Bcrypt</title><link>https://dominhhai.github.io/vi/2016/02/nodejs-ecrypt-password-with-bcrypt/</link><pubDate>Tue, 02 Feb 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/02/nodejs-ecrypt-password-with-bcrypt/</guid><description>&lt;p&gt;Mình không thực sự hiểu nhiều về các thuật toán, kĩ thuật mã hóa mật khẩu. Mình chỉ đọc qua một số phương pháp mã hóa và các lời bình về nó trên mạng và quyết định sử dụng &lt;a href=&#34;https://en.wikipedia.org/wiki/Bcrypt&#34;&gt;&lt;code&gt;bcrypt&lt;/code&gt;&lt;/a&gt;.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Node.js] Copy Node OracleDB Module trên Windows</title>
+      <link>https://dominhhai.github.io/vi/2016/04/copy-node-oracledb-on-windows/</link>
+      <pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/04/copy-node-oracledb-on-windows/</guid>
+      <description>Trong bài Chạy Oracle DB trên Nodejs mình đã viết lại quá trình cài đặt node-oracle trên wins, thì bài này sẽ tập trung vào việc triển khai node-oracle khi deploy ứng dụng.
+Việc cài đặt node-oracledb không đơn giản tẹo nào khi ta phải cài thằng Visual Studio mất tới 20 phút rồi. Nếu việc này mà lặp lại lần nữa khi muốn deploy hay dev trên một máy khác thì đúng là ác mộng.</description>
+    </item>
+    
+    <item>
+      <title>[Node.js] Cài đặt Node OracleDB trên Windows</title>
+      <link>https://dominhhai.github.io/vi/2016/03/install-node-oracledb-on-windows/</link>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/03/install-node-oracledb-on-windows/</guid>
+      <description>&lt;p&gt;Bài viết này nhằm mục tiêu lưu lại 1 ngày vất vả vật lộn với cái &lt;a href=&#34;https://github.com/oracle/node-oracledb&#34;&gt;node-oracledb&lt;/a&gt; trên con Windows Server 2008 của mình.
+
+&lt;!--toc--&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Atom] Tự động hoàn thiện lệnh</title>
+      <link>https://dominhhai.github.io/vi/2016/03/atom-auto-complele/</link>
+      <pubDate>Sun, 27 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/03/atom-auto-complele/</guid>
+      <description>Các trình soạn thảo mã lệnh hầu hết có tính năng auto-complete (tự động hoàn thiện lệnh) khi gõ. Nhờ có tính năng này mà chúng ta có thể gõ mã nhanh hơn và không cần phải nhớ hết làu làu các API của ngôn ngữ, thư viện nào đó. Hầu hết các API có tên rất dễ liên tưởng tới tính năng của nó nên chỉ cần nhìn là biết ngay nó dùng để làm gì.</description>
+    </item>
+    
+    <item>
+      <title>[Node.js] Mã hoá mật khẩu với Bcrypt</title>
+      <link>https://dominhhai.github.io/vi/2016/02/nodejs-ecrypt-password-with-bcrypt/</link>
+      <pubDate>Tue, 02 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/02/nodejs-ecrypt-password-with-bcrypt/</guid>
+      <description>&lt;p&gt;Mình không thực sự hiểu nhiều về các thuật toán, kĩ thuật mã hóa mật khẩu. Mình chỉ đọc qua một số phương pháp mã hóa và các lời bình về nó trên mạng và quyết định sử dụng &lt;a href=&#34;https://en.wikipedia.org/wiki/Bcrypt&#34;&gt;&lt;code&gt;bcrypt&lt;/code&gt;&lt;/a&gt;.
 Đọc thì thấy rằng thuật toán này tuy có hơi chậm hơn các thuật toán khác như &lt;a href=&#34;https://en.wikipedia.org/wiki/MD5&#34;&gt;&lt;code&gt;MD5&lt;/code&gt;&lt;/a&gt;, nhưng đổi lại nó giải quyết được các vấn đề như hack từ điển&amp;hellip; của các thuật toán khác do có thể đối phó được với cấp độ tiến hóa của vi xử lý máy tính.
-&lt;/p&gt;</description></item><item><title>[Atom] Hiển thị mã Markdown với Atom</title><link>https://dominhhai.github.io/vi/2016/01/atom-markdown-preview/</link><pubDate>Sat, 02 Jan 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/01/atom-markdown-preview/</guid><description>Đầu năm rảnh rỗi ngồi viết bậy lúc cho vui tay. Tiện chúc anh em bạn bè năm mới tràn đầy niềm vui và hạnh phúc, sớm thành các tay lập trình lão luyện thuộc top world class.
-Xem trước một cách real-time hiển thị của mã Markdown trên Atom (phiên bản hiện tại là 1.x) cực kì dễ dàng. Chỉ cần mở tab đang soạn thảo mã Markdown của bạn và ấn tổ hợp phím CONTROL + SHIFT + M là có thể xem ngay mã Markdown trong khi đang soạn thảo.</description></item><item><title>[Git] GitFlow - một mô hình làm việc hiệu quả</title><link>https://dominhhai.github.io/vi/2015/11/gitflow-simple-effective-git-model/</link><pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/11/gitflow-simple-effective-git-model/</guid><description>&lt;p&gt;Gần đây mới được tiếp xúc với git-flow thấy cách làm việc hay quá, muốn chia sẻ lại đôi chút. Về cơ bản git-flow là một tập hợp các lệnh mở rộng cho git nhằm hỗ trợ cho quy trình làm việc hiệu quả hơn.
-&lt;/p&gt;</description></item><item><title>[PHP] Lỗi Cetificate của Curl trong PHP</title><link>https://dominhhai.github.io/vi/2015/06/php-curl-cetificate-error/</link><pubDate>Sun, 28 Jun 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/06/php-curl-cetificate-error/</guid><description>&lt;p&gt;Chả là hôm rồi có sử dụng thư viện &lt;a href=&#34;http://php.net/manual/en/book.curl.php&#34;&gt;&lt;code&gt;curl&lt;/code&gt;&lt;/a&gt; của PHP để gọi dịch vụ Restful Service của bên thứ 3 từ server PHP của mình thì gặp chút rắc rối nên giờ viết lại cho khỏi quên.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Atom] Hiển thị mã Markdown với Atom</title>
+      <link>https://dominhhai.github.io/vi/2016/01/atom-markdown-preview/</link>
+      <pubDate>Sat, 02 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/01/atom-markdown-preview/</guid>
+      <description>Đầu năm rảnh rỗi ngồi viết bậy lúc cho vui tay. Tiện chúc anh em bạn bè năm mới tràn đầy niềm vui và hạnh phúc, sớm thành các tay lập trình lão luyện thuộc top world class.
+Xem trước một cách real-time hiển thị của mã Markdown trên Atom (phiên bản hiện tại là 1.x) cực kì dễ dàng. Chỉ cần mở tab đang soạn thảo mã Markdown của bạn và ấn tổ hợp phím CONTROL + SHIFT + M là có thể xem ngay mã Markdown trong khi đang soạn thảo.</description>
+    </item>
+    
+    <item>
+      <title>[Git] GitFlow - một mô hình làm việc hiệu quả</title>
+      <link>https://dominhhai.github.io/vi/2015/11/gitflow-simple-effective-git-model/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/11/gitflow-simple-effective-git-model/</guid>
+      <description>&lt;p&gt;Gần đây mới được tiếp xúc với git-flow thấy cách làm việc hay quá, muốn chia sẻ lại đôi chút. Về cơ bản git-flow là một tập hợp các lệnh mở rộng cho git nhằm hỗ trợ cho quy trình làm việc hiệu quả hơn.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[PHP] Lỗi Cetificate của Curl trong PHP</title>
+      <link>https://dominhhai.github.io/vi/2015/06/php-curl-cetificate-error/</link>
+      <pubDate>Sun, 28 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/06/php-curl-cetificate-error/</guid>
+      <description>&lt;p&gt;Chả là hôm rồi có sử dụng thư viện &lt;a href=&#34;http://php.net/manual/en/book.curl.php&#34;&gt;&lt;code&gt;curl&lt;/code&gt;&lt;/a&gt; của PHP để gọi dịch vụ Restful Service của bên thứ 3 từ server PHP của mình thì gặp chút rắc rối nên giờ viết lại cho khỏi quên.
 Cụ thể là khi chạy lệnh curl của PHP ăn ngay cái lỗi &lt;em&gt;&amp;ldquo;SSL certificate problem: unable to get local issuer certificate&amp;rdquo;&lt;/em&gt; nên phải loay xoay xử lý tí.
-&lt;/p&gt;</description></item><item><title>[NodeSchool] NodeSchool Hanoi lần 2</title><link>https://dominhhai.github.io/vi/2015/06/nodeschool-hanoi-2/</link><pubDate>Sat, 20 Jun 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/06/nodeschool-hanoi-2/</guid><description>&lt;p&gt;Ngày 20/6/2015, buổi workshop lần 2 của &lt;a href=&#34;http://nodeschool.io/hanoi/&#34;&gt;NodeSchool Hanoi&lt;/a&gt; đã diễn ra tốt đẹp với sự tham gia của gần 30 bạn tại công ty &lt;a href=&#34;http://codelovers.vn/&#34;&gt;CodeLovers Vietnam&lt;/a&gt;.
-&lt;/p&gt;</description></item><item><title>[NodeSchool] NodeSchool Hanoi lần 1</title><link>https://dominhhai.github.io/vi/2015/05/nodeschool-hanoi-1/</link><pubDate>Mon, 11 May 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/05/nodeschool-hanoi-1/</guid><description>&lt;p&gt;Ngày 9/5/2015, buổi workshop đầu tiên của &lt;a href=&#34;http://nodeschool.io/hanoi/&#34;&gt;NodeSchool Hanoi&lt;/a&gt; đã diễn ra tốt đẹp với sự tài trợ và ủng hộ nhiệt tình của &lt;a href=&#34;http://www.lapnghiep.co/&#34;&gt;công ty lapnghiep&lt;/a&gt; của anh @Logle. Tại buổi đầu tiên có 10 bạn tham gia, nhưng không vì thế mà không khí của buổi gặp mặt đầu tiên kém sôi động.
-&lt;/p&gt;</description></item><item><title>[JS] Apply, Call và Bind khác gì nhau?</title><link>https://dominhhai.github.io/vi/2015/03/js-how-apply-call-bind/</link><pubDate>Sat, 28 Mar 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/03/js-how-apply-call-bind/</guid><description>&lt;p&gt;Như trong bài về &lt;a href=&#34;https://dominhhai.github.io/vi/2015/03/js-what-is-this/&#34;&gt;từ khóa &lt;code&gt;this&lt;/code&gt;&lt;/a&gt; đã đề cập tới ngữ cảnh thực thi với mối tương quan tới từ khóa &lt;code&gt;this&lt;/code&gt; và việc thay đổi được ngữ cảnh thực thi một cách trực tiếp bằng cách sử dụng &lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; và &lt;code&gt;bind&lt;/code&gt;, thì bài viết này sẽ làm rõ ràng hơn 3 phương thức này và sự khác nhau cũng như tính hữu dụng của nó.
-&lt;!--toc--&gt;&lt;/p&gt;</description></item><item><title>[JS] Hiểu thế nào cho đúng về biến this</title><link>https://dominhhai.github.io/vi/2015/03/js-what-is-this/</link><pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/03/js-what-is-this/</guid><description>JavaScript (JS) là một ngôn ngữ lập trình khá linh hoạt và thú vị. Nhưng để có được điều đó nó cũng mang tới không ít phiền phức, dễ nhầm lẫn với những người không chuyên. Với những người mới sờ vào JS, họ thường nghĩ ngay chắc JS cũng lơ lớ như các ngôn ngữ lập trình khác như Java hay C#. Nhưng nhiều điểm ở JS lại khá khác với suy nghĩ ở các ngôn ngữ khác gây nên những hiểu lầm cho người mới vào nghề.</description></item><item><title>[JS] Bất ngờ nhỏ với mảng</title><link>https://dominhhai.github.io/vi/2015/03/js-work-with-array/</link><pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/03/js-work-with-array/</guid><description>Từng làm việc với một vài ngôn ngữ lập trình (Java, C, C++, C#, Objective-C, PHP), mỗi ngôn ngữ đều có cái hay riêng. Nhưng khi tiếp xúc với JavaScript (JS) lại tự dưng thấy yêu nó, yêu cái vẻ sexy và bất ngờ của nó. Ví như mảng trong JS rất đặc biệt và bất ngờ. Trong bài này sẽ viết lại một số điểm có thể là bất ngờ với một số người như mình.</description></item><item><title>[JS] Tản mạn dấu chấm phẩy</title><link>https://dominhhai.github.io/vi/2015/03/js-do-not-need-semicolon/</link><pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/03/js-do-not-need-semicolon/</guid><description>&lt;p&gt;JavaScript cho phép chúng ta lược bỏ dấu kết thúc lệnh (dấu chấm phẩy). Nhưng trường hợp nào ta phải bắt buộc dùng dấu chấm phải, trường hợp nào thì không và có khi nào ta nên bỏ nó đi?
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[NodeSchool] NodeSchool Hanoi lần 2</title>
+      <link>https://dominhhai.github.io/vi/2015/06/nodeschool-hanoi-2/</link>
+      <pubDate>Sat, 20 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/06/nodeschool-hanoi-2/</guid>
+      <description>&lt;p&gt;Ngày 20/6/2015, buổi workshop lần 2 của &lt;a href=&#34;http://nodeschool.io/hanoi/&#34;&gt;NodeSchool Hanoi&lt;/a&gt; đã diễn ra tốt đẹp với sự tham gia của gần 30 bạn tại công ty &lt;a href=&#34;http://codelovers.vn/&#34;&gt;CodeLovers Vietnam&lt;/a&gt;.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[NodeSchool] NodeSchool Hanoi lần 1</title>
+      <link>https://dominhhai.github.io/vi/2015/05/nodeschool-hanoi-1/</link>
+      <pubDate>Mon, 11 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/05/nodeschool-hanoi-1/</guid>
+      <description>&lt;p&gt;Ngày 9/5/2015, buổi workshop đầu tiên của &lt;a href=&#34;http://nodeschool.io/hanoi/&#34;&gt;NodeSchool Hanoi&lt;/a&gt; đã diễn ra tốt đẹp với sự tài trợ và ủng hộ nhiệt tình của &lt;a href=&#34;http://www.lapnghiep.co/&#34;&gt;công ty lapnghiep&lt;/a&gt; của anh @Logle. Tại buổi đầu tiên có 10 bạn tham gia, nhưng không vì thế mà không khí của buổi gặp mặt đầu tiên kém sôi động.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[JS] Apply, Call và Bind khác gì nhau?</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-how-apply-call-bind/</link>
+      <pubDate>Sat, 28 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-how-apply-call-bind/</guid>
+      <description>&lt;p&gt;Như trong bài về &lt;a href=&#34;https://dominhhai.github.io/vi/2015/03/js-what-is-this/&#34;&gt;từ khóa &lt;code&gt;this&lt;/code&gt;&lt;/a&gt; đã đề cập tới ngữ cảnh thực thi với mối tương quan tới từ khóa &lt;code&gt;this&lt;/code&gt; và việc thay đổi được ngữ cảnh thực thi một cách trực tiếp bằng cách sử dụng &lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; và &lt;code&gt;bind&lt;/code&gt;, thì bài viết này sẽ làm rõ ràng hơn 3 phương thức này và sự khác nhau cũng như tính hữu dụng của nó.
+
+&lt;!--toc--&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[JS] Hiểu thế nào cho đúng về biến this</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-what-is-this/</link>
+      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-what-is-this/</guid>
+      <description>JavaScript (JS) là một ngôn ngữ lập trình khá linh hoạt và thú vị. Nhưng để có được điều đó nó cũng mang tới không ít phiền phức, dễ nhầm lẫn với những người không chuyên. Với những người mới sờ vào JS, họ thường nghĩ ngay chắc JS cũng lơ lớ như các ngôn ngữ lập trình khác như Java hay C#. Nhưng nhiều điểm ở JS lại khá khác với suy nghĩ ở các ngôn ngữ khác gây nên những hiểu lầm cho người mới vào nghề.</description>
+    </item>
+    
+    <item>
+      <title>[JS] Bất ngờ nhỏ với mảng</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-work-with-array/</link>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-work-with-array/</guid>
+      <description>Từng làm việc với một vài ngôn ngữ lập trình (Java, C, C++, C#, Objective-C, PHP), mỗi ngôn ngữ đều có cái hay riêng. Nhưng khi tiếp xúc với JavaScript (JS) lại tự dưng thấy yêu nó, yêu cái vẻ sexy và bất ngờ của nó. Ví như mảng trong JS rất đặc biệt và bất ngờ. Trong bài này sẽ viết lại một số điểm có thể là bất ngờ với một số người như mình.</description>
+    </item>
+    
+    <item>
+      <title>[JS] Tản mạn dấu chấm phẩy</title>
+      <link>https://dominhhai.github.io/vi/2015/03/js-do-not-need-semicolon/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2015/03/js-do-not-need-semicolon/</guid>
+      <description>&lt;p&gt;JavaScript cho phép chúng ta lược bỏ dấu kết thúc lệnh (dấu chấm phẩy). Nhưng trường hợp nào ta phải bắt buộc dùng dấu chấm phải, trường hợp nào thì không và có khi nào ta nên bỏ nó đi?
 Trước mắt ta xem một chút bộ dịch JavaScript sẽ làm gì với các lệnh của ta.
-&lt;!-- toc --&gt;&lt;/p&gt;</description></item></channel></rss>
+
+&lt;!-- toc --&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

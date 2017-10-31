@@ -1,5 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Terminal on Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/categories/terminal/</link><description>Recent content in Terminal on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Mon, 30 Oct 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/vi/categories/terminal/index.xml" rel="self" type="application/rss+xml"/><item><title>[Windows] Đổi tên file với .bat file</title><link>https://dominhhai.github.io/vi/2017/10/sql-test-data/</link><pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/10/sql-test-data/</guid><description>Gần đây Gmail không cho phép gửi các file có đuôi là mã nguồn ngôn ngữ lập trình như .js, .vb chẳng hạn. Ngay cả việc đổi đuôi của các file nén cũng không có hiệu quả như trước, nên buộc phải tìm cách đổi toàn bộ đuôi 1 phát.
-Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng .bat file của Windows, tuy nhiên hoàn toàn có thể sử dụng để làm những chuyện khác với các file này như đổi tên chẳng hạn.</description></item><item><title>[Terminal] Cool Terminal - iTerm2</title><link>https://dominhhai.github.io/vi/2016/12/iterm2-cool-terminal/</link><pubDate>Thu, 15 Dec 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/12/iterm2-cool-terminal/</guid><description>Bài viết này hướng dẫn cách cài đặt để sài iTerm2 &amp;ldquo;đẹp trai&amp;rdquo; thay cho Terminal &amp;ldquo;xấu xí&amp;rdquo; trên MacOS.
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terminal on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/categories/terminal/</link>
+    <description>Recent content in Terminal on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Mon, 30 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dominhhai.github.io/vi/categories/terminal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Windows] Đổi tên file với .bat file</title>
+      <link>https://dominhhai.github.io/vi/2017/10/sql-test-data/</link>
+      <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/10/sql-test-data/</guid>
+      <description>Gần đây Gmail không cho phép gửi các file có đuôi là mã nguồn ngôn ngữ lập trình như .js, .vb chẳng hạn. Ngay cả việc đổi đuôi của các file nén cũng không có hiệu quả như trước, nên buộc phải tìm cách đổi toàn bộ đuôi 1 phát.
+Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng .bat file của Windows, tuy nhiên hoàn toàn có thể sử dụng để làm những chuyện khác với các file này như đổi tên chẳng hạn.</description>
+    </item>
+    
+    <item>
+      <title>[Terminal] Cool Terminal - iTerm2</title>
+      <link>https://dominhhai.github.io/vi/2016/12/iterm2-cool-terminal/</link>
+      <pubDate>Thu, 15 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/12/iterm2-cool-terminal/</guid>
+      <description>Bài viết này hướng dẫn cách cài đặt để sài iTerm2 &amp;ldquo;đẹp trai&amp;rdquo; thay cho Terminal &amp;ldquo;xấu xí&amp;rdquo; trên MacOS.
 Lưu ý là cái này không sử dụng được trên Windows nhé. Nhưng chưa có Mac thì cứ đọc để có động lực mua Mac cũng hay :D
-1. Cài đặt iTerm2 Cách nhẹ nhàng nhất là tải iTerm2 từ trang chủ về rồi kéo vào thư mục Application của máy.</description></item><item><title>[Terminal] Tạo Alias cho lệnh trên MacOS</title><link>https://dominhhai.github.io/vi/2016/06/alias-for-command-on-macos/</link><pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/06/alias-for-command-on-macos/</guid><description>&lt;p&gt;Để tạo được tên thay thế (alias) cho các lệnh trên Mac khá đơn giản. Ta chỉ cần thêm các lệnh alias vào file &lt;code&gt;.bash_profile&lt;/code&gt; tại thư mục &lt;code&gt;home&lt;/code&gt; là OK. Trường hợp máy chưa có file &lt;code&gt;.bash_profile&lt;/code&gt; thì ta có thể tạo mới file này là OK.
-&lt;/p&gt;</description></item></channel></rss>
+   1. Cài đặt iTerm2 Cách nhẹ nhàng nhất là tải iTerm2 từ trang chủ về rồi kéo vào thư mục Application của máy.</description>
+    </item>
+    
+    <item>
+      <title>[Terminal] Tạo Alias cho lệnh trên MacOS</title>
+      <link>https://dominhhai.github.io/vi/2016/06/alias-for-command-on-macos/</link>
+      <pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2016/06/alias-for-command-on-macos/</guid>
+      <description>&lt;p&gt;Để tạo được tên thay thế (alias) cho các lệnh trên Mac khá đơn giản. Ta chỉ cần thêm các lệnh alias vào file &lt;code&gt;.bash_profile&lt;/code&gt; tại thư mục &lt;code&gt;home&lt;/code&gt; là OK. Trường hợp máy chưa có file &lt;code&gt;.bash_profile&lt;/code&gt; thì ta có thể tạo mới file này là OK.
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

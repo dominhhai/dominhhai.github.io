@@ -1,3 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/page/</link><description>Recent content in Pages on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><atom:link href="https://dominhhai.github.io/vi/page/index.xml" rel="self" type="application/rss+xml"/><item><title>About</title><link>https://dominhhai.github.io/vi/page/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/page/about/</guid><description>Tôi là Đỗ Minh Hải, hiện đang làm việc tại Nhật Bản.
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Hai&#39;s Blog</title>
+    <link>https://dominhhai.github.io/vi/page/</link>
+    <description>Recent content in Pages on Hai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    
+	<atom:link href="https://dominhhai.github.io/vi/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://dominhhai.github.io/vi/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/page/about/</guid>
+      <description>Tôi là Đỗ Minh Hải, hiện đang làm việc tại Nhật Bản.
 Công việc của tôi tập trung vào phát triển các phần mềm doanh nghiệp, bao gồm cả các giải pháp thương mại điện tử, quản lý sản xuất.
-Ngoài lập trình, tôi còn có sở thích đọc sách và chơi hoa-cây cảnh.</description></item></channel></rss>
+Ngoài lập trình, tôi còn có sở thích đọc sách và chơi hoa-cây cảnh.</description>
+    </item>
+    
+  </channel>
+</rss>
