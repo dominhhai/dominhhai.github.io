@@ -405,7 +405,7 @@ Cách phổ biến nhất là sử dụng <a href="https://en.wikipedia.org/wiki
 Ý tưởng đằng sau SGD khác đơn giản.
 Ta sẽ lặp đi lặp lại suốt tập dữ liệu của ta và tạo mỗi bước lặp ta sẽ thay đổi tham số của ta sao cho tổng lỗi có thể giảm đi.
 Hướng của việc cập nhập tham số được tính dựa vào <a href="https://www.quora.com/Whats-the-difference-between-gradient-descent-and-stochastic-gradient-descent" target="_blank" rel="noopener noreferrer">đạo hàm của hàm lỗi</a>:
-$ \frac{\partial{L}}{\partial{U}}, \frac{\partial{L}}{\partial{V}}, \frac{\partial{L}}{\partial{W}} $.
+$\displaystyle \frac{\partial{L}}{\partial{U}}, \frac{\partial{L}}{\partial{V}}, \frac{\partial{L}}{\partial{W}} $.
 Để thực hiện SGD, ta cần phải có *độ học* (learning rate) để xác định các mức độ thay đổi tham số của ta ở mỗi bước lặp.
 SGD không chỉ là phương thức tối ưu phổ biến nhất trong mạng nơ-ron mà còn trong nhiều giải thuật học máy khác nữa.
 Cho tới thời điểm này, ta có rất nhiều các nghiên cứu làm sao để tối ưu SGD bằng cách
@@ -426,7 +426,7 @@ Ngoài ra, bạn có thể tham khảo thêm về giải thuật lan truyền ng
 và <a href="http://cs231n.github.io/optimization-2/" target="_blank" rel="noopener noreferrer">đây nữa</a>.
 Giờ bạn có thể coi BPTT là một hộp đen đi nhé.
 Hộp đen này nhận tham số đầu vào là tập mẫu huấn luyện $ (x, y) $ và trả ra đạo hàm:
-$ \frac{\partial{L}}{\partial{U}}, \frac{\partial{L}}{\partial{V}}, \frac{\partial{L}}{\partial{W}} $.
+$\displaystyle \frac{\partial{L}}{\partial{U}}, \frac{\partial{L}}{\partial{V}}, \frac{\partial{L}}{\partial{W}} $.
 
 {{< codeblock "rnn_theano.py" "python" >}}
 def bptt(self, x, y):
