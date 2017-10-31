@@ -2,23 +2,27 @@
 dev:
 	@hugo server -D
 
-# for publish
+# build
 # minify output https://github.com/tdewolff/minify/tree/master/cmd/minify#directories
-deploy:
+build:
 	@hugo -d tmp_public \
 		&& minify -v -r -o public/ tmp_public \
-		&& cd public \
+		&& rm -rf tmp_public
+
+# for publish
+deploy:
+	cd public \
 		&& git add --all \
 		&& git commit -m "Build on $$(date)" \
 		&& git push \
-		&& cd .. \
-		&& rm -rf dest
+		&& cd ..
 
 # publish & push
 push:
 	@git add --all \
 		&& git commit -m "Build on $$(date)" \
 		&& git push \
+		&& make build \
 		&& make deploy
 
 # pull
