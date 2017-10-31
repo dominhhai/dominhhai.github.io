@@ -315,6 +315,7 @@ Song song với việc lý giải các phép toán, ta cũng sẽ học sử d�
 <li><a href="#2-5-ma-trận-nghịch-đảo">2.5. Ma trận nghịch đảo</a></li>
 <li><a href="#2-6-phép-nhân-từng-phần-tử-hadamard">2.6. Phép nhân từng phần tử Hadamard</a></li>
 <li><a href="#2-7-các-phép-toán-theo-từng-phần-tử-hadamard-khác">2.7. Các phép toán theo từng phần tử (Hadamard) khác</a></li>
+<li><a href="#2-8-norm">2.8. Norm</a></li>
 </ul></li>
 <li><a href="#3-numpy-thường-nhật">3. Numpy thường nhật</a>
 <ul>
@@ -380,10 +381,11 @@ Ví dụ dưới đây sẽ tạo ra ma trận $ [A]_{mn} $:</p>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">import numpy as np
+          <pre class="python code-highlight">
+import numpy as np
 
 # create a matrix A
 A = np.array([(1, 2, 3), (4, 5, 6)])
@@ -411,7 +413,7 @@ print(A.size)
 
 # element&#39;s data type
 print(A.dtype)
-# dtype(&#39;int64&#39;)</pre>
+# dtype(&#39;int64&#39;)</pre>
         </td>
       </tr>
     </tbody>
@@ -443,10 +445,11 @@ lúc này kiểu dữ liệu của mảng Numpy sẽ là kiểu dữ liệu củ
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">import numpy as np
+          <pre class="python code-highlight">
+import numpy as np
 
 # from 1-dimesional array
 a = np.array([1.5, 0.0, 0.8])
@@ -467,7 +470,7 @@ c = np.array([(0, 0, 1), [0, 1, 0], [1, 0, 0]])
 print(b)
 # [[0, 0, 1]
 #  [0, 1, 0]
-#  [1, 0, 0]]</pre>
+#  [1, 0, 0]]</pre>
         </td>
       </tr>
     </tbody>
@@ -496,10 +499,11 @@ print(b)
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">import numpy as np
+          <pre class="python code-highlight">
+import numpy as np
 
 # with integer step
 a = np.arange(10, 15, 1)
@@ -517,7 +521,7 @@ print(c)
 # with non-integer step
 a = np.linspace(2.0, 3.0, num=5)
 print(a)
-# [ 2.  ,  2.25,  2.5 ,  2.75,  3.  ]</pre>
+# [ 2.  ,  2.25,  2.5 ,  2.75,  3.  ]</pre>
         </td>
       </tr>
     </tbody>
@@ -546,10 +550,11 @@ print(a)
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">import numpy as np
+          <pre class="python code-highlight">
+import numpy as np
 
 # from uniform distribution
 a = np.random.rand(3,2)
@@ -570,7 +575,7 @@ b = 5 &#43; 2 * np.random.randn(3,2)
 print(b)
 # [[ 3.53328499  5.15966328]
 #  [ 3.38333745  4.522973  ]
-#  [ 2.6586514   4.8483927 ]]</pre>
+#  [ 2.6586514   4.8483927 ]]</pre>
         </td>
       </tr>
     </tbody>
@@ -599,10 +604,11 @@ print(b)
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">import numpy as np
+          <pre class="python code-highlight">
+import numpy as np
 
 # all elements is 0
 a = np.zeros((3, 2))
@@ -623,7 +629,7 @@ a = np.empty((3, 2))
 print(a)
 # [[  1.72723371e-077   1.72723371e-077]
 #  [  1.33397724e-322   1.27319747e-313]
-#  [  1.27319747e-313   1.27319747e-313]]</pre>
+#  [  1.27319747e-313   1.27319747e-313]]</pre>
         </td>
       </tr>
     </tbody>
@@ -654,10 +660,11 @@ và có thêm một số mở rộng như truy cập qua 1 mảng địa chỉ.<
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># vector
+          <pre class="python code-highlight">
+# vector
 a = np.array([3, 4, 2, 8, 10, 5, 9, 8, 6])
 # a_3
 print(a[2])
@@ -700,7 +707,7 @@ print(a[i])
 
 j = np.array([3, 1])
 print(a[i, j])
-# [8 8]</pre>
+# [8 8]</pre>
         </td>
       </tr>
     </tbody>
@@ -764,10 +771,11 @@ còn nhân với 0 sẽ biến ma trận thành ma trận không $ 0A = \varnoth
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># create matrix a
+          <pre class="python code-highlight">
+# create matrix a
 a = np.array([(1, 2, 3), (4, 5, 6)])
 print(a)
 # [[1 2 3]
@@ -783,7 +791,7 @@ print(b)
 b = -1 * a
 print(b)
 # [[-1 -2 -3]
-#  [-4 -5 -6]]</pre>
+#  [-4 -5 -6]]</pre>
         </td>
       </tr>
     </tbody>
@@ -846,10 +854,11 @@ $$</p>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># create matrix a
+          <pre class="python code-highlight">
+# create matrix a
 a = np.array([(1, 2, 3), (4, 5, 6)])
 print(a)
 # [[1 2 3]
@@ -881,7 +890,7 @@ print(c)
 c = a - b
 print(c)
 # [[  1  -3 -22]
-#  [  0  -4  -3]]</pre>
+#  [  0  -4  -3]]</pre>
         </td>
       </tr>
     </tbody>
@@ -969,10 +978,11 @@ $$</p>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># create matrix A
+          <pre class="python code-highlight">
+# create matrix A
 A = np.array([(1, 2, 3), (4, 5, 6)])
 print(A)
 # [[1 2 3]
@@ -993,7 +1003,7 @@ print(C)
 
 C = np.dot(A, B)
 # [[35 23]
-#  [74 65]]</pre>
+#  [74 65]]</pre>
         </td>
       </tr>
     </tbody>
@@ -1051,10 +1061,11 @@ Phép nhân kiểu này còn được gọi là phép nhân vô hướng, tức 
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># create matrix a
+          <pre class="python code-highlight">
+# create matrix a
 A = np.array([[1, 2, 3], [4, 5, 6]])
 
 # transpose matrix of A
@@ -1073,7 +1084,7 @@ print(c)
 
 c = np.inner(a, b)
 print(c)
-# 45.0</pre>
+# 45.0</pre>
         </td>
       </tr>
     </tbody>
@@ -1125,17 +1136,18 @@ Tạm thời bạn cứ nắm được khái niệm của nó và cách lập tr
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># create matrix a
+          <pre class="python code-highlight">
+# create matrix a
 A = np.array([[1., 2.], [3., 4.]])
 
 # inverse matrix of A
 B = np.linalg.inv(A)
 print(B)
 # [[-2.   1. ]
-#  [ 1.5 -0.5]]</pre>
+#  [ 1.5 -0.5]]</pre>
         </td>
       </tr>
     </tbody>
@@ -1193,10 +1205,11 @@ $$</p>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># create matrix a
+          <pre class="python code-highlight">
+# create matrix a
 a = np.array([(1, 2, 3), (4, 5, 6)])
 print(a)
 # [[1 2 3]
@@ -1217,7 +1230,7 @@ print(c)
 c = np.multiply(a, b)
 print(c)
 # [[ 0 10 75]
-#  [16 45 54]]</pre>
+#  [16 45 54]]</pre>
         </td>
       </tr>
     </tbody>
@@ -1255,10 +1268,11 @@ print(c)
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># create matrix a
+          <pre class="python code-highlight">
+# create matrix a
 a = np.array([(1., 2., 3.), (4., 5., 6.)])
 print(a)
 # [[1. 2. 3.]
@@ -1280,7 +1294,89 @@ print(c)
 c = a ** 2
 print(c)
 # [[  1.   4.   9.]
-#  [ 16.  25.  36.]]</pre>
+#  [ 16.  25.  36.]]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h2 id="2-8-norm">2.8. Norm</h2>
+
+<p>Trong không gian véc-tơ, Norm là một công cụ để đo độ dài của véc-tơ hay nói cách khác là đo khoảng cách giữa 2 điểm trong không gian.
+Đáng lẽ ta phải tìm hiểu không gian véc-tơ là gì các tính chất của nó ra sao để có thể hiểu rõ được độ dài của các véc-tơ và quan hệ của chúng ra sao,
+nhưng tạm thời lúc này bạn cứ hiểu nôm na nó là một tập chứa các véc-tơ và khoảng cách 2 điểm như một đường bay nối thẳng 2 điểm đó như ở không gian 2 chiều nhé.
+Nếu có dịp tôi sẽ trình bày kĩ hơn về không gian véc-tơ sau.</p>
+
+<p>Thường một norm cấp $ p $ (kí hiệu: $ L^p $) hay sử dụng trong học máy được mô tả bằng công thức:</p>
+
+<p>$$ \|x\|_p = \Bigg(\sum_i{|x_i|^p}\Bigg)^ \frac{1}{p} $$</p>
+
+<p>Trong đó $ p \in \mathbb{R} $ và $ p \ge 1 $, còn $ x_i $ là phẩn tử thứ $ i $ của véc-tơ.
+Dễ nhận thấy rằng một norm không thể nào nhỏ hơn $ 0 $ được, vì làm gì có khoảng cách nào âm đúng không.</p>
+
+<p>Ví dụ trong không gian Euclide n chiều quen thuộc, ta có độ dài của véc-tơ chính là một norm cấp 2 ($ L^2 $): $\displaystyle \|x\| = \sqrt{ \sum_{i=1}^n{x_i^2} } $.
+Trong đó $ x_i $ là phần tử thứ $ i $ của véc-tơ, hay nói cách khác là tọa độ trên trục thứ $ i $ tương ứng của véc-tơ trong không gian.</p>
+
+<p>Một norm cấp 2 thường được kí hiệu đơn giản là $ \|x\| $ chứ không phải là $ \|x\|_2 $ nhé.
+Nguyên nhân là do chúng rất hay được sử dụng trong các bài toán học máy, nên phần định danh dưới được bỏ đi cho tiện làm việc.
+Nếu để ý sẽ thấy, với công thức trên ta có thể dễ dàng tính được $ L^2 $ của một véc-tơ bằng phép nhân vô hướng của chúng: $ \|x\| = x * x^\intercal $.</p>
+
+<p>Đôi lúc ta cũng sử dụng cả norm cấp 1 để đo khoảng cách giữa các phần tử tại vị trí 0 và vì trị rất gần với 0 thay vì norm cấp 2.
+Vì norm cấp 2 lấy bình phương từng khoảng cách lên sẽ cho số rất nhỏ do khoảng cách giữa chúng đã rất nhỏ rồi, việc này dẫn tới sự triệt tiêu khoảng cách khi tính toán.
+Những lúc này ta sẽ sử dụng $ L ^ 1$ để tính toán, vì nó chỉ lấy trị tuyệt đối khoảng cách: $\displaystyle \|x\|_1 = \sum_i{|x_i|} $.</p>
+
+<p>Cũng có khi ta phải dùng giả norm bậc 0 ($ L^0 $) để đo độ dài của véc-tơ khi nó quá bé để có thể thoải mái tính toán với các norm khác.
+Lưu ý rằng, ta không thực sự có $ L^0 $ nhé, mà khi nhắc tới nó ta phải hiểu ngầm với nhau rằng chúng là giả norm. $ L^0 $ được tính đơn giản bằng cách đếm số lượng các phần tử khác 0 của véc-tơ.</p>
+
+<p>Một dạng norm khác cũng được sử dụng phổ biến trong học máy là $ L^\infty$ hay còn được gọi là norm lớn nhất (max norm) được đo bằng cách lấy trị tuyệt đối của phần tử lớn nhất: $\displaystyle \|x\|_\infty = \max_i{|x_i|} $.</p>
+
+<p>Đó là với cách tính norm cho véc-tơ, thế còn norm áp dụng cho ma trận thì sao?
+Norm cho ma trận được tính bằng nhiều phương pháp khác nhau, nhưng trong học máy thường ta chỉ dùng tới chuẩn norm Frobenius - tương tự như $ L^2 $ cho véc-tơ, như sau:</p>
+
+<p>$$ \|A\|_F = \sqrt{\sum_{i,j}{A_{ij}^2}} $$</p>
+
+<p>Để thực hiện việc tính norm với Numpy, ta có thể sử dụng hàm <code>norm</code> trong gói <code>linalg</code> (gói đại số tuyến tính) như sau:</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight python">
+  <figcaption>
+    
+      <span>numpy-matrix.py</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="python code-highlight">
+# for vector
+v = np.arange(10)
+print(v)
+# [0 1 2 3 4 5 6 7 8 9]
+print(np.linalg.norm(v))
+# 16.881943016134134
+
+# for matrix
+A = v.reshape(2, 5)
+print(A)
+# [[0 1 2 3 4]
+#  [5 6 7 8 9]]
+print(np.linalg.norm(A))
+# 16.881943016134134</pre>
         </td>
       </tr>
     </tbody>
@@ -1319,16 +1415,17 @@ ma trận (mảng 2 chiều) có 5 hàng và 3 cột sẽ có khung là (5, 3).<
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">a = np.eye(5, 3)
+          <pre class="python code-highlight">
+a = np.eye(5, 3)
 print(a.shape)
 # (5, 3)
 
 b = a.reshape(15)
 print(b.shape)
-# (15,)</pre>
+# (15,)</pre>
         </td>
       </tr>
     </tbody>
@@ -1385,10 +1482,11 @@ Việc này được thực hiện bằng cách lặp đi lặp lại 1 số l�
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">A = np.array([(10, 8, 9), (5, 6, 4)])
+          <pre class="python code-highlight">
+A = np.array([(10, 8, 9), (5, 6, 4)])
 b = np.arange(3)
 
 # A &#43; b or b &#43; A
@@ -1401,7 +1499,7 @@ print(C)
 C = b * A
 print(C)
 # [[ 0  8 18]
-#  [ 0  6  8]]</pre>
+#  [ 0  6  8]]</pre>
         </td>
       </tr>
     </tbody>
@@ -1774,7 +1872,7 @@ Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng 
 </blockquote>
 
 <p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.</p>
 

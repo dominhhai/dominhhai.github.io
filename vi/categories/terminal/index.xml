@@ -29,7 +29,7 @@ Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng 
       <guid>https://dominhhai.github.io/vi/2016/12/iterm2-cool-terminal/</guid>
       <description>Bài viết này hướng dẫn cách cài đặt để sài iTerm2 &amp;ldquo;đẹp trai&amp;rdquo; thay cho Terminal &amp;ldquo;xấu xí&amp;rdquo; trên MacOS.
 Lưu ý là cái này không sử dụng được trên Windows nhé. Nhưng chưa có Mac thì cứ đọc để có động lực mua Mac cũng hay :D
-    Cài đặt iTerm2  Cách nhẹ nhàng nhất là tải iTerm2 từ trang chủ về rồi kéo vào thư mục Application của máy.</description>
+ Cài đặt iTerm2  Cách nhẹ nhàng nhất là tải iTerm2 từ trang chủ về rồi kéo vào thư mục Application của máy.</description>
     </item>
     
     <item>
@@ -39,7 +39,7 @@ Lưu ý là cái này không sử dụng được trên Windows nhé. Nhưng ch�
       
       <guid>https://dominhhai.github.io/vi/2016/06/alias-for-command-on-macos/</guid>
       <description>Để tạo được tên thay thế (alias) cho các lệnh trên Mac khá đơn giản. Ta chỉ cần thêm các lệnh alias vào file .bash_profile tại thư mục home là OK. Trường hợp máy chưa có file .bash_profile thì ta có thể tạo mới file này là OK.
-   Lệnh tạo alias:
+Lệnh tạo alias:
 alias YOUR_ALIAS=&#39;YOUR_COMMAND&#39;  Ví dụ ta tạo alias cho lệnh react-native với tên là rn như sau:</description>
     </item>
     

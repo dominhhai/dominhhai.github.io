@@ -22,7 +22,7 @@
 &lt;/blockquote&gt;
 
 &lt;p&gt;Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi &lt;a href=&#34;http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Sepp Hochreiter và Jürgen Schmidhuber&lt;/a&gt;.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi &lt;a href=&#34;http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Sepp Hochreiter và Jürgen Schmidhuber&lt;/a&gt;.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.&lt;/p&gt;
 

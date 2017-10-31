@@ -40,7 +40,7 @@ Bài giới thiệu RNN cuối cùng này được dịch lại từ trang blog 
 
 
 Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi Sepp Hochreiter và Jürgen Schmidhuber.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi Sepp Hochreiter và Jürgen Schmidhuber.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.
 
@@ -53,7 +53,7 @@ Bài giới thiệu RNN cuối cùng này được dịch lại từ trang blog 
 
 
 Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi Sepp Hochreiter và Jürgen Schmidhuber.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi Sepp Hochreiter và Jürgen Schmidhuber.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.
 
@@ -68,7 +68,7 @@ Bài giới thiệu RNN cuối cùng này được dịch lại từ trang blog 
 
 
 Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi Sepp Hochreiter và Jürgen Schmidhuber.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi Sepp Hochreiter và Jürgen Schmidhuber.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.
 
@@ -315,7 +315,7 @@ ga('send', 'pageview');
 </blockquote>
 
 <p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.</p>
 
@@ -544,10 +544,11 @@ Nên ta chỉ cần thay đổi đoạn mã tính toán đó dựa và các côn
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">def forward_prop_step(x_t, s_t1_prev):
+          <pre class="python code-highlight">
+def forward_prop_step(x_t, s_t1_prev):
       # This is how we calculated the hidden state in a simple RNN. No longer!
       # s_t = T.tanh(U[:,x_t] &#43; W.dot(s_t1_prev))
 
@@ -564,7 +565,7 @@ Nên ta chỉ cần thay đổi đoạn mã tính toán đó dựa và các côn
       # Theano&#39;s softmax returns a matrix with one row, we only need the row
       o_t = T.nnet.softmax(V.dot(s_t1) &#43; c)[0]
 
-      return [o_t, s_t1]</pre>
+      return [o_t, s_t1]</pre>
         </td>
       </tr>
     </tbody>
@@ -596,16 +597,17 @@ Tuy nhiên, ở đây tôi sử dụng luôn thư viện Theano để tính đ�
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># Gradients using Theano
+          <pre class="python code-highlight">
+# Gradients using Theano
 dE = T.grad(cost, E)
 dU = T.grad(cost, U)
 dW = T.grad(cost, W)
 db = T.grad(cost, b)
 dV = T.grad(cost, V)
-dc = T.grad(cost, c)</pre>
+dc = T.grad(cost, c)</pre>
         </td>
       </tr>
     </tbody>
@@ -650,12 +652,13 @@ Một cách trừu tượng, ta có thể nói rằng đối với các thuộc 
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># for W parameter
+          <pre class="python code-highlight">
+# for W parameter
 cacheW = decay * cacheW &#43; (1 - decay) * dW ** 2
-W = W - learning_rate * dW / np.sqrt(cacheW &#43; 1e-6)</pre>
+W = W - learning_rate * dW / np.sqrt(cacheW &#43; 1e-6)</pre>
         </td>
       </tr>
     </tbody>
@@ -729,10 +732,11 @@ Bạn có thể thêm nhiều tầng hơn nữa, nhưng chắc chắn rằng đ�
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># GRU Layer 1
+          <pre class="python code-highlight">
+# GRU Layer 1
 z_t1 = T.nnet.hard_sigmoid(U[0].dot(x_e) &#43; W[0].dot(s_t1_prev) &#43; b[0])
 r_t1 = T.nnet.hard_sigmoid(U[1].dot(x_e) &#43; W[1].dot(s_t1_prev) &#43; b[1])
 c_t1 = T.tanh(U[2].dot(x_e) &#43; W[2].dot(s_t1_prev * r_t1) &#43; b[2])
@@ -742,7 +746,7 @@ s_t1 = (T.ones_like(z_t1) - z_t1) * c_t1 &#43; z_t1 * s_t1_prev
 z_t2 = T.nnet.hard_sigmoid(U[3].dot(s_t1) &#43; W[3].dot(s_t2_prev) &#43; b[3])
 r_t2 = T.nnet.hard_sigmoid(U[4].dot(s_t1) &#43; W[4].dot(s_t2_prev) &#43; b[4])
 c_t2 = T.tanh(U[5].dot(s_t1) &#43; W[5].dot(s_t2_prev * r_t2) &#43; b[5])
-s_t2 = (T.ones_like(z_t2) - z_t2) * c_t2 &#43; z_t2 * s_t2_prev</pre>
+s_t2 = (T.ones_like(z_t2) - z_t2) * c_t2 &#43; z_t2 * s_t2_prev</pre>
         </td>
       </tr>
     </tbody>
@@ -1141,7 +1145,7 @@ Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng 
 </blockquote>
 
 <p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.</p>
 

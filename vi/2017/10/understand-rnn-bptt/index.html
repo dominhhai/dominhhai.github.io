@@ -392,7 +392,7 @@ Vì vậy tổng số lỗi chính là tổng của tất cả các lỗi ở m�
 
 <p>Mục tiêu của ta là tính đạo hàm của lỗi với tham số $ U, V, W $ tương ứng và sau đó học các tham số này bằng cách sử dụng SGD.
 Tương tự như việc cộng tổng các lỗi, ta cũng sẽ cộng tổng các đạo hàm tại mỗi bước cho mỗi mẫu huấn luyện:
-$ \frac{\partial{E}}{\partial{W}} = \sum_t{\frac{\partial{E_t}}{\partial{W}}} $.</p>
+$\displaystyle \frac{\partial{E}}{\partial{W}} = \sum_t{\frac{\partial{E_t}}{\partial{W}}} $.</p>
 
 <p>Để tính đạo hàm, ta sử dụng <a href="https://en.wikipedia.org/wiki/Chain_rule" target="_blank" rel="noopener noreferrer">quy tắc chuỗi vi phân</a>.
 Quy tắc này được áp dụng cho việc truyền ngược lỗi của <a href="http://colah.github.io/posts/2015-08-Backprop/" target="_blank" rel="noopener noreferrer">giải thuật lan truyền ngược</a>.</p>
@@ -407,7 +407,7 @@ $$</p>
 
 <p>Trong đó, $ z_3 = V s_3 $ và $ \otimes $ là <a href="https://en.wikipedia.org/wiki/Outer_product" target="_blank" rel="noopener noreferrer">phép nhân ngoài của 2 véc-tơ </a>.
 Nếu bạn không hiểu phép khai triển trên thì cũng đừng lo lắng gì cả, tôi có bỏ qua 1 vài bước khi khai triển, nếu cần thiết bạn có thể tự tính đạo hàm xem khớp hay không.
-Qua phép khai triển trên, tôi chỉ muốn nói 1 điều là $ \frac{\partial{E_3}}{\partial{V}} $
+Qua phép khai triển trên, tôi chỉ muốn nói 1 điều là $\displaystyle \frac{\partial{E_3}}{\partial{V}} $
 chỉ phụ thuộc vào các giá trị ở bước hiện thời: $ \hat{y_3}, y_3, s_3 $ mà thôi.
 Nhìn vào công thức đó, ta thấy rằng tính đạo hàm cho $ V $ chỉ đơn giản là phép nhân ma trận.</p>
 
@@ -459,7 +459,8 @@ Nói cách khác, ta phải truyền ngược đạo hàm từ $ t = 3 $ về t�
 Trong mạng nơ-ron truyền thống, ta không chia sẻ các tham số cho các tầng mạng,
 nên ta không cần phải cộng tổng đạo hàm lại với nhau.
 Cũng tương tự như với lan truyền ngược truyền thống, ta có thể định nghĩa véc-tơ delta khi lan truyền ngược lại:
-$ \delta_x^{(3)} = \frac{\partial{E_3}}{\partial{z_2}} = \frac{\partial{E_3}}{\partial{s_3}} \frac{\partial{s_3}}{\partial{s_2}} \frac{\partial{s_2}}{\partial{z_2}} $ với $ z_2 = U x_2 + W s_1 $. Các công thức tính toán tiếp theo hoàn toàn có thể dạng dụng tương tự.</p>
+$\displaystyle \delta_x^{(3)} = \frac{\partial{E_3}}{\partial{z_2}} = \frac{\partial{E_3}}{\partial{s_3}} \frac{\partial{s_3}}{\partial{s_2}} \frac{\partial{s_2}}{\partial{z_2}} $ với $ z_2 = U x_2 + W s_1 $.
+Các công thức tính toán tiếp theo hoàn toàn có thể dạng dụng tương tự.</p>
 
 <p>Dưới đây là mà nguồn thực hiện BPTT:</p>
 
@@ -484,10 +485,11 @@ $ \delta_x^{(3)} = \frac{\partial{E_3}}{\partial{z_2}} = \frac{\partial{E_3}}{\p
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">def bptt(self, x, y):
+          <pre class="python code-highlight">
+def bptt(self, x, y):
     T = len(y)
     # Perform forward propagation
     o, s = self.forward_propagation(x)
@@ -510,7 +512,7 @@ $ \delta_x^{(3)} = \frac{\partial{E_3}}{\partial{z_2}} = \frac{\partial{E_3}}{\p
             dLdU[:,x[bptt_step]] &#43;= delta_t
             # Update delta for next step dL/dz at t-1
             delta_t = self.W.T.dot(delta_t) * (1 - s[bptt_step-1] ** 2)
-    return [dLdU, dLdV, dLdW]</pre>
+    return [dLdU, dLdV, dLdW]</pre>
         </td>
       </tr>
     </tbody>
@@ -535,8 +537,8 @@ Trong thực tế, người ta sẽ bỏ qua một vài bước truyền ở m�
 }
 $$</p>
 
-<p>Ở đây, $ \frac{s_3}{s_k} $ cũng tuân theo quy tắc chuỗi đạo hàm.
-Ví dụ: $ \frac{s_3}{s_1} = \frac{s_3}{s_2} \frac{s_2}{s_1} $.
+<p>Ở đây, $\displaystyle \frac{s_3}{s_k} $ cũng tuân theo quy tắc chuỗi đạo hàm.
+Ví dụ: $\displaystyle \frac{s_3}{s_1} = \frac{s_3}{s_2} \frac{s_2}{s_1} $.
 Nếu bạn để ý thì sẽ thấy các thành phần ở công thức trên đều là véc-tơ vì phép lấy đạo hàm cho véc-tơ cũng là véc-tơ, nên kết quả thu được sẽ là một ma trận
 (<a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant" target="_blank" rel="noopener noreferrer">ma trận Jacobi</a>),
 trong đó các phần tử tương ứng được tính theo phép toán <a href="https://en.wikipedia.org/wiki/Pointwise" target="_blank" rel="noopener noreferrer">pointwise</a> với đạo hàm tương ứng.
@@ -967,7 +969,7 @@ Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng 
 </blockquote>
 
 <p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.</p>
 

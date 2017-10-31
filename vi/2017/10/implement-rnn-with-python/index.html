@@ -482,10 +482,11 @@ Nói cách khác, với dự đoán chuẩn xác cho từ $ 179 $ sẽ là $ 314
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">vocabulary_size = 8000
+          <pre class="python code-highlight">
+vocabulary_size = 8000
 unknown_token = &#34;UNKNOWN_TOKEN&#34;
 sentence_start_token = &#34;SENTENCE_START&#34;
 sentence_end_token = &#34;SENTENCE_END&#34;
@@ -526,7 +527,7 @@ print &#34;\nExample sentence after Pre-processing: &#39;%s&#39;&#34; % tokenize
 
 # Create the training data
 X_train = np.asarray([[word_to_index[w] for w in sent[:-1]] for sent in tokenized_sentences])
-y_train = np.asarray([[word_to_index[w] for w in sent[1:]] for sent in tokenized_sentences])</pre>
+y_train = np.asarray([[word_to_index[w] for w in sent[1:]] for sent in tokenized_sentences])</pre>
         </td>
       </tr>
     </tbody>
@@ -657,10 +658,11 @@ Chỉ cần bạn khởi tạo các tham số của mình ngẫu nhiên đủ nh
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">class RNNNumpy:
+          <pre class="python code-highlight">
+class RNNNumpy:
 
     def __init__(self, word_dim, hidden_dim=100, bptt_truncate=4):
         # Assign instance variables
@@ -670,7 +672,7 @@ Chỉ cần bạn khởi tạo các tham số của mình ngẫu nhiên đủ nh
         # Randomly initialize the network parameters
         self.U = np.random.uniform(-np.sqrt(1./word_dim), np.sqrt(1./word_dim), (hidden_dim, word_dim))
         self.V = np.random.uniform(-np.sqrt(1./hidden_dim), np.sqrt(1./hidden_dim), (word_dim, hidden_dim))
-        self.W = np.random.uniform(-np.sqrt(1./hidden_dim), np.sqrt(1./hidden_dim), (hidden_dim, hidden_dim))</pre>
+        self.W = np.random.uniform(-np.sqrt(1./hidden_dim), np.sqrt(1./hidden_dim), (hidden_dim, hidden_dim))</pre>
         </td>
       </tr>
     </tbody>
@@ -705,10 +707,11 @@ Còn <code>bptt_truncate</code> thì ta sẽ giải thích sau.</p>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">def forward_propagation(self, x):
+          <pre class="python code-highlight">
+def forward_propagation(self, x):
     # The total number of time steps
     T = len(x)
     # During forward propagation we save all hidden states in s because need them later.
@@ -724,7 +727,7 @@ Còn <code>bptt_truncate</code> thì ta sẽ giải thích sau.</p>
         o[t] = softmax(self.V.dot(s[t]))
     return [o, s]
 
-RNNNumpy.forward_propagation = forward_propagation</pre>
+RNNNumpy.forward_propagation = forward_propagation</pre>
         </td>
       </tr>
     </tbody>
@@ -757,15 +760,16 @@ nhưng đôi lúc ta chỉ cần lấy từ có xác xuất cao nhất.
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">def predict(self, x):
+          <pre class="python code-highlight">
+def predict(self, x):
     # Perform forward propagation and return index of the highest score
     o, s = self.forward_propagation(x)
     return np.argmax(o, axis=1)
 
-RNNNumpy.predict = predict</pre>
+RNNNumpy.predict = predict</pre>
         </td>
       </tr>
     </tbody>
@@ -795,14 +799,15 @@ RNNNumpy.predict = predict</pre>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">np.random.seed(10)
+          <pre class="python code-highlight">
+np.random.seed(10)
 model = RNNNumpy(vocabulary_size)
 o, s = model.forward_propagation(X_train[10])
 print o.shape
-print o</pre>
+print o</pre>
         </td>
       </tr>
     </tbody>
@@ -850,12 +855,13 @@ Với đầu ra như vậy, ta có thể lấy địa chỉ của từ có xác 
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">predictions = model.predict(X_train[10])
+          <pre class="python code-highlight">
+predictions = model.predict(X_train[10])
 print predictions.shape
-print predictions</pre>
+print predictions</pre>
         </td>
       </tr>
     </tbody>
@@ -902,10 +908,11 @@ Hàm tính lỗi được cài đặt như sau:</p>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">def calculate_total_loss(self, x, y):
+          <pre class="python code-highlight">
+def calculate_total_loss(self, x, y):
     L = 0
     # For each sentence...
     for i in np.arange(len(y)):
@@ -922,7 +929,7 @@ def calculate_loss(self, x, y):
     return self.calculate_total_loss(x,y)/N
 
 RNNNumpy.calculate_total_loss = calculate_total_loss
-RNNNumpy.calculate_loss = calculate_loss</pre>
+RNNNumpy.calculate_loss = calculate_loss</pre>
         </td>
       </tr>
     </tbody>
@@ -955,12 +962,13 @@ nên lỗi của ta sẽ là $ L = - \frac{1}{N} N \log{\frac{1}{C}} = log{C} $.
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># Limit to 1000 examples to save time
+          <pre class="python code-highlight">
+# Limit to 1000 examples to save time
 print &#34;Expected Loss for random predictions: %f&#34; % np.log(vocabulary_size)
-print &#34;Actual loss: %f&#34; % model.calculate_loss(X_train[:1000], y_train[:1000])</pre>
+print &#34;Actual loss: %f&#34; % model.calculate_loss(X_train[:1000], y_train[:1000])</pre>
         </td>
       </tr>
     </tbody>
@@ -982,7 +990,7 @@ Cách phổ biến nhất là sử dụng <a href="https://en.wikipedia.org/wiki
 Ý tưởng đằng sau SGD khác đơn giản.
 Ta sẽ lặp đi lặp lại suốt tập dữ liệu của ta và tạo mỗi bước lặp ta sẽ thay đổi tham số của ta sao cho tổng lỗi có thể giảm đi.
 Hướng của việc cập nhập tham số được tính dựa vào <a href="https://www.quora.com/Whats-the-difference-between-gradient-descent-and-stochastic-gradient-descent" target="_blank" rel="noopener noreferrer">đạo hàm của hàm lỗi</a>:
-$ \frac{\partial{L}}{\partial{U}}, \frac{\partial{L}}{\partial{V}}, \frac{\partial{L}}{\partial{W}} $.
+$\displaystyle \frac{\partial{L}}{\partial{U}}, \frac{\partial{L}}{\partial{V}}, \frac{\partial{L}}{\partial{W}} $.
 Để thực hiện SGD, ta cần phải có <em>độ học</em> (learning rate) để xác định các mức độ thay đổi tham số của ta ở mỗi bước lặp.
 SGD không chỉ là phương thức tối ưu phổ biến nhất trong mạng nơ-ron mà còn trong nhiều giải thuật học máy khác nữa.
 Cho tới thời điểm này, ta có rất nhiều các nghiên cứu làm sao để tối ưu SGD bằng cách
@@ -1003,7 +1011,7 @@ Ngoài ra, bạn có thể tham khảo thêm về giải thuật lan truyền ng
 và <a href="http://cs231n.github.io/optimization-2/" target="_blank" rel="noopener noreferrer">đây nữa</a>.
 Giờ bạn có thể coi BPTT là một hộp đen đi nhé.
 Hộp đen này nhận tham số đầu vào là tập mẫu huấn luyện $ (x, y) $ và trả ra đạo hàm:
-$ \frac{\partial{L}}{\partial{U}}, \frac{\partial{L}}{\partial{V}}, \frac{\partial{L}}{\partial{W}} $.</p>
+$\displaystyle \frac{\partial{L}}{\partial{U}}, \frac{\partial{L}}{\partial{V}}, \frac{\partial{L}}{\partial{W}} $.</p>
 
 
   
@@ -1026,10 +1034,11 @@ $ \frac{\partial{L}}{\partial{U}}, \frac{\partial{L}}{\partial{V}}, \frac{\parti
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">def bptt(self, x, y):
+          <pre class="python code-highlight">
+def bptt(self, x, y):
     T = len(y)
     # Perform forward propagation
     o, s = self.forward_propagation(x)
@@ -1053,7 +1062,7 @@ $ \frac{\partial{L}}{\partial{U}}, \frac{\partial{L}}{\partial{V}}, \frac{\parti
             delta_t = self.W.T.dot(delta_t) * (1 - s[bptt_step-1] ** 2)
     return [dLdU, dLdV, dLdW]
 
-RNNNumpy.bptt = bptt</pre>
+RNNNumpy.bptt = bptt</pre>
         </td>
       </tr>
     </tbody>
@@ -1100,10 +1109,11 @@ Nên trong thực tế ta chỉ cần thực hiện phép kiểm định đó tr
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">def gradient_check(self, x, y, h=0.001, error_threshold=0.01):
+          <pre class="python code-highlight">
+def gradient_check(self, x, y, h=0.001, error_threshold=0.01):
     # Calculate the gradients using backpropagation. We want to checker if these are correct.
     bptt_gradients = self.bptt(x, y)
     # List of all parameters we want to check.
@@ -1143,7 +1153,8 @@ Nên trong thực tế ta chỉ cần thực hiện phép kiểm định đó tr
             it.iternext()
         print &#34;Gradient check for parameter %s passed.&#34; % (pname)
 
-RNNNumpy.gradient_check = gradient_check</pre>
+RNNNumpy.gradient_check = gradient_check
+</pre>
         </td>
       </tr>
     </tbody>
@@ -1171,14 +1182,15 @@ RNNNumpy.gradient_check = gradient_check</pre>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># To avoid performing millions of expensive calculations we use a smaller vocabulary size for checking.
+          <pre class="python code-highlight">
+# To avoid performing millions of expensive calculations we use a smaller vocabulary size for checking.
 grad_check_vocab_size = 100
 np.random.seed(10)
 model = RNNNumpy(grad_check_vocab_size, 10, bptt_truncate=1000)
-model.gradient_check([0,1,2,3], [1,2,3,4])</pre>
+model.gradient_check([0,1,2,3], [1,2,3,4])</pre>
         </td>
       </tr>
     </tbody>
@@ -1213,10 +1225,11 @@ Ta sẽ thực hiện nó qua 2 bước:
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># Performs one step of SGD.
+          <pre class="python code-highlight">
+# Performs one step of SGD.
 def numpy_sdg_step(self, x, y, learning_rate):
     # Calculate the gradients
     dLdU, dLdV, dLdW = self.bptt(x, y)
@@ -1225,7 +1238,7 @@ def numpy_sdg_step(self, x, y, learning_rate):
     self.V -= learning_rate * dLdV
     self.W -= learning_rate * dLdW
 
-RNNNumpy.sgd_step = numpy_sdg_step</pre>
+RNNNumpy.sgd_step = numpy_sdg_step</pre>
         </td>
       </tr>
     </tbody>
@@ -1253,10 +1266,11 @@ RNNNumpy.sgd_step = numpy_sdg_step</pre>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight"># Outer SGD Loop
+          <pre class="python code-highlight">
+# Outer SGD Loop
 # - model: The RNN model instance
 # - X_train: The training data set
 # - y_train: The training data labels
@@ -1283,7 +1297,7 @@ def train_with_sgd(model, X_train, y_train, learning_rate=0.005, nepoch=100, eva
         for i in range(len(y_train)):
             # One SGD step
             model.sgd_step(X_train[i], y_train[i], learning_rate)
-            num_examples_seen &#43;= 1</pre>
+            num_examples_seen &#43;= 1</pre>
         </td>
       </tr>
     </tbody>
@@ -1313,12 +1327,13 @@ def train_with_sgd(model, X_train, y_train, learning_rate=0.005, nepoch=100, eva
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">np.random.seed(10)
+          <pre class="python code-highlight">
+np.random.seed(10)
 model = RNNNumpy(vocabulary_size)
-%timeit model.sgd_step(X_train[10], y_train[10], 0.005)</pre>
+%timeit model.sgd_step(X_train[10], y_train[10], 0.005)</pre>
         </td>
       </tr>
     </tbody>
@@ -1361,13 +1376,14 @@ Trước khi làm việc này, ta hay thử chạy SGD với một tập dữ li
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">np.random.seed(10)
+          <pre class="python code-highlight">
+np.random.seed(10)
 # Train on a small subset of the data to see what happens
 model = RNNNumpy(vocabulary_size)
-losses = train_with_sgd(model, X_train[:100], y_train[:100], nepoch=10, evaluate_loss_after=1)</pre>
+losses = train_with_sgd(model, X_train[:100], y_train[:100], nepoch=10, evaluate_loss_after=1)</pre>
         </td>
       </tr>
     </tbody>
@@ -1416,12 +1432,13 @@ Cụ thể bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">np.random.seed(10)
+          <pre class="python code-highlight">
+np.random.seed(10)
 model = RNNTheano(vocabulary_size)
-%timeit model.sgd_step(X_train[10], y_train[10], 0.005)</pre>
+%timeit model.sgd_step(X_train[10], y_train[10], 0.005)</pre>
         </td>
       </tr>
     </tbody>
@@ -1460,15 +1477,16 @@ Bạn có thể lấy các tham số của mô hình trong phần <code>data/tra
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">from utils import load_model_parameters_theano, save_model_parameters_theano
+          <pre class="python code-highlight">
+from utils import load_model_parameters_theano, save_model_parameters_theano
 
 model = RNNTheano(vocabulary_size, hidden_dim=50)
 # losses = train_with_sgd(model, X_train, y_train, nepoch=50)
 # save_model_parameters_theano(&#39;./data/trained-model-theano.npz&#39;, model)
-load_model_parameters_theano(&#39;./data/trained-model-theano.npz&#39;, model)</pre>
+load_model_parameters_theano(&#39;./data/trained-model-theano.npz&#39;, model)</pre>
         </td>
       </tr>
     </tbody>
@@ -1501,10 +1519,11 @@ load_model_parameters_theano(&#39;./data/trained-model-theano.npz&#39;, model)</
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre>
         </td>
         <td class="code">
-          <pre class="python code-highlight">def generate_sentence(model):
+          <pre class="python code-highlight">
+def generate_sentence(model):
     # We start the sentence with the start token
     new_sentence = [word_to_index[sentence_start_token]]
     # Repeat until we get an end token
@@ -1527,7 +1546,7 @@ for i in range(num_sentences):
     # We want long sentences, not sentences with one or two words
     while len(sent) &lt; senten_min_length:
         sent = generate_sentence(model)
-    print &#34; &#34;.join(sent)</pre>
+    print &#34; &#34;.join(sent)</pre>
         </td>
       </tr>
     </tbody>
@@ -1917,7 +1936,7 @@ Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng 
 </blockquote>
 
 <p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
-LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
+LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.</p>
 
