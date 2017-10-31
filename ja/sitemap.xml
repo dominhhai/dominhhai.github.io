@@ -92,6 +92,27 @@
   </url>
   
   <url>
+    <loc>https://dominhhai.github.io/ja/</loc>
+    <lastmod>2017-01-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://dominhhai.github.io/en-us/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/"
+                />
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/ja/categories/node.js/</loc>
     <lastmod>2016-04-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -169,22 +190,6 @@
   </url>
   
   <url>
-    <loc>https://dominhhai.github.io/ja/categories/tor/</loc>
-    <lastmod>2017-01-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://dominhhai.github.io/vi/categories/tor/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://dominhhai.github.io/ja/categories/tor/"
-                />
-  </url>
-  
-  <url>
     <loc>https://dominhhai.github.io/ja/tags/tor/</loc>
     <lastmod>2017-01-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -201,6 +206,22 @@
   </url>
   
   <url>
+    <loc>https://dominhhai.github.io/ja/categories/tor/</loc>
+    <lastmod>2017-01-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/categories/tor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/categories/tor/"
+                />
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/ja/tags/windows/</loc>
     <lastmod>2016-04-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -213,27 +234,6 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://dominhhai.github.io/ja/tags/windows/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://dominhhai.github.io/ja/</loc>
-    <lastmod>2017-01-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="https://dominhhai.github.io/en-us/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://dominhhai.github.io/vi/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://dominhhai.github.io/ja/"
                 />
   </url>
   
