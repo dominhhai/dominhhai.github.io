@@ -1,25 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Skill on Hai&#39;s Blog</title>
-    <link>https://dominhhai.github.io/en-us/tags/skill/</link>
-    <description>Recent content in Skill on Hai&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>vi</language>
-    <lastBuildDate>Wed, 30 Aug 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://dominhhai.github.io/en-us/tags/skill/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>A Mind For Numbers</title>
-      <link>https://dominhhai.github.io/en-us/2017/08/a-mind-for-numbers/</link>
-      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/en-us/2017/08/a-mind-for-numbers/</guid>
-      <description>These rules form a synthesis of some of the main ideas of the course&amp;ndash; they are excerpted from the book A Mind for Numbers: How to Excel in Math and Science (Even if You Flunked Algebra), by Barbara Oakley, Penguin, July, 2014. Feel free to copy these rules and redistribute them, as long as you keep the original wording and this citation.
-10 Rules of Good Studying 1. Use recall After you read a page, look away and recall the main ideas.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Skill on Hai&#39;s Blog</title><link>https://dominhhai.github.io/en-us/tags/skill/</link><description>Recent content in Skill on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Wed, 30 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/en-us/tags/skill/index.xml" rel="self" type="application/rss+xml"/><item><title>A Mind For Numbers</title><link>https://dominhhai.github.io/en-us/2017/08/a-mind-for-numbers/</link><pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/en-us/2017/08/a-mind-for-numbers/</guid><description>These rules form a synthesis of some of the main ideas of the course&amp;ndash; they are excerpted from the book A Mind for Numbers: How to Excel in Math and Science (Even if You Flunked Algebra), by Barbara Oakley, Penguin, July, 2014. Feel free to copy these rules and redistribute them, as long as you keep the original wording and this citation.
+10 Rules of Good Studying 1. Use recall After you read a page, look away and recall the main ideas.</description></item></channel></rss>

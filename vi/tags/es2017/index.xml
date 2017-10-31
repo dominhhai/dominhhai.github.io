@@ -1,26 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Es2017 on Hai&#39;s Blog</title>
-    <link>https://dominhhai.github.io/vi/tags/es2017/</link>
-    <description>Recent content in Es2017 on Hai&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>vi</language>
-    <lastBuildDate>Mon, 31 Oct 2016 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://dominhhai.github.io/vi/tags/es2017/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>[JS] Async Await cực đơn giản</title>
-      <link>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</link>
-      <pubDate>Mon, 31 Oct 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</guid>
-      <description>&lt;p&gt;Với các đặc tả JavaScript cũ, ta phải sử dụng các hàm phản hồi để xử lý các thao tác bất đồng bộ. Tuy nhiên việc này dẫn tới tình trạng &lt;a href=&#34;https://stackoverflow.com/questions/25098066/what-is-callback-hell-and-how-and-why-rx-solves-it&#34;&gt;callback hell&lt;/a&gt; khi ta có nhiều thao tác bất đồng bộ phải chờ nhau thực hiện. Call hell làm cho mã nguồn của ta rất rối và khó bảo trì.
-
-&lt;!--toc--&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Es2017 on Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/tags/es2017/</link><description>Recent content in Es2017 on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Mon, 31 Oct 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/vi/tags/es2017/index.xml" rel="self" type="application/rss+xml"/><item><title>[JS] Async Await cực đơn giản</title><link>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</link><pubDate>Mon, 31 Oct 2016 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2016/10/js-async-await-is-simple/</guid><description>&lt;p&gt;Với các đặc tả JavaScript cũ, ta phải sử dụng các hàm phản hồi để xử lý các thao tác bất đồng bộ. Tuy nhiên việc này dẫn tới tình trạng &lt;a href=&#34;https://stackoverflow.com/questions/25098066/what-is-callback-hell-and-how-and-why-rx-solves-it&#34;&gt;callback hell&lt;/a&gt; khi ta có nhiều thao tác bất đồng bộ phải chờ nhau thực hiện. Call hell làm cho mã nguồn của ta rất rối và khó bảo trì.
+&lt;!--toc--&gt;&lt;/p&gt;</description></item></channel></rss>

@@ -1,35 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Nodeschool Hanoi on Hai&#39;s Blog</title>
-    <link>https://dominhhai.github.io/vi/tags/nodeschool-hanoi/</link>
-    <description>Recent content in Nodeschool Hanoi on Hai&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>vi</language>
-    <lastBuildDate>Sat, 20 Jun 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://dominhhai.github.io/vi/tags/nodeschool-hanoi/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>[NodeSchool] NodeSchool Hanoi lần 2</title>
-      <link>https://dominhhai.github.io/vi/2015/06/nodeschool-hanoi-2/</link>
-      <pubDate>Sat, 20 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/2015/06/nodeschool-hanoi-2/</guid>
-      <description>&lt;p&gt;Ngày 20/6/2015, buổi workshop lần 2 của &lt;a href=&#34;http://nodeschool.io/hanoi/&#34;&gt;NodeSchool Hanoi&lt;/a&gt; đã diễn ra tốt đẹp với sự tham gia của gần 30 bạn tại công ty &lt;a href=&#34;http://codelovers.vn/&#34;&gt;CodeLovers Vietnam&lt;/a&gt;.
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[NodeSchool] NodeSchool Hanoi lần 1</title>
-      <link>https://dominhhai.github.io/vi/2015/05/nodeschool-hanoi-1/</link>
-      <pubDate>Mon, 11 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/2015/05/nodeschool-hanoi-1/</guid>
-      <description>&lt;p&gt;Ngày 9/5/2015, buổi workshop đầu tiên của &lt;a href=&#34;http://nodeschool.io/hanoi/&#34;&gt;NodeSchool Hanoi&lt;/a&gt; đã diễn ra tốt đẹp với sự tài trợ và ủng hộ nhiệt tình của &lt;a href=&#34;http://www.lapnghiep.co/&#34;&gt;công ty lapnghiep&lt;/a&gt; của anh @Logle. Tại buổi đầu tiên có 10 bạn tham gia, nhưng không vì thế mà không khí của buổi gặp mặt đầu tiên kém sôi động.
-&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nodeschool Hanoi on Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/tags/nodeschool-hanoi/</link><description>Recent content in Nodeschool Hanoi on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Sat, 20 Jun 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/vi/tags/nodeschool-hanoi/index.xml" rel="self" type="application/rss+xml"/><item><title>[NodeSchool] NodeSchool Hanoi lần 2</title><link>https://dominhhai.github.io/vi/2015/06/nodeschool-hanoi-2/</link><pubDate>Sat, 20 Jun 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/06/nodeschool-hanoi-2/</guid><description>&lt;p&gt;Ngày 20/6/2015, buổi workshop lần 2 của &lt;a href=&#34;http://nodeschool.io/hanoi/&#34;&gt;NodeSchool Hanoi&lt;/a&gt; đã diễn ra tốt đẹp với sự tham gia của gần 30 bạn tại công ty &lt;a href=&#34;http://codelovers.vn/&#34;&gt;CodeLovers Vietnam&lt;/a&gt;.
+&lt;/p&gt;</description></item><item><title>[NodeSchool] NodeSchool Hanoi lần 1</title><link>https://dominhhai.github.io/vi/2015/05/nodeschool-hanoi-1/</link><pubDate>Mon, 11 May 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/05/nodeschool-hanoi-1/</guid><description>&lt;p&gt;Ngày 9/5/2015, buổi workshop đầu tiên của &lt;a href=&#34;http://nodeschool.io/hanoi/&#34;&gt;NodeSchool Hanoi&lt;/a&gt; đã diễn ra tốt đẹp với sự tài trợ và ủng hộ nhiệt tình của &lt;a href=&#34;http://www.lapnghiep.co/&#34;&gt;công ty lapnghiep&lt;/a&gt; của anh @Logle. Tại buổi đầu tiên có 10 bạn tham gia, nhưng không vì thế mà không khí của buổi gặp mặt đầu tiên kém sôi động.
+&lt;/p&gt;</description></item></channel></rss>
