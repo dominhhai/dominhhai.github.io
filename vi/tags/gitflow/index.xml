@@ -1,26 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Gitflow on Hai&#39;s Blog</title>
-    <link>https://dominhhai.github.io/vi/tags/gitflow/</link>
-    <description>Recent content in Gitflow on Hai&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>vi</language>
-    <lastBuildDate>Sun, 01 Nov 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://dominhhai.github.io/vi/tags/gitflow/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>[Git] GitFlow - một mô hình làm việc hiệu quả</title>
-      <link>https://dominhhai.github.io/vi/2015/11/gitflow-simple-effective-git-model/</link>
-      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://dominhhai.github.io/vi/2015/11/gitflow-simple-effective-git-model/</guid>
-      <description>Gần đây mới được tiếp xúc với git-flow thấy cách làm việc hay quá, muốn chia sẻ lại đôi chút. Về cơ bản git-flow là một tập hợp các lệnh mở rộng cho git nhằm hỗ trợ cho quy trình làm việc hiệu quả hơn.
-・Tóm tắt: Git-Flow Cheatsheet. ・Đầy đủ: Git-Flow Repos
-Tuy nhiên bản đầy đủ hiện giờ đang không được bảo trì nên có một số tính năng mà bạn muốn có khi lại không có ví dụ như tính năng xoá một nhánh feature chẳng hạn.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gitflow on Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/tags/gitflow/</link><description>Recent content in Gitflow on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Sun, 01 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/vi/tags/gitflow/index.xml" rel="self" type="application/rss+xml"/><item><title>[Git] GitFlow - một mô hình làm việc hiệu quả</title><link>https://dominhhai.github.io/vi/2015/11/gitflow-simple-effective-git-model/</link><pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2015/11/gitflow-simple-effective-git-model/</guid><description>&lt;p&gt;Gần đây mới được tiếp xúc với git-flow thấy cách làm việc hay quá, muốn chia sẻ lại đôi chút. Về cơ bản git-flow là một tập hợp các lệnh mở rộng cho git nhằm hỗ trợ cho quy trình làm việc hiệu quả hơn.
+&lt;/p&gt;</description></item></channel></rss>
