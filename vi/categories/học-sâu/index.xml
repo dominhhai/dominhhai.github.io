@@ -18,7 +18,7 @@ và tối ưu với &lt;a href=&#34;http://deeplearning.net/software/theano/&#34
 Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
 còn toàn bộ mã nguồn bạn có thể xem trên &lt;a href=&#34;https://github.com/dennybritz/rnn-tutorial-rnnlm&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Github&lt;/a&gt;.
 &lt;/p&gt;</description></item><item><title>[RNN] LSTM là gì?</title><link>https://dominhhai.github.io/vi/2017/10/what-is-lstm/</link><pubDate>Fri, 20 Oct 2017 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/2017/10/what-is-lstm/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;Bài LSTM này được dịch lại từ trang &lt;a href=&#34;//colah.github.io/posts/2015-08-Understanding-LSTMs/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;colah&amp;rsquo;s blog&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Bài LSTM này được dịch lại từ trang &lt;a href=&#34;https://colah.github.io/posts/2015-08-Understanding-LSTMs/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;colah&amp;rsquo;s blog&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
 Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
