@@ -136,6 +136,11 @@
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/post/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="vi"
                 href="https://dominhhai.github.io/vi/post/"
                 />
@@ -147,13 +152,13 @@
   </url>
   
   <url>
-    <loc>https://dominhhai.github.io/en-us/tags/skill/</loc>
+    <loc>https://dominhhai.github.io/en-us/categories/skill/</loc>
     <lastmod>2017-08-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dominhhai.github.io/en-us/categories/skill/</loc>
+    <loc>https://dominhhai.github.io/en-us/tags/skill/</loc>
     <lastmod>2017-08-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

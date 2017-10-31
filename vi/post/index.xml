@@ -34,9 +34,8 @@ Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng 
 &lt;p&gt;Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
 LSTM lần đầu được giới thiệu vào năm 1997 bởi &lt;a href=&#34;http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Sepp Hochreiter và Jürgen Schmidhuber&lt;/a&gt;.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
-Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -50,9 +49,8 @@ Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn
 &lt;/blockquote&gt;
 
 &lt;p&gt;Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
-Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -68,9 +66,8 @@ Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing
 &lt;p&gt;Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
 và tối ưu với &lt;a href=&#34;http://deeplearning.net/software/theano/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Theano&lt;/a&gt; - một thư viện tính toán trên GPU.
 Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
-còn toàn bộ mã nguồn bạn có thể xem trên &lt;a href=&#34;https://github.com/dennybritz/rnn-tutorial-rnnlm&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+còn toàn bộ mã nguồn bạn có thể xem trên &lt;a href=&#34;https://github.com/dennybritz/rnn-tutorial-rnnlm&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Github&lt;/a&gt;.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -86,9 +83,8 @@ còn toàn bộ mã nguồn bạn có thể xem trên &lt;a href=&#34;https://gi
 &lt;p&gt;LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
 Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
 &lt;a href=&#34;https://github.com/colah/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Christopher Olah&lt;/a&gt;.
-Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -101,9 +97,8 @@ Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm v
 &lt;p&gt;Bài giới thiệu RNN này được dịch lại từ trang &lt;a href=&#34;http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;blog WILDML&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -114,9 +109,8 @@ Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm v
       <guid>https://dominhhai.github.io/vi/2017/09/matrix-op/</guid>
       <description>&lt;p&gt;Phần tiếp theo của &lt;a href=&#34;https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/&#34;&gt;chuỗi chủ đề về ma trận&lt;/a&gt;
 sẽ đề cập tới các phép toán của ma trận.
-Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện &lt;a href=&#34;https://github.com/numpy/numpy&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Numpy&lt;/a&gt; để lập trình với ma trận.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện &lt;a href=&#34;https://github.com/numpy/numpy&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Numpy&lt;/a&gt; để lập trình với ma trận.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -129,9 +123,8 @@ Song song với việc lý giải các phép toán, ta cũng sẽ học sử d�
 Bài đầu tiên trong &lt;a href=&#34;https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/&#34;&gt;chuỗi chủ đề này&lt;/a&gt;
 sẽ tập trung vào định nghĩa một số khái niệm cơ bản trong đại số tuyến tính.
 Lưu ý rằng các khái niệm tôi viết lại là dưới cái nhìn của người làm lập trình như tôi,
-nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -209,6 +202,17 @@ Lúc ấy tự dưng trong đầu nghĩ tới chuyện đọc tiểu thuyết �
       <guid>https://dominhhai.github.io/vi/2017/02/free-ssl-with-let-encrypt/</guid>
       <description>Bài viết này hướng dẫn cài đặt Let&amp;rsquo;s Encrypt - một dịch vụ ngon-bổ-miễn phí cho việc HTTPS hóa máy chủ. Ở đây, mình sử dụng máy chủ CentOS 7 và Nginx để thực hiện, nhưng các bạn hoàn toàn có thể làm tương tự với các môi trường khác.
 Để cài đặt được Let&#39;s Encrypt, ta cần có môi trường Python v2.7.x trở lên. Nên nếu máy của bạn chưa có thì cài đặt hoặc cập nhập bản mới đi nhé.</description>
+    </item>
+    
+    <item>
+      <title>[Tor] Một cách cài đặt đơn giản trên MacOS</title>
+      <link>https://dominhhai.github.io/vi/2017/01/tor-on-mac/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/01/tor-on-mac/</guid>
+      <description>&lt;p&gt;Bài này sẽ nói về một cách cực kì đơn giản để cài đặt và sử dụng &lt;a href=&#34;https://www.torproject.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Tor&lt;/a&gt; trên máy MacOS.
+Tôi thử nghiệm trên Mac Sierra, nhưng về cơ bản có thể thực hiện được trên tất cả các phiên bản khác mà Tor có hỗ trợ một cách tương tự.
+&lt;/p&gt;</description>
     </item>
     
     <item>

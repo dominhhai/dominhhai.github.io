@@ -10,5 +10,23 @@
 	<atom:link href="https://dominhhai.github.io/ja/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Tor</title>
+      <link>https://dominhhai.github.io/ja/tags/tor/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/ja/tags/tor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>https://dominhhai.github.io/ja/tags/windows/</link>
+      <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/ja/tags/windows/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

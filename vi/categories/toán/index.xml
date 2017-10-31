@@ -19,9 +19,8 @@
       <guid>https://dominhhai.github.io/vi/2017/09/matrix-op/</guid>
       <description>&lt;p&gt;Phần tiếp theo của &lt;a href=&#34;https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/&#34;&gt;chuỗi chủ đề về ma trận&lt;/a&gt;
 sẽ đề cập tới các phép toán của ma trận.
-Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện &lt;a href=&#34;https://github.com/numpy/numpy&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Numpy&lt;/a&gt; để lập trình với ma trận.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện &lt;a href=&#34;https://github.com/numpy/numpy&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Numpy&lt;/a&gt; để lập trình với ma trận.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -34,9 +33,8 @@ Song song với việc lý giải các phép toán, ta cũng sẽ học sử d�
 Bài đầu tiên trong &lt;a href=&#34;https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/&#34;&gt;chuỗi chủ đề này&lt;/a&gt;
 sẽ tập trung vào định nghĩa một số khái niệm cơ bản trong đại số tuyến tính.
 Lưu ý rằng các khái niệm tôi viết lại là dưới cái nhìn của người làm lập trình như tôi,
-nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.
+&lt;/p&gt;</description>
     </item>
     
   </channel>

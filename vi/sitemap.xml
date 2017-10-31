@@ -93,6 +93,21 @@
   </url>
   
   <url>
+    <loc>https://dominhhai.github.io/vi/2017/01/tor-on-mac/</loc>
+    <lastmod>2017-01-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/2017/01/tor-on-mac/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/2017/01/tor-on-mac/"
+                />
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/vi/2016/12/js-conditional-async-queue/</loc>
     <lastmod>2016-12-19T00:00:00+00:00</lastmod>
   </url>
@@ -120,6 +135,16 @@
   <url>
     <loc>https://dominhhai.github.io/vi/2016/04/deploy-nodejs-on-windows/</loc>
     <lastmod>2016-04-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/2016/04/deploy-nodejs-on-windows/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/2016/04/deploy-nodejs-on-windows/"
+                />
   </url>
   
   <url>
@@ -445,6 +470,16 @@
     <loc>https://dominhhai.github.io/vi/categories/node.js/</loc>
     <lastmod>2016-04-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/categories/node.js/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/categories/node.js/"
+                />
   </url>
   
   <url>
@@ -505,6 +540,11 @@
                 rel="alternate"
                 hreflang="en-us"
                 href="https://dominhhai.github.io/en-us/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/post/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -589,6 +629,38 @@
   </url>
   
   <url>
+    <loc>https://dominhhai.github.io/vi/tags/tor/</loc>
+    <lastmod>2017-01-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/tags/tor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/tags/tor/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://dominhhai.github.io/vi/categories/tor/</loc>
+    <lastmod>2017-01-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/categories/tor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/categories/tor/"
+                />
+  </url>
+  
+  <url>
     <loc>https://dominhhai.github.io/vi/categories/to%C3%A1n/</loc>
     <lastmod>2017-09-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -604,6 +676,16 @@
     <loc>https://dominhhai.github.io/vi/tags/windows/</loc>
     <lastmod>2016-04-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dominhhai.github.io/ja/tags/windows/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://dominhhai.github.io/vi/tags/windows/"
+                />
   </url>
   
 </urlset>

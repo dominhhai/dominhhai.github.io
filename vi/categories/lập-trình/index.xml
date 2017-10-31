@@ -69,6 +69,17 @@ Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt 
     </item>
     
     <item>
+      <title>[Tor] Một cách cài đặt đơn giản trên MacOS</title>
+      <link>https://dominhhai.github.io/vi/2017/01/tor-on-mac/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dominhhai.github.io/vi/2017/01/tor-on-mac/</guid>
+      <description>&lt;p&gt;Bài này sẽ nói về một cách cực kì đơn giản để cài đặt và sử dụng &lt;a href=&#34;https://www.torproject.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Tor&lt;/a&gt; trên máy MacOS.
+Tôi thử nghiệm trên Mac Sierra, nhưng về cơ bản có thể thực hiện được trên tất cả các phiên bản khác mà Tor có hỗ trợ một cách tương tự.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[JS] Async Queue kèm điều kiện</title>
       <link>https://dominhhai.github.io/vi/2016/12/js-conditional-async-queue/</link>
       <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>

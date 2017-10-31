@@ -670,9 +670,8 @@ Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng 
 <p>Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU (Gated Recurrent Units).
 LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
-Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.</p>
-
-<p></p></div>
+Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.
+</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -694,9 +693,8 @@ Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn
 </blockquote>
 
 <p>Trong phần này tôi sẽ giới thiệu tổng quan về BPTT (Backpropagation Through Time) và giải thích sự khác biệt của nó so với các giải thuật lan truyền ngược truyền thống.
-Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).</p>
-
-<p></p></div>
+Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing gradient problem), nó dẫn ta tới việc phát triển của LSTM và GRU - 2 mô hình phổ biến và mạnh mẽ nhất hiện nay trong các bài toán NLP (và cả các lĩnh vực khác).
+</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -720,9 +718,8 @@ Sau đó ta sẽ cùng tìm hiểu vấn đề mất mát đạo hàm (vanishing
 <p>Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
 và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank" rel="noopener noreferrer">Theano</a> - một thư viện tính toán trên GPU.
 Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
-còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank" rel="noopener noreferrer">Github</a>.</p>
-
-<p></p></div>
+còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank" rel="noopener noreferrer">Github</a>.
+</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -746,9 +743,8 @@ còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.co
 <p>LSTM là một mạng cải tiến của RNN nhằm giải quyết vấn đề nhớ các bước dài của RNN.
 Có nhiều bài đã viết về LSTM, nhưng được đề cập tới nhiều và dễ hiểu nhất có lẽ là của anh
 <a href="https://github.com/colah/" target="_blank" rel="noopener noreferrer">Christopher Olah</a>.
-Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.</p>
-
-<p></p></div>
+Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm và cho cả các bạn đang tìm hiểu.
+</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -769,9 +765,8 @@ Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm v
 <p>Bài giới thiệu RNN này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.</p>
 </blockquote>
 
-<p>Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.</p>
-
-<p></p></div>
+<p>Mạng nơ-ron hồi quy (RNN - Recurrent Neural Network) là một thuật toán được chú ý rất nhiều trong thời gian gần đây bởi các kết quả tốt thu được trong lĩnh vực xử lý ngôn ngữ tự nhiên.
+</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -790,9 +785,8 @@ Nên mình quyết định dịch lại cho bản thân có thể hiểu thêm v
               </span>
               <div class="media-content hide-xs font-merryweather"><p>Phần tiếp theo của <a href="https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/">chuỗi chủ đề về ma trận</a>
 sẽ đề cập tới các phép toán của ma trận.
-Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href="https://github.com/numpy/numpy" target="_blank" rel="noopener noreferrer">Numpy</a> để lập trình với ma trận.</p>
-
-<p></p></div>
+Song song với việc lý giải các phép toán, ta cũng sẽ học sử dụng thư viện <a href="https://github.com/numpy/numpy" target="_blank" rel="noopener noreferrer">Numpy</a> để lập trình với ma trận.
+</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -813,9 +807,8 @@ Song song với việc lý giải các phép toán, ta cũng sẽ học sử d�
 Bài đầu tiên trong <a href="https://dominhhai.github.io/vi/categories/ma-tr%E1%BA%ADn/">chuỗi chủ đề này</a>
 sẽ tập trung vào định nghĩa một số khái niệm cơ bản trong đại số tuyến tính.
 Lưu ý rằng các khái niệm tôi viết lại là dưới cái nhìn của người làm lập trình như tôi,
-nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.</p>
-
-<p></p></div>
+nên không chắc đảm bảo được tính chặt chẽ về mặt toán học.
+</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -863,7 +856,7 @@ Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt 
          data-message-zero="không tìm thấy kết quả"
          data-message-one="tìm thấy 1 kết quả "
          data-message-other="tìm thấy {n} kết quả">
-         36 posts found
+         37 posts found
       </p>
     </div>
   </div>
