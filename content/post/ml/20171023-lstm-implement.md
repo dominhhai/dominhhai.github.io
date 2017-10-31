@@ -23,7 +23,6 @@ Trong phần này ta sẽ tìm hiểu về LSTM (Long Short-Term Memory) và GRU
 LSTM lần đầu được giới thiệu vào năm 1997 bởi <a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="noopener noreferrer">Sepp Hochreiter và Jürgen Schmidhuber</a>.
 Nó giờ hiện diện trên hầu hết các mô hình có sử dụng học sâu cho NPL.
 Còn GRU mới được đề xuất vào năm 2014 là một phiên bản đơn giản hơn của LSTM nhưng vẫn giữ được các tính chất của LSTM.
-
 <!--more-->
 
 Đây là bài cuối trong chuỗi bài giới thiệu về RNN:

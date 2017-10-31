@@ -23,7 +23,6 @@ Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ
 và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank" rel="noopener noreferrer">Theano</a> - một thư viện tính toán trên GPU.
 Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
 còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank" rel="noopener noreferrer">Github</a>.
-
 <!--more-->
 
 Đây là bài thứ 2 trong chuỗi bài giới thiệu về RNN:

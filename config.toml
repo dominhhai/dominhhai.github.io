@@ -20,7 +20,7 @@ title = "Blog of Do Minh Hai"
 theme = "tranquilpeak"
 disqusShortname = "tranquilpeak"
 googleAnalytics = "UA-105333519-1"
-paginate = 7
+paginate = 8
 canonifyurls = true
 enableRobotsTXT = true
 
@@ -36,7 +36,7 @@ categories = ["Programming", "Machine Learning", "Math", "Probability", "Books"]
 weight = 2
 languagename = "日本語"
 title = "ドーミンハイ"
-categories = ["プログラミング", "機械学習", "数学", "確率", "読書"]
+categories = ["開発", "機械学習", "数学", "確率", "読書"]
 
 [permalinks]
   post = "/:year/:month/:slug/"
