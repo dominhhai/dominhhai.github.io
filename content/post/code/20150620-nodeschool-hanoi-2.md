@@ -13,13 +13,13 @@ keywords:
 - NodeSchool Hanoi
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/community/nodeschool-hanoi.svg
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/community/nodeschool-hanoi.svg
 metaAlignment: center
 ---
 Ngày 20/6/2015, buổi workshop lần 2 của [NodeSchool Hanoi](http://nodeschool.io/hanoi/) đã diễn ra tốt đẹp với sự tham gia của gần 30 bạn tại công ty [CodeLovers Vietnam](http://codelovers.vn/).
 <!--more-->
 
-{{< image classes="fancybox nocaption center clear" src="//res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-1.jpg" title="nodeschool hanoi 2 members" >}}
+{{< image classes="fancybox nocaption center clear" src="https://res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-1.jpg" title="nodeschool hanoi 2 members" >}}
 
 # Về lịch trình
 ## Thời gian
@@ -56,10 +56,10 @@ Cũng tại buổi workshop này công ty Codelovers Vietnam đã có 1 bài gi�
 
 Dưới đây là một số hình ảnh của buổi workshop này.
 
-{{< image classes="fancybox nocaption fig-100" src="//res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-2.jpg" >}}
-{{< image classes="fancybox nocaption fig-50" src="//res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-3.jpg" >}}
-{{< image classes="fancybox nocaption fig-50" src="//res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-4.jpg" >}}
-{{< image classes="fancybox nocaption fig-100" src="//res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-7.jpg" >}}
-{{< image classes="fancybox nocaption fig-50" src="//res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-5.jpg" >}}
-{{< image classes="fancybox nocaption fig-50" src="//res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-6.jpg" >}}
-{{< image classes="fancybox nocaption fig-100" src="//res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-8.jpg" >}}
+{{< image classes="fancybox nocaption fig-100" src="https://res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-2.jpg" >}}
+{{< image classes="fancybox nocaption fig-50" src="https://res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-3.jpg" >}}
+{{< image classes="fancybox nocaption fig-50" src="https://res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-4.jpg" >}}
+{{< image classes="fancybox nocaption fig-100" src="https://res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-7.jpg" >}}
+{{< image classes="fancybox nocaption fig-50" src="https://res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-5.jpg" >}}
+{{< image classes="fancybox nocaption fig-50" src="https://res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-6.jpg" >}}
+{{< image classes="fancybox nocaption fig-100" src="https://res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-8.jpg" >}}

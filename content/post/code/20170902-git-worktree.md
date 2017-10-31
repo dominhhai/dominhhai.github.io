@@ -12,7 +12,7 @@ keywords:
 - git worktree
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/git.png
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/git.png
 metaAlignment: center
 ---
 <a href="https://git-scm.com/docs/git-worktree" target="_blank" rel="noopener noreferrer">git worktree</a> cho phép ta có thể sử dụng cùng lúc nhiều nhánh của repo trong cùng một thư mục dự án.

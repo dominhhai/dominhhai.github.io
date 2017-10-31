@@ -11,7 +11,7 @@ keywords:
 - Node.js Deploy
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/nodejs_svg.svg
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/nodejs_svg.svg
 metaAlignment: center
 canonical: false
 ---

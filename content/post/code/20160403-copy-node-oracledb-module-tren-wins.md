@@ -13,7 +13,7 @@ keywords:
 - OralceDB Windows
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/nodejs_svg.svg
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/nodejs_svg.svg
 metaAlignment: center
 ---
 Trong bài [Chạy Oracle DB trên Nodejs](https://dofeet.wordpress.com/2016/03/27/node-oracledb-chay-oracle-db-tren-nodejs/) mình đã viết lại quá trình cài đặt node-oracle trên wins, thì bài này sẽ tập trung vào việc triển khai node-oracle khi deploy ứng dụng.

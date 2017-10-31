@@ -11,8 +11,8 @@ keywords:
 - Lets Encrypt
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/let-encrypt.svg
-#thumbnailImage: //letsencrypt.org/images/le-logo-twitter.png
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/let-encrypt.svg
+#thumbnailImage: https://letsencrypt.org/images/le-logo-twitter.png
 metaAlignment: center
 ---
 Bài viết này hướng dẫn cài đặt [Let's Encrypt](https://letsencrypt.org/) - một dịch vụ ngon-bổ-miễn phí cho việc HTTPS hóa máy chủ. Ở đây, mình sử dụng máy chủ CentOS 7 và Nginx để thực hiện, nhưng các bạn hoàn toàn có thể làm tương tự với các môi trường khác.

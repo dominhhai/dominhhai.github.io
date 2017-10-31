@@ -14,7 +14,7 @@ keywords:
 - Deep Learning
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/dl/logo.png
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png
 metaAlignment: center
 ---
 > Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.
@@ -191,7 +191,7 @@ what are n't you understanding about this ? ! SENTENCE_END
 Tổng quan về RNN đã được đề cập trong [bài đầu tiên](/vi/2017/10/what-is-rnn/),
 còn ở đây ta chỉ nói lại tóm tắt để có cái nhìn về cách xây dựng mạng RNN.
 
-{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/rnn.jpg" title="A recurrent neural network and the unfolding in time of the computation involved in its forward computation. Source: Nature" >}}
+{{< image classes="fancybox center" src="https://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/rnn.jpg" title="A recurrent neural network and the unfolding in time of the computation involved in its forward computation. Source: Nature" >}}
 
 Hãy nhìn kĩ và để ý xem RNN cho mô hình ngôn ngữ sẽ như thế nào.
 Đầu vào $ x $ sẽ là một chuỗi các từ và mỗi $ x_t $ sẽ là một từ đơn.

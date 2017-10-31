@@ -12,7 +12,7 @@ keywords:
 - sql test data
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/sql.png
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/sql.png
 metaAlignment: center
 ---
 Ta thường xuyên cần một lượng vừa đủ các dữ liệu để test và dev trong quá trình phát triển hệ thống.

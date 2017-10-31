@@ -12,7 +12,7 @@ keywords:
 - PHP Curl
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/php_svg.svg
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/php_svg.svg
 metaAlignment: center
 ---
 Chả là hôm rồi có sử dụng thư viện [`curl`](http://php.net/manual/en/book.curl.php) của PHP để gọi dịch vụ Restful Service của bên thứ 3 từ server PHP của mình thì gặp chút rắc rối nên giờ viết lại cho khỏi quên.

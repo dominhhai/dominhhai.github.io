@@ -14,7 +14,7 @@ keywords:
 - Deep Learning
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/dl/logo.png
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png
 metaAlignment: center
 ---
 > Bài giới thiệu RNN cuối cùng này được dịch lại từ trang <a href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.
@@ -54,7 +54,7 @@ Với mạng RNN thuần, các trạng thái ẩn được tính toán dựa và
 với $ s_t $ là trạng thái ẩn mới, $ s\_{t-1} $ là trạng thái ẩn phía trước và $ x_t $ là đầu vào của bước đó. Như vậy, đầu vào và đầu ra của LSTM cũng không khác gì so với RNN thuần, chúng chỉ khác cách tính toán mà thôi.
 Chính cách tính toán đặc biệt này giúp cho LSTM tránh được tình trạng đạo hàm bị triệt tiêu ở các bước phụ thuộc xa.
 
-{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/gru-lstm.png" >}}
+{{< image classes="fancybox center" src="https://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/gru-lstm.png" >}}
 
 Chi tiết về cách LSTM tránh được chuyện đó bạn có thể đọc bài viết của anh Chirs Olah tại <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener noreferrer">đây</a> (bản dịch tại <a href="/vi/2017/10/what-is-lstm/" target="_blank" rel="noopener noreferrer">đây</a>).
 Về cơ bản ta có thể tóm tắt LSTM như sau:
@@ -76,7 +76,7 @@ Tuy nhiên, thay vì lấy giá trị đó làm trạng thái đầu ra như RNN
 Nói nôm na là nó là sự kết hợp của bộ nhớ trước và đầu vào hiện tại.
 * Sau khi có được $ c_t $ rồi, ta sẽ đưa nó qua cổng ra để lọc thông tin một lần nữa để có được trạng thái mới $ s_t $.
 
-{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/Screen-Shot-2015-10-23-at-10.00.55-AM.png" title="LSTM Gating. Chung, Junyoung, et al. “Empirical evaluation of gated recurrent neural networks on sequence modeling.” (2014)" >}}
+{{< image classes="fancybox center" src="https://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/Screen-Shot-2015-10-23-at-10.00.55-AM.png" title="LSTM Gating. Chung, Junyoung, et al. “Empirical evaluation of gated recurrent neural networks on sequence modeling.” (2014)" >}}
 
 RNN thuần có thể coi là một trường hợp đặc biệt của LSTM.
 Ở sơ đồ trên, nếu ta để giá trị đầu ra của cổng vào luôn là 1 và đầu ra của cổng quên luôn là 0 (không nhớ trạng thái trước), thì ta sẽ được mô hình RNN thuần.
@@ -110,7 +110,7 @@ Cùng chung ý tưởng sử dụng cơ chế cổng điều chỉnh thông tin,
 * 2 cổng vào và cổng quên được kết hợp lại thành cổng cập nhập $ z $ và cổng thiết lập lại $ r $ sẽ được áp dụng trực tiếp cho trạng thái ẩn trước.
 * GRU không sử dụng một hàm phi tuyến tính để tính đầu ra như LSTM.
 
-{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/Screen-Shot-2015-10-23-at-10.36.51-AM.png" title="GRU Gating. Chung, Junyoung, et al. “Empirical evaluation of gated recurrent neural networks on sequence modeling.” (2014)" >}}
+{{< image classes="fancybox center" src="https://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/Screen-Shot-2015-10-23-at-10.36.51-AM.png" title="GRU Gating. Chung, Junyoung, et al. “Empirical evaluation of gated recurrent neural networks on sequence modeling.” (2014)" >}}
 
 # 3. GRU vs LSTM
 Cả 2 kiến trúc này đều có thể giải quyết được vấn đề mất mát đạo hàm, nhưng cái nào ngon hơn cái nào?
@@ -200,7 +200,7 @@ Thêm một tầng thứ 2 có thể giúp mô hình của ta tương tác đư�
 Bạn có thể thêm nhiều tầng hơn nữa, nhưng chắc chắn rằng đừng để mô hình của bạn bị khớp quá (overfitting) khi dữ liệu của bạn không đủ lớn.
 Ở đây tôi không có nhiều dữ liệu, nên tôi cũng chỉ muốn mô hình của mình trả ra kết quả ngay sau 2, 3 tầng mạng.
 
-{{< image classes="fancybox center" src="//d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/gru-lstm-2-layer.png" >}}
+{{< image classes="fancybox center" src="https://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/10/gru-lstm-2-layer.png" >}}
 
 Việc tính toán ở các tầng là tương tự nhau, nên ta chỉ cần thêm đoạn mã tính cho tầng vừa thêm là được.
 

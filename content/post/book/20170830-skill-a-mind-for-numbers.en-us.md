@@ -12,7 +12,7 @@ keywords:
 - Learning Skill
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/book/a-mind-for-numbers.jpg
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/book/a-mind-for-numbers.jpg
 metaAlignment: center
 canonical: false
 ---

@@ -14,7 +14,7 @@ keywords:
 - Markdown Preview
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/editor/atom.png
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/editor/atom.png
 metaAlignment: center
 ---
 ![atom.auto-complete](https://raw.githubusercontent.com/dominhhai/blog/master/imgs/atom.gif 'atom auto-complete' width="800" height="600")

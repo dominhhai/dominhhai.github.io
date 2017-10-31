@@ -13,7 +13,7 @@ keywords:
 - GitFlow
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/git.png
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/git.png
 metaAlignment: center
 ---
 Gần đây mới được tiếp xúc với git-flow thấy cách làm việc hay quá, muốn chia sẻ lại đôi chút. Về cơ bản git-flow là một tập hợp các lệnh mở rộng cho git nhằm hỗ trợ cho quy trình làm việc hiệu quả hơn.

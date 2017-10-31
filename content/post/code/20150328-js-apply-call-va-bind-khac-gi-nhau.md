@@ -13,7 +13,7 @@ keywords:
 - JS
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.svg
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/js.svg
 metaAlignment: center
 ---
 Như trong bài về [từ khóa `this`](/vi/2015/03/js-what-is-this/) đã đề cập tới ngữ cảnh thực thi với mối tương quan tới từ khóa `this` và việc thay đổi được ngữ cảnh thực thi một cách trực tiếp bằng cách sử dụng `call`, `apply` và `bind`, thì bài viết này sẽ làm rõ ràng hơn 3 phương thức này và sự khác nhau cũng như tính hữu dụng của nó.

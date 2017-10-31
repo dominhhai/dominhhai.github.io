@@ -12,7 +12,7 @@ keywords:
 - change file name
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/terminal.jpg
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/terminal.jpg
 metaAlignment: center
 ---
 Gần đây Gmail không cho phép gửi các file có đuôi là mã nguồn ngôn ngữ lập trình như `.js`, `.vb` chẳng hạn.

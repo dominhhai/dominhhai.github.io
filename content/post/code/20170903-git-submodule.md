@@ -12,7 +12,7 @@ keywords:
 - git submodule
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/git.png
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/git.png
 metaAlignment: center
 ---
 Đôi lúc ta cần phải sử dụng các repo khác như là một module của dự án hiện tại,

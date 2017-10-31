@@ -13,7 +13,7 @@ keywords:
 - JS
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.svg
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/js.svg
 metaAlignment: center
 ---
 JavaScript (JS) là một ngôn ngữ lập trình khá linh hoạt và thú vị. Nhưng để có được điều đó nó cũng mang tới không ít phiền phức, dễ nhầm lẫn với những người không chuyên. Với những người mới sờ vào JS, họ thường nghĩ ngay chắc JS cũng lơ lớ như các ngôn ngữ lập trình khác như Java hay C#. Nhưng nhiều điểm ở JS lại khá khác với suy nghĩ ở các ngôn ngữ khác gây nên những hiểu lầm cho người mới vào nghề. Một trong những điểm dễ nhầm lẫn đó là biến `this` vì trong JS nó không chỉ đơn giản là đại diện cho đối tượng hiện thời như các ngôn ngữ lập trình hướng đối tượng khác. Cụ thể ra sao ta cùng nhau xem xét ở bài viết này.

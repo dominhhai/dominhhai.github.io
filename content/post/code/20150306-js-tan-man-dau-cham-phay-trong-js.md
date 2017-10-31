@@ -13,8 +13,8 @@ keywords:
 - JS
 autoThumbnailImage: true
 thumbnailImagePosition: "left"
-thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/js.svg
-coverImage: //res.cloudinary.com/dominhhai/image/upload/code/js.svg
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/js.svg
+coverImage: https://res.cloudinary.com/dominhhai/image/upload/code/js.svg
 metaAlignment: center
 ---
 JavaScript cho phép chúng ta lược bỏ dấu kết thúc lệnh (dấu chấm phẩy). Nhưng trường hợp nào ta phải bắt buộc dùng dấu chấm phải, trường hợp nào thì không và có khi nào ta nên bỏ nó đi?
