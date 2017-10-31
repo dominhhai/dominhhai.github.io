@@ -12,11 +12,12 @@
 # For developpers, if you modify this theme, put your images in `source/images` folder and
 # use grunt task `build` to synchronize assets
 
+# Basic
 baseURL = "https://dominhhai.github.io/"
 languageCode = "vi"
 defaultContentLanguage = "vi"
 defaultContentLanguageInSubdir = true
-title = "Blog of Do Minh Hai"
+title = "Hai's Blog"
 theme = "tranquilpeak"
 disqusShortname = "tranquilpeak"
 googleAnalytics = "UA-105333519-1"
@@ -24,28 +25,36 @@ paginate = 8
 canonifyurls = true
 enableRobotsTXT = true
 
+# Language Configuration
+## Vietnamese
 [languages.vi]
 weight = 0
 languagename = "Tiếng Việt"
-title = "Hai's Blog"
+
+## English
 [languages.en-us]
 weight = 1
 languagename = "English"
 categories = ["Programming", "Machine Learning", "Math", "Probability", "Books"]
+
+## Japanese
 [languages.ja]
 weight = 2
 languagename = "日本語"
-title = "ドーミンハイ"
 categories = ["開発", "機械学習", "数学", "確率", "読書"]
+dateFormat = "2006年January2日"
 
+# Post permalinks Configuration
 [permalinks]
   post = "/:year/:month/:slug/"
 
+# Taxomies Configuration
 [taxonomies]
   tag = "tags"
   category = "categories"
   archive = "archives"
 
+# Author Configuration
 [author]
   name = "Do Minh Hai"
   bio = "Just a developer<br>Enjoy life as a journey"
@@ -113,6 +122,7 @@ categories = ["開発", "機械学習", "数学", "確率", "読書"]
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
   url = "/index.xml"
 
+# Other Site Params Configuration
 [params]
   # Customize date format use to render blog post date, categories and other
   # You must use date format used by Go Time package https://golang.org/pkg/time/

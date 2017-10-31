@@ -1,6 +1,12 @@
 ## GLOBAL ##
 - id: "global.author_picture"
   translation: "Ảnh đại diện"
+
+## POST ##
+- id: "post.no_title"
+  translation: "Vô đề"
+- id: "post.categorized_in"
+  translation: "mục"
 - id: "post.toc"
   translation: "Mục lục"
 - id: "post.go_to_website"

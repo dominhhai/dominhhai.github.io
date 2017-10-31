@@ -11,6 +11,16 @@ body, h1, h2, h3, h4, h5, h6, html
   color: inherit;
 }
 
+a.category-link {
+  color: #39739d !important;
+  background-color: #E1ECF4;
+  border-color: transparent;
+  padding: 0.2em 0.8em;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0.2em 1.5em;
+}
+
 #footer {
   background-color: #333;
   max-width: none;
