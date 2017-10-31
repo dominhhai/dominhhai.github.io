@@ -19,7 +19,9 @@ metaAlignment: center
 ---
 Từng làm việc với một vài ngôn ngữ lập trình (`Java`, `C`, `C++`, `C#`, `Objective-C`, `PHP`), mỗi ngôn ngữ đều có cái hay riêng. Nhưng khi tiếp xúc với JavaScript (JS) lại tự dưng thấy yêu nó, yêu cái vẻ sexy và bất ngờ của nó. Ví như mảng trong JS rất đặc biệt và bất ngờ. Trong bài này sẽ viết lại một số điểm có thể là bất ngờ với một số người như mình.
 
-### 1. Bạn lấy độ dài của mảng thế nào?
+<!-- toc -->
+
+# 1. Bạn lấy độ dài của mảng thế nào?
 
 Hôm qua ngồi code lúc lấy độ dài mảng bằng thuộc tính `length` mới thấy khác biệt với phần tử lấy được, làm mình hơi ngạc nhiên một chút. Ngồi đọc lại tài liệu JS, mới thấy dường như nó không có thuộc tính lưu trữ số lượng phần tử hiện hữu (khác `undefined`) trong nó thì phải? Hoặc ít nhất là mình chưa rõ. Có cao thủ nào chỉ giáo cho thì tốt. Các bạn có thể thử đoạn mã sau thì sẽ thấy rằng thuộc tính `length` của mảng sẽ bằng tổng của index lớn nhất của mảng với 1.
 
@@ -49,7 +51,7 @@ Vậy câu hỏi đặt ra là làm thế nào để lấy được số phần 
 
 Một cách làm đơn giản là duyệt mảng để đếm số lượng các phần tử hiện hữu của mảng đúng không? Thế nhưng mọi chuyện lại không đơn giản như ta nghĩ.
 
-### 2. Bạn duyệt mảng thế nào?
+# 2. Bạn duyệt mảng thế nào?
 
 Duyệt mảng trong JS cũng rất thú vị. Cách duyệt mảng thông thường với một mảng là lấy `length` của nó rồi duyệt từ đầu tới cuối như sau.
 
@@ -108,7 +110,7 @@ console.log('The size of array: %d', counter)
 
 Từ đây ta có thể thấy một điều là nên cẩn thận với biến length của mảng và nên chú ý cách duyệt mảng sao cho hợp lý. Với các dữ liệu liên tục ta hoàn toàn có thể duyệt theo biến `length` hay `Array.forEach`, nhưng dữ liệu cách đoạn và index không là số tự nhiên thì cần theo cách duyệt `for in`.
 
-### 3. Làm sao để biết một biến là mảng?
+# 3. Làm sao để biết một biến là mảng?
 
 Các bạn thử chạy đoạn mã sau xem thế nào.
 

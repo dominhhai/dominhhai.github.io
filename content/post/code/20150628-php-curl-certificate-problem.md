@@ -15,9 +15,9 @@ thumbnailImagePosition: left
 thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/php_svg.svg
 metaAlignment: center
 ---
-### Lỗi `SSL certificate problem: unable to get local issuer certificate` cho PHP curl
-
 Chả là hôm rồi có sử dụng thư viện [`curl`](http://php.net/manual/en/book.curl.php) của PHP để gọi dịch vụ Restful Service của bên thứ 3 từ server PHP của mình thì gặp chút rắc rối nên giờ viết lại cho khỏi quên.
+Cụ thể là khi chạy lệnh curl của PHP ăn ngay cái lỗi _"SSL certificate problem: unable to get local issuer certificate"_ nên phải loay xoay xử lý tí.
+<!--more-->
 
 Chắc mọi người cũng biết lệnh [`curl`](http://linux.about.com/od/commands/l/blcmdl1_curl.htm) của linux là một lệnh khá mạnh mẽ dùng để kết nối, gửi hay lấy dữ liệu với một máy chủ nào đó, và nó hỗ trợ nhiều kiểu giao thức khác nhau như `HTTP`, `HTTPS`, `FTP`, `GOPHER`, `DICT`, `TELNET`, `LDAP` hay `FILE`. Với ngôn ngữ `PHP` lệnh này chính thức được hỗ trợ từ phiên bản `PHP 4.0.2`. Với việc hỗ trợ này, ta có thể dễ dàng biến máy chủ của ta thành một máy client để gọi dịch vụ từ các máy chủ khác một cách dễ dàng hơn.
 
@@ -25,7 +25,7 @@ Trong bài viết này mình sử dụng hệ điều hành Windows, có cài [`
 
 Về cơ bản, sử dụng thư viện `curl` không có gì khó khăn, nhưng nếu không biết thì debug khá là mệt. Để debug với `curl` thì mình sử dụng cách log lại thực thi lệnh này với file log. Ví dụ như đoạn mã sau:
 
-```php
+{{< codeblock "test.php" "php" >}}
 // khởi tạo với URL là `https://xxx/api/info`
 $ch = curl_init("https://xxx/api/info");
 
@@ -64,7 +64,7 @@ fclose($fp);
 
 // in thông tin kết quả trả về
 var_dump($result);
-```
+{{< /codeblock >}}
 
 Sau khi thực hiện đoạn mã trên mình thấy chương trình luôn trả về lỗi là `60` và mình để ý file log có đoạn lỗi sau:
 

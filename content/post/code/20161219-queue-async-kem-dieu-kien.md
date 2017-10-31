@@ -38,7 +38,7 @@ $ npm i -S job-schedule
 ```
 
 ### 2. API
-```javascript
+{{< codeblock "api.js" "js" >}}
 const Queue = require('job-schedule')
 
 // tham số và giá trị trả gia hệt như `priorityQueue`
@@ -54,10 +54,10 @@ q.when = function (node, cb) {
   }
   doSomething(() => cb())
 }
-```
+{{< /codeblock >}}
 
 ### 3. Ví dụ
-```javascript
+{{< codeblock "test.js" "js" >}}
 const Queue = require('job-schedule')
 
 var timerId = null
@@ -68,7 +68,7 @@ var q = new Queue((task, cb) => {
 
 q.when = function (node, cb) {
   // start task if it's priority less than 2
-  if (node.priority -- < 2) {
+  if (node.priority-- &lt 2) {
     clearTimeout(timerId)
     console.log('start:', node.data.name)
     return true
@@ -94,4 +94,4 @@ q.push({name: 'bar'}, 2, function (err) {
 q.push([{name: 'baz'}, {name: 'bay'}, {name: 'bax'}], 6, function (err) {
   console.log('finished processing item', err)
 })
-```
+{{< /codeblock >}}

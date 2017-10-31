@@ -26,7 +26,7 @@ Trước hết ta phân tách bài toán của ta thành 2 phần riêng biệt 
 
 Trong bài viết này, ta sẽ đi cụ thể từng vấn đề một nhằm tạo ra được một lượng lơn dữ liệu test ngẫu nhiên.
 
-### 1. Tạo một lượng dữ liệu
+# 1. Tạo một lượng dữ liệu
 Giả sử ta có bảng dữ liệu `item` được tạo bằng câu lệnh sau:
 ```sql
 CREATE TABLE item (
@@ -57,7 +57,7 @@ Giờ ta đã có một số lượng cần thiết các dữ liệu rồi,
 tuy nhiên các dữ liệu đó đều giống nhau cả và mang giá trị mặc định của từng trường dữ liệu.
 Bước tiếp theo là cần làm cho chúng khác nhau một cách ngẫu nhiên.
 
-### 2. Làm dữ liệu mang tính ngẫu nhiên
+# 2. Làm dữ liệu mang tính ngẫu nhiên
 Để tạo dữ liệu ngẫu nhiên cho các bản ghi đó,
 trước hết ta cần biết cách tạo dữ liệu ngẫu nhiên riêng biệt cho từng trường một.
 

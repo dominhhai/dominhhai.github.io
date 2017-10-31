@@ -15,6 +15,7 @@ thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/terminal.jpg
 metaAlignment: center
 ---
 Để tạo được tên thay thế (alias) cho các lệnh trên Mac khá đơn giản. Ta chỉ cần thêm các lệnh alias vào file `.bash_profile` tại thư mục `home` là OK. Trường hợp máy chưa có file `.bash_profile` thì ta có thể tạo mới file này là OK.
+<!--more-->
 
 {{< image classes="fancybox nocaption center clear" src="//res.cloudinary.com/dominhhai/image/upload/code/cli-alias1.png" title=".bash_profile" >}}
 

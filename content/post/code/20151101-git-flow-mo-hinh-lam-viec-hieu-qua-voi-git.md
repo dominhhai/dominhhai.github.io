@@ -17,9 +17,10 @@ thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/code/git.png
 metaAlignment: center
 ---
 Gần đây mới được tiếp xúc với git-flow thấy cách làm việc hay quá, muốn chia sẻ lại đôi chút. Về cơ bản git-flow là một tập hợp các lệnh mở rộng cho git nhằm hỗ trợ cho quy trình làm việc hiệu quả hơn.
+<!--more-->
 
-・Tóm tắt: [Git-Flow Cheatsheet](http://dominhhai.github.io/git-flow-cheatsheet/index.vi_VN.html).
-・Đầy đủ: [Git-Flow Repos](https://github.com/dominhhai/gitflow)
+* Tóm tắt: [Git-Flow Cheatsheet](http://dominhhai.github.io/git-flow-cheatsheet/index.vi_VN.html).
+* Đầy đủ: [Git-Flow Repos](https://github.com/dominhhai/gitflow)
 
 Tuy nhiên bản đầy đủ hiện giờ đang không được bảo trì nên có một số tính năng mà bạn muốn có khi lại không có ví dụ như tính năng xoá một nhánh feature chẳng hạn. Tất nhiên là bạn vẫn có thể sử dụng các lệnh thông thường của `git` để thực hiện, nhưng nếu có phần mở rộng tiện dụng hơn thì dại gì lại không dùng nhỉ. Để sử dụng thêm một số tính năng mở rộng bạn có thể sử dụng một bản fork của gitflow chính quy tại [gitflow-avh](https://github.com/petervanderdoes/gitflow-avh).
 

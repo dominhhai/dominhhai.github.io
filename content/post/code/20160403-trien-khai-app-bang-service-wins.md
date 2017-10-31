@@ -20,8 +20,8 @@ metaAlignment: center
 2. Sử dụng [issnode](https://github.com/tjanczuk/iisnode)
 3. Sử dụng [NSSM](https://nssm.cc/)
 
-Cả 3 softwares trên đều có hướng dẫn rất chi tiết trên trang chủ tương ứng, nhưng ta nên chọn cái nào để triển khai ứng dụng?
-Trong bài này ta sẽ liệt kê 1 vài điểm mạnh yếu của chúng.
+Cả 3 softwares trên đều có hướng dẫn rất chi tiết trên trang chủ tương ứng, nhưng ta nên chọn cái nào để triển khai ứng dụng? Trong bài này ta sẽ liệt kê 1 vài điểm mạnh yếu của chúng.
+<!--more-->
 
 |     | Tên     | Điểm mạnh  | Điểm yếu  |
 | --- | ------- | ----- | ----- |

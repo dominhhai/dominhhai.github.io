@@ -18,6 +18,8 @@ metaAlignment: center
 ---
 Mình không thực sự hiểu nhiều về các thuật toán, kĩ thuật mã hóa mật khẩu. Mình chỉ đọc qua một số phương pháp mã hóa và các lời bình về nó trên mạng và quyết định sử dụng [`bcrypt`](https://en.wikipedia.org/wiki/Bcrypt).
 Đọc thì thấy rằng thuật toán này tuy có hơi chậm hơn các thuật toán khác như [`MD5`](https://en.wikipedia.org/wiki/MD5), nhưng đổi lại nó giải quyết được các vấn đề như hack từ điển... của các thuật toán khác do có thể đối phó được với cấp độ tiến hóa của vi xử lý máy tính.
+<!--more-->
+
 Bạn nào quan tâm thì có thể tìm hiểu thêm ở bài viết [How To Safely Store A Password](http://codahale.com/how-to-safely-store-a-password/) và bài báo khoa học [A Future-Adaptable Password Scheme - 1999 USENIX Annual Technical Conference](https://www.usenix.org/legacy/events/usenix99/provos/provos_html/index.html) này nhé.
 Cũng thông qua bài này, mình mong rằng có bạn nào hiểu về kĩ thuật mã hóa có thể chỉ giáo cho mình rõ hơn vì bản thân có tìm hiểu nhưng chẳng hiểu gì :((
 

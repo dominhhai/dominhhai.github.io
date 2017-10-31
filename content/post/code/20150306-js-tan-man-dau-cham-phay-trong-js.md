@@ -19,6 +19,8 @@ metaAlignment: center
 ---
 JavaScript cho phép chúng ta lược bỏ dấu kết thúc lệnh (dấu chấm phẩy). Nhưng trường hợp nào ta phải bắt buộc dùng dấu chấm phải, trường hợp nào thì không và có khi nào ta nên bỏ nó đi?
 Trước mắt ta xem một chút bộ dịch JavaScript sẽ làm gì với các lệnh của ta.
+<!--more-->
+<!-- toc -->
 
 {{< codeblock "ex1.js" "js" >}}
 var a = 10
@@ -33,7 +35,7 @@ function add(a, b) {
 }
 {{< /codeblock >}}
 
-### 1. JavaScript sẽ tự thêm dấu chấm phẩy
+# 1. JavaScript sẽ tự thêm dấu chấm phẩy
 
 Mặc dù JavaScript cho phép lược bỏ dấu chấm phẩy (;) nhưng về bản chất nó vẫn thêm (;) vào mỗi lệnh đầy đủ khi thực thi chương trình. Tại sao lại là lúc thực thi chương trình? Lý do rất đơn giản là JavaScript là ngôn ngữ thông dịch, lúc chạy chương trình nó mới được dịch chứ không cần phải dịch toàn bộ trước như các ngôn ngữ biên dịch như C, C++ hay Java.
 Đoạn chương trình phía trên khi chạy sẽ được chuyển thành dạng sau:
@@ -53,7 +55,7 @@ function add(a, b) {
 
 Ồ hay nhỉ? Nó tự động thêm cho ta nhưng cũng không được thông minh cho lắm, vì như đoạn mã trên `return;` đã là một lệnh đầy đủ rồi nên nó sẽ bị chèn dấu (;) vào. Như vậy kiểu như đoạn mã trên thì hàm `add` sẽ không trả ra gì nữa, quả là tai hại. Vì vậy cần lưu ý là không xuống dòng ngày sau `return` trừ khi ta sử dụng dấu (;) để kết thúc lệnh.
 
-### 2. Khi nào bắt buộc phải dùng dấu chấm phẩy
+# 2. Khi nào bắt buộc phải dùng dấu chấm phẩy
 
 Ta buộc phải dùng (;) giữa các lệnh gắn (bao gồm cả tính toán), lệnh gọi hàm trên cùng một dòng như ví dụ dưới đây.
 
@@ -71,7 +73,7 @@ function add(a, b) {
 }
 {{< /codeblock >}}
 
-### 3. Khi nào ta lược bỏ được dấu chấm phẩy
+# 3. Khi nào ta lược bỏ được dấu chấm phẩy
 
 Ta lược bỏ được (;) cho các lệnh trên các dòng khác nhau như ví dụ trên đã đưa ra.
 Ta cũng bỏ được nó khi gắn các block cho biến như ví dụ dưới đây.
@@ -86,7 +88,7 @@ var sub = function sub(a, b) {
 }    square = function (a) { return a * a }
 {{< /codeblock >}}
 
-### 4. Cận thận với câu lệnh rỗng
+# 4. Cận thận với câu lệnh rỗng
 
 Câu lệch rỗng là một câu lệch chỉ bao gồm dấu kết thúc lệnh (;) hoặc các lệnh không có nghĩa.
 
@@ -109,13 +111,13 @@ function add(a, b) {
 Với các lệnh rỗng chúng vẫn thực thi nhưng với chúng ta thì dường như chúng lại vô dụng, nên khi code cần cẩn thận ở điểm này, nhất là các khối lệnh thực hiện bằng hàm hay lệch điều khiển.
 Lệch rỗng không hẳn là không có tác dụng tốt, chúng tốt khi chúng ta ghép file mã nguồn như phần 5.5 mô tả.
 
-### 5. Ta có nên bỏ dấu chấm phẩy
+# 5. Ta có nên bỏ dấu chấm phẩy
 
 Bỏ dấu kết thúc này có tác dụng gì không? Hay chỉ mang lại phiền toái. Ta cùng xét một vài tiêu chí dưới đây.
-##### 5.1. Kích thước file khi bỏ dấu chấm phẩy
+## 5.1. Kích thước file khi bỏ dấu chấm phẩy
 Dường như bỏ dấu chấm phẩy đi ta có thể tiết kiệm được chút dung lượng file. Nhưng quả thực chẳng đáng là bao vì mỗi dấu chỉ chiếm 1 byte. Nhưng rất nhiều người code JS vẫn bỏ dấu (;), đặc biệt là với những người hay code bằng [Coffee Script](http://coffeescript.org/ "Coffee Script").
 
-##### 5.2. Sử dụng bộ rút gọn file JS
+## 5.2. Sử dụng bộ rút gọn file JS
 Với những file JS phía Server, ít khi chúng ta sử dụng việc rút gọn file. Nhưng với phía Client như các mã thực thi phía trình duyệt, ta thường xuyên sử dụng các công cụ rút gọn file như [Google Closure](http://closure-compiler.appspot.com/home).
 Bằng các công cụ rút gọn file ta có thể thu gọn các tên biến, tên hàm lại, loại bỏ các khoảng trống không cần thiết như các dấu space, tab và cả enter, và loại bỏ cả các biến, các hàm không sử dụng trong mã nguồn. Như vậy file rút gọn của ta sẽ nhẹ đi rất nhiều và làm cho người lấy được file đó cũng khó hiểu hơn.
 Tất nhiên cũng có những công cụ cho phép chúng ta revert lại mã đã thu gọn, nhưng các tên được thu gọn thì không có cách nào revert được ^^.
@@ -147,10 +149,10 @@ var a=10;var b=a+20;function add(a,b){return a+b}a=add(a,b);
 Đoạn đơn giản này thì ta có thể kiểm tra nhanh được, nhưng với các bộ mã nguồn phức tạp và dài như dùng lồng callback chẳng hạn thì việc kiểm tra không hề đơn giản.
 
 
-##### 5.3. Thống nhất style mã nguồn
+## 5.3. Thống nhất style mã nguồn
 Cái này hiển nhiên rồi, vì tất cả các lệch đều được kết thúc với (;) làm cho mã nguồn đồng bộ về style hơn. Tất nhiên là với một số bạn thì việc không dùng trông lại cool và pro hơn ^^.
 
-##### 5.4. Cận thận với trường hợp function tự thực thi
+## 5.4. Cận thận với trường hợp function tự thực thi
 Trường hợp có function tự gọi thực thi thì rất dễ bị nhầm lẫn như ví dụ sau.
 
 {{< codeblock "ex9.js" "js" >}}
@@ -176,7 +178,7 @@ var fn = function () {
 
 Làm gì có hàm nào lại có định dạng `function() {}()` như thế này nhỉ? Khi chạy đoạn trên sẽ bị lỗi `Uncaught TypeError: undefined is not a function`. Bạn nào không tin có thể thực thi bằng cách chạy trên trình duyện. Có thể dùng [JS Fiddle](https://jsfiddle.net/) chạy cũng OK.
 
-##### 5.5. Ghép file
+## 5.5. Ghép file
 Khi ghép 2 file lại với nhau, chuyện gì xảy ra nếu không có dấu (;)?
 Câu trả lời là rất dễ nhầm lẫn vì khi ghép file thường ta ghép điểm cuối file nọ vào đầu file kia trên cùng một dòng và kết quả là 2 lệch cùng 1 dòng mà không có dấu (;) giữa các lệnh. Thậm chí nếu khác dòng thì vẫn có thể dính trường hợp 5.4 phía trên.
 Để giải quyết vấn đề này thì ta có thể thêm một lệch rỗng ở đầu file mã nguồn.
@@ -186,5 +188,5 @@ Câu trả lời là rất dễ nhầm lẫn vì khi ghép file thường ta gh�
 var b = (a < 8) ? a : 8
 {{< /codeblock >}}
 
-### 6. Kết luận
+# 6. Kết luận
 Ta nên sử dụng dấu (;) để kết thúc mỗi lệch khi viết mã cho client với các lý do vừa đề cập phía trên. Còn phía server, do đặc điểm không mấy ai thu gọn hay nén file nên ta "có thể" lược bỏ, nhưng cần lưu ý với update file mã nguồn dễ bị xảy ra các trường hợp như 5.4. Mà để đỡ đau đầu và rắc rối thì cứ thêm vào cho chắc ăn.

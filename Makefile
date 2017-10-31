@@ -6,6 +6,7 @@ dev:
 deploy:
 	@hugo \
 		&& cd public \
+		&& minify -v -r -o . . # minify output https://github.com/tdewolff/minify/tree/master/cmd/minify#directories
 		&& git add --all \
 		&& git commit -m "Build on $$(date)" \
 		&& git push \

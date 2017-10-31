@@ -19,43 +19,43 @@ Bài viết này hướng dẫn cài đặt [Let's Encrypt](https://letsencrypt.
 
 Để cài đặt được `Let's Encrypt`, ta cần có môi trường `Python v2.7.x` trở lên. Nên nếu máy của bạn chưa có thì cài đặt hoặc cập nhập bản mới đi nhé.
 
-### 1. Kiểm tra phiên bản Python
+# 1. Kiểm tra phiên bản Python
 ```
 $ python --version
 ```
-### 2. Kiểm tra xem ta đã mở cổng 443 hay chưa
+# 2. Kiểm tra xem ta đã mở cổng 443 hay chưa
 ```
 $ sudo cat /etc/sysconfig/iptables
 ```
 
 Nếu chưa mở cổng này thì các bạn mở nó ra nhé vì https chạy qua cổng 443 này.
 
-### 3. Tải về certbot từ Github
+# 3. Tải về certbot từ Github
 ```
 $ git clone https://github.com/certbot/certbot
 ```
 
-### 4. Chuyển qua thư mục certbot để tiện làm việc
+# 4. Chuyển qua thư mục certbot để tiện làm việc
 ```
 $ cd certbot
 ```
 
-### 5. Lấy và tạo file Cert
+# 5. Lấy và tạo file Cert
 ```
 $ ./certbot-auto certonly --standalone --email EMAIL_ADDRESS_HERE -d DOMAIN_HERE
 ```
 
-### 6. Kiểm tra các file cert được sinh ra
+# 6. Kiểm tra các file cert được sinh ra
 ```
 $ sudo ls /etc/letsencrypt/live/DOMAIN_HERE
 ```
 
-### 7. Backup các file cert
+# 7. Backup các file cert
 ```
 $ sudo cp -r /etc/letsencrypt/live/DOMAIN_HERE ../sslcert
 ```
 
-### 8. Cấu hình Nginx
+# 8. Cấu hình Nginx
 ```
 $ sudo vi /etc/nginx/conf.d/default.conf
 ```
@@ -81,12 +81,12 @@ server {
 }
 ...
 ```
-### 9. Khởi động lại Nginx
+# 9. Khởi động lại Nginx
 ```
 $ sudo systemctl reload nginx
 ```
 
-### 10. Tự động gia hạn chứng nhận HTTPS
+# 10. Tự động gia hạn chứng nhận HTTPS
 ```
 $ sudo crontab -e
 ```

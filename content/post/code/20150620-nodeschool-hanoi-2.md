@@ -17,6 +17,7 @@ thumbnailImage: //res.cloudinary.com/dominhhai/image/upload/community/nodeschool
 metaAlignment: center
 ---
 Ngày 20/6/2015, buổi workshop lần 2 của [NodeSchool Hanoi](http://nodeschool.io/hanoi/) đã diễn ra tốt đẹp với sự tham gia của gần 30 bạn tại công ty [CodeLovers Vietnam](http://codelovers.vn/).
+<!--more-->
 
 {{< image classes="fancybox nocaption center clear" src="//res.cloudinary.com/dominhhai/image/upload/community/node-hanoi-2-1.jpg" title="nodeschool hanoi 2 members" >}}
 
