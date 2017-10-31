@@ -3,14 +3,16 @@ dev:
 	@hugo server -D
 
 # for publish
+# minify output https://github.com/tdewolff/minify/tree/master/cmd/minify#directories
 deploy:
-	@hugo \
+	@hugo -d tmp_public \
+		&& minify -v -r -o public/ tmp_public \
 		&& cd public \
-		&& minify -v -r -o . . # minify output https://github.com/tdewolff/minify/tree/master/cmd/minify#directories
 		&& git add --all \
 		&& git commit -m "Build on $$(date)" \
 		&& git push \
-		&& cd ..
+		&& cd .. \
+		&& rm -rf dest
 
 # publish & push
 push:
