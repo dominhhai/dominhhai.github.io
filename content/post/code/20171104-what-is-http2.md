@@ -15,28 +15,69 @@ thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/nodejs_sv
 metaAlignment: center
 draft: true
 ---
+Nhân tiện bản `Node v9x` mới ra cho phép ta có thể sử dụng ngay API thử nghiệm `HTTP/2` nên cũng tò mò tìm hiểu đôi chút xem kiến trúc, đặc điểm và cách sử dụng thế nào.
+Sau 2 năm ra chính thức ra lò, phiên bản tiếp theo của `HTTP` này dần được nhiều máy chủ Web lẫn trình duyệt hỗ trợ bởi tính vượt trội của nó so với phiên bản `HTTP/1.1`.
+<!--more-->
 
-Gần đây Gmail không cho phép gửi các file có đuôi là mã nguồn ngôn ngữ lập trình như `.js`, `.vb` chẳng hạn.
-Ngay cả việc đổi đuôi của các file nén cũng không có hiệu quả như trước, nên buộc phải tìm cách đổi toàn bộ đuôi 1 phát.
+<div style="position: relative; text-align: center; margin-top: 10px;">
+  <div style="display: inline-block; vertical-align: top; width: 49%; min-width: 350px;">
+    <iframe src="https://http1.akamai.com/demo/h2_demo_frame.html" marginheight="0" frameborder="0" scrolling="no" width="100%" height="420px">
+      <p>Your browser does not support iframes.</p>
+    </iframe>
+  </div>
+  <div style="display: inline-block; vertical-align: top; width: 49%; min-width: 350px;">
+    <iframe src="https://http2.akamai.com/demo/h2_demo_frame.html" marginheight="0" frameborder="0" scrolling="no" width="100%" height="420px">
+      <p>Your browser does not support iframes.</p>
+    </iframe>
+  </div>
+  <span class="caption">Source: https://http2.akamai.com/demo</span>
+</div>
 
-Bài viết này sẽ nói về cách thay đổi toàn bộ đuôi file bằng `.bat` file của Windows, tuy nhiên hoàn toàn có thể sử dụng để làm những chuyện khác với các file này như đổi tên chẳng hạn.
+<!--toc-->
 
-Để thay đổi file ta có thể sử dụng lệnh `ren`, ví dụ đổi đuôi `js` thành `jsx` ta có thể sử dụng: `ren *.js *jsx`.
+# 1. HTTP/2 là gì
+
+{{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/code/web/http2-history.png" title="Source: https://codezine.jp/article/detail/8663" >}}
+
+{{< image classes="fancybox center" src="https://developers.google.com/web/fundamentals/performance/http2/images/binary_framing_layer01.svg" title="Source: https://developers.google.com/web/fundamentals/performance/http2/" >}}
 
 
-Còn để duyệt toàn bộ các file của thư mục nào đó bao gồm cả các thư mục con, ta có thể sử dụng lệnh `for` với tham số `R`, ví dụ duyệt toàn bộ các file có đuôi là `.png`: `for /R %%f in (*.png) do @echo %%f`.
+# 2. Ưu điểm
 
-Ví dụ dưới đây có thể sài để thay đổi toàn bộ đuôi `.js` thành `.xxx` trong thư mục và thư mục con của thư mục hiện tại.
 
-{{< codeblock  "ren.bat" "bash" "https://stackoverflow.com/questions/15317647/how-to-batch-change-file-extensions-within-subfolders#15317773" >}}
-@echo OFF
 
-for /R %%f in (*.js) do ren "%%f" *.xxx
+# 3. Trình duyệt hỗ trợ
+{{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/code/web/http2-support.png" title="Source: https://caniuse.com/#search=http2" >}}
 
-@echo "done!"
-@timeout 100
-{{< /codeblock >}}
+# 4. Thử nghiệm với Node v9x
 
-Ở đây ta thêm lệnh `timeout` để cửa sổ Cmd của ta không bị đóng luôn nhằm tiện theo dõi kết quả.
+```
+$ openssl req -x509 -newkey rsa:2048 -nodes -sha256 -subj '/CN=localhost' \
+  -keyout localhost-privkey.pem -out localhost-cert.pem
+```
 
-Đơn giản thế thôi, nhưng không biết còn cách nào đơn giản hơn nữa không nhỉ?
+{{< codeblock "index.js" "js" >}}
+const http2 = require('http2')
+const fs = require('fs')
+
+const server = http2.createSecureServer({
+  key: fs.readFileSync('localhost-privkey.pem'),
+  cert: fs.readFileSync('localhost-cert.pem')
+})
+server.on('error', console.error)
+server.on('socketError', console.error)
+
+server.on('stream', (stream, headers) => {
+  // stream is a Duplex
+  stream.respond({
+    'content-type': 'text/html',
+    ':status': 200
+  })
+  stream.end('<h1>Hello World</h1>')
+})
+
+server.listen(8443)
+{{</ codeblock >}}
+
+{{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/code/web/http2-node-1.png" title="protocol" >}}
+{{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/code/web/http2-node-2.png" title="header" >}}
