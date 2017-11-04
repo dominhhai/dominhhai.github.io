@@ -1,4 +1,4 @@
-﻿---
+---
 title: "A Mind For Numbers"
 slug: a-mind-for-numbers
 date: 2017-08-30
@@ -85,7 +85,7 @@ mà nên kết hợp cả 2 việc đó lại với nhau.
 Vì nó giúp cho các nơ-ron thần kinh liên kết tốt hơn cho vấn đề ta đang học.
 
 ### 8. Tập trung
-Tắt tấtcả các âm thanh làm gián đoạn việc học của ta 
+Tắt tấtcả các âm thanh làm gián đoạn việc học của ta
 như tiếng thông báo của điện thoại hay máy tính.
 Nhưng hãy bật bộ hẹn giờ sau 25 phút,
 ta cần tập trung suốt mỗi 25 phút đó và cố gắng làm việc siên năng hết mức.
@@ -101,8 +101,8 @@ Mỗi lần liếc liếc thế đủ làm ta sao nhãng rồi. Vậy nên hãy 
 Đừng ăn ngay phần khó, hãy làm phần dễ nhất trước tiên để khởi động bộ não.
 
 ### 10. Tạo óc tương phản
-Hình dung chỗ ta đang học với nơi lý tưởng có thể giúp ta học tốt thế nào và so sánh chúng với nhau. 
-Từ đó ta hãy bổ sung một vài thứ gì đó như một bức ảnh hay một vài từ nào đó giúp ta gợi nhớ lại nơi lý tưởng của ta. 
+Hình dung chỗ ta đang học với nơi lý tưởng có thể giúp ta học tốt thế nào và so sánh chúng với nhau.
+Từ đó ta hãy bổ sung một vài thứ gì đó như một bức ảnh hay một vài từ nào đó giúp ta gợi nhớ lại nơi lý tưởng của ta.
 Mỗi khi bị mất động lực ta có thể nhìn vào đó để lấy lại cần bằng và tiếp tục làm việc.
 
 ## 10 cách học KHÔNG hiệu quả
@@ -133,7 +133,7 @@ Không, bạn không thể. Bộ não của ta cũng như các cơ bắp khác,
 nó chỉ giải quyết được một số hữu hạn công việc trong một khoảng thời gian thôi.
 
 ### 5. Làm đi làm lại cùng một kiểu bài toán mà ta đã biết cách giải
-Nếu mà ngồi lì để giải cùng một bài toán nào đó 
+Nếu mà ngồi lì để giải cùng một bài toán nào đó
 thì bạn dường như đang chuẩn bị cho giải bóng hơn là chuẩn bị cho kì thi.
 
 ### 6. Tham gia học nhóm cho "vui"
@@ -142,7 +142,7 @@ có thể giúp bạn hứng thú học hơn,
 phát hiện được lỗ hỏng của bản thân
 và hiểu sâu hơn những thứ đã học.
 Tuy nhiên, nếu ta chỉ tham gia nhóm học nào đó cho vui trước khi ta tự học
-thì nó chỉ làm mất thời gian của ta. 
+thì nó chỉ làm mất thời gian của ta.
 Lúc ấy hãy tìm nhóm khác học tập hiệu quả hơn.
 
 ### 7. Không đọc hướng dẫn trước khi thực hành
@@ -162,9 +162,9 @@ Không biết mà cũng không hỏi thì không thể nào khá lên được.
 Đừng nằm trong số những học viên kiểu đó.
 
 ### 9. Nghĩ rằng bản thân vẫn có thể học sâu được khi bị phân tâm
-Mỗi một tin nhắn hay cuộc nói chuyện ngắn thôi 
+Mỗi một tin nhắn hay cuộc nói chuyện ngắn thôi
 cũng đủ làm cho bộ não của ta hoạt động kém hiệu quả.
-Những chuyện nho nhỏ đó sẽ làm cho sự phát triển của nơ-ron bị ngắt quãng 
+Những chuyện nho nhỏ đó sẽ làm cho sự phát triển của nơ-ron bị ngắt quãng
 khiến chúng không liên kết được với nhau, dẫn tới việc bạn không thể học tốt được.
 
 ### 10. Thiếu ngủ

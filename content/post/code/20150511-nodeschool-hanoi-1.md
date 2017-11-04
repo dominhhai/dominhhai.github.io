@@ -1,4 +1,4 @@
-﻿---
+---
 title: "[NodeSchool] NodeSchool Hanoi lần 1"
 slug: nodeschool-hanoi-1
 date: 2015-05-11

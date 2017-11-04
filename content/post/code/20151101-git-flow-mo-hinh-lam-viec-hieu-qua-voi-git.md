@@ -1,4 +1,4 @@
-﻿---
+---
 title: "[Git] GitFlow - một mô hình làm việc hiệu quả"
 slug: gitflow-simple-effective-git-model
 date: 2015-11-01

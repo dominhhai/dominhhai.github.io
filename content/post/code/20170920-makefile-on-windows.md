@@ -1,4 +1,4 @@
-﻿---
+---
 title: "[Make] Sử dụng trên Windows"
 slug: gnu-make-windows
 date: 2017-09-20
@@ -46,4 +46,3 @@ Copyright (C) 2006  Free Software Foundation, Inc.
 
 This program built for i386-pc-mingw32
 ```
-

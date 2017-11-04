@@ -1,4 +1,4 @@
-﻿---
+---
 title: "[JS] Hiểu thế nào cho đúng về biến this"
 slug: js-what-is-this
 date: 2015-03-21

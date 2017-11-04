@@ -1,4 +1,4 @@
-﻿---
+---
 title: "[Git] worktree - cùng lúc sài nhiều branch"
 slug: git-worktree-multi-branchs
 date: 2017-09-02
@@ -86,7 +86,7 @@ $ git status
 On branch master
 Your branch is up-to-date with 'origin/master'.
 nothing to commit, working tree clean
-``` 
+```
 
 # 2. Liệt kê các nhánh
 Để xem ta đã lấy về các nhánh nào và ở thư mục tương ứng nào thì có thể sử dụng lệnh `list`.
@@ -120,4 +120,3 @@ Khi đó, ta có thể sử dụng lựa chọn `-f` để buộc `worktree` ph�
 Bài viết này đã trình bày phương pháp để làm việc với nhiều branch cùng lúc trong cùng một thư mục,
 vậy nếu không phải là nhánh mà là một repo khác thì sao?
 Câu trả lời là `git submodule`, mình sẽ viết về phương pháp này trong bài viết tới.
-

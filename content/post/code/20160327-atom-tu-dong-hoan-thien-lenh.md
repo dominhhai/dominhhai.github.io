@@ -1,4 +1,4 @@
-﻿---
+---
 title: "[Atom] Tự động hoàn thiện lệnh"
 slug: atom-auto-complele
 date: 2016-03-27

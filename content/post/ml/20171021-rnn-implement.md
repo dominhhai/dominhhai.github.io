@@ -1,4 +1,4 @@
-﻿---
+---
 title: "[RNN] Cài đặt RNN với Python và Theano"
 slug: implement-rnn-with-python
 date: 2017-10-21

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "[SQL] Tạo lượng lớn dữ liệu test"
 slug: sql-test-data
 date: 2017-09-20

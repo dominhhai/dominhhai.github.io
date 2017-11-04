@@ -1,4 +1,4 @@
-﻿---
+---
 title: "[Giải Tích] Đạo hàm của hàm nhiều biến số"
 slug: multi-var-func
 date: 2017-09-28

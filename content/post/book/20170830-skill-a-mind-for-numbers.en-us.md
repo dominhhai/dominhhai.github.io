@@ -1,4 +1,4 @@
-﻿---
+---
 title: "A Mind For Numbers"
 date: 2017-08-30
 categories:

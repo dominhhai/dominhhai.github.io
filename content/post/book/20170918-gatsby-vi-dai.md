@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Gatsby vĩ đại"
 slug: gatsby-vi-dai
 date: 2017-09-18

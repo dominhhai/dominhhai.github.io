@@ -1,4 +1,4 @@
-﻿---
+---
 title: "[Git] submodule - cùng lúc sài nhiều repo"
 slug: git-submodule-multi-repo
 date: 2017-09-03
@@ -123,4 +123,3 @@ $ git rm themes/tranquilpeak
 Tuy nhiên ta cần lưu ý khi đồng bộ module giữa các máy khác nhau.
 Một repo được thêm vào hay xoá đi, hay được cập nhập thì chỉ cập nhập trên máy thực hiện thao tác đó.
 Vì thế, nếu ta muốn mọi người cùng cập nhập thì cần thông báo cho mọi người biết để cập nhập với lệnh `git submodule update` hoặc với dự án mới tải về thì `git clone —recursive`.
-

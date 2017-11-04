@@ -1,21 +1,21 @@
 ---
-title: "[Windows] Đổi tên file với .bat file"
-slug: change-filename-bat
-date: 2017-10-30
+title: "[Web] HTTP2 là gì?"
+slug: what-is-http2
+date: 2017-11-04
 categories:
 - Lập Trình
-- Terminal
+- Web
 tags:
-- Windows
-- .bat
+- HTTP2
 keywords:
-- Windows bat file
-- change file name
+- HTTP2
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/terminal.jpg
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/nodejs_svg.svg
 metaAlignment: center
+draft: true
 ---
+
 Gần đây Gmail không cho phép gửi các file có đuôi là mã nguồn ngôn ngữ lập trình như `.js`, `.vb` chẳng hạn.
 Ngay cả việc đổi đuôi của các file nén cũng không có hiệu quả như trước, nên buộc phải tìm cách đổi toàn bộ đuôi 1 phát.
 

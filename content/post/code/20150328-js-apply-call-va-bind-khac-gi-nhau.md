@@ -1,4 +1,4 @@
-﻿---
+---
 title: "[JS] Apply, Call và Bind khác gì nhau?"
 slug: js-how-apply-call-bind
 date: 2015-03-28

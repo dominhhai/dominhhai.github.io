@@ -1,4 +1,4 @@
-﻿---
+---
 title: "[RNN] Cài đặt GRU/LSTM"
 slug: implement-gru-lstm
 date: 2017-10-23
