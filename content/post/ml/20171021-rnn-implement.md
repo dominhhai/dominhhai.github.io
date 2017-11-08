@@ -206,8 +206,8 @@ Giờ nhớ lại các công thức của mạng RNN trong bài viết trước:
 
 $$
 \begin{aligned}
-s_t &= tanh(U x_t + W s\_{t-1}) \\cr
-o_t &= softmax(V s_t)
+s_t &= \tanh(U x_t + W s\_{t-1}) \\cr
+o_t &= \mathrm{softmax}(V s_t)
 \end{aligned}
 $$
 
@@ -381,7 +381,7 @@ RNNNumpy.calculate_loss = calculate_loss
 Giờ nhìn lại một chút và nghĩ xem lỗi sẽ thế nào với các tham số được khởi tạo ngẫu nhiên.
 Nó sẽ giúp ta đảm bảo được việc cài đặt của ta là chính xác.
 Ta có $ C $ từ trong tập từ vựng, vì vậy mỗi từ sẽ có dự đoán trung bình là $ {1}/{C} $,
-nên lỗi của ta sẽ là $ L = - \frac{1}{N} N \log{\frac{1}{C}} = log{C} $.
+nên lỗi của ta sẽ là $ L = - \frac{1}{N} N \log{\frac{1}{C}} = \log{C} $.
 
 {{< codeblock "rnn_theano.py" "python" >}}
 # Limit to 1000 examples to save time
