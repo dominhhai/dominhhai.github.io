@@ -18,16 +18,17 @@ always the hash of the <em>compressed</em> object, not the original one.<p>In pa
 independently of the contents or the type of the object: all objects can
 be validated by verifying that (a) their hashes match the content of the
 file and (b) the object successfully inflates to a stream of bytes that
-forms a sequence of <ascii tag without space>+ <space>+ <ascii decimal size>+ <byte\0>+ <binary object data>.<ul><li><p>BLOB: A &ldquo;blob&rdquo; object is nothing but a binary blob of data, and doesn&rsquo;t
+forms a sequence of <code>&lt;ascii tag without space&gt; + &lt;space&gt; + &lt;ascii decimal
+size&gt; + &lt;byte\0&gt; + &lt;binary object data&gt;</code>.<h4 id=blob>BLOB:</h4><p>A &ldquo;blob&rdquo; object is nothing but a binary blob of data, and doesn&rsquo;t
 refer to anything else. There is no signature or any other verification
 of the data, so while the object is consistent (it <em>is</em> indexed by its
 sha1 hash, so the data itself is certainly correct), it has absolutely
 no other attributes. No name associations, no permissions. It is
-purely a blob of data (ie normally &ldquo;file contents&rdquo;).<li><p>TREE: The next hierarchical object type is the &ldquo;tree&rdquo; object. A tree
+purely a blob of data (ie normally &ldquo;file contents&rdquo;).<h4 id=tree>TREE:</h4><p>The next hierarchical object type is the &ldquo;tree&rdquo; object. A tree
 object is a list of permission/name/blob data, sorted by name. In other
 words the tree object is uniquely determined by the set contents, and so
 two separate but identical trees will always share the exact same
-object.</ul><p>Again, a &ldquo;tree&rdquo; object is just a pure data abstraction: it has no
+object.<p>Again, a &ldquo;tree&rdquo; object is just a pure data abstraction: it has no
 history, no signatures, no verification of validity, except that the
 contents are again protected by the hash itself. So you can trust the
 contents of a tree, the same way you can trust the contents of a blob,
@@ -41,10 +42,10 @@ tree.<p>Side note 2 on trees: since the name of a &ldquo;blob&rdquo; depends ent
 exclusively on its contents (ie there are no names or permissions
 involved), you can see trivial renames or permission changes by noticing
 that the blob stayed the same. However, renames with data changes need
-a smarter &ldquo;diff&rdquo; implementation.<ul><li>CHANGESET: The &ldquo;changeset&rdquo; object is an object that introduces the
+a smarter &ldquo;diff&rdquo; implementation.<h4 id=changeset>CHANGESET:</h4><p>The &ldquo;changeset&rdquo; object is an object that introduces the
 notion of history into the picture. In contrast to the other objects,
 it doesn&rsquo;t just describe the physical state of a tree, it describes how
-we got there, and why.</ul><p>A &ldquo;changeset&rdquo; is defined by the tree-object that it results in, the
+we got there, and why.<p>A &ldquo;changeset&rdquo; is defined by the tree-object that it results in, the
 parent changesets (zero, one or more) that led up to that point, and a
 comment on what happened. Again, a changeset is not trusted per se:
 the contents are well-defined and &ldquo;safe&rdquo; due to the cryptographically
@@ -55,11 +56,11 @@ for example.<p>Note on changesets: unlike real SCM&rsquo;s, changesets do not co
 information or file mode chane information. All of that is implicit in
 the trees involved (the result tree, and the result trees of the
 parents), and describing that makes no sense in this idiotic file
-manager.<ul><li>TRUST: The notion of &ldquo;trust&rdquo; is really outside the scope of &ldquo;git&rdquo;, but
+manager.<h4 id=trust>TRUST:</h4><p>The notion of &ldquo;trust&rdquo; is really outside the scope of &ldquo;git&rdquo;, but
 it&rsquo;s worth noting a few things. First off, since everything is hashed
 with SHA1, you <em>can</em> trust that an object is intact and has not been
 messed with by external sources. So the name of an object uniquely
-identifies a known state - just not a state that you may want to trust.</ul><p>Furthermore, since the SHA1 signature of a changeset refers to the
+identifies a known state - just not a state that you may want to trust.<p>Furthermore, since the SHA1 signature of a changeset refers to the
 SHA1 signatures of the tree it is associated with and the signatures
 of the parent, a single named changeset specifies uniquely a whole
 set of history, with full contents. You can&rsquo;t later fake any step of
