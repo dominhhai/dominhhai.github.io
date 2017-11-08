@@ -1,7 +1,7 @@
 ---
 title: "[Web] HTTP2 là gì?"
 slug: what-is-http2
-date: 2017-11-04
+date: 2017-11-08
 categories:
 - Lập Trình
 - Web
@@ -36,21 +36,70 @@ Sau 2 năm ra chính thức ra lò, phiên bản tiếp theo của `HTTP` này d
 <!--toc-->
 
 # 1. Nhược điểm của HTTP/1.1
+HTTP/1.1 có một nguyên tắc là phải xử lý gọn từng request một, tức là một request nào đó tới máy chủ sau khi được xử lý xong mới có thể gửi 1 request khác đi.
+Ví dụ, trang web của ta cần lấy 2 file `main.css` và `main.js` với thứ tự gửi tin tương ứng thì file `main.css` được trả về xong thì máy chủ mới lại xử lý yêu cầu lấy file `main.js`.
+Cứ lần lượt một cách máy móc như vậy để xử lý nên khi lượng request nhiều lên thì thời gian chờ để lấy về tất cả các dữ liệu sẽ rất tốn kém, điều này dẫn tới chuyện trang web của ta hiển thị chậm gây khó chịu cho người dùng.
 
+Để phần nào xử lý được hạn chế này, người ta đã đề ra cơ chế pipeline cho các request.
+Với cơ chế này, ta có thể gửi nhiều request đi với cùng một kết nối TCP mà không cần phải đợi request trước đó được xử lý xong.
 
+{{< image classes="fancybox center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/HTTP_pipelining2.svg/640px-HTTP_pipelining2.svg.png" title="Time diagram of non-pipelined vs. pipelined connection. Source: https://en.wikipedia.org/wiki/HTTP_pipelining" >}}
+
+Tuy nhiên phía máy chủ vẫn phải đảm bảo nguyên tắc là xử lý lần lượt từng request một.
+Tức là nếu 1 nhóm request nào đó được gửi đi bằng 1 kết nối mà trong đó có 1 request rất mất thời gian xử lý thì kết quả là cả nhóm request ấy sẽ rất mất thời gian để lấy về.
+Ngoài ra, một hạn chế nữa là làm sao để xử lý hài hòa được các gói tin để biết chúng thuộc về request nào.
+Vậy nên việc thực hiện cơ chế này ở cả 2 phía máy chủ và trình duyệt là không hề đơn giản tí nào. Thường các trình duyệt có cài đặt mặc đinh là không xử lý request kiểu này, mà bắt buộc gửi từng request đi một.
+
+Lưu ý là ở trình duyệt Google Chrome cho phép ta gửi đồng thời nhiều request, nhưng các request này không phải ở cùng 1 kết nối TCP nhé.
+
+Cùng với <a href="http://httparchive.org/trends.php" target="_blank" rel="noopener noreferrer">lượng giao dịch tăng chóng mặt</a> người ta phải dùng nhiều tiểu sảo khác nhau để nâng cao hiệu quả trang web với HTTP/1.1 như:
+
+* Giảm request
+ * Gom các file lại với nhau <br/>
+    Ví dụ ta gom tất cả các file CSS thành 1 file CSS duy nhất, tất cả các file JS thành 1 file JS duy nhất để có thể giảm lượng request đi.
+ * Sử dụng kĩ thuật CSS Sprite <br/>
+    Gom nhiều ảnh nhỏ thành 1 ảnh lớn rồi dùng 1 request lấy ảnh lớn đó về, sau đó các icon nhỏ cần hiển thị sẽ được *cắt* từ ảnh lớn bằng CSS để hiển thị lên màn hình. Bạn có thể tưởng tượng các ảnh con trong đó là các sprite, các sprite này sẽ được hiển thị bằng CSS.
+ * Nhúng các ảnh bằng dữ liệu mã hóa <br/>
+   Thay vì gửi request để lấy ảnh về hiển thị ta nhúng nó luôn vào file HTML, ví dụ như: `<img src="data:image/png;base64,iVBORw+AAA0KGgoAAA/nFfx2hANSUhEUgAA3eesgAAAVORK5CYII=">`.
+* Tăng các request đồng thời
+ * Phân bổ các tài nguyên cho nhiều máy chủ khác nhau <br/>
+   Việc này giúp ta tránh được hạn chế xử lý lần lượt của một máy chủ, ví như trình duyệt Chrome có thể cho phép ta gửi đồng thời tới 6 request 1 lúc, tức là 1 lúc ta có thể lấy đồng thời thông tin từ 6 server liền.
+
+Như vậy có thể thấy việc cải thiện tốc độ cho trang web với HTTP/1.1 rất nhọc công! Phải nói là **KHỔ**!
 
 # 2. HTTP/2 là gì
+Với các hạn chế của HTTP/1.1 thì HTTP/2 được ra đời với các mục tiêu chính sau:
+
+* Giảm độ trễ của các trang web bằng cách
+  * Ghép kênh cho nhiều request bằng 1 kết nối TCP
+  * Tạo cơ chế pipeline cho các request
+  * Nén dữ liệu và các header
+  * Cho phép máy chủ có thể gửi dữ liệu trước khi có request tới
+* Giữ được tính tương thích với HTTP/1.1
+* Cho phép cả trình duyệt lẫn máy chủ có thể chọn loại giao kết nối
+
+Khởi nguyên của HTTP/2 là dự án <a href="https://en.wikipedia.org/wiki/SPDY" target="_blank" rel="noopener noreferrer">SPDY</a> của Google nhằm giải quyết các vấn đề cơ bản mà HTTP/1.1 gặp phải từ năm 2009. Mãi cho tới năm 2015 nó mới được chuẩn hóa thành đặc tả chính thức HTTP/2. Lúc ấy trình duyệt Chrome vẫn hỗ trợ giao thức SPDY cũ cho tới 1 năm sau khi HTTP/2 ra đời. Rồi dần dần các trình duyệt khác cũng bắt đầu hỗ trợ HTTP/2 do nhận thấy được lợi điểm của nó.
 
 {{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/code/web/http2-history.png" title="Source: https://codezine.jp/article/detail/8663" >}}
 
+Về cơ bản, HTTP/2 có thể được mô tả bằng hình vẽ dưới đây.
+
 {{< image classes="fancybox center" src="https://developers.google.com/web/fundamentals/performance/http2/images/binary_framing_layer01.svg" title="Source: https://developers.google.com/web/fundamentals/performance/http2/" >}}
 
+Mỗi kết nối của TCP có thể có nhiều `dòng` (`stream`), trong mỗi `dòng` có thể mang nhiều `thông điệp` (`message`), mỗi `thông điệp` được cấu tạo bởi các `khung` (`frame`) chưa thông tin đã mã hóa dạng nhị phân. Trong `khung` này luôn chứa phần đầu `header` mang thông tin về `dòng` mà nó thuộc về.
+
+Chính nhờ kiến trúc kiểu này mà ta có thể truyền cùng lúc nhiều thông tin 2 chiều giữa máy chủ và trình duyệt dựa vào các dòng thông tin của chúng. Ngoài ra các dòng này còn có thể được gắn độ ưu tiên truyền tin. Điều này rất có lợi thế khi ta cần gửi-nhận các thông tin cần độ ưu tiên. Ví dụ như khi truy cập 1 trang web nào đó, trang HTML cần phải lấy về ngay trước khi có thể lấy các file JS hay CSS khác. Trong số các file JS ta có thể tùy chỉnh file nào cần lấy trước và file nào chưa cần lấy ngay bằng cách thiết lập độ ưu tiên truyền tin này. Các khung thông tin đều mang thông tin về dòng chứa nó nên chúng có thể được truyền mà không bắt buộc phải đúng thứ tự. Tức là cùng 1 dòng dữ liệu nhưng thứ tự dữ liệu trong đó hoàn toàn có thể được truyền bất định mà không bắt buộc phải đợi nhau cho đúng thứ tự gói tin.
 
 # 3. Trình duyệt hỗ trợ
 Hầu hết các trình duyệt chính hiện nay đều đã hỗ trợ HTTP/2 như Google Chrome, Mozilla Firefox, Microsoft Edge.
 Tổng thể cả trình duyệt trên máy tính lẫn điện thoại, máy tính bảng thì có tới hơn 80% đã hỗ trợ HTTP/2 nên ta hoàn toàn có thể yên tâm khi triển khai HTTP/2.
 
+Nếu bạn muốn kiểm tra xem trình duyệt của mình và trang đang truy cập có hỗ trợ HTTP/2 hay không thì đọc tiếp phần 4 bên dưới nhé.
+
 {{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/code/web/http2-support.png" title="Source: https://caniuse.com/#search=http2" >}}
+
+Một điểm cần lưu ý là ngay khi bạn truy cập vào 1 trang web nào đó thì trình duyệt không thể biết được trang web đó hỗ trợ truyền tin HTTP/2 hay không nên hiện giờ khi kết nối với 1 máy chủ nào đó, trình duyệt vẫn sẽ gửi request lên với thông tin là HTTP/1.1 như bình thường.
+Sau đó, nếu nhận được thông tin từ máy chủ rằng nó hỗ trợ HTTP/2 thì trình duyệt một lần nữa sẽ gửi thông tin lấy về tài nguyên dựa vào thao tác kết nối HTTP/2.
 
 # 4. Thử nghiệm với Node v9x
 Trước tiên ta cần phải có chứng chỉ SSL để có thể tạo được một máy chủ bảo mật,
