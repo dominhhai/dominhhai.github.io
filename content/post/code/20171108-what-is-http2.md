@@ -13,7 +13,6 @@ autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/code/nodejs_svg.svg
 metaAlignment: center
-draft: true
 ---
 Nhân tiện bản `Node v9x` mới ra cho phép ta có thể sử dụng ngay API thử nghiệm `HTTP/2` nên cũng tò mò tìm hiểu đôi chút xem kiến trúc, đặc điểm và cách sử dụng thế nào.
 Sau 2 năm ra chính thức ra lò, phiên bản tiếp theo của `HTTP` này dần được nhiều máy chủ Web lẫn trình duyệt hỗ trợ bởi tính vượt trội của nó so với phiên bản `HTTP/1.1`.
@@ -68,7 +67,7 @@ Cùng với <a href="http://httparchive.org/trends.php" target="_blank" rel="noo
 Như vậy có thể thấy việc cải thiện tốc độ cho trang web với HTTP/1.1 rất nhọc công! Phải nói là **KHỔ**!
 
 # 2. HTTP/2 là gì
-Với các hạn chế của HTTP/1.1 thì HTTP/2 được ra đời với các mục tiêu chính sau:
+Với các hạn chế của HTTP/1.1 thì <a href="https://http2.github.io/http2-spec/" target="_blank" rel="noopener noreferrer">HTTP/2</a> được ra đời với các mục tiêu chính sau:
 
 * Giảm độ trễ của các trang web bằng cách
   * Ghép kênh cho nhiều request bằng 1 kết nối TCP
@@ -88,7 +87,16 @@ Về cơ bản, HTTP/2 có thể được mô tả bằng hình vẽ dưới đ�
 
 Mỗi kết nối của TCP có thể có nhiều `dòng` (`stream`), trong mỗi `dòng` có thể mang nhiều `thông điệp` (`message`), mỗi `thông điệp` được cấu tạo bởi các `khung` (`frame`) chưa thông tin đã mã hóa dạng nhị phân. Trong `khung` này luôn chứa phần đầu `header` mang thông tin về `dòng` mà nó thuộc về.
 
-Chính nhờ kiến trúc kiểu này mà ta có thể truyền cùng lúc nhiều thông tin 2 chiều giữa máy chủ và trình duyệt dựa vào các dòng thông tin của chúng. Ngoài ra các dòng này còn có thể được gắn độ ưu tiên truyền tin. Điều này rất có lợi thế khi ta cần gửi-nhận các thông tin cần độ ưu tiên. Ví dụ như khi truy cập 1 trang web nào đó, trang HTML cần phải lấy về ngay trước khi có thể lấy các file JS hay CSS khác. Trong số các file JS ta có thể tùy chỉnh file nào cần lấy trước và file nào chưa cần lấy ngay bằng cách thiết lập độ ưu tiên truyền tin này. Các khung thông tin đều mang thông tin về dòng chứa nó nên chúng có thể được truyền mà không bắt buộc phải đúng thứ tự. Tức là cùng 1 dòng dữ liệu nhưng thứ tự dữ liệu trong đó hoàn toàn có thể được truyền bất định mà không bắt buộc phải đợi nhau cho đúng thứ tự gói tin.
+Chính nhờ kiến trúc kiểu này mà ta có thể truyền cùng lúc nhiều thông tin 2 chiều giữa máy chủ và trình duyệt dựa vào các dòng thông tin của chúng. Bạn có thể tưởng tượng rằng mỗi dòng là 1 request-response của HTTP/1.1, các dòng này là độc lập với nhau nên việc lấy thông tin dòng này sẽ không phụ thuộc và không ảnh hưởng tới dòng kia.
+
+{{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/code/web/http2-multiplexing.png" title="HTTP/2 Multiplexing" >}}
+
+Ngoài ra các dòng này còn có thể được gắn độ ưu tiên truyền tin. Điều này rất có lợi thế khi ta cần gửi-nhận các thông tin cần độ ưu tiên. Ví dụ như khi truy cập 1 trang web nào đó, trang HTML cần phải lấy về ngay trước khi có thể lấy các file JS hay CSS khác. Trong số các file JS ta có thể tùy chỉnh file nào cần lấy trước và file nào chưa cần lấy ngay bằng cách thiết lập độ ưu tiên truyền tin này. Các khung thông tin đều mang thông tin về dòng chứa nó nên chúng có thể được truyền mà không bắt buộc phải đúng thứ tự. Tức là cùng 1 dòng dữ liệu nhưng thứ tự dữ liệu trong đó hoàn toàn có thể được truyền bất định mà không bắt buộc phải đợi nhau cho đúng thứ tự gói tin.
+
+Như đã đề cập, các gói tin của HTTP/2 đều được mã hoá dạng nhị phân chứ không phải dạng văn bản như HTTP/1.1 nên rất tiện và dễ làm việc cho cả 2 phía giúp nâng cao hiệu năng phân tích gói tin nhận được. Các đầu gói tin (header) cũng nén lại với giải thuật Huffman giúp cho thông tin truyền đi ít đi mà vẫn đủ thông tin cần thiết cho việc xử lý. Tuy nhiên cả 2 phía đều cần phải cập nhập danh sách mã hoá đồng bộ nhau để có thể giải mã được gói tin nhận được. Bạn có thể tưởng tượng đơn giản rằng các đầu tin gửi đi chỉ cần gửi phần khác nhau sau mỗi request thôi còn phần giống nhau đã được mã hoá với Huffman rồi nên chỉ cẩn phần khác nhau giữa 2 gói tin trước và sau là ta có thể giải mã được gói tin.
+
+Một tính năng tuyệt vời nữa của HTTP/2 là Server Push. Tính năng này giúp cho ta giảm được lượng request cần gửi bằng cách gửi trước tài nguyên cho máy khách (trình duyệt). Giả sử, ta có 1 trang web cần 2 file `main.js` và `main.css`. Khi ta tạo request lấy về trang `index.html` thì máy chủ sẽ trả về luôn 2 file `main.js` và `main.css` song song cùng luôn. Sau khi nhận được tài nguyên trả về từ máy chủ rồi, trình duyệt của ta sẽ giữ chúng trong bộ nhớ tạm (cache memory) và khi cần lấy các file này thì trình duyệt có thể lấy nó ra từ bộ nhớ tạm mà không cần gửi request lên máy chủ nữa.
+Tất cả gói tin kiểu này sẽ được báo trước với máy khách thông qua khung thông tin `PUSH_PROMISE`, dựa vào đây trình duyệt có thể từ chối hoặc chấp nhận lấy về tài nguyên đó hay không. Ngoài ra trình duyệt còn có thể giới hạn được cả số gói tin gửi trước này giúp cho cả 2 phía có thể xử lý trơn tru tài nguyên trao đổi cho nhau.
 
 # 3. Trình duyệt hỗ trợ
 Hầu hết các trình duyệt chính hiện nay đều đã hỗ trợ HTTP/2 như Google Chrome, Mozilla Firefox, Microsoft Edge.
@@ -175,3 +183,5 @@ Không tránh nổi xu thế, trong thời gian tới đây việc sử dụng H
 Một phần khác cũng là để mang lại hiệu quả tốt hơn cho người dùng của ta.
 Ví như các công ty lớn như Google, Facebook, Twitter hay Amazon giờ đều đã chuyển qua HTTP/2 cả.
 Nên bạn không cần phải lo lắng chuyện đi sai nước hay lạc loài trong dòng chảy công nghệ hiện nay.
+
+Trong bày này tôi chỉ nói rất vắn tắt về HTTP/2 còn chi tiết thì các bạn nên xem đặc tả của nó <a href="https://http2.github.io/http2-spec/" target="_blank" rel="noopener noreferrer">tại đây</a> và cả bản tóm tắt về HTTP/2 trên <a href="https://developers.google.com/web/fundamentals/performance/http2" target="_blank" rel="noopener noreferrer">Google Developer</a> nữa nhé.
