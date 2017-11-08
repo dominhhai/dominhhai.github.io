@@ -147,8 +147,8 @@ Vì mỗi $ x_t $ là một véc-tơ, nên $ x $ lúc này sẽ là một ma tr�
 Ta sẽ thực hiện việc chuyển đổi này ở phần mã mạng nơ-ron chứ không thực hiện ở phần tiền xử lý.
 Đầu ra của mạng $ o $ cũng sẽ có dạng tương tự. Mỗi $ o_t $ là một véc-tơ có kích cỡ <code>vocabulary_size</code> và mỗi phần tử thể hiện xác xuất xuất hiện kế tiếp của từ tương ứng.<p>Giờ nhớ lại các công thức của mạng RNN trong bài viết trước:<p>$$
 \begin{aligned}
-s_t &amp;= tanh(U x_t + W s_{t-1}) \cr
-o_t &amp;= softmax(V s_t)
+s_t &amp;= \tanh(U x_t + W s_{t-1}) \cr
+o_t &amp;= \mathrm{softmax}(V s_t)
 \end{aligned}
 $$<p>Tôi thường hay viết ra cỡ của các ma trận và véc-tơ để dễ nhìn thao tác tiện.
 Giả sử ta chọn lượng từ vựng $ C = 8000 $ và số tầng ẩn là $ H = 100 $
@@ -261,7 +261,7 @@ RNNNumpy.calculate_total_loss = calculate_total_loss
 RNNNumpy.calculate_loss = calculate_loss</pre></table></figure><p>Giờ nhìn lại một chút và nghĩ xem lỗi sẽ thế nào với các tham số được khởi tạo ngẫu nhiên.
 Nó sẽ giúp ta đảm bảo được việc cài đặt của ta là chính xác.
 Ta có $ C $ từ trong tập từ vựng, vì vậy mỗi từ sẽ có dự đoán trung bình là $ {1}/{C} $,
-nên lỗi của ta sẽ là $ L = - \frac{1}{N} N \log{\frac{1}{C}} = log{C} $.<figure class="highlight python"><figcaption><span>rnn_theano.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br></pre><td class=code><pre class="python code-highlight"># Limit to 1000 examples to save time
+nên lỗi của ta sẽ là $ L = - \frac{1}{N} N \log{\frac{1}{C}} = \log{C} $.<figure class="highlight python"><figcaption><span>rnn_theano.py</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br></pre><td class=code><pre class="python code-highlight"># Limit to 1000 examples to save time
 print &#34;Expected Loss for random predictions: %f&#34; % np.log(vocabulary_size)
 print &#34;Actual loss: %f&#34; % model.calculate_loss(X_train[:1000], y_train[:1000])</pre></table></figure><pre><code>Expected Loss for random predictions: 8.987197
 Actual loss: 8.987440

@@ -23,14 +23,14 @@ và <a href=http://colah.github.io/posts/2015-08-Backprop/ target=_blank rel="no
 và cả <a href=http://neuralnetworksanddeeplearning.com/chap2.html target=_blank rel="noopener noreferrer">đây</a> nữa (thứ tự khó dần nhé).<h1 id=table-of-contents>Mục lục</h1><nav id=TableOfContents><ul><li><a href=#1-lan-truyền-ngược-liên-hồi-bptt>1. Lan truyền ngược liên hồi - BPTT</a><li><a href=#2-vấn-đề-mất-mát-đạo-hàm>2. Vấn đề mất mát đạo hàm</a></ul></nav><h1 id=1-lan-truyền-ngược-liên-hồi-bptt>1. Lan truyền ngược liên hồi - BPTT</h1><p>Nhớ lại chút các công thức cơ bản của RNN. Lưu ý rằng các kí hiệu ở đây có thay đổi 1 chút từ $ o $ thành $ \hat{y} $.
 Việc thay đổi này nhằm thống nhất với một vài tài liệu tôi sẽ tham chiếu tới.<p>$$
 \begin{aligned}
-s_t &amp;= tanh(U x_t + W s_{t-1}) \cr
-\hat{y_t} &amp;= softmax(V s_t)
+s_t &amp;= \tanh(U x_t + W s_{t-1}) \cr
+\hat{y_t} &amp;= \mathrm{softmax}(V s_t)
 \end{aligned}
 $$<p>Ta cũng định nghĩa hàm mất mát, hay hàm lỗi dạng cross entropy như sau:<p>$$
 \begin{aligned}
-E_t(y_t, \hat{h_y}) &amp;= -y_t log{\hat{y_t}} \cr
-E(y, \hat(y) &amp;= \sum_t{E_t(y_t, \hat{h_y})} \cr
-\ &amp;= -\sum_t{y_t log{h_y})}
+E_t(y_t, \hat{y_t}) &amp;= -y_t \log{\hat{y_t}} \cr
+E(y, \hat{y}) &amp;= \sum_t{E_t(y_t, \hat{y_t})} \cr
+\ &amp;= -\sum_t{y_t \log{\hat{y_t}}}
 \end{aligned}
 $$<p>Ở đây, $ y_t $ là từ chính xác ở bước $ t $, còn $ \hat{y_t} $ là từ mà ta dự đoán.
 Ta coi mỗi chuỗi đầy đủ (một câu) là một mẫu huấn luyện.
