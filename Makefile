@@ -17,13 +17,22 @@ deploy:
 		&& git push \
 		&& cd ..
 
-# publish & push
-push:
+# for dev branch
+draft:
 	@git add --all \
 		&& git commit -m "Build on $$(date)" \
 		&& git push \
+
+# publish & push
+push:
+	@make draft \
 		&& make build \
 		&& make deploy
+
+# ensure publish
+ok:
+	@read -p 'Slug and Draft is OK (y/n)? ' yes; \
+		if [ $$yes = 'y' ]; then make push; fi;
 
 # pull
 pull:
