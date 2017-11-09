@@ -22,7 +22,6 @@ Hàm nhiều số có ứng dụng rất rộng rãi trong các bài toán học
 Các tham số này được liên kết với nhau một cách đặc biệt bởi các hàm số khác nhau để có thể đưa ra được các kết quả mong muốn.
 Nên việc tìm hiểu về hàm nhiều biến là rất cần thiết để có thể hiểu được các lý thuyết của học máy.
 Trong bài viết này tôi sẽ tóm tắt lại đôi chút về hàm nhiều biến và đạo hàm của chúng chứ không đi sâu vào các vấn đề khác của hàm nhiều biến.
-<!--more-->
 
 <!-- toc -->
 # 1. Hàm nhiều biến số
@@ -36,20 +35,116 @@ $$ [x]_n \in \mathbb{R}^n \mapsto f(x) \in \mathbb{R} $$
 
 Ví dụ, cho $ x, y \in \mathbb{R} $ và khi đó ánh xạ $ z = f(x, y) = x^2 + y^2 $ gọi là hàm số của biến $ x, y $.
 
+Khi làm việc với các bài toán học máy đầu ra của ta có thể không phải là một số mà là 1 tập các số nên ta thường xuyên phải làm việc với các hàm nhiều biến dạng mở rộng kiểu này. Tập các số đầu ra này ta có thể biểu diễn dưới dạng một véc-tơ, hay nói cách khác hàm nhiều biến của ta sẽ cho kết quả là một véc-tơ. Ví dụ:
+$$
+f(x, y) = \begin{bmatrix} x^2 + \sin(y) \\cr 2xy + y^2 \end{bmatrix}
+$$
+
+Để tiện giải thích và minh hoạ, trong bài này tôi sẽ đề cập tới trường hợp hàm của ta có 2 biến số. Tuy nhiên các tính chất, phép toán và phương pháp làm việc có thể mở rộng ra cho các hàm nhiều biến số hơn.
+
 # 2. Đạo hàm riêng
-Cho hàm số $ [x]_n \in \mathbb{R}^n \mapsto f(x) \in \mathbb{R} $,
-lấy một điểm $ X^0 = [x^0]_n $ thuộc miền xác định và cố định $ x_i = x^0_i, \forall i >= 1 $,
-khi đó hàm số $ f(x) $ sẽ biến thành hàm số 1 biến $ x_0 $.
-Lúc này nếu $ f(x) $ có đạo hàm tại $ x_0 = x^0_0 $ thì đạo hàm này được gọi là đạo hàm riêng của $ f(x) $ theo biến $ x_0 $ tại điểm $ X^0 $.
+Đạo hàm riêng theo 1 biến của một hàm số là đạo hàm theo biến đó với giả thuyết rằng các biến khác là hằng số. Cụ thể, cho hàm số $ f(x, y) $ và một điểm $ M(x_0, y_0) $ thuộc tập xác định của hàm, khi đó đạo hàm theo biến $ x $ tạo điểm $ M $ được gọi là đạo hàm riêng của $ f $ theo $ x $ tại $ M $. Lúc này $ y $ sẽ được cố định bằng giá trị $ y_0 $ và hàm của ta có thể coi là hàm 1 biến của biến $ x $.
+
+Đạo hàm riêng của $ f $ theo $ x $ lúc này sẽ được kí hiệu là: $ f_x^{\prime}(x_0, y_0) $ hoặc $\displaystyle \frac{\partial{f(x_0, y_0)}}{\partial{x}} $, còn đạo hàm theo biến $ y $ được biểu diễn tương tự: $ f_y^{\prime}(x_0, y_0) $ hoặc $\displaystyle \frac{\partial{f(x_0, y_0)}}{\partial{y}} $.
+
+Với tôi thì tôi thích biểu diễn dưới dạng $ f_x^{\prime} $ vì dễ nhìn và không bị nhầm lẫn với phân số.
+
+Ví dụ: $ f(x, y) = x^2y + \sin(y) $ sẽ có đạo hàm $ f_x^{\prime} = 2xy $ và $ f_y^{\prime} = x^2 + \cos(y) $.
+
+Còn $\displaystyle f(x, y) = \begin{bmatrix} x^2 + \sin(y) \\cr 2xy + y^2 \end{bmatrix} $ có đạo hàm là $\displaystyle f_x^{\prime} = \begin{bmatrix} 2x \\cr 2y \end{bmatrix} $ và $\displaystyle f_y^{\prime} = \begin{bmatrix} \cos(y) \\cr 2x + 2y \end{bmatrix} $
+
+Trường hợp tổng quát với hàm có nhiều biến thì đạo hàm riêng theo 1 biến nào đó một cách tương tự như trên là đạo hàm theo biến đó với giả thuyết tất cả các biến còn lại là hằng số.
 
 # 3. Đạo hàm riêng của hàm hợp
+Chúng ta vừa xem xét tới đạo hàm của hàm nhiều biến vậy với các hàm hợp thì đạo hàm được tính thế nào?
+
+> Hàm hợp là hàm hợp bởi nhiều hàm số khác nhau, ví dụ: $ f(u, v) $ trong đó $ u(x, y) $ và $ v(x, y) $ là các hàm số theo biến $ x, y $, lúc này $ f $ được gọi là hàm hợp của $ u, v $.
+
+Giả sử, $ f $ có đạo hàm riêng theo $ u, v $ và $ u, v $ có đạo hàm theo $ x, y $ thì khi đó:
+
+$$
+\begin{cases}
+f_x^{\prime} = f_u^{\prime}u_x^{\prime} + f_v^{\prime}v_x^{\prime} \\cr
+f_y^{\prime} = f_u^{\prime}u_y^{\prime} + f_v^{\prime}v_y^{\prime}
+\end{cases}
+$$
+
+Nhìn hơi khó nhớ phải không? Giờ ta viết lại dưới dạng giống như phân số thì chắc là dễ nhớ hơn chút:
+
+$$
+\begin{cases}
+\displaystyle{\frac{\partial{f}}{\partial{x}} = \frac{\partial{f}}{\partial{u}}\frac{\partial{u}}{\partial{x}} + \frac{\partial{f}}{\partial{v}}\frac{\partial{v}}{\partial{x}}}
+\\cr\\cr
+\displaystyle{\frac{\partial{f}}{\partial{y}} = \frac{\partial{f}}{\partial{u}}\frac{\partial{u}}{\partial{y}} + \frac{\partial{f}}{\partial{v}}\frac{\partial{v}}{\partial{y}}}
+\end{cases}
+$$
+
+Nhìn dạng phân số, ta có thể luận rằng hàm thành phần sẽ bị triệt tiêu để lại còn hàm hợp với biến gốc. Đây chỉ là cách để nhớ thôi nhé chứ kí hiệu đạo hàm không phải là phân số đâu nên đừng có áp dụng phương pháp tính và tính chất của phân số vào đây nha.
+
+Trường hợp tổng quát với các hàm hợp có nhiều hàm thành phần cũng được tính một cách tương tự bằng cách lấy tổng của tích đạo hàm từng hàm thành phân một. Ví dụ với hàm hợp 3 biến $ f(u, v, w) $, trong đó $ u(x, y) $, $ v(x, y) $ và $ w(x, y) $ thì đạo hàm được tính như sau:
+
+$$
+\begin{cases}
+\displaystyle{\frac{\partial{f}}{\partial{x}} = \frac{\partial{f}}{\partial{u}}\frac{\partial{u}}{\partial{x}} + \frac{\partial{f}}{\partial{v}}\frac{\partial{v}}{\partial{x}} + \frac{\partial{f}}{\partial{w}}\frac{\partial{w}}{\partial{x}}}
+\\cr\\cr
+\displaystyle{\frac{\partial{f}}{\partial{y}} = \frac{\partial{f}}{\partial{u}}\frac{\partial{u}}{\partial{y}} + \frac{\partial{f}}{\partial{v}}\frac{\partial{v}}{\partial{y}} + \frac{\partial{f}}{\partial{w}}\frac{\partial{w}}{\partial{y}}}
+\end{cases}
+$$
 
 # 4. Đạo hàm của hàm ẩn
+Hàm ẩn là một hàm mà ta chưa biết dạng của nó nhưng ta biết rằng nó có thể biểu diễn qua một biến khác trong hàm số. Hơi khó hiểu chút ha!
 
-# 5. Đạo hàm theo hướng
+Cho $ f(x, y) = 0  $, lúc này ta nói $ y(x) $ là hàm ẩn khi tồn tại $ y = y_0 $ sao cho $ f(x, y_0) = 0 $ với mọi $ x $. Khi đó ta còn có thể coi $ f $ là hàm một biến theo $ x $.
 
-# 6. Gradient
+Mặc dù chưa biết dạng của $ y(x) $ nhưng lúc này ta có thể tính được đạo hàm của nó như sau:
+$\displaystyle y_x^{\prime} = -\frac{f_x^{\prime}}{f_y^{\prime}} $
 
-# 7. Đạo hàm cấp cao
+Đương nhiên là khi đó $ f_y^{\prime} \not = 0 $ thì công thức mới xác định được. Ta có thể chứng minh đơn giản như sau:
+
+$$
+f(x, y) = 0
+ \implies f(x, y)^{\prime} = 0
+ \iff f_x^{\prime} + f_y^{\prime}y_x^{\prime} = 0
+ \iff y_x^{\prime} = -\frac{f_x^{\prime}}{f_y^{\prime}}
+$$
+
+Viết dưới dạng loằng ngoằng ta sẽ được:
+
+$$
+\frac{dy}{dx} = -\frac{\displaystyle{\frac{\partial{f}}{\partial{x}}}}{\displaystyle{\frac{\partial{f}}{\partial{y}}}}
+$$
+
+Trường hợp tổng quá cũng sẽ được tính tương tự. Ví dụ: $ f(x, y, u) $ có hàm ẩn $ u(x, y) $ thì đạo hàm riêng của $ u $ sẽ được tính như sau:
+
+$$
+\begin{cases}
+\displaystyle{u_x^{\prime} = -\frac{f_x^{\prime}}{f_u^{\prime}}}
+\\cr\\cr
+\displaystyle{u_y^{\prime} = -\frac{f_y^{\prime}}{f_u^{\prime}}}
+\end{cases}
+$$
+
+# 5. Gradient
+Nếu ta kết hợp các đạo hàm riêng lại thành một véc-tơ và tính đạo hàm theo véc-tơ đó thì ta sẽ thu được đạo hàm toàn phần. Hay nói cách khác là đạo hàm theo tất cả các biến hay đạo hàm theo véc-tơ hợp thành đó. Đạo hàm này được gọi là gradient của hàm theo véc-tơ tương ứng.
+
+Ta có thể nói một cách hình thức theo dạng toán học như sau. Cho hàm số $ f(x, y) $ và một điểm $ M(x_0, y_0) $ thuộc tập xác định của $ f $, ta có gradient tại $ M $ là:
+
+$$\displaystyle \nabla{f(x_0, y_0)} = \Bigg(\frac{\partial{f}}{\partial{x}}(x_0, y_0), \frac{\partial{f}}{\partial{y}}(x_0, y_0)\Bigg) $$
+
+Hay viết dưới dạng kí hiệu véc-tơ như sau:
+
+$$\displaystyle \nabla = \Bigg[\frac{\partial{f}}{\partial{x}}\Bigg]\text{\^{i}} + \Bigg[\frac{\partial{f}}{\partial{y}}\Bigg]\text{\^{j}} $$
+
+Trong đó $ \overrightarrow{u}(\text{\^{i}}, \text{\^{j}}) $ là véc-tơ đơn vị.
+
+Nếu nhìn cách trừu tượng thì gradient là độ biến thiên của hàm số theo sự biến thiên của tất cả các biến số của nó. Như vậy, ta có thể thấy rằng chiều của gradient sẽ cùng chiều với véc-tơ lấy đạo hàm. Cụ thể với ví dụ trên thì $ \nabla{f(x_0, y_0)} $ sẽ có cùng chiều với véc-tơ $ (x_0, y_0) $.
+
+Hay nói một cách khác, hàm số tăng nhanh nhất theo hướng của gradient và giảm nhanh nhất khi ngược hướng với gradient của nó. Bạn nhớ lấy điểm này nhé vì nó rất quan trọng cho việc tối ưu hàm số sau này trong các bài toán học máy đấy.
+
+Ví dụ, hàm số $ f(x, y) = x^2 + y^2 $ sẽ có gradient là: $\displaystyle \nabla{f} = (2x, 2y) $
+
+# 6. Đạo hàm cấp cao
+
+# 7. Đạo hàm của ma trận
 
 # 8. Cực tiểu của hàm nhiều biến
