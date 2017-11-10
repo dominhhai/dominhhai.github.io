@@ -180,6 +180,6 @@ Hay nói một cách khác, hàm số tăng nhanh nhất theo hướng của gra
 
 Ta vừa nói về gradient là đạo hàm theo hướng tăng nhanh nhất của hàm số, vậy nếu tất cả các biến của hàm số biến thiên theo 1 hướng (véc-tơ) bất kì nào đó thì cách tính đạo hàm lúc đó thế nào? Giả sử ta có hàm số $ f(x, y) $ có gradient là $ \nabla{f} $ và 1 véc-tơ $ \overrightarrow{v} $ thể hiện cho sự biến thiên của 2 biến $ x, y $. Lúc này đạo hàm theo véc-tơ $ \overrightarrow{v} $ sẽ là:
 
-$$ \nabla_{\overrightarrow{v}}f =  \overrightarrow{v}\nabla{f} $$.
+$$ \nabla_{\overrightarrow{v}}f =  \overrightarrow{v}\nabla{f} $$
 
 Hay phát biểu thành lời thì đạo hàm theo véc-tơ $ \overrightarrow{v} $ sẽ là một véc-tơ hình thành bởi tích của $ \overrightarrow{v} $ với gradient của hàm.
