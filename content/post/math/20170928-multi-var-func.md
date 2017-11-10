@@ -11,12 +11,11 @@ tags:
 keywords:
 - Calculus
 - Giải Tích
-- Đạo Hàm
+- Đạo Hàm Nhiều Biến
 autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/math/katex.png
 metaAlignment: center
-draft: true
 ---
 Hàm nhiều số có ứng dụng rất rộng rãi trong các bài toán học máy vì đa số các các thuộc tính của hiện tượng ta theo dõi không phải chỉ có 1 mà rất nhiều tham số.
 Các tham số này được liên kết với nhau một cách đặc biệt bởi các hàm số khác nhau để có thể đưa ra được các kết quả mong muốn.
@@ -124,12 +123,48 @@ $$
 \end{cases}
 $$
 
-# 5. Gradient
+# 5. Đạo hàm cấp cao
+Đạo hàm có thể được gắn cấp bậc để phân biệt chúng với nhau, đạo hàm của hàm số gốc được coi là đạo hàm cấp 1, đạo hàm của đạo hàm cấp 1 được coi là đạo hàm cấp 2,...
+
+Ví dụ, ta có hàm số $ f(x, y) = x^2y + y^2 $ thì đạo hàm cấp 1 của nó là:
+$$
+\begin{cases}
+\displaystyle{\frac{\partial{f}}{\partial{x}}} = 2xy
+\\cr\\cr
+\displaystyle{\frac{\partial{f}}{\partial{y}}} = x^2 + 2y
+\end{cases}
+$$
+
+và có đạo hàm cấp 2 là:
+
+$
+\begin{cases}
+\displaystyle{\frac{\partial^2f}{\partial{x^2}} = \frac{\partial}{\partial{x}}\Bigg(\frac{\partial{f}}{\partial{x}}\Bigg)} = 2y
+\\cr\\cr
+\displaystyle{\frac{\partial^2f}{\partial{y}\partial{x}} = \frac{\partial}{\partial{y}}\Bigg(\frac{\partial{f}}{\partial{x}}\Bigg)} = 2x
+\end{cases}
+$　　　　　　$
+\begin{cases}
+\displaystyle{\frac{\partial^2f}{\partial{x}\partial{y}} = \frac{\partial}{\partial{x}}\Bigg(\frac{\partial{f}}{\partial{y}}\Bigg)} = 2x
+\\cr\\cr
+\displaystyle{\frac{\partial^2f}{\partial{y^2}} = \frac{\partial}{\partial{y}}\Bigg(\frac{\partial{f}}{\partial{y}}\Bigg)} = 2
+\end{cases}
+$
+
+Bạn có để ý là $\displaystyle \frac{\partial^2f}{\partial{y}\partial{x}} = \frac{\partial^2f}{\partial{x}\partial{y}} $ không? Đây chính là định lý Schwarz về đạo hàm cấp cao: Đạo hàm riêng cấp cao của nhiều biến không phụ thuộc vào thứ tự lấy đạo hàm riêng của các biến thành phần đó.
+
+Giả sử hàm $ f(x, y, z) $ có 3 biến đi chẳng nữa thì ta luôn có $\displaystyle \frac{\partial^2f}{\partial{x}\partial{y}\partial{z}} = \frac{\partial^2f}{\partial{y}\partial{x}\partial{z}} = \frac{\partial^2f}{\partial{z}\partial{x}\partial{y}} $.
+
+Riêng với đạo hàm cấp 2 ta còn có thể sử dụng cách kí hiệu tương tự như đạo hàm cấp 1 như sau: $ f^{\prime\prime}_x $ cho đạo hàm cấp 2 của theo biến x, $ f^{\prime\prime}_y $ cho đạo hàm cấp 2 của theo biến y và $ f^{\prime\prime}\_{xy} $ cho đạo hàm cấp 2 của theo cả 2 biến x, y. Lưu ý là kí hiệu này chỉ dùng cho cấp 2 thôi nhé, các cấp cao hơn ta không sử dụng cách này nữa vì nhìn sẽ rất loạn.
+
+# 6. Gradient và đạo hàm có hướng
 Nếu ta kết hợp các đạo hàm riêng lại thành một véc-tơ và tính đạo hàm theo véc-tơ đó thì ta sẽ thu được đạo hàm toàn phần. Hay nói cách khác là đạo hàm theo tất cả các biến hay đạo hàm theo véc-tơ hợp thành đó. Đạo hàm này được gọi là gradient của hàm theo véc-tơ tương ứng.
 
 Ta có thể nói một cách hình thức theo dạng toán học như sau. Cho hàm số $ f(x, y) $ và một điểm $ M(x_0, y_0) $ thuộc tập xác định của $ f $, ta có gradient tại $ M $ là:
 
 $$\displaystyle \nabla{f(x_0, y_0)} = \Bigg(\frac{\partial{f}}{\partial{x}}(x_0, y_0), \frac{\partial{f}}{\partial{y}}(x_0, y_0)\Bigg) $$
+
+Ở đây tôi viết dưới dạng hàng ngang cho dễ nhìn, nhưng về mặt hình thức gradient là véc-tơ cột đấy nha.
 
 Hay viết dưới dạng kí hiệu véc-tơ như sau:
 
@@ -137,14 +172,14 @@ $$\displaystyle \nabla = \Bigg[\frac{\partial{f}}{\partial{x}}\Bigg]\text{\^{i}}
 
 Trong đó $ \overrightarrow{u}(\text{\^{i}}, \text{\^{j}}) $ là véc-tơ đơn vị.
 
+Ví dụ, hàm số $ f(x, y) = x^2 + y^2 $ sẽ có gradient là: $\displaystyle \nabla{f} = \begin{bmatrix} 2x \\cr 2y \end{bmatrix} $
+
 Nếu nhìn cách trừu tượng thì gradient là độ biến thiên của hàm số theo sự biến thiên của tất cả các biến số của nó. Như vậy, ta có thể thấy rằng chiều của gradient sẽ cùng chiều với véc-tơ lấy đạo hàm. Cụ thể với ví dụ trên thì $ \nabla{f(x_0, y_0)} $ sẽ có cùng chiều với véc-tơ $ (x_0, y_0) $.
 
 Hay nói một cách khác, hàm số tăng nhanh nhất theo hướng của gradient và giảm nhanh nhất khi ngược hướng với gradient của nó. Bạn nhớ lấy điểm này nhé vì nó rất quan trọng cho việc tối ưu hàm số sau này trong các bài toán học máy đấy.
 
-Ví dụ, hàm số $ f(x, y) = x^2 + y^2 $ sẽ có gradient là: $\displaystyle \nabla{f} = (2x, 2y) $
+Ta vừa nói về gradient là đạo hàm theo hướng tăng nhanh nhất của hàm số, vậy nếu tất cả các biến của hàm số biến thiên theo 1 hướng (véc-tơ) bất kì nào đó thì cách tính đạo hàm lúc đó thế nào? Giả sử ta có hàm số $ f(x, y) $ có gradient là $ \nabla{f} $ và 1 véc-tơ $ \overrightarrow{v} $ thể hiện cho sự biến thiên của 2 biến $ x, y $. Lúc này đạo hàm theo véc-tơ $ \overrightarrow{v} $ sẽ là:
 
-# 6. Đạo hàm cấp cao
+$$ \nabla_{\overrightarrow{v}}f =  \overrightarrow{v}\nabla{f} $$.
 
-# 7. Đạo hàm của ma trận
-
-# 8. Cực tiểu của hàm nhiều biến
+Hay phát biểu thành lời thì đạo hàm theo véc-tơ $ \overrightarrow{v} $ sẽ là một véc-tơ hình thành bởi tích của $ \overrightarrow{v} $ với gradient của hàm.
