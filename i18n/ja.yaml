@@ -1,6 +1,8 @@
 ## GLOBAL ##
 - id: "global.author_picture"
   translation: "プロフィール画像"
+- id: "global.why"
+  translation: "バカ質問"
 
 ## POST ##
 - id: "post.categorized_in"
@@ -47,4 +49,3 @@
   translation: "連絡"
 - id: "footer.contact.mail"
   translation: "メッセージ"
-

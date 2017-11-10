@@ -1,6 +1,8 @@
 ## GLOBAL ##
 - id: "global.author_picture"
   translation: "Ảnh đại diện"
+- id: "global.why"
+  translation: "Hỏi ngu"
 
 ## POST ##
 - id: "post.no_title"
@@ -52,4 +54,4 @@
 - id: "footer.contact.title"
   translation: "Liên hệ"
 - id: "footer.contact.mail"
-  translation: "Gửi tin nhắn" 
+  translation: "Gửi tin nhắn"

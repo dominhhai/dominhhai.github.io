@@ -1,5 +1,6 @@
 ---
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
+date: {{ .Date }}
 keywords:
 - About Do Minh Hai
 showDate: false

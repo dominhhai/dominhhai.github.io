@@ -1,3 +1,7 @@
+## GLOBAL ##
+- id: "global.why"
+  translation: "Stupid Question"
+
 ## 404 page ##
 - id: "404.title"
   translation: "404 Page Not Found"
