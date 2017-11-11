@@ -6,6 +6,7 @@ categories:
 - Lập Trình
 - Node.js
 tags:
+- Node.js
 - Windows
 keywords:
 - Node.js Deploy
