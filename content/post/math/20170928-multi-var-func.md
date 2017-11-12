@@ -30,7 +30,7 @@ Hay:
 $$ (x_1, x_2, ..., x_n) \mapsto f(x_1, x_2, ..., x_n) \in \mathbb{R} $$
 
 Hay biểu diễn dưới dạng véc-tơ:
-$$ [x]_n \in \mathbb{R}^n \mapsto f(x) \in \mathbb{R} $$
+$$ [x]\_n \in \mathbb{R}^n \mapsto f(x) \in \mathbb{R} $$
 
 Ví dụ, cho $ x, y \in \mathbb{R} $ và khi đó ánh xạ $ z = f(x, y) = x^2 + y^2 $ gọi là hàm số của biến $ x, y $.
 
@@ -51,6 +51,20 @@ Với tôi thì tôi thích biểu diễn dưới dạng $ f_x^{\prime} $ vì d�
 Ví dụ: $ f(x, y) = x^2y + \sin(y) $ sẽ có đạo hàm $ f_x^{\prime} = 2xy $ và $ f_y^{\prime} = x^2 + \cos(y) $.
 
 Còn $\displaystyle f(x, y) = \begin{bmatrix} x^2 + \sin(y) \\cr 2xy + y^2 \end{bmatrix} $ có đạo hàm là $\displaystyle f_x^{\prime} = \begin{bmatrix} 2x \\cr 2y \end{bmatrix} $ và $\displaystyle f_y^{\prime} = \begin{bmatrix} \cos(y) \\cr 2x + 2y \end{bmatrix} $
+
+Một cách hình thức đạo hàm riêng tại điểm $ M(x_0, y_0) $ theo biến $ x $ được tính toán như sau:
+
+$$
+f_x^{\prime}(x_0, y_0) = \lim\limits\_{\triangle_x \rightarrow 0} \frac{\triangle_xf}{\triangle_x} = \lim\limits\_{\triangle_x \rightarrow 0} \frac{f(x_0 + \triangle_x, y_0) - f(x_0, y_0)}{\triangle_x}
+$$
+
+Theo biến $ y $:
+
+$$
+f_y^{\prime}(x_0, y_0) = \lim\limits\_{\triangle_y \rightarrow 0} \frac{\triangle_yf}{\triangle_y} = \lim\limits\_{\triangle_y \rightarrow 0} \frac{f(x_0, y_0 + \triangle_y) - f(x_0, y_0)}{\triangle_y}
+$$
+
+Ở công thức trên $ \triangle_xf, \triangle_yf $ được gọi là số gia riêng của $ f $ tại $ M(x_0, y_0) $ lần lượt theo biến $ x, y $.
 
 Trường hợp tổng quát với hàm có nhiều biến thì đạo hàm riêng theo 1 biến nào đó một cách tương tự như trên là đạo hàm theo biến đó với giả thuyết tất cả các biến còn lại là hằng số.
 
