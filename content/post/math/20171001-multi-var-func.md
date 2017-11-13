@@ -70,76 +70,7 @@ Trong phần này, ta cần lưu ý tới đạo hàm riêng của hàm véc-tơ
 
 Trường hợp tổng quát với hàm có nhiều biến thì đạo hàm riêng theo 1 biến nào đó một cách tương tự như trên là đạo hàm theo biến đó với giả thuyết tất cả các biến còn lại là hằng số.
 
-# 3. Đạo hàm riêng của hàm hợp
-Chúng ta vừa xem xét tới đạo hàm của hàm nhiều biến vậy với các hàm hợp thì đạo hàm được tính thế nào?
-
-> Hàm hợp là hàm hợp bởi nhiều hàm số khác nhau, ví dụ: $ f(u, v) $ trong đó $ u(x, y) $ và $ v(x, y) $ là các hàm số theo biến $ x, y $, lúc này $ f $ được gọi là hàm hợp của $ u, v $.
-
-Giả sử, $ f $ có đạo hàm riêng theo $ u, v $ và $ u, v $ có đạo hàm theo $ x, y $ thì khi đó ta có *quy tắc chuỗi* (chain rules) như sau:
-
-$$
-\begin{cases}
-f_x^{\prime} = f_u^{\prime}u_x^{\prime} + f_v^{\prime}v_x^{\prime} \\cr
-f_y^{\prime} = f_u^{\prime}u_y^{\prime} + f_v^{\prime}v_y^{\prime}
-\end{cases}
-$$
-
-Nhìn hơi khó nhớ phải không? Giờ ta viết lại dưới dạng giống như phân số thì chắc là dễ nhớ hơn chút:
-
-$$
-\begin{cases}
-\displaystyle{\frac{\partial{f}}{\partial{x}} = \frac{\partial{f}}{\partial{u}}\frac{\partial{u}}{\partial{x}} + \frac{\partial{f}}{\partial{v}}\frac{\partial{v}}{\partial{x}}}
-\\cr\\cr
-\displaystyle{\frac{\partial{f}}{\partial{y}} = \frac{\partial{f}}{\partial{u}}\frac{\partial{u}}{\partial{y}} + \frac{\partial{f}}{\partial{v}}\frac{\partial{v}}{\partial{y}}}
-\end{cases}
-$$
-
-Nhìn dạng phân số, ta có thể luận rằng hàm thành phần sẽ bị triệt tiêu để lại còn hàm hợp với biến gốc. Đây chỉ là cách để nhớ thôi nhé chứ kí hiệu đạo hàm không phải là phân số đâu nên đừng có áp dụng phương pháp tính và tính chất của phân số vào đây nha.
-
-Trường hợp tổng quát với các hàm hợp có nhiều hàm thành phần cũng được tính một cách tương tự bằng cách lấy tổng của tích đạo hàm từng hàm thành phân một. Ví dụ với hàm hợp 3 biến $ f(u, v, w) $, trong đó $ u(x, y) $, $ v(x, y) $ và $ w(x, y) $ thì đạo hàm được tính như sau:
-
-$$
-\begin{cases}
-\displaystyle{\frac{\partial{f}}{\partial{x}} = \frac{\partial{f}}{\partial{u}}\frac{\partial{u}}{\partial{x}} + \frac{\partial{f}}{\partial{v}}\frac{\partial{v}}{\partial{x}} + \frac{\partial{f}}{\partial{w}}\frac{\partial{w}}{\partial{x}}}
-\\cr\\cr
-\displaystyle{\frac{\partial{f}}{\partial{y}} = \frac{\partial{f}}{\partial{u}}\frac{\partial{u}}{\partial{y}} + \frac{\partial{f}}{\partial{v}}\frac{\partial{v}}{\partial{y}} + \frac{\partial{f}}{\partial{w}}\frac{\partial{w}}{\partial{y}}}
-\end{cases}
-$$
-
-# 4. Đạo hàm của hàm ẩn
-Hàm ẩn là một hàm mà ta chưa biết dạng của nó nhưng ta biết rằng nó có thể biểu diễn qua một biến khác trong hàm số. Hơi khó hiểu chút ha!
-
-Cho $ f(x, y) = 0  $, lúc này ta nói $ y(x) $ là hàm ẩn khi tồn tại $ y = y_0 $ sao cho $ f(x, y_0) = 0 $ với mọi $ x $. Khi đó ta còn có thể coi $ f $ là hàm một biến theo $ x $.
-
-Mặc dù chưa biết dạng của $ y(x) $ nhưng lúc này ta có thể tính được đạo hàm của nó như sau:
-$\displaystyle y_x^{\prime} = -\frac{f_x^{\prime}}{f_y^{\prime}} $
-
-Đương nhiên là khi đó $ f_y^{\prime} \not = 0 $ thì công thức mới xác định được. Ta có thể chứng minh đơn giản như sau:
-
-$$
-f(x, y) = 0
- \implies f(x, y)^{\prime} = 0
- \iff f_x^{\prime} + f_y^{\prime}y_x^{\prime} = 0
- \iff y_x^{\prime} = -\frac{f_x^{\prime}}{f_y^{\prime}}
-$$
-
-Viết dưới dạng loằng ngoằng ta sẽ được:
-
-$$
-\frac{dy}{dx} = -\frac{\displaystyle{\frac{\partial{f}}{\partial{x}}}}{\displaystyle{\frac{\partial{f}}{\partial{y}}}}
-$$
-
-Trường hợp tổng quá cũng sẽ được tính tương tự. Ví dụ: $ f(x, y, u) $ có hàm ẩn $ u(x, y) $ thì đạo hàm riêng của $ u $ sẽ được tính như sau:
-
-$$
-\begin{cases}
-\displaystyle{u_x^{\prime} = -\frac{f_x^{\prime}}{f_u^{\prime}}}
-\\cr\\cr
-\displaystyle{u_y^{\prime} = -\frac{f_y^{\prime}}{f_u^{\prime}}}
-\end{cases}
-$$
-
-# 5. Đạo hàm cấp cao
+# 3. Đạo hàm cấp cao
 Đạo hàm có thể được gắn cấp bậc để phân biệt chúng với nhau, đạo hàm của hàm số gốc được coi là đạo hàm cấp 1, đạo hàm của đạo hàm cấp 1 được coi là đạo hàm cấp 2,...
 
 Ví dụ, ta có hàm số $ f(x, y) = x^2y + y^2 $ thì đạo hàm cấp 1 của nó là:
@@ -173,7 +104,7 @@ Giả sử hàm $ f(x, y, z) $ có 3 biến đi chẳng nữa thì ta luôn có 
 
 Riêng với đạo hàm cấp 2 ta còn có thể sử dụng cách kí hiệu tương tự như đạo hàm cấp 1 như sau: $ f^{\prime\prime}_x $ cho đạo hàm cấp 2 của theo biến x, $ f^{\prime\prime}_y $ cho đạo hàm cấp 2 của theo biến y và $ f^{\prime\prime}\_{xy} $ cho đạo hàm cấp 2 của theo cả 2 biến x, y. Lưu ý là kí hiệu này chỉ dùng cho cấp 2 thôi nhé, các cấp cao hơn ta không sử dụng cách này nữa vì nhìn sẽ rất loạn.
 
-# 6. Gradient và đạo hàm có hướng
+# 4. Gradient và đạo hàm có hướng
 Nếu ta kết hợp các đạo hàm riêng lại thành một véc-tơ và tính đạo hàm theo véc-tơ đó thì ta sẽ thu được đạo hàm toàn phần. Hay nói cách khác là đạo hàm theo tất cả các biến hay đạo hàm theo véc-tơ hợp thành đó. Đạo hàm này được gọi là gradient của hàm theo véc-tơ tương ứng.
 
 Ta có thể nói một cách hình thức theo dạng toán học như sau. Cho hàm số $ f(x, y) $ và một điểm $ M(x_0, y_0) $ thuộc tập xác định của $ f $, ta có gradient tại $ M $ là:
@@ -212,3 +143,116 @@ Ta vừa nói về gradient là đạo hàm theo hướng tăng nhanh nhất c�
 $$ \nabla_{\overrightarrow{v}}f =  \overrightarrow{v}\nabla{f} $$
 
 Hay phát biểu thành lời thì đạo hàm theo véc-tơ $ \overrightarrow{v} $ sẽ là một véc-tơ hình thành bởi tích của $ \overrightarrow{v} $ với gradient của hàm.
+
+# 5. Đạo hàm riêng của hàm hợp
+Chúng ta vừa xem xét tới đạo hàm của hàm nhiều biến vậy với các hàm hợp thì đạo hàm được tính thế nào?
+
+> Hàm hợp là hàm hợp bởi nhiều hàm số khác nhau, ví dụ: $ f(u, v) $ trong đó $ u(x, y) $ và $ v(x, y) $ là các hàm số theo biến $ x, y $, lúc này $ f $ được gọi là hàm hợp của $ u, v $.
+
+Giả sử, $ f $ có đạo hàm riêng theo $ u, v $ và $ u, v $ có đạo hàm theo $ x, y $ thì khi đó ta có *quy tắc chuỗi* (chain rules) như sau:
+
+$$
+\begin{cases}
+f_x^{\prime} = f_u^{\prime}u_x^{\prime} + f_v^{\prime}v_x^{\prime} \\cr
+f_y^{\prime} = f_u^{\prime}u_y^{\prime} + f_v^{\prime}v_y^{\prime}
+\end{cases}
+$$
+
+Nhìn hơi khó nhớ phải không? Giờ ta viết lại dưới dạng giống như phân số thì chắc là dễ nhớ hơn chút:
+
+$$
+\begin{cases}
+\displaystyle{\frac{\partial{f}}{\partial{x}} = \frac{\partial{f}}{\partial{u}}\frac{\partial{u}}{\partial{x}} + \frac{\partial{f}}{\partial{v}}\frac{\partial{v}}{\partial{x}}}
+\\cr\\cr
+\displaystyle{\frac{\partial{f}}{\partial{y}} = \frac{\partial{f}}{\partial{u}}\frac{\partial{u}}{\partial{y}} + \frac{\partial{f}}{\partial{v}}\frac{\partial{v}}{\partial{y}}}
+\end{cases}
+$$
+
+Nhìn dạng phân số, ta có thể luận rằng hàm thành phần sẽ bị triệt tiêu để lại còn hàm hợp với biến gốc. Đây chỉ là cách để nhớ thôi nhé chứ kí hiệu đạo hàm không phải là phân số đâu nên đừng có áp dụng phương pháp tính và tính chất của phân số vào đây nha.
+
+Trường hợp tổng quát với các hàm hợp có nhiều hàm thành phần cũng được tính một cách tương tự bằng cách lấy tổng của tích đạo hàm từng hàm thành phân một. Ví dụ với hàm hợp 3 biến $ f(u, v, w) $, trong đó $ u(x, y) $, $ v(x, y) $ và $ w(x, y) $ thì đạo hàm được tính như sau:
+
+$$
+\begin{cases}
+\displaystyle{\frac{\partial{f}}{\partial{x}} = \frac{\partial{f}}{\partial{u}}\frac{\partial{u}}{\partial{x}} + \frac{\partial{f}}{\partial{v}}\frac{\partial{v}}{\partial{x}} + \frac{\partial{f}}{\partial{w}}\frac{\partial{w}}{\partial{x}}}
+\\cr\\cr
+\displaystyle{\frac{\partial{f}}{\partial{y}} = \frac{\partial{f}}{\partial{u}}\frac{\partial{u}}{\partial{y}} + \frac{\partial{f}}{\partial{v}}\frac{\partial{v}}{\partial{y}} + \frac{\partial{f}}{\partial{w}}\frac{\partial{w}}{\partial{y}}}
+\end{cases}
+$$
+
+Với hàm ẩn của hàm véc-tơ thì đạo hàm cũng được tính tương tự như vậy, nhưng có chút khác biệt khi ta sử dụng phép toán của véc-tơ. Giả sử ta có hàm véc-tơ $ f(g, h) $ có đầu ra là véc-tơ $ \overrightarrow{v}(x, y) = \begin{bmatrix} g(x, y) \\cr h(x, y) \end{bmatrix} $ thì đạo hàm riêng của $ f $ sẽ là:
+
+$$
+\begin{cases}
+\displaystyle{\frac{\partial{f}}{\partial{x}}
+ = \frac{\partial{f}}{\partial{g}}\frac{\partial{g}}{\partial{x}} + \frac{\partial{f}}{\partial{h}}\frac{\partial{h}}{\partial{x}}}
+\\cr\\cr
+\displaystyle{\frac{\partial{f}}{\partial{y}}
+ = \frac{\partial{f}}{\partial{g}}\frac{\partial{g}}{\partial{y}} + \frac{\partial{f}}{\partial{h}}\frac{\partial{h}}{\partial{y}}}
+\end{cases}
+\iff
+\begin{cases}
+\displaystyle{\frac{\partial{f}}{\partial{x}}}
+=  \begin{bmatrix}
+     \displaystyle{\frac{\partial{f}}{\partial{g}}} \\cr
+     \displaystyle{\frac{\partial{f}}{\partial{h}}}
+   \end{bmatrix}
+ \odot
+   \begin{bmatrix}
+     \displaystyle{\frac{\partial{g}}{\partial{x}}} \\cr
+     \displaystyle{\frac{\partial{h}}{\partial{x}}}
+   \end{bmatrix}
+\\cr\\cr
+\displaystyle{\frac{\partial{f}}{\partial{y}}}
+ =  \begin{bmatrix}
+      \displaystyle{\frac{\partial{f}}{\partial{g}}} \\cr
+      \displaystyle{\frac{\partial{f}}{\partial{h}}}
+    \end{bmatrix}
+  \odot
+    \begin{bmatrix}
+      \displaystyle{\frac{\partial{g}}{\partial{y}}} \\cr
+      \displaystyle{\frac{\partial{h}}{\partial{y}}}
+    \end{bmatrix}
+\end{cases}
+\iff
+\begin{cases}
+\displaystyle{\frac{\partial{f}}{\partial{x}}} = \nabla{f} \odot \overrightarrow{v^{\prime}_x}
+\\cr\\cr
+\displaystyle{\frac{\partial{f}}{\partial{y}}} = \nabla{f} \odot \overrightarrow{v^{\prime}_y}
+\end{cases}
+$$
+
+Như vậy ta có thể thấy đạo hàm của hàm hợp véc-tơ có thể tính bằng tích của gradient hàm hợp với đạo hàm riêng véc-tơ đầu ra.
+
+# 6. Đạo hàm của hàm ẩn
+Hàm ẩn là một hàm mà ta chưa biết dạng của nó nhưng ta biết rằng nó có thể biểu diễn qua một biến khác trong hàm số. Hơi khó hiểu chút ha!
+
+Cho $ f(x, y) = 0  $, lúc này ta nói $ y(x) $ là hàm ẩn khi tồn tại $ y = y_0 $ sao cho $ f(x, y_0) = 0 $ với mọi $ x $. Khi đó ta còn có thể coi $ f $ là hàm một biến theo $ x $.
+
+Mặc dù chưa biết dạng của $ y(x) $ nhưng lúc này ta có thể tính được đạo hàm của nó như sau:
+$\displaystyle y_x^{\prime} = -\frac{f_x^{\prime}}{f_y^{\prime}} $
+
+Đương nhiên là khi đó $ f_y^{\prime} \not = 0 $ thì công thức mới xác định được. Ta có thể chứng minh đơn giản như sau:
+
+$$
+f(x, y) = 0
+ \implies f(x, y)^{\prime} = 0
+ \iff f_x^{\prime} + f_y^{\prime}y_x^{\prime} = 0
+ \iff y_x^{\prime} = -\frac{f_x^{\prime}}{f_y^{\prime}}
+$$
+
+Viết dưới dạng loằng ngoằng ta sẽ được:
+
+$$
+\frac{dy}{dx} = -\frac{\displaystyle{\frac{\partial{f}}{\partial{x}}}}{\displaystyle{\frac{\partial{f}}{\partial{y}}}}
+$$
+
+Trường hợp tổng quá cũng sẽ được tính tương tự. Ví dụ: $ f(x, y, u) $ có hàm ẩn $ u(x, y) $ thì đạo hàm riêng của $ u $ sẽ được tính như sau:
+
+$$
+\begin{cases}
+\displaystyle{u_x^{\prime} = -\frac{f_x^{\prime}}{f_u^{\prime}}}
+\\cr\\cr
+\displaystyle{u_y^{\prime} = -\frac{f_y^{\prime}}{f_u^{\prime}}}
+\end{cases}
+$$
