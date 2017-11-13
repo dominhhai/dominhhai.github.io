@@ -1,7 +1,7 @@
 ---
 title: "[Giải Tích] Đạo hàm của hàm nhiều biến số"
 slug: multi-var-func
-date: 2017-09-28
+date: 2017-10-01
 categories:
 - Toán
 - Giải Tích
