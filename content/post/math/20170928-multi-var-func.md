@@ -34,7 +34,7 @@ $$ [x]\_n \in \mathbb{R}^n \mapsto f(x) \in \mathbb{R} $$
 
 Ví dụ, cho $ x, y \in \mathbb{R} $ và khi đó ánh xạ $ z = f(x, y) = x^2 + y^2 $ gọi là hàm số của biến $ x, y $.
 
-Khi làm việc với các bài toán học máy đầu ra của ta có thể không phải là một số mà là 1 tập các số nên ta thường xuyên phải làm việc với các hàm nhiều biến dạng mở rộng kiểu này. Tập các số đầu ra này ta có thể biểu diễn dưới dạng một véc-tơ, hay nói cách khác hàm nhiều biến của ta sẽ cho kết quả là một véc-tơ. Ví dụ:
+Khi làm việc với các bài toán học máy đầu ra của ta có thể không phải là một số mà là 1 tập các số nên ta thường xuyên phải làm việc với các hàm nhiều biến dạng mở rộng kiểu này. Tập các số đầu ra này ta có thể biểu diễn dưới dạng một véc-tơ, hay nói cách khác hàm nhiều biến của ta sẽ cho kết quả là một véc-tơ. Những hàm như vậy được gọi là *hàm véc-tơ* $ f: \mathbb{R}^n \mapsto \mathbb{R}^m $. Ví dụ:
 $$
 f(x, y) = \begin{bmatrix} x^2 + \sin(y) \\cr 2xy + y^2 \end{bmatrix}
 $$
@@ -50,7 +50,7 @@ Với tôi thì tôi thích biểu diễn dưới dạng $ f_x^{\prime} $ vì d�
 
 Ví dụ: $ f(x, y) = x^2y + \sin(y) $ sẽ có đạo hàm $ f_x^{\prime} = 2xy $ và $ f_y^{\prime} = x^2 + \cos(y) $.
 
-Còn $\displaystyle f(x, y) = \begin{bmatrix} x^2 + \sin(y) \\cr 2xy + y^2 \end{bmatrix} $ có đạo hàm là $\displaystyle f_x^{\prime} = \begin{bmatrix} 2x \\cr 2y \end{bmatrix} $ và $\displaystyle f_y^{\prime} = \begin{bmatrix} \cos(y) \\cr 2x + 2y \end{bmatrix} $
+Còn $\displaystyle f(x, y) = \begin{bmatrix} x^2 + \sin(y) \\cr 2xy + y^2 \end{bmatrix} $ có đạo hàm là $\displaystyle f_x^{\prime} = \begin{bmatrix} 2x & 2y \end{bmatrix} $ và $\displaystyle f_y^{\prime} = \begin{bmatrix} \cos(y) & 2x + 2y \end{bmatrix} $
 
 Một cách hình thức đạo hàm riêng tại điểm $ M(x_0, y_0) $ theo biến $ x $ được tính toán như sau:
 
@@ -66,6 +66,8 @@ $$
 
 Ở công thức trên $ \triangle_xf, \triangle_yf $ được gọi là số gia riêng của $ f $ tại $ M(x_0, y_0) $ lần lượt theo biến $ x, y $.
 
+Trong phần này, ta cần lưu ý tới đạo hàm riêng của hàm véc-tơ nhé. Như vừa đề cập ở ví dụ trên, đạo hàm riêng của hàm véc-tơ sẽ là một **véc-tơ hàng** có cùng số chiều véc-tơ giá trị (véc-tơ đầu ra). Giả sử, ta có véc-tơ đơn vị $ \overrightarrow{u}(\text{\^{i}}, \text{\^{j}}) $ và một hàm véc-tơ $ \overrightarrow{v(t)} = f(t)\text{\^{i}} + g(t)\text{\^{j}} $ thì khi đó đạo hàm của nó sẽ là véc-tơ: $ \overrightarrow{v^{\prime}} = f^{\prime}(t)\text{\^{i}} + g^{\prime}(t)\text{\^{j}} $.
+
 Trường hợp tổng quát với hàm có nhiều biến thì đạo hàm riêng theo 1 biến nào đó một cách tương tự như trên là đạo hàm theo biến đó với giả thuyết tất cả các biến còn lại là hằng số.
 
 # 3. Đạo hàm riêng của hàm hợp
@@ -73,7 +75,7 @@ Chúng ta vừa xem xét tới đạo hàm của hàm nhiều biến vậy với
 
 > Hàm hợp là hàm hợp bởi nhiều hàm số khác nhau, ví dụ: $ f(u, v) $ trong đó $ u(x, y) $ và $ v(x, y) $ là các hàm số theo biến $ x, y $, lúc này $ f $ được gọi là hàm hợp của $ u, v $.
 
-Giả sử, $ f $ có đạo hàm riêng theo $ u, v $ và $ u, v $ có đạo hàm theo $ x, y $ thì khi đó:
+Giả sử, $ f $ có đạo hàm riêng theo $ u, v $ và $ u, v $ có đạo hàm theo $ x, y $ thì khi đó ta có *quy tắc chuỗi* (chain rules) như sau:
 
 $$
 \begin{cases}
@@ -165,7 +167,7 @@ $　　　　　　$
 \end{cases}
 $
 
-Bạn có để ý là $\displaystyle \frac{\partial^2f}{\partial{y}\partial{x}} = \frac{\partial^2f}{\partial{x}\partial{y}} $ không? Đây chính là định lý Schwarz về đạo hàm cấp cao: Đạo hàm riêng cấp cao của nhiều biến không phụ thuộc vào thứ tự lấy đạo hàm riêng của các biến thành phần đó.
+Bạn có để ý là $\displaystyle \frac{\partial^2f}{\partial{y}\partial{x}} = \frac{\partial^2f}{\partial{x}\partial{y}} $ không? Đây chính là *định lý Schwarz* về đạo hàm cấp cao: Đạo hàm riêng cấp cao của hàm nhiều biến không phụ thuộc vào thứ tự lấy đạo hàm riêng của các biến thành phần đó.
 
 Giả sử hàm $ f(x, y, z) $ có 3 biến đi chẳng nữa thì ta luôn có $\displaystyle \frac{\partial^2f}{\partial{x}\partial{y}\partial{z}} = \frac{\partial^2f}{\partial{y}\partial{x}\partial{z}} = \frac{\partial^2f}{\partial{z}\partial{x}\partial{y}} $.
 
@@ -178,15 +180,28 @@ Ta có thể nói một cách hình thức theo dạng toán học như sau. Cho
 
 $$\displaystyle \nabla{f(x_0, y_0)} = \Bigg(\frac{\partial{f}}{\partial{x}}(x_0, y_0), \frac{\partial{f}}{\partial{y}}(x_0, y_0)\Bigg) $$
 
-Ở đây tôi viết dưới dạng hàng ngang cho dễ nhìn, nhưng về mặt hình thức gradient là véc-tơ cột đấy nha.
+Ở đây tôi viết dưới dạng hàng ngang cho dễ nhìn, nhưng về mặt hình thức gradient là **véc-tơ cột** đấy nha.
 
 Hay viết dưới dạng kí hiệu véc-tơ như sau:
 
-$$\displaystyle \nabla = \Bigg[\frac{\partial{f}}{\partial{x}}\Bigg]\text{\^{i}} + \Bigg[\frac{\partial{f}}{\partial{y}}\Bigg]\text{\^{j}} $$
+$$\displaystyle \nabla{f} = \Bigg[\frac{\partial{f}}{\partial{x}}\Bigg]\text{\^{i}} + \Bigg[\frac{\partial{f}}{\partial{y}}\Bigg]\text{\^{j}} $$
 
 Trong đó $ \overrightarrow{u}(\text{\^{i}}, \text{\^{j}}) $ là véc-tơ đơn vị.
 
 Ví dụ, hàm số $ f(x, y) = x^2 + y^2 $ sẽ có gradient là: $\displaystyle \nabla{f} = \begin{bmatrix} 2x \\cr 2y \end{bmatrix} $
+
+Đối với hàm véc-tơ, nhớ lại rằng đạo hàm riêng của nó là một véc-tơ hàng mà gradient thành kết hợp theo véc-tơ cột, nên gradient của hàm véc-tơ sẽ là một ma trận có số hàng bằng với số chiều véc-tơ giá trị và số cột bằng với số biến. Cho hàm véc-tơ $ f: \mathbb{R}^m \mapsto \mathbb{R}^n $ nhận đầu vào là véc-tơ $ x \in \mathbb{R}^m $ và cho đầu ra là véc-tơ $ f(x) \in \mathbb{R}^n $ thì khi đó gradient của $ f $ sẽ là một *ma trận Jacobi* $ J \in \mathbb{R}^{m \times n} $:
+
+$$
+J = \nabla{f} = \begin{bmatrix} \nabla{f_1} & \cdots & \nabla{f_n} \end{bmatrix}
+= \begin{bmatrix}
+  \displaystyle{\frac{\partial{f_1}}{\partial{x_1}}} & \cdots & \displaystyle{\frac{\partial{f_n}}{\partial{x_1}}} \\cr
+  \vdots & \ddots & \vdots \\cr
+  \displaystyle{\frac{\partial{f_1}}{\partial{x_m}}} & \cdots & \displaystyle{\frac{\partial{f_n}}{\partial{x_m}}}
+\end{bmatrix}
+$$
+
+> Lưu ý là, cũng có những tài liệu biểu diễn ma trận Jacobi theo ma trận chuyển vị của ma trận trên đấy nhé. Nên khi đọc tài liệu ta cần phải hết sức chú ý tới chiều của ma trận. Ở bài viết này để cho thống nhất và dễ nhớ tôi lấy ma trận như trên.
 
 Nếu nhìn cách trừu tượng thì gradient là độ biến thiên của hàm số theo sự biến thiên của tất cả các biến số của nó. Như vậy, ta có thể thấy rằng chiều của gradient sẽ cùng chiều với véc-tơ lấy đạo hàm. Cụ thể với ví dụ trên thì $ \nabla{f(x_0, y_0)} $ sẽ có cùng chiều với véc-tơ $ (x_0, y_0) $.
 
