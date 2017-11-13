@@ -26,13 +26,13 @@ Your branch is up-to-date with 'origin/dev’.
 Changes to be committed:
   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
 
-	new file:   .gitmodules
-	new file:   themes/tranquilpeak
+    new file:   .gitmodules
+    new file:   themes/tranquilpeak
 </code></pre><p>Như vậy là ta đã thêm 2 file là <code>.gitmodules</code> và <code>tranquilpeak</code> trong thư mục <code>themes</code>.<p><code>.gitmodules</code> là nơi chứa thông tin của các module được đưa thêm vào dự án của ta.
 Kiểm tra xem nội dung của file này xem sao:<pre><code>$ cat .gitmodules
 [submodule &quot;themes/tranquilpeak&quot;]
-	path = themes/tranquilpeak
-	url = https://github.com/kakawait/hugo-tranquilpeak-theme.git
+    path = themes/tranquilpeak
+    url = https://github.com/kakawait/hugo-tranquilpeak-theme.git
 </code></pre><p>Ở đây, <code>path</code> là nơi module được lưu và <code>url</code> là địa chỉ của repo.
 Với mỗi một module, ta sẽ có 3 dòng thông tin để xác định module như vậy.<p>Còn <code>themes/tranquilpeak</code> sẽ chưa thông tin về commit hiện tại của repo ở local của bạn.<h1 id=2-cập-nhập-module>2. Cập nhập module</h1><p>Khi cần cập nhập module, ta dùng lệnh:<pre><code>$ git submodule update [--init]
 </code></pre><p>Lựa chọn <code>--init</code> sẽ cho phép ta cập nhập các module chưa được lấy về.
