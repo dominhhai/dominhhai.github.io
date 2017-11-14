@@ -17,7 +17,7 @@ thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/math/katex.png
 metaAlignment: center
 ---
-Hàm nhiều số có ứng dụng rất rộng rãi trong các bài toán học máy vì đa số các các thuộc tính của hiện tượng ta theo dõi không phải chỉ có 1 mà rất nhiều tham số.
+Hàm nhiều biến số có ứng dụng rất rộng rãi trong các bài toán học máy vì đa số các các thuộc tính của hiện tượng ta theo dõi không phải chỉ có 1 mà rất nhiều tham số.
 Các tham số này được liên kết với nhau một cách đặc biệt bởi các hàm số khác nhau để có thể đưa ra được các kết quả mong muốn.
 Nên việc tìm hiểu về hàm nhiều biến là rất cần thiết để có thể hiểu được các lý thuyết của học máy.
 Trong bài viết này tôi sẽ tóm tắt lại đôi chút về hàm nhiều biến và đạo hàm của chúng chứ không đi sâu vào các vấn đề khác của hàm nhiều biến.
