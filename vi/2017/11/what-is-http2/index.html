@@ -25,8 +25,7 @@ Nếu bạn chưa có thì có thể tạo bằng lệnh OpenSSL như dưới đ
   -keyout localhost-privkey.pem -out localhost-cert.pem
 </code></pre><p>Lưu ý là chứng chỉ tạo ra này không phải là chứng chỉ được công nhận chính thức nên khi chạy với Google Chrome thì có thể bị báo lỗi SSL màu đỏ,
 nhưng cứ mặc nó đi vì nó chẳng ảnh hưởng gì tới local của ta đâu.<p>Để tạo server bằng HTTP/2, tôi lấy luôn đoạn mã dưới từ tài liệu trên trang chủ <a href=https://nodejs.org/dist/latest-v9.x/docs/api/http2.html#http2_server_side_example target=_blank rel="noopener noreferrer">Nodejs.org</a>.
-Bạn có thể copy nguyên file này và để cùng thư mục với chứng chỉ vừa tạo phía trên.<figure class="highlight js"><figcaption><span>index.js</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br><span class=line>21</span><br></pre><td class=code><pre class="js code-highlight">
-const http2 = require(&#39;http2&#39;)
+Bạn có thể copy nguyên file này và để cùng thư mục với chứng chỉ vừa tạo phía trên.<figure class="highlight js"><figcaption><span>index.js</span></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br></pre><td class=code><pre class="js code-highlight">const http2 = require(&#39;http2&#39;)
 const fs = require(&#39;fs&#39;)
 
 const server = http2.createSecureServer({
@@ -45,7 +44,7 @@ server.on(&#39;stream&#39;, (stream, headers) =&gt; {
   stream.end(&#39;&lt;h1&gt;Hello World&lt;/h1&gt;&#39;)
 })
 
-server.listen(8443)</pre></table></figure><p>Giờ chạy đoạn mã này với lệnh: <code>$ node index.js</code>, rồi bật trình duyệt lên với địa chỉ: <code>https://localhost:8443</code> xem sao nhé.
+server.listen(8443)</pre></table></figure><p>Giờ chạy đoạn mã này với lệnh: <code>$ node index.js</code>, rồi bật trình duyệt lên với địa chỉ: <code>https://localhost:8443</code> xem sao nhé.
 <em>Lưu ý là bắt buộc phải nhập <code>https</code> vì server của ta là dạng SSL</em>.<div class="alert info"><p>Để xem máy chủ có dạng HTTP/2 hay không, ta có thể xem cột <code>Protocol</code> ở mục <code>Network</code> của Developer Console lên bằng cách chuột phải ở 1 tiêu đề cột bất kì nào đó sau đó chọn mục <code>Protocol</code> là được.
 Ví dụ, sau khi mở Developer Console lên, bạn vào tab <code>Network</code> rồi ấn vào 1 tiêu đề của cột <code>Status</code> (tức là ấn vào chữ <code>Status</code>),
 sau đó ấn chuột phải ở vị trí này thì sẽ thấy mục <code>Protocol</code>, lúc đó chỉ cần ấn để chọn mục đó là được.
