@@ -20,6 +20,7 @@ Trong [phần trước](/vi/2017/10/what-is-prob/) ta đã có khái niệm rấ
 
 <!--toc-->
 # 1. Biến ngẫu nhiên
+Biến ngẫu nhiên (random variables) là các biến nhận 1 giá trị ngẫu nhiên 
 # 2. Phân phối xác suất
 ## 2.1. Hàm khối lượng xác suất của biến rời rạc
 ## 2.2. Hàm mật độ xác suất của biến liên tục
