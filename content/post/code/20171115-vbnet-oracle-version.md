@@ -4,9 +4,9 @@ slug: vbnet-oracle-version
 date: 2017-11-15T10:24:34+09:00
 categories:
 - Lập Trình
-- .NET
+- VB.NET
 tags:
-- .NET
+- VB.NET
 - OracleDB
 keywords:
 - VB.NET binding redirect
