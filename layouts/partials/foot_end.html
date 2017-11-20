@@ -1,0 +1,3 @@
+{{ range .Params.customjs }}
+  <script src="{{ . | absURL }}"></script>
+{{ end }}
