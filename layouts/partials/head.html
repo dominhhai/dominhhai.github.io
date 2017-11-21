@@ -111,10 +111,7 @@
       {{ end }}
     {{ end }}
 
-    {{ if .Params.ga.async }}
-      {{ template "_internal/google_analytics_async.html" . }}
-    {{ else }}
-      {{ template "_internal/google_analytics.html" . }}
-    {{ end }}
+    {{ partial "internal/google_gtag.html" . }}
+
     {{ partial "head_end.html" . }}
   </head>
