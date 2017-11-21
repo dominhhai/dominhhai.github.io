@@ -24,6 +24,8 @@
   resize: both;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 1.7rem;
+  background-color: #585151;
+  color: #FDF8F8;
 }
 
 #editor #preview {
