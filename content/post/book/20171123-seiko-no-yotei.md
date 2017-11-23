@@ -1,5 +1,5 @@
 ---
-title: "Điểm cốt lõi đề thành công"
+title: "Điểm cốt lõi để thành công"
 slug: seiko-no-yotei
 date: 2017-11-23T12:11:35+09:00
 categories:
