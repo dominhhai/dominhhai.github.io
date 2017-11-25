@@ -1,3 +1,8 @@
 {{ range .Params.customjs }}
   <script src="{{ . | absURL }}"></script>
 {{ end }}
+<script>
+  if (typeof fnMain === 'function') {
+    fnMain();
+  }
+</script>
