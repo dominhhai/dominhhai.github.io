@@ -158,26 +158,57 @@ Nên xấp xỉ 63.3 phần trăm thời gian một máy tính sẽ lỗi sau 10
 Ta có thể biểu diễn bằng đồ thị như sau:
 <canvas id="ex3"></canvas>
 
+Nhìn vào biểu đồ trên ta có thấy xác suất (a) là phần diện tích của hình thang cong phủ từ $50 < x < 150$, còn xác suất (b) là phần diện tích hình thang cong phủ tới $x <100$. $x$ càng lớn thì $f(x)$ cũng càng bé đi nên phần phần diện tích của nó càng hẹp dần đồng nghĩa với mật độ xác suất cũng giảm dần nên xác suất để máy tính hoạt động được ngày càng thấp đi.
+
 Lưu ý rằng khác với hàm xác suất, hàm mật độ xác suất tại 1 điểm bất kì luôn bằng 0.
 $$P(X=x)=\int_x^xf(t)dt=0$$
 
 Ngoài ra, giá trị của hàm mật độ xác suất $f(x)$ có thể lớn hơn 1, miễn sao đảm bảo được rằng tổng xác suất toàn miền là 1: $\int\_{-\infty}^\infty f(x)dx = 1$.
 
-# 3. Các phép toán
-Tương tự như các phép toán xác suất đối với 1 sự kiện mà ta đã đề cập ở [phần trước](/vi/2017/10/what-is-prob/) thì các phép toán với xác suất của biến ngẫu nhiên cũng được áp dụng như vậy. Trong phần này ta biểu diễn xác suất của biến ngẫu nhiên:
+# 4. Các đặc trưng
+Qua các hàm phân phối xác suất ở phần 3 phía trên ta có thể xác định được xác suất của một biến ngẫu nhiên và dựng được đồ thị biểu diễn nó, nhưng trong thực tế ta còn phải quan tâm tới các đặc trưng của nó như vị trí trung bình và độ phân tán ra sao. Trong thực tế khi tìm xác suất ta thường chỉ xác định các đặc trưng này vì rất khó xác định được hàm phân phối xác suất như trên.
+## 4.1. Kì vọng
+Kì vọng (*Expectation*) của biến ngẫu nhiên là trung bình của biến ngẫu nhiên. Kì vọng của biến ngẫu nhiên $X$ được kí hiệu là $E[X]$:
+$$E[X]=\begin{cases}
+\displaystyle\sum\_{\forall i} x_ip_i &\text{if x is discrete} \\cr
+\displaystyle\int\_{-\infty}^\infty xf(x)dx &\text{if x is continous}
+\end{cases}
+$$
 
-* Rời rạc: Thông qua tổng của hàm khối xác suất: $$
-* Liên tục: Tích phân của hàm mật độ xác suất: $P$
+> Lưu ý là trung bình của biến ngẫu nhiên ở đây là trung bình với trọng lượng chứ không phải là trung bình cộng của xác suất biến ngẫu nhiên.
 
-## 3.1. Xác suất biên
-## 3.2. Xác suất có điều kiện
-# 5. Các đặc trưng
-## 5.1. Kì vọng
-## 5.2. Phương sai
-## 5.3. Trung vị
-## 5.4. Mode
-## 5.5. Hiệp phương sai
-# 6. Các hàm phân phối thường gặp
+Kì vọng còn được biết tới với những tên gọi khác như *giá trị trung bình* (*Mean*), *giá trị trung bình có trọng lượng* (*Weighted Average*),*giá mong đợi* (*Expected Value*) hay *moment bậc một* (*first moment*).
+
+Kì vọng có 1 số tính chất như sau:
+
+* $E\(c) = c$ với $c$ là hằng số
+* $E(cX) = cE(X)$ với $c$ là hằng số
+* $E[aX+b] = aE[X]+b$ với $a, b$ là các hằng số
+* $E[X+Y] = E[X]+E[Y]$
+* $E[XY] = E[X]E[Y]$ với $X, Y$ là độc lập
+* $E[g(X)] = $ với biến rời rạc
+* $E[g(X)] = \begin{cases}
+\displaystyle\sum\_{\forall i} g(x_i)p_X(x_i) &\text{if x is discrete} \\cr
+\displaystyle\int\_{-\infty}^\infty g(x)f(x)dx &\text{if x is continous}
+\end{cases}
+$
+
+Việc chứng minh các tính chất trên không khó lắm nên tôi không đề cập ở đây nữa mà chỉ lấy một số ví dụ đặc trưng để mình họa.
+
+Ví dụ: cho biến ngẫu nhiên rời rạc $X$ và một hàm $g(X)=X^n$, hãy tìm kì vọng của $g(X)$.
+$$
+\begin{aligned}
+E[g(x)] &= \sum\_{\forall i} g(x_i)p_X(x_i) \\cr
+\implies E[X^n] &= \sum\_{\forall i} x_i^np_X(x_i)
+\end{aligned}
+$$
+$E[X^n]$ ở trên còn được biết tới với tên gọi moment bậc n (*nth moment*) của $X$.
+
+## 4.2. Phương sai
+## 4.3. Trung vị
+## 4.4. Mode
+## 4.5. Hiệp phương sai
+# 5. Các hàm phân phối thường gặp
 <script>
 function fnMain() {
   var opts = {
@@ -204,7 +235,7 @@ function fnMain() {
       }]
     }
   };
-  // ex1
+  // ex1: PMF
   new Chart('ex1', {
     type: 'bar',
     data: {
@@ -220,7 +251,7 @@ function fnMain() {
     options: opts
   });
 
-  // ex2
+  // ex2: PMF & CDF
   opts.title.text = 'Hình 2. Biểu đồ của CDF với PMF';
   opts.scales.yAxes[0].scaleLabel.labelString = 'p(x) | F(x)';
   new Chart('ex2', {
@@ -239,7 +270,32 @@ function fnMain() {
         steppedLine: true,
         fill: false,
         data: [0, 1/36, 3/36, 6/36, 10/36, 15/36, 21/36, 26/36, 30/36, 33/36, 35/36, 36/36, 36/36],
-        borderColor: 'rgba(255, 0, 0, 1)',
+        borderColor: 'rgba(255, 0, 0, 1)'
+      }]
+    },
+    options: opts
+  });
+
+  // ex3: PDF
+  opts.title.text = 'Hình 3. Biểu đồ của PDF';
+  opts.scales.yAxes[0].scaleLabel.labelString = 'f(x)';
+  new Chart('ex3', {
+    type: 'line',
+    data: {
+      labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200],
+      datasets: [{
+        label: 'PDF f(x)',
+        fill: false,
+        data: [Math.exp(-0/100)/100, Math.exp(-10/100)/100, Math.exp(-20/100)/100, Math.exp(-30/100)/100, Math.exp(-40/100)/100, Math.exp(-50/100)/100, Math.exp(-60/100)/100, Math.exp(-70/100)/100, Math.exp(-80/100)/100, Math.exp(-90/100)/100, Math.exp(-100/100)/100, Math.exp(-110/100)/100, Math.exp(-120/100)/100, Math.exp(-130/100)/100, Math.exp(-140/100)/100, Math.exp(-150/100)/100, Math.exp(-160/100)/100, Math.exp(-170/100)/100, Math.exp(-180/100)/100, Math.exp(-190/100)/100, Math.exp(-200/100)/100],
+        borderColor: 'rgba(54, 162, 235, 1)'
+      }, {
+        label: 'P(50<X<150)',
+        data: [null, null, null, null, null, Math.exp(-50/100)/100, Math.exp(-60/100)/100, Math.exp(-70/100)/100, Math.exp(-80/100)/100, Math.exp(-90/100)/100, Math.exp(-100/100)/100, Math.exp(-110/100)/100, Math.exp(-120/100)/100, Math.exp(-130/100)/100, Math.exp(-140/100)/100, Math.exp(-150/100)/100],
+        backgroundColor: 'rgba(255, 99, 132, 0.2)'
+      }, {
+        label: 'P(X<100)',
+        data: [Math.exp(-0/100)/100, Math.exp(-10/100)/100, Math.exp(-20/100)/100, Math.exp(-30/100)/100, Math.exp(-40/100)/100, Math.exp(-50/100)/100, Math.exp(-60/100)/100, Math.exp(-70/100)/100, Math.exp(-80/100)/100, Math.exp(-90/100)/100, Math.exp(-100/100)/100],
+        backgroundColor: 'rgba(255, 206, 86, 0.5)'
       }]
     },
     options: opts
