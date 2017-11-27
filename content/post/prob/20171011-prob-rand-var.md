@@ -13,7 +13,6 @@ autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/prob/icon.png
 metaAlignment: center
-draft: true
 customJS:
 - https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js
 ---
@@ -22,14 +21,14 @@ Trong [phần trước](/vi/2017/10/what-is-prob/) ta đã có khái niệm rấ
 
 <!--toc-->
 # 1. Biến ngẫu nhiên
-Biến ngẫu nhiên (random variables) là các biến nhận 1 giá trị ngẫu nhiên đại diện cho kết quả của phép thử. Mỗi giá trị nhận được $x$ của biến ngẫu nhiên $X$ được gọi là một thể hiện của $X$, đây cũng là kết quả của phép thử hay còn được hiểu là một sự kiện.
+Biến ngẫu nhiên (*random variables*) là các biến nhận 1 giá trị ngẫu nhiên đại diện cho kết quả của phép thử. Mỗi giá trị nhận được $x$ của biến ngẫu nhiên $X$ được gọi là một thể hiện của $X$, đây cũng là kết quả của phép thử hay còn được hiểu là một sự kiện.
 
 Gọi tên là một biến có vẻ hơi kì kì một chút bởi biến ngẫu nhiên thực chất là một hàm ánh xạ từ không gian sự kiện đầy đủ tới 1 số thực: $X: \Omega \mapsto \mathbb{R}$.
 
 Biến ngẫu nhiên có 2 dạng:
 
-* Rời rạc: tập giá trị nó là rời rạc, tức là đếm được. Ví dụ như mặt chấm của con xúc xắc.
-* Liên tục: tập giá trị là liên tục tức là lấp đầy 1 khoảng trục số. Ví dụ như giá thuê nhà ở Hà Nội.
+* Rời rạc (*discrete*): tập giá trị nó là rời rạc, tức là đếm được. Ví dụ như mặt chấm của con xúc xắc.
+* Liên tục (*continous*): tập giá trị là liên tục tức là lấp đầy 1 khoảng trục số. Ví dụ như giá thuê nhà ở Hà Nội.
 
 # 2. Phân phối xác suất
 Là phương pháp xác định xác suất của biến ngẫu nhiên được phân phối ra sao. Có 2 cách để xác định phân bố này là dựa vào bảng phân bố xác xuất và hàm phân phối xác suất. Ở đây, tôi chỉ đề cập tới phương pháp hàm phân bố xác suất. Hàm phân phối xác suất của biến ngẫu nhiên $X$ được xác định như sau:
@@ -85,7 +84,7 @@ và biểu đồ tương ứng là:
 Với các biến ngẫu nhiên liên tục ta có khái niệm *hàm mật độ xác suất* (*PDF - Probability Density Function*) để ước lượng độ tập trung xác suất tại lân cận điểm nào đó. Hàm mật độ xác suất $f(x)$ tại điểm $x$ được xác định bằng cách lấy đạo hàm của hàm phân phối tích luỹ $F(x)$ tại điểm đó:
 $$f(x) = F^{\prime}(x)$$
 
-Như vậy thì nơi nào $f(x)$ càng lớn thì ở đó mức độ tập xác suất càng cao. Từ đây ta cũng có thể biểu diễn hàm phân phối tích luỹ như sau:
+Như vậy thì nơi nào $f(x)$ càng lớn thì ở đó mức độ tập xác suất càng cao. Từ đây ta cũng có thể biểu diễn hàm phân phối tích luỹ như sau:
 $$F(x)=\int\_{-\infty}^xf(t)dt$$
 
 Xác suất trong 1 khoảng $(\alpha,\beta)$ cũng có thể được tính bằng hàm mật độ xác suất:
@@ -167,8 +166,8 @@ Ngoài ra, giá trị của hàm mật độ xác suất $f(x)$ có thể lớn 
 
 # 4. Các đặc trưng
 Qua các hàm phân phối xác suất ở phần 3 phía trên ta có thể xác định được xác suất của một biến ngẫu nhiên và dựng được đồ thị biểu diễn nó, nhưng trong thực tế ta còn phải quan tâm tới các đặc trưng của nó như vị trí trung bình và độ phân tán ra sao. Trong thực tế khi tìm xác suất ta thường chỉ xác định các đặc trưng này vì rất khó xác định được hàm phân phối xác suất như trên.
-## 4.1. Kì vọng
-Kì vọng (*Expectation*) của biến ngẫu nhiên là trung bình của biến ngẫu nhiên. Kì vọng của biến ngẫu nhiên $X$ được kí hiệu là $E[X]$:
+## 4.1. Kỳ vọng
+Kỳ vọng (*Expectation*) của biến ngẫu nhiên là trung bình của biến ngẫu nhiên. Kỳ vọng của biến ngẫu nhiên $X$ được kí hiệu là $E[X]$:
 $$E[X]=\begin{cases}
 \displaystyle\sum\_{\forall i} x_ip_i &\text{if x is discrete} \\cr
 \displaystyle\int\_{-\infty}^\infty xf(x)dx &\text{if x is continous}
@@ -177,16 +176,15 @@ $$
 
 > Lưu ý là trung bình của biến ngẫu nhiên ở đây là trung bình với trọng lượng chứ không phải là trung bình cộng của xác suất biến ngẫu nhiên.
 
-Kì vọng còn được biết tới với những tên gọi khác như *giá trị trung bình* (*Mean*), *giá trị trung bình có trọng lượng* (*Weighted Average*),*giá mong đợi* (*Expected Value*) hay *moment bậc một* (*first moment*).
+Kỳ vọng còn được biết tới với những tên gọi khác như *giá trị trung bình* (*Mean*), *giá trị trung bình có trọng lượng* (*Weighted Average*),*giá mong đợi* (*Expected Value*) hay *moment bậc một* (*first moment*).
 
-Kì vọng có 1 số tính chất như sau:
+Kỳ vọng có một số tính chất như sau:
 
 * $E\(c) = c$ với $c$ là hằng số
 * $E(cX) = cE(X)$ với $c$ là hằng số
 * $E[aX+b] = aE[X]+b$ với $a, b$ là các hằng số
 * $E[X+Y] = E[X]+E[Y]$
 * $E[XY] = E[X]E[Y]$ với $X, Y$ là độc lập
-* $E[g(X)] = $ với biến rời rạc
 * $E[g(X)] = \begin{cases}
 \displaystyle\sum\_{\forall i} g(x_i)p_X(x_i) &\text{if x is discrete} \\cr
 \displaystyle\int\_{-\infty}^\infty g(x)f(x)dx &\text{if x is continous}
@@ -205,10 +203,75 @@ $$
 $E[X^n]$ ở trên còn được biết tới với tên gọi moment bậc n (*nth moment*) của $X$.
 
 ## 4.2. Phương sai
+Dựa vào kì vọng ta sẽ có được trung bình của biến ngẫu nhiên, tuy nhiên nó lại không cho ta thông tin về mức độ phân tán xác suất nên ta cần 1 phương pháp để đo được độ phân tán đó. Một trong những phương pháp đó là phương sai (*variance*).
+
+Phương sai $Var(X)$ là trung bình của bình phương khoảng cách từ biến ngẫu nhiên $X$ tới giá trị trung bình:
+$$Var(X)=E[(X-E[X])^2]$$
+
+Việc tính toán dựa vào công thức này khá phức tạp, nên trong thực tế người ta thường sử dụng công thức tương đương sau:
+$$Var(X)=E[X^2]-E^2[X]$$
+
+Chứng minh:
+$$
+\begin{aligned}
+Var(X) &= E[(X-E[X])^2] \\cr
+\ &= E[X^2-2XE[X]+E^2[X]] \\cr
+\ &= E[X^2]-E[2XE[X]]+E[E^2[X]] ~~~,\text{E[X] is constant} \\cr
+\ &= E[X^2]-2E[X]E[X]+E^2[X] \\cr
+\ &= E[X^2]-2E^2[X]
+\end{aligned}
+$$
+
+Như vậy ta có thể thấy rằng phương sai luôn là một giá trị không âm và phương sai càng lớn thì nó thể hiện mức độ phân tán dữ liệu càng rộng hay nói cách khác mức độ ổn định càng nhỏ.
+
+Cũng vì đơn vị của phương sai là bình phương nên việc tính để khớp với đơn vị của biến ngẫu nhiên là bất khả nên người ta đưa vào thêm khái niệm **độ lệch chuẩn** (*SD-standard deviation*) bằng căn bậc 2 của phương sai.
+$$\sigma(X)=\sqrt{Var(X)}$$
+
+Từ đây người ta cũng có thể sử dụng $\sigma^2(X)$ để thể hiện phương sai của biến ngẫu nhiên $X$.
+
+Phương sai có một số tính chất sau:
+
+* $Var\(c) = 0$ với $c$ là hằng số
+* $Var(cX) = c^2Var(X)$ với $c$ là hằng số
+* $Var(aX+b) = a^2Var(X)$ với $a, b$ là các hằng số
+* $Var(X+Y) = Var(X)+Var(Y)$ với $X, Y$ là độc lập
+
+Lưu ý với độ lệch chuẩn ta phải lấy trị tuyệt đối của hằng số khi nhân:
+
+* $\sigma(cX)=|c|\sigma(X)$
+
 ## 4.3. Trung vị
-## 4.4. Mode
-## 4.5. Hiệp phương sai
-# 5. Các hàm phân phối thường gặp
+Trung vị (*median*) là điểm chia đều xác suất thành 2 phần giống nhau, kí hiệu là $med(X)$:
+$$P(X < med(X)) = P(X \ge med(X)) = 0.5$$
+
+Như vậy trung vị là nghiệm của phương trình hàm tích lũy xác suất: $F_X(x) = 0.5$
+
+## 4.4. Moment (mô-men)
+Là khái niệm tổng quát của kì vọng và phương sai. Một moment bậc $k$ đối với $c$ được định nghĩa như sau:
+$$m_k = E[(X-a)^k]$$
+
+Nhận xét rằng:
+
+* Kỳ vọng là moment bậc 1 với $a=0$
+* Phương sai là moment bậc 2 với $a=E[X]$
+
+Khi $a=E[X]$ người ta thường gọi là moment quy tâm, còn $a=0$ gọi là moment gốc. Vậy nên ta có thể gọi kỳ vọng là moment gốc bậc 1 và phương sai là moment quy tâm bậc 2.
+
+# 5. Kết luận
+Bài này đã trình bày về một khái niệm rất quan trọng của xác suất thống kê là *biến ngẫu nhiên* - tương tự như các biến trong lập trình có thể nhận một giá trị bất kì thuộc trường số thực.
+
+Cùng với đó là các hàm phân phối xác suất dùng cho việc xác định xác suất của biến ngẫu nhiên như: 
+
+* Hàm phân phối tích lũy (*CDF*): $F_X(x) = P(X \le x)$
+* Hàm khối xác suất cho biến rời rạc (*PMF*): $p(x) = P(X=x)$
+* Hàm mật độ xác suất cho biến liên tục (*PDF*): $f(x) = F^{\prime}(x)$
+
+Phân phối xác suất có 2 đặc trưng quan trọng là *kỳ vọng* (*expectation*) và *phương sai* (*variance*). Trong đó *kỳ vọng* đặc trưng cho điểm trung bình của biến ngẫu nhiên, còn *phương sai* thể hiện cho mức độ phân tán phân phối quanh điểm trung bình đó. Phương sai càng lớn thì mức độ phân tán phân phối hay độ bất định của biến ngẫu nhiên càng rộng.
+
+Tuy nhiên trong phần này ta mới chỉ đề cập tới 1 biến ngẫu nhiên 1 chiều ($X \in \mathbb R$). Nhưng trong thực tế ta thường xuyên phải làm việc với nhiều biến ngẫu nhiên cùng lúc hay có thể coi là một biến ngẫu nhiên nhiều chiều $X \in \mathbb R^n$. Ví dụ như giá nhà phụ thuộc vào diện tích, vị trí và thời gian xây dựng. Khi đó nếu ta tính xác suất để mua được 1 căn nhà dưới 1 tỉ thì cần phải sử dụng cả 3 biến ngẫu nhiên đặc trưng cho diện tích, vị trí và thời gian xây dựng, hoặc có thể là 1 biến ngẫu nhiên có 3 chiều (diện tích; vị trí; thời gian xây dựng). Việc kết hợp sử dụng biến ngẫu nhiên đa chiều như vậy sẽ được đề cập ở bài viết tới.
+
+*Còn bây giờ, nếu có thắc mắc hay góp ý gì thì đừng quên để lại bình luận phía dưới cho mình nhé!*
+
 <script>
 function fnMain() {
   var opts = {

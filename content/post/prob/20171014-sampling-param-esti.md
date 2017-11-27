@@ -1,7 +1,7 @@
 ---
 title: "[Xác Suất] Mẫu thống kê và ước lượng tham số"
 slug: sampling-parameters-estimation
-date: 2017-10-13
+date: 2017-10-14
 categories:
 - Xác Suất
 tags:
