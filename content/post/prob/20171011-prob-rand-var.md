@@ -224,11 +224,6 @@ $$
 
 Như vậy ta có thể thấy rằng phương sai luôn là một giá trị không âm và phương sai càng lớn thì nó thể hiện mức độ phân tán dữ liệu càng rộng hay nói cách khác mức độ ổn định càng nhỏ.
 
-Cũng vì đơn vị của phương sai là bình phương nên việc tính để khớp với đơn vị của biến ngẫu nhiên là bất khả nên người ta đưa vào thêm khái niệm **độ lệch chuẩn** (*SD-standard deviation*) bằng căn bậc 2 của phương sai.
-$$\sigma(X)=\sqrt{Var(X)}$$
-
-Từ đây người ta cũng có thể sử dụng $\sigma^2(X)$ để thể hiện phương sai của biến ngẫu nhiên $X$.
-
 Phương sai có một số tính chất sau:
 
 * $Var\(c) = 0$ với $c$ là hằng số
@@ -236,17 +231,33 @@ Phương sai có một số tính chất sau:
 * $Var(aX+b) = a^2Var(X)$ với $a, b$ là các hằng số
 * $Var(X+Y) = Var(X)+Var(Y)$ với $X, Y$ là độc lập
 
-Lưu ý với độ lệch chuẩn ta phải lấy trị tuyệt đối của hằng số khi nhân:
+## 4.3. Độ lệch chuẩn
+Vì đơn vị của phương sai là bình phương nên việc tính để khớp với đơn vị của biến ngẫu nhiên là bất khả nên người ta đưa vào thêm khái niệm **độ lệch chuẩn** (*SD-standard deviation*) bằng căn bậc 2 của phương sai.
+$$\sigma(X)=\sqrt{Var(X)}$$
+
+Từ đây người ta cũng có thể sử dụng $\sigma^2(X)$ để thể hiện phương sai của biến ngẫu nhiên $X$.
+
+Lưu ý với độ lệch chuẩn ta phải lấy trị tuyệt đối của hằng số khi nhân vì độ lệch chuẩn cũng là không âm:
 
 * $\sigma(cX)=|c|\sigma(X)$
 
-## 4.3. Trung vị
+## 4.4. Điểm chuẩn
+Do độ lệch chuẩn là không âm nên vẫn chưa thể hiện được điểm xác suất là nằm ở phía nào của giá trị trung bình mà chỉ thể hiện được mức độ phân tán dữ liệu quanh giá trị trung bình. Chính vì vậy ta thêm một thông số nữa để đánh giá vị trí này là **điểm chuẩn** (*SC-Standard Score*).
+
+Đặt $\mu$ là kì vọng và $\sigma$ là độ lệch chuẩn thì điểm chuẩn được tính như sau:
+$$z=\dfrac{x-\mu}{\sigma}$$
+
+Từ công thức trên ta có thể thấy rằng $|z|$ thể hiện cho khoảng cách từ một điểm tới điểm trung bình của theo đơn vị là độ lệch chuẩn. Khi $z$ dương ta nói rằng điểm đó nằm phía trên điểm trung bình, còn khi $z$ âm thì nó nằm bên dưới điểm trung bình.
+
+Điểm chuẩn còn được gọi là *giá trị z (z-value)*, *điểm z (z-score)*. Tôi thì hay gọi điểm này là *z-score* do thói quen mà thôi :)
+
+## 4.5. Trung vị
 Trung vị (*median*) là điểm chia đều xác suất thành 2 phần giống nhau, kí hiệu là $med(X)$:
 $$P(X < med(X)) = P(X \ge med(X)) = 0.5$$
 
 Như vậy trung vị là nghiệm của phương trình hàm tích lũy xác suất: $F_X(x) = 0.5$
 
-## 4.4. Moment (mô-men)
+## 4.6. Moment (mô-men)
 Là khái niệm tổng quát của kì vọng và phương sai. Một moment bậc $k$ đối với $c$ được định nghĩa như sau:
 $$m_k = E[(X-a)^k]$$
 
