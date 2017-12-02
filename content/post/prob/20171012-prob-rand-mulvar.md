@@ -125,7 +125,7 @@ f\_{X,Y}(x,y)=u(x)v(y) &\text{for X, Y is continous}
 $$
 
 ## 1.4. Phân phối có điều kiện
-Tương tự như xác suất có điều kiện của các sự kiện ta cũng có thể biểu diễn các phân phối có điều kiện của cac biến ngẫu nhiên.
+Tương tự như xác suất có điều kiện của các sự kiện ta cũng có thể biểu diễn các phân phối có điều kiện của các biến ngẫu nhiên.
 
 Với $X,Y$ là rời rạc:
 $$
