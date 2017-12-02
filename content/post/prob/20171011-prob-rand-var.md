@@ -242,12 +242,12 @@ Lưu ý với độ lệch chuẩn ta phải lấy trị tuyệt đối của h�
 * $\sigma(cX)=|c|\sigma(X)$
 
 ## 4.4. Điểm chuẩn
-Do độ lệch chuẩn là không âm nên vẫn chưa thể hiện được điểm xác suất là nằm ở phía nào của giá trị trung bình mà chỉ thể hiện được mức độ phân tán dữ liệu quanh giá trị trung bình. Chính vì vậy ta thêm một thông số nữa để đánh giá vị trí này là **điểm chuẩn** (*SC-Standard Score*).
+Độ lệch chuẩn cho phép ta biết được mức độ phân tán trung bình của toàn bộ tập dữ liệu nhưng lại chưa cho ta biết được mức độ phân tán của 1 điểm nào đó. Chính vì vậy ta thêm một thông số nữa để đánh giá điểm này là **điểm chuẩn** (*SC-Standard Score*).
 
 Đặt $\mu$ là kì vọng và $\sigma$ là độ lệch chuẩn thì điểm chuẩn được tính như sau:
 $$z=\dfrac{x-\mu}{\sigma}$$
 
-Từ công thức trên ta có thể thấy rằng $|z|$ thể hiện cho khoảng cách từ một điểm tới điểm trung bình của theo đơn vị là độ lệch chuẩn. Khi $z$ dương ta nói rằng điểm đó nằm phía trên điểm trung bình, còn khi $z$ âm thì nó nằm bên dưới điểm trung bình.
+Từ công thức trên ta có thể thấy rằng $|z|$ thể hiện cho khoảng cách từ một điểm tới điểm trung bình của theo đơn vị là độ lệch chuẩn. Khi $z$ dương ta nói rằng điểm đó nằm phía trên điểm trung bình, còn khi $z$ âm thì nó nằm bên dưới điểm trung bình. Như vậy dựa vào điểm chuẩn ta có thể biết được rằng 1 điểm có nằm trong vùng phổ biến hay là không và nằm ở vị trí nào so với trung bình của toàn bộ tập mẫu.
 
 Điểm chuẩn còn được gọi là *giá trị z (z-value)*, *điểm z (z-score)*. Tôi thì hay gọi điểm này là *z-score* do thói quen mà thôi :)
 
@@ -271,7 +271,7 @@ Khi $a=E[X]$ người ta thường gọi là moment quy tâm, còn $a=0$ gọi l
 # 5. Kết luận
 Bài này đã trình bày về một khái niệm rất quan trọng của xác suất thống kê là *biến ngẫu nhiên* - tương tự như các biến trong lập trình có thể nhận một giá trị bất kì thuộc trường số thực.
 
-Cùng với đó là các hàm phân phối xác suất dùng cho việc xác định xác suất của biến ngẫu nhiên như: 
+Cùng với đó là các hàm phân phối xác suất dùng cho việc xác định xác suất của biến ngẫu nhiên như:
 
 * Hàm phân phối tích lũy (*CDF*): $F_X(x) = P(X \le x)$
 * Hàm khối xác suất cho biến rời rạc (*PMF*): $p(x) = P(X=x)$

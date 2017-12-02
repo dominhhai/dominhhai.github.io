@@ -52,16 +52,16 @@ Khi đó với mỗi $p(x_i,y_j)$ là hàm khối xác suất đồng thời, ta
 * $F(x,y) = \displaystyle\sum\_{\forall x_i \le x}\sum\_{\forall y_j \le y} p(x_i,y_j)$
 
 Còn hàm mật độ xác suất đồng thời (*Joint PDF*) của 2 biến ngẫu nhiên $X,Y$ cùng liên tục có dạng:
-$$f(x,y)=\dfrac{\partial^2 F(x,y)}{\partial x \partial y}$$
+$$f(x,y)=\dfrac{\partial^2}{\partial x \partial y}F\_{(X,Y)}(x,y)$$
 Hay dưới dạng tích phân:
-$$F(x,y)=\int\_{-\infty}^x\int\_{-\infty}^yf(u,v)dudv$$
+$$F(x,y)=\int\_{-\infty}^y\int\_{-\infty}^xf(u,v)dudv$$
 
 Tương tự như trường hợp 1 biến ta có:
 
 * $f(x,y)>0$
 * $\displaystyle\int\_{-\infty}^\infty\int\_{-\infty}^\infty f(x,y)dxdy = 1$
-* $P(x_1 \le X \le x_2, y_1 \le Y \le y_2) = \displaystyle\int\_{x_1}^{x_2}\int\_{y_1}^{y_2}f(x,y)dxdy$
-* $P(X=x,Y=y) = \displaystyle\int\_{x}^{x}\int\_{y}^{y}f(x,y)dxdy=0$
+* $P(x_1 \le X \le x_2, y_1 \le Y \le y_2) = \displaystyle\int\_{y_1}^{y_2}\int\_{x_1}^{x_2}f(x,y)dxdy$
+* $P(X=x,Y=y) = \displaystyle\int\_{y}^{y}\int\_{x}^{x}f(x,y)dxdy=0$
 
 Như vậy nếu để ý thì ta có thể nhớ 1 cách rằng trường hợp biến rời rạc ta lấy tổng còn biến là liên tục ta lấy tích phân. Đương nhiên là với biến rời rạc ta phải sử dụng hàm khối xác suất còn biến liên tục là hàm mật độ xác suất.
 
@@ -83,10 +83,10 @@ $$
 $$
 \begin{aligned}
 p_X(x)&=P(X=x)
-\\cr\ &=\sum\_{\forall j}P(x,y_j)
+\\cr\ &=\sum\_{\forall j}p(x,y_j)
 \\cr
 p_Y(y)&=P(Y=y)
-\\cr\ &=\sum\_{\forall i}P(x_i,y)
+\\cr\ &=\sum\_{\forall i}p(x_i,y)
 \end{aligned}
 $$
 
@@ -95,9 +95,11 @@ $$
 \begin{aligned}
 f_X(x)&=P(X=x)
 \\cr\ &=\int\_{-\infty}^{\infty}f(x,y)dy
+\\cr\ &=\dfrac{\partial}{\partial x}F_X(x)
 \\cr
 f_Y(y)&=P(Y=y)
 \\cr\ &=\int\_{-\infty}^{\infty}f(x,y)dx
+\\cr\ &=\dfrac{\partial}{\partial y}F_Y(y)
 \end{aligned}
 $$
 
@@ -115,12 +117,115 @@ $$f\_{X,Y}(x,y)=f_X(x)f_Y(y) ~~~,\forall x,y \in \mathbb R$$
 
 Như vậy từ đây ta có thể thấy rằng nếu các biến ngẫu nhiên là độc lập thì xác suất đồng thời của chúng có thể tính qua các xác suất biên của chúng bằng cách lấy tích chúng lại với nhau.
 
-## 1.4. Xác suất có điều kiện
+Ngoài ra ta còn có thể chứng minh được rằng nếu $X,Y$ là độc lập với nhau thì hợp xác suất của chúng có thể được tính bằng tích của 2 hàm của riêng từng biến một độc lập.
+$$
+\begin{cases}
+p\_{X,Y}(x,y)=u(x)v(y) &\text{for X, Y is discrete} \\cr
+f\_{X,Y}(x,y)=u(x)v(y) &\text{for X, Y is continous}
+\end{cases}
+$$
+
+## 1.4. Phân phối có điều kiện
+Tương tự như xác suất có điều kiện của các sự kiện ta cũng có thể biểu diễn các phân phối có điều kiện của cac biến ngẫu nhiên.
+
+Với $X,Y$ là rời rạc:
+$$
+\begin{aligned}
+p\_{X|Y}(x|y)&=P(X=x|Y=y)
+\\cr\ &= \dfrac{P(X=x,Y=y)}{P(Y=y)}
+\\cr\ &= \dfrac{p\_{X,Y}(x,y)}{p\_{Y}(y)}
+\\cr\ &= \dfrac{p\_{X,Y}(x,y)}{\sum\_{\forall i}p(x_i,y)}
+\end{aligned}
+$$
+
+Tương tự với $X,Y$ là liên tục, ta có:
+$$
+\begin{aligned}
+f\_{X|Y}(x|y)&= \dfrac{f\_{X,Y}(x,y)}{f\_{Y}(y)}
+\\cr\ &= \dfrac{f\_{X,Y}(x,y)}{\int\_{-\infty}^{\infty}f(x,y)dy}
+\end{aligned}
+$$
+
+Qua các phép biến đổi trên ta thấy rằng hợp phân phối của các biến ngẫu nhiên có thể tính toán tương tự như các phép kết hợp của các sự kiện mà ta đã làm quen ở [bài đầu tiên](/vi/2017/10/what-is-prob/). Tôi sẽ không trình bày thêm các phép toán như nhân xác suất, công thức xác suất hậu nghiệm ở đây nữa vì chúng được áp dụng tương tự như các phép toán trên. Cụ thể hơn bạn xem lại bài đầu tiên nhé.
+
 # 2. Các đặc trưng
-## 2.1. Kì vọng
+## 2.1. Kỳ vọng
+Kỳ vọng của từng biến ngẫu nhiên vẫn được tính tương tự như trường hợp 1 biến ngẫu nhiên:
+
+Với $X,Y$ là biến ngẫu nhiên rời rạc:
+$$
+\begin{aligned}
+E[X]&=\sum_i x_i p(x_i)
+\\cr\ &= \sum\_{\forall i} x_i\sum\_{\forall j} p(x_i,y_j)
+\\cr\ &= \sum\_{\forall i}\sum\_{\forall j} x_i p(x_i,y_j)
+\end{aligned}
+$$
+
+Còn $X,Y$ là liên tục:
+$$
+\begin{aligned}
+E[X]&=\int\_{-\infty}^{\infty} x f_X(x)dx
+\\cr\ &=\int\_{-\infty}^{\infty}\int\_{-\infty}^{\infty} x f\_{X,Y}(x,y)dxdy
+\end{aligned}
+$$
+
+Các tính chất của kỳ vọng vẫn được giữ nguyên như trường hợp 1 biến. Ví dụ: giả sử rằng ta có hàm g(X,Y) định nghĩa 1 biến ngẫu nhiên mới thì khi đó:
+$$E[g(X,Y)]=\begin{cases}
+\displaystyle\sum\_{\forall i}\sum\_{\forall j} g(x_i,y_j)p(x_i,y_j) &\text{for X, Y is discrete} \\cr
+\displaystyle\int\_{-\infty}^{\infty}\int\_{-\infty}^{\infty} g(x,y)f\_{X,Y}(x,y)dxdy &\text{for X, Y is continous}
+\end{cases}$$
+
 ## 2.2. Phương sai
+Tương tự như trường hợp 1 biến ngẫu nhiên, phương sai của $X$ là:
+$$
+\begin{aligned}
+Var(X)&=E[(X-E[X])^2]
+\\cr \ &= E[X^2] - E^2[X]
+\end{aligned}
+$$
+
+Cũng như kỳ vọng, các tính chất của phương sai vẫn được bảo tồn như vậy.
+
 ## 2.3. Hiệp phương sai
+Hiệp phương sai (*Covariance*) của 2 biến ngẫu nhiên $X,Y$ kí hiệu là $Cov(X,Y)$ được định nghĩa rằng:
+$$Cov(X,Y)=E[(X-E[X])(Y-E[Y])]$$
+
+Tương tự như cách khai triển của phương sai, ta cũng sẽ thu được công thức tương đương sau:
+$$Cov(X,Y)=E[XY]-E[X]E[Y]$$
+
+Nếu $X,Y$ là độc lập thì $E[XY]=E[X]E[Y]$ nên lúc này ta có $Cov(X,Y)=0$, nhưng điều ngược lại chưa chắc đã đúng!
+
+Hiệp phương sai có một số tính chất sau:
+
+* $Cov(X,Y) = Cov(Y,X)$
+* $Cov(X, X) = Var(X)$
+* $Cov(aX,bY)=abCov(X,Y)$ với $a,b$ là hằng số
+* $\displaystyle Cov\bigg(\sum\_{i=1}^nX_i,\sum\_{j=1}^mY_j\bigg)= \sum\_{i=1}^n\sum\_{j=1}^mCov(X_i,Y_j)$
+* $\displaystyle Var\bigg(\sum\_{i=1}^nX_i\bigg)= \sum\_{i=1}^nVar(X_i)+2\sum_i\sum\_{j>i} Cov(X_i,X_j)$
+
+Hiệp phương sai thường được tập hợp lại thành 1 ma trận đối xứng gọi là ma trận hiệp phương sai:
+$$
+\begin{bmatrix}
+Cov(X,X) & Cov(X,Y) \\cr
+Cov(Y,X) & Cov(Y,Y)
+\end{bmatrix}
+= \begin{bmatrix}
+Var(X) & Cov(X,Y) \\cr
+Cov(X,Y) & Var(Y)
+\end{bmatrix}
+$$
+
 ## 2.4. Hệ số tương quan
+Như ta đã biết khi hiệp phương sai bằng 0 thì vẫn chưa chắc được rằng chúng là độc lập mà khi đó ta sẽ đưa ra khái niệm là chúng không tương quan nhau. Còn trường hợp hiệp phương sai khác 0 thì ta nói rằng chúng tương quan với nhau. Với lý do tương tự khi đưa ra khái niệm độ lệch chuẩn (*Standard Deviation*, ta cũng sẽ đưa ra khái niệm **hệ số tương quan** (*Correlation*) được kí hiệu là $\rho(X,Y)$ và định nghĩa như sau:
+$$
+\begin{aligned}
+\rho(X,Y)&=\dfrac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}
+\\cr \ &= \dfrac{Cov(X,Y)}{\sigma(X)\sigma(Y)}
+\end{aligned}
+$$
+
+Ta có thể chứng minh được rằng $-1 \le \rho(X,Y) \le 1$. Khi $|\rho(X,Y)|=1$ thì giữa $X,Y$ có quan hệ tuyến tính tức là: $Y=a+bX$. Nếu $\rho(X,Y)=1$ thì $b=\dfrac{\sigma(Y)}{\sigma(X)}>0$, còn nếu $\rho(X,Y)=-1$ thì $b=-\dfrac{\sigma(Y)}{\sigma(X)}<0$. Hệ số tương quan cho ta thấy được các biến ngẫu nhiên có quan hệ tuyến tính chặt tới đâu tức là khi 1 biến biến thiên thì biến còn lại cũng sẽ biến thiên tương ứng. $|\rho(X,Y)|$ càng lớn thì ta nói rằng 2 biến có quan hệ tuyến tính càng chặt chẽ. $\rho(X,Y)>0$ ám chỉ rằng 2 biến là thuận biến với nhau, còn $\rho(X,Y)<0$ ám chỉ rằng 2 biến là nghịch biến với nhau. Khi $\rho(X,Y)=0$ ta nói rằng chúng không tương quan với nhau. Lưu ý rằng khi 2 biến độc lập thì chúng không tương quan nhưng điều ngược lại thì không đúng.
+
 ## 2.5. Đặc trưng có điều kiện
 # 3. Hàm các biến ngẫu nhiên
 ## 3.1. Phân phối xác suất
