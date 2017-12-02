@@ -13,7 +13,6 @@ autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/prob/icon.png
 metaAlignment: center
-draft: true
 ---
 Trong thực tế ta thường xuyên phải làm việc với nhiều biến ngẫu nhiên cùng lúc chứ không đơn thuần là 1 biến như [bài viết trước](/vi/2017/10/prob-rand-var/) nên khảo sát việc kết hợp các biến như vậy là rất cần thiết.
 <!--more-->
@@ -227,7 +226,60 @@ $$
 Ta có thể chứng minh được rằng $-1 \le \rho(X,Y) \le 1$. Khi $|\rho(X,Y)|=1$ thì giữa $X,Y$ có quan hệ tuyến tính tức là: $Y=a+bX$. Nếu $\rho(X,Y)=1$ thì $b=\dfrac{\sigma(Y)}{\sigma(X)}>0$, còn nếu $\rho(X,Y)=-1$ thì $b=-\dfrac{\sigma(Y)}{\sigma(X)}<0$. Hệ số tương quan cho ta thấy được các biến ngẫu nhiên có quan hệ tuyến tính chặt tới đâu tức là khi 1 biến biến thiên thì biến còn lại cũng sẽ biến thiên tương ứng. $|\rho(X,Y)|$ càng lớn thì ta nói rằng 2 biến có quan hệ tuyến tính càng chặt chẽ. $\rho(X,Y)>0$ ám chỉ rằng 2 biến là thuận biến với nhau, còn $\rho(X,Y)<0$ ám chỉ rằng 2 biến là nghịch biến với nhau. Khi $\rho(X,Y)=0$ ta nói rằng chúng không tương quan với nhau. Lưu ý rằng khi 2 biến độc lập thì chúng không tương quan nhưng điều ngược lại thì không đúng.
 
 ## 2.5. Đặc trưng có điều kiện
+Các hàm khối xác suất của biến rời rạc và hàm mật độ xác suất của biến liên tục có điều kiện cũng có các đặc trưng như kỳ vọng và phương sai tương tự như các hàm khác chỉ khác 1 điều là thêm điều kiện tương ứng.
+
+Kỳ vọng được định nghĩa như sau:
+$$
+E[X|Y=y]=\begin{cases}
+\displaystyle\sum_i x_ip\_{X|Y}(x_i|y) &\text{for X,Y is discrete}
+\\cr
+\displaystyle\int\_{-\infty}^{\infty} xf\_{X|Y}(x|y)dx &\text{for X,Y is continous}
+\end{cases}
+$$
+
+Kỳ vọng có điều kiện cũng có các tính chất tương tượng như kỳ vọng thông thường:
+
+* $E[g(Y)X|Y]=g(Y)E[X|Y]$ với $g(Y)$ là 1 hàm liên tục
+* $E[X_1+X_2|Y]=E[X_1|Y]+E[X_2|Y]$
+* $E[X|Y]=E[X]$ nếu $X,Y$ là độc lập
+
+Một tính chất quan trọng nữa là $E[X]=E[E[X|Y]]$ tức là kì vọng của 1 biến có thể lấy bằng cách tương tự như xác suất của nó. Ta có thể biểu diễn tương tự như vậy:
+$$
+E[X]=\begin{cases}
+\displaystyle\sum_j E(X|Y=y_j)p_Y(y_j) &\text{for X,Y is discrete}
+\\cr
+\displaystyle\int\_{-\infty}^{\infty} E(X|Y=y)f_Y(y)dy &\text{for X,Y is continous}
+\end{cases}
+$$
+
+Một cách tương tự ta cũng định nghĩa phương sai có điều kiện như sau:
+$$Var(X|Y)=E[(X-E[X])^2|Y]$$
+
+Ta cũng có $Var(X|Y)=E[X^2|Y]-E^2[X|Y]$, từ đây ta cũng có thể chứng minh rằng: $Var(X)=E[Var(X|Y)]+Var(E[X|Y])$.
+
+Do $Var(X|Y)=E[X^2|Y]-E^2[X|Y]$, nên:
+$$
+\begin{aligned}
+E[Var(X|Y)]&=E[E[X^2|Y]]-E[E^2[X|Y]]
+\\cr\ &= E[X^2]-E[E^2[X|Y]]
+\end{aligned}
+$$
+
+Ngoài ra,
+$$
+\begin{aligned}
+Var(E[X|Y])&=E[E^2[X|Y]]-E^2[E[X|Y]]
+\\cr\ &= E[E^2[X|Y]]-E^2[X]
+\end{aligned}
+$$
+
+Vậy nên:
+$$Var(X)=E[Var(X|Y)]+Var(E[X|Y])$$
+
+Kỳ vọng có điều kiện là nền tảng để có tạo được mối quan hệ giữa các biến ngẫu nhiên tức là ta có thể vẽ 1 đường dự đoán giá trị của $Y$ khi biết $X$ bằng 1 hàm hồi quy của $Y$ đối với $X$: $g(X)=E[Y|X]$. Thực chất để ước lượng được $Y$ ta cần tìm hàm hồi quy $g(X)$ sao cho kỳ vọng khoảng cách của chúng là nhỏ nhất có thể $\mathrm{argmin}E[(Y-g(X))^2]$. Và giá trị nhỏ nhất này chính là: $g(X)=E[Y|X]$.
+
 # 3. Hàm các biến ngẫu nhiên
 ## 3.1. Phân phối xác suất
 ## 3.2. Các đặc trưng
 # 4. Kết luận
+Trong bài này ta đã khảo sát phân phối hợp, phân phối có điều kiện của các biến ngẫu nhiên cùng với các đặc trưng của nó. Trong thực tế ta thường xuyên phải làm việc với các biến ngẫu nhiên và chúng được gom lại thành 1 véc-to được gọi là véc-to ngẫu nhiên. Nếu bạn để ý thì thấy rằng việc kết hợp các biến ngẫu nhiên cũng khá tương tự như việc kết hợp các sự kiện với nhau vì khi biến ngẫu nhiên nhận 1 giá trị nào đó thì nó sẽ thành sự kiện. Phần tiếp theo ta sẽ xem một số phân phối phổ biến để có thể áp dụng vào các bài toán thực tế sau này.
