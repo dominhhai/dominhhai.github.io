@@ -278,8 +278,5 @@ $$Var(X)=E[Var(X|Y)]+Var(E[X|Y])$$
 
 Kỳ vọng có điều kiện là nền tảng để có tạo được mối quan hệ giữa các biến ngẫu nhiên tức là ta có thể vẽ 1 đường dự đoán giá trị của $Y$ khi biết $X$ bằng 1 hàm hồi quy của $Y$ đối với $X$: $g(X)=E[Y|X]$. Thực chất để ước lượng được $Y$ ta cần tìm hàm hồi quy $g(X)$ sao cho kỳ vọng khoảng cách của chúng là nhỏ nhất có thể $\mathrm{argmin}E[(Y-g(X))^2]$. Và giá trị nhỏ nhất này chính là: $g(X)=E[Y|X]$.
 
-# 3. Hàm các biến ngẫu nhiên
-## 3.1. Phân phối xác suất
-## 3.2. Các đặc trưng
-# 4. Kết luận
+# 3. Kết luận
 Trong bài này ta đã khảo sát phân phối hợp, phân phối có điều kiện của các biến ngẫu nhiên cùng với các đặc trưng của nó. Trong thực tế ta thường xuyên phải làm việc với các biến ngẫu nhiên và chúng được gom lại thành 1 véc-to được gọi là véc-to ngẫu nhiên. Nếu bạn để ý thì thấy rằng việc kết hợp các biến ngẫu nhiên cũng khá tương tự như việc kết hợp các sự kiện với nhau vì khi biến ngẫu nhiên nhận 1 giá trị nào đó thì nó sẽ thành sự kiện. Phần tiếp theo ta sẽ xem một số phân phối phổ biến để có thể áp dụng vào các bài toán thực tế sau này.
