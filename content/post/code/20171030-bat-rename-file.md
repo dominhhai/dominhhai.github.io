@@ -7,7 +7,7 @@ categories:
 - Terminal
 tags:
 - Windows
-- .bat
+- Bash
 keywords:
 - Windows bat file
 - change file name
