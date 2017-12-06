@@ -15,6 +15,7 @@ dev:
 # minify output https://github.com/tdewolff/minify/tree/master/cmd/minify#directories
 build:
 	@hugo -d tmp_public \
+		&& cp -R tmp_public/* public \
 		&& minify -v -r --html-keep-document-tags --html-keep-end-tags -o public/ tmp_public \
 		&& rm -rf tmp_public
 
