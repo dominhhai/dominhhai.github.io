@@ -1,3 +1,12 @@
+# init project
+init:
+	@git fetch \
+		&& git submodule update --init \
+		&& git worktree add public -b master \
+		&& cd public \
+		&& git branch --set-upstream-to=origin/master master \
+		&& cd ..
+
 # for dev
 dev:
 	@hugo server -D
