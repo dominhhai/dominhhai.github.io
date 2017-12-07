@@ -112,7 +112,7 @@ Tương tự như đối với trường hợp là biến rời rạc thì với
 ## 2.2. Phân phối chuẩn - *Normal distribution*
 Phân phối chuẩn hay còn được gọi là phân phối Gao-xo (*Gauss*) là một trong những phân phối quan trọng nhất và được ứng dụng rất rộng rãi trong thực tế. Ở đây ta sẽ khảo sát phân phối chuẩn cho 1 biến ngẫu nhiên hay nói cách khác là biến ngẫu nhiên một chiều và cho cả nhiều biến ngẫu nhiên hay véc-to ngẫu nhiên - biến ngẫu nhiên nhiều chiều.
 
-## 2.2.1 Đối với biến 1 chiều (*Univariate*)
+### 2.2.1 Đối với biến 1 chiều (*Univariate*)
 Biến ngẫu nhiên $X$ tuân theo phân phối chuẩn $X \sim \mathcal{N}(\mu, \sigma^2)$ với tham số kỳ vọng $\mu$ và phương sai $\sigma^2$, ta sẽ có:
 
 | Định nghĩa | Giá trị |
@@ -155,7 +155,7 @@ $$
 
 Phân phối tích luỹ chuẩn tắc $\Phi\bigg(\dfrac{x-\mu}{\sigma}\bigg)$ có thể tra sử dụng các bảng tính có sẵn nên ta hoàn toàn có thể tính được các phân phối chuẩn khác qua nó.
 
-## 2.2.2 Đối với biến đa chiều (*Multivariate*)
+### 2.2.2 Đối với biến đa chiều (*Multivariate*)
 Đây là tổng quát hoá của phân phối chuẩn đối với biến ngẫu nhiên một chiều và sử dụng cho hợp của nhiều biến ngẫu nhiên - vécto ngẫu nhiên. Giả sử véc-tơ ngẫu nhiên có số chiều là $k$: $X=[X_1, X_2, ...,X_k]^{\intercal}$. Lúc đó phân phối chuẩn của nó sẽ được tham số hoá bởi:
 
 * Vec-to kì vọng: $\mu=E[X]=[E[X_1], E[X_2], ...,E[X_k]]^{\intercal}$
