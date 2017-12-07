@@ -96,9 +96,54 @@ Quá trình ước lượng tham số này cũng chính là ý tưởng bên dư
 Trong phần này ta sẽ coi tập mẫu là mẫu ngẫu nhiên và ta tìm hiểu 2 phương pháp tìm tham số chính là MLE và MAP.
 
 ## 2.1. Tham số mô hình phổ biến
+Tham số là các giá trị quyết định sự phụ thuộc xác suất của các biến ngẫu nhiên trong mô hình thống kê tương ứng. Các tham số này được kí hiệu là $\theta$ và nó là một véc-to có số chiều bằng với số lượng tham số thành phần. Ví dụ:
+
+| Mô hình | Tham số |
+|---|---|
+| Phân phối đều - $X \sim \mathcal{Unif}(a, b)$ | $\theta=[a,b]$ |
+| Phân phối Béc-nu-li - $X \sim \mathcal{Bern}(p)$ | $\theta=b$ |
+| Phân phối nhị thức - $X \sim \mathcal{Bin}(n,p)$ | $\theta=[n,p]$ |
+| Phân phối Poa-xông - $X \sim \mathcal{Poi}(\lambda)$ | $\theta=\lambda$ |
+| Phân phối hình học - $X \sim \mathcal{Geo}(p)$ | $\theta=p$ |
+| Phân phối nhị thức âm - $X \sim \mathcal{NegBin}(r,p)$ | $\theta=[r,p]$ |
+| Phân phối chuẩn - $X \sim \mathcal{N}(\mu, \sigma^2)$ | $\theta=[\mu,\sigma^2]$ |
+| Phân phối mũ - $X \sim \mathcal{Exp}(\beta)$ | $\theta=\beta$ |
+
+Có nhiều phương pháp để ước lượng các tham số này từ tập mẫu ta có nhưng được đề cập nhiều nhất là 2 phương pháp:
+
+* MLE (Maximum Likelihood Estimation): Cực đại ước lượng hợp lý
+* MAP (Maximum A Posteriori): Cực đại xác suất hậu nghiệm
+
+Về cái nào hơn cái nào thì không có đánh giá chính thức nên chỉ có cách là áp dụng và tự đánh giá.
 
 ## 2.2. MLE
+Ý tưởng của MLE là chọn tham số $\theta$ sao cho đầu ra của tập mẫu quan sát được là hợp lý nhất. Ví dụ ta cần tìm tham số cho mô hình thống kế của bài toán xinh gái ảnh hưởng thế nào tới thông minh. Thì ta sẽ tìm tham số $\theta$ sao cho các biến các đầu vào là *"xinh gái"* - $X$ có kết quả gần với đầu ra *"thông minh"* - $Y$ nhất có thể.
+
+Để mô tả xác suất đầu ra ta sử dụng một *hàm hợp lý* (*Likelihood function*) như sau:
+$$L(\theta)=\prod\_{i=1}^nf(X_i|\theta)$$
+
+Bạn đang nhìn thấy nó giống với xác suất đồng thời? Yes, chính nó đấy! Tuy nhiên ta phải phân biệt ra một chút để hiểu cho đúng về *hàm hợp lý*:
+
+* $X$ là rời rạc: *hàm hợp lý* là hàm trọng lượng xác suất (*PMF*)
+* $X$ là liên tục: *hàm hợp lý* là hàm mật độ xác suất (*PDF*)
+
+Ta biểu diễn $f(X|\theta)$ với ý nghĩa rằng ta đầu ra của ta sẽ phụ thuộc vào tham số mô hình, mỗi tham số khác nhau sẽ cho đầu ra là khác nhau. Ngoài ra, ta cần lấy xác suất đồng thời bởi ta cần phải lấy mức độ giống nhau tổng thể của toàn bộ tập mẫu.
+
+Vấn đề của ta bây giờ là làm sao có thể tìm được tham số $\theta$ sao cho xác suất đầu ra là lớn nhất có thể, tức:
+$$\hat\theta=\underset{\theta}{\mathrm{argmax}}L(\theta)$$
+
+> $\underset{\theta}{\mathrm{argmax}}$ là hàm trả ra giá trị của tham số $\theta$ mà tại đó khiến hàm đạt được giá trị lớn nhất.
+
+Tuy nhiên do các $f(X_i|\theta)$ là nhỏ (có thể là bé hơn 1) nên với tập mẫu lớn $L(\theta)$ rất có thể sẽ rất nhỏ và khó khăn để xử lý sai số. May mắn là nếu ta lấy $\log$ của nó thì tham số vẫn không thay đổi nên mà phép nhân của ta có thể biến thành phép cộng, nên trong thực tế ta sẽ sử dụng phiên bản $log$ của *hàm hợp lý* (*Log Likelihood function*):
+$$LL(\theta)=\log L(\theta)=\log\prod\_{i=1}^nf(X_i|\theta)=\sum\_{i=1}^n\log f(X_i|\theta)$$
+
+Và ta sẽ tìm $\theta$ để tối ưu hoá hàm này:
+$$\hat\theta=\underset{\theta}{\mathrm{argmax}}LL(\theta)$$
+
+Để tối ưu hoá hàm này ta có thể sử dụng nhiều phương pháp khác nhau, một trong các phương pháp phổ biến là sử dụng đạo hàm bậc nhất kết hợp chạy chương trình trên máy tính.
 
 ## 2.3. MAP
+Ý tưởng của MAP là chọn tham số $\theta$ sao cho đầu vào của tập mẫu quan sát được là gần nhất. Như vậy là khác với MLE đánh giá đầu ra cho giống nhất có thể thì MAP lại đánh giá đầu vào sao cho giống nhất có thể.
 
 # 3. Kết luận
+Chọn mẫu là một quá trình rất quan trọng để tìm ra quan hệ giữa các sự kiện và tính chất của dữ liệu. Trong thực tế ta thường chỉ làm việc với các mẫu ngẫu nhiên và đi tìm tham số của các mô hình thống kê với mẫu ngẫu nhiên. Việc tìm tham số hay còn gọi là quá trình học tham số là ý tưởng chính của các bài toán học máy nhằm tìm được mối tương quan giữa các đầu vào và đầu ra dựa trên tập dữ liệu huấn luyện. Từ đó khai phá, dự đoán được các sự kiện trong tương lai. Bài kế tiếp sẽ nói về cách áp dụng các kiến thức xác suất cho bài toán học máy ra sao.
