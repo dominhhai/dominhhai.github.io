@@ -178,3 +178,6 @@ Là phân phối biểu diễn xác suất thời gian giữa các lần một s
 | Phương sai - $Var(X)$ | $\dfrac{1}{\lambda^2}$ |
 
 Nếu đặt $\beta=\dfrac{1}{\lambda}$ là kỳ vọng ta có thể sử dụng $\beta$ là tham số của phân phối mũ. Khi đó phân phối này có thể kí hiệu là: $X \sim \mathcal{Exp}(\beta)$ và có $f(x)=\dfrac{1}{\beta}exp(-\dfrac{x}{\beta})$.
+
+# 3. Kết luận
+Phần này đã tóm tắt sơ lược về một số phân phối xác suất thường dụng để có thể áp dụng vào khi mô hình hoá dữ liệu. Trong phần tới ta sẽ tìm hiểu về cách ước lượng các tham số của mô hình phân phối xác suất để có thể xây dựng được quan hệ của các tính chất trong tập dữ liệu mẫu.
