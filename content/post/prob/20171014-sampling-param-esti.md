@@ -94,7 +94,7 @@ Quá trình ước lượng tham số này cũng chính là ý tưởng bên dư
 
 Trong phần này ta sẽ coi tập mẫu là mẫu ngẫu nhiên và ta tìm hiểu 2 phương pháp tìm tham số chính là MLE và MAP.
 
-## 2.1. Tham số mô hình phổ biến
+## 2.1. Tham số
 Tham số là các giá trị quyết định sự phụ thuộc xác suất của các biến ngẫu nhiên trong mô hình thống kê tương ứng. Các tham số này được kí hiệu là $\theta$ và nó là một véc-to có số chiều bằng với số lượng tham số thành phần. Ví dụ:
 
 | Mô hình | Tham số |
