@@ -136,7 +136,7 @@ $$\hat\theta=\underset{\theta}{\mathrm{argmax}}L(\theta)$$
 
 > $\underset{\theta}{\mathrm{argmax}}$ là hàm trả ra giá trị của tham số $\theta$ mà tại đó khiến hàm đạt được giá trị lớn nhất.
 
-Tuy nhiên do các $f(X_i|\theta)$ là nhỏ (có thể là bé hơn 1) nên với tập mẫu lớn $L(\theta)$ rất có thể sẽ rất nhỏ và khó khăn để xử lý sai số. Hơn nữa việc tối ưu tích là khó khăn hơn so với tối ưu tổng nên nếu ta có thể biến đổi tương đương thành tổng thì quá nhẹ nhàng. May mắn là nếu ta lấy $\log$ của nó thì tham số vẫn không thay đổi nên mà phép nhân của ta có thể biến thành phép cộng, nên trong thực tế ta sẽ sử dụng phiên bản $log$ của *hàm hợp lý* (*Log Likelihood function*):
+Tuy nhiên do các $f(X_i|\theta)$ là nhỏ (có thể là bé hơn 1) nên với tập mẫu lớn $L(\theta)$ rất có thể sẽ rất nhỏ và khó khăn để xử lý sai số. Hơn nữa việc tối ưu tích là khó khăn hơn so với tối ưu tổng nên nếu ta có thể biến đổi tương đương thành tổng thì quá nhẹ nhàng. May mắn là nếu ta lấy $\log$ của nó thì tham số vẫn không thay đổi mà phép nhân của ta có thể biến thành phép cộng, nên trong thực tế ta sẽ sử dụng phiên bản $log$ của *hàm hợp lý* (*Log Likelihood function*):
 $$LL(\theta)=\log L(\theta)=\log\prod\_{i=1}^nf(X_i|\theta)=\sum\_{i=1}^n\log f(X_i|\theta)$$
 
 Và ta sẽ tìm $\theta$ để tối ưu hoá hàm này:
