@@ -17,13 +17,13 @@ metaAlignment: center
 canonical: false
 ---
 Linux系と違ってシステムユーザーじゃないとWindowsでNode.jsアプリをデプロイして、ログオフしたらアプリもダウンされてしまいます。
-<a href="https://blogs.technet.microsoft.com/askds/2008/10/22/getting-a-cmd-prompt-as-system-in-windows-vista-and-windows-server-2008/" target="_blank" rel="noopener noreferrer">システムユーザー権限でCmd</a>を使用できますが、やり方が複雑すぎてめんどくさい。
+<a href="https://blogs.technet.microsoft.com/askds/2008/10/22/getting-a-cmd-prompt-as-system-in-windows-vista-and-windows-server-2008/" target="_blank"_ rel="noopener noreferrer">システムユーザー権限でCmd</a>を使用できますが、やり方が複雑すぎてめんどくさい。
 <!--more-->
 
 多分、一番簡単な方法はシステムサービスを使うことだと思います。
 システムサービスにアプリサービスを登録できたらシステムユーザーがコントロールしてくれます。つまり、通常のユーザーがログオフしてもアプリが立ち上げっぱなしできます。
 
-このノートで<a href="https://nssm.cc/" target="_blank" rel="noopener noreferrer">NSSM</a>を使用してNode.jsアプリをサービスとしてシステムサービスを登録し、
+このノートで<a href="https://nssm.cc/" target="_blank"_ rel="noopener noreferrer">NSSM</a>を使用してNode.jsアプリをサービスとしてシステムサービスを登録し、
 作業する.batファイルを投稿します。
 
 ## 1. システムサービスにアプリサービスを登録し開始する
@@ -59,4 +59,4 @@ nssm remove <SERVICE_NAME>
 @timeout 10
 {{< /codeblock >}}
 
-NSSMのコマンドラインの詳しくは<a href="https://nssm.cc/commands" target="_blank" rel="noopener noreferrer">HP</a>にご参考ください。
+NSSMのコマンドラインの詳しくは<a href="https://nssm.cc/commands" target="_blank"_ rel="noopener noreferrer">HP</a>にご参考ください。

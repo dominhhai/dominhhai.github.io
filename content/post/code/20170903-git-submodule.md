@@ -19,7 +19,7 @@ metaAlignment: center
 nhưng ta lại muốn quản lý nó riêng biệt giống như việc sử dụng các trình quản lý
 gói như `npm` chẳng hạn.
 Lúc này ta có thể sài <a href=“https://git-scm.com/docs/git-submodule” target=“_blank”>git submodule</a> để quản lý các module từ các repo khác.
-Ví dụ, blog của mình được xây dựng với theme <a href="https://github.com/kakawait/hugo-tranquilpeak-theme" target="_blank" rel="noopener noreferrer">tranquilpeak</a>
+Ví dụ, blog của mình được xây dựng với theme <a href="https://github.com/kakawait/hugo-tranquilpeak-theme" target="_blank"_ rel="noopener noreferrer">tranquilpeak</a>
 và mình cần đưa theme này vào thư mục `themes` của dự án.
 Lúc này mình có thể thoải mái làm việc với mã nguồn dự án mà không ảnh hưởng gì tới theme được lấy về. Ngoài ra còn có thể cập nhập theme với các commit mới nhất nữa.
 Hệt như việc sử dụng các trình quản lý gói, rất đơn giản và tiện lợi.

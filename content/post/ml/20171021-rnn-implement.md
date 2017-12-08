@@ -17,12 +17,12 @@ thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png
 metaAlignment: center
 ---
-> Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank" rel="noopener noreferrer">blog WILDML</a>.
+> Bài giới thiệu RNN thứ 2 này được dịch lại từ trang <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-2-implementing-a-language-model-rnn-with-python-numpy-and-theano/" target="_blank"_ rel="noopener noreferrer">blog WILDML</a>.
 
 Trong phần này chúng ta sẽ cài đặt một mạng nơ-ron hồi quy từ đầu sử dụng Python
-và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank" rel="noopener noreferrer">Theano</a> - một thư viện tính toán trên GPU.
+và tối ưu với <a href="http://deeplearning.net/software/theano/" target="_blank"_ rel="noopener noreferrer">Theano</a> - một thư viện tính toán trên GPU.
 Tôi sẽ chỉ đề cập các thành phần quan trọng để giúp bạn có thể hiểu được RNN,
-còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank" rel="noopener noreferrer">Github</a>.
+còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank"_ rel="noopener noreferrer">Github</a>.
 <!--more-->
 
 Đây là bài thứ 2 trong chuỗi bài giới thiệu về RNN:
@@ -35,7 +35,7 @@ còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.co
 <!-- toc -->
 
 # 1. Mô hình hoá ngôn ngữ
-Mục tiêu của ta là xây dựng một <a href="https://en.wikipedia.org/wiki/Language_model" target="_blank" rel="noopener noreferrer">mô hình ngôn ngữ</a> sử dụng RNN.
+Mục tiêu của ta là xây dựng một <a href="https://en.wikipedia.org/wiki/Language_model" target="_blank"_ rel="noopener noreferrer">mô hình ngôn ngữ</a> sử dụng RNN.
 Giả sử ta có một câu với $ m $ từ, thì một mô hình ngôn ngữ cho phép ta dự đoán được
 xác xuất của một câu (trong tập dữ liệu) là:
 
@@ -63,7 +63,7 @@ Ta lấy một vài từ của một cầu rồi chọn dần ra từng câu m�
 cho tới khi ta có một câu hoàn thiện.
 Cứ lặp lại như vậy ta sẽ có được một văn bản tự sinh.
 Về khả năng của ngôn ngữ, anh Andrej Karpathy có
-<a href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank" rel="noopener noreferrer">viết lại</a>
+<a href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank"_ rel="noopener noreferrer">viết lại</a>
 khá tuyệt vời trên blog anh ấy.
 Các mô hình của anh ấy được huấn luyện với các kí tự đơn thay vì cả một từ hoàn chỉnh
 và có thể sinh ra được rất nhiều thứ từ Shakespeare cho tới Linux Code.
@@ -80,7 +80,7 @@ Nguyên nhân là gì, thì ta sẽ cùng xem ở bài viết sau.
 Để huấn luyện mô hình ngôn ngữ, ta cần dữ liệu là văn bản để làm dữ liệu huấn học.
 May mắn là ta không cần dán nhãn cho các mô hình ngôn ngữ mà chỉ cần tập văn bản thô là đủ.
 I đã tải 15,0000 bình luận trên Reddit từ cơ sở dữ liệu
-<a href="https://bigquery.cloud.google.com/table/fh-bigquery:reddit_comments.2015_08" target="_blank" rel="noopener noreferrer">BigQuery của Google</a>.
+<a href="https://bigquery.cloud.google.com/table/fh-bigquery:reddit_comments.2015_08" target="_blank"_ rel="noopener noreferrer">BigQuery của Google</a>.
 Và hi vọng là các văn bản được sinh ra trông có vẻ như của người dùng Reddit.
 Cũng như hầu hết các dự án học máy khác,
 ta đầu tiên cần phải tiền xử lý dữ liệu thô cho đúng định dạng đầu vào.
@@ -91,7 +91,7 @@ nên ta cần phải phân ra dữ liệu ta thành từng từ riêng biệt.
 Đầu tiên ta sẽ phân ra thành từng câu một, sau đó lại phân câu thành từng từ riêng biệt.
 Ta có thể chia các bình luận bằng dấu cách, nhưng cách đó không giúp ta phân tách được các dấu chấm câu.
 Ví dụ: *"He left!"* cần phải chia thành 3 phần: *"He"*, *"left"*, *"!"*.
-Để đỡ phải vất vả, ta sẽ sử dụng <a href="http://www.nltk.org/" target="_blank" rel="noopener noreferrer"> NLTK</a>
+Để đỡ phải vất vả, ta sẽ sử dụng <a href="http://www.nltk.org/" target="_blank"_ rel="noopener noreferrer"> NLTK</a>
 với hàm `word_tokenize` và `sent_tokenize` để phân tách dữ liệu.
 
 ## 2.2. Bỏ các từ ít gặp
@@ -240,10 +240,10 @@ Ok, với những vũ khí đó giờ ta bắt đầu thực hiện.
 ## 3.1. Khởi tạo
 Ta sẽ bắt đầu bằng việc khởi tạo các tham số của mạng trong lớp RNN. Tôi sẽ đặt tên lớp này là RNNNumpy, vì ta sẽ xây dựng một phiên bản Theano sau nữa.
 Khởi tạo các tham số có chút ràng buộc là không thể để chúng bằng $ 0 $ ngay được.
-Vì như vậy sẽ làm cho mạng của ta <a href="https://stackoverflow.com/questions/20027598/why-should-weights-of-neural-networks-be-initialized-to-random-numbers" target="_blank" rel="noopener noreferrer">không thể học được</a>.
+Vì như vậy sẽ làm cho mạng của ta <a href="https://stackoverflow.com/questions/20027598/why-should-weights-of-neural-networks-be-initialized-to-random-numbers" target="_blank"_ rel="noopener noreferrer">không thể học được</a>.
 Ta phải khởi tạo chúng một cách ngẫu nhiên. Hiện nay đã có nhiều nghiên cứu chỉ ra việc khởi tạo tham số có ảnh hưởng tới kết quả huấn luyện ra sao.
 Việc khởi tạo còn phụ thuộc vào hàm kích hoạt (activation function) của ta là gì nữa.
-Trong trường hợp của ta là hàm $ \tanh $, nên giá trị khởi tạo được <a href="http://jmlr.org/proceedings/papers/v9/glorot10a/glorot10a.pdf" target="_blank" rel="noopener noreferrer">khuyến khích</a> nằm trong khoảng $ [ -\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}} ] $.
+Trong trường hợp của ta là hàm $ \tanh $, nên giá trị khởi tạo được <a href="http://jmlr.org/proceedings/papers/v9/glorot10a/glorot10a.pdf" target="_blank"_ rel="noopener noreferrer">khuyến khích</a> nằm trong khoảng $ [ -\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}} ] $.
 Trong đó, $ n $ là lượng kết nối tới từ tầng mạng trước. Nhìn nó có vẻ phức tạp, nhưng đừng lo lắng nhiều về nó.
 Chỉ cần bạn khởi tạo các tham số của mình ngẫu nhiên đủ nhỏ thì thường mạng của ta sẽ hoạt động tốt.
 
@@ -348,7 +348,7 @@ print predictions
 ## 3.3. Tính lỗi
 Để huấn luyện mạng, ta cần phải đánh giá được lỗi cho từng tham số.
 Và mục tiêu của ta là tìm các tham số $ U, V, W $ để tối thiểu hàm lỗi (loss function) $ L $ của ta trong quá trình huấn luyện.
-Một trong số các hàm đánh giá lỗi thường được sử dụng là <a href="https://en.wikipedia.org/wiki/Cross_entropy#Cross-entropy_error_function_and_logistic_regression" target="_blank" rel="noopener noreferrer">cross-entropy</a>.
+Một trong số các hàm đánh giá lỗi thường được sử dụng là <a href="https://en.wikipedia.org/wiki/Cross_entropy#Cross-entropy_error_function_and_logistic_regression" target="_blank"_ rel="noopener noreferrer">cross-entropy</a>.
 Nếu ta có $ N $ mẫu huấn luyện (số từ trong văn bản) và $ C $ lớp (số từ vựng) thì lỗi tương ứng với dự đoán $ o $ và nhãn chuẩn $ y $ sẽ là:
 
 $$ L(y, o) = - \frac{1}{N} \sum{y_n \log{o_n}} $$
@@ -400,10 +400,10 @@ có thể mất tới hàng giờ đồng hồ tùy thuộc vào lượng dữ l
 
 ## 3.4. Huấn luyện RNN với SGD và BPTT
 Nhớ lại rằng, ta cần tìm các tham số $ U, V, W $ sao cho tổng lỗi của ta là nhỏ nhất với tập dữ liệu huấn luyện.
-Cách phổ biến nhất là sử dụng <a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent" target="_blank" rel="noopener noreferrer">SGD (Stochastic Gradient Descent - trượt đồi)</a>.
+Cách phổ biến nhất là sử dụng <a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent" target="_blank"_ rel="noopener noreferrer">SGD (Stochastic Gradient Descent - trượt đồi)</a>.
 Ý tưởng đằng sau SGD khác đơn giản.
 Ta sẽ lặp đi lặp lại suốt tập dữ liệu của ta và tạo mỗi bước lặp ta sẽ thay đổi tham số của ta sao cho tổng lỗi có thể giảm đi.
-Hướng của việc cập nhập tham số được tính dựa vào <a href="https://www.quora.com/Whats-the-difference-between-gradient-descent-and-stochastic-gradient-descent" target="_blank" rel="noopener noreferrer">đạo hàm của hàm lỗi</a>:
+Hướng của việc cập nhập tham số được tính dựa vào <a href="https://www.quora.com/Whats-the-difference-between-gradient-descent-and-stochastic-gradient-descent" target="_blank"_ rel="noopener noreferrer">đạo hàm của hàm lỗi</a>:
 $\displaystyle \frac{\partial{L}}{\partial{U}}, \frac{\partial{L}}{\partial{V}}, \frac{\partial{L}}{\partial{W}} $.
 Để thực hiện SGD, ta cần phải có *độ học* (learning rate) để xác định các mức độ thay đổi tham số của ta ở mỗi bước lặp.
 SGD không chỉ là phương thức tối ưu phổ biến nhất trong mạng nơ-ron mà còn trong nhiều giải thuật học máy khác nữa.
@@ -421,8 +421,8 @@ nên đạo hàm tại mỗi đầu ra phụ thuộc không chỉ vào kết qu�
 Nếu bạn biết đại số tuyến tính, nó giống như việc ứng dụng quy tắc chuỗi (chain rule).
 Ở bài này, tôi không trình bày chi tiết về BPTT, mà sẽ dành nó cho bài viết tới.
 Ngoài ra, bạn có thể tham khảo thêm về giải thuật lan truyền ngược tại
-<a href="http://colah.github.io/posts/2015-08-Backprop/" target="_blank" rel="noopener noreferrer">đây</a>
-và <a href="http://cs231n.github.io/optimization-2/" target="_blank" rel="noopener noreferrer">đây nữa</a>.
+<a href="http://colah.github.io/posts/2015-08-Backprop/" target="_blank"_ rel="noopener noreferrer">đây</a>
+và <a href="http://cs231n.github.io/optimization-2/" target="_blank"_ rel="noopener noreferrer">đây nữa</a>.
 Giờ bạn có thể coi BPTT là một hộp đen đi nhé.
 Hộp đen này nhận tham số đầu vào là tập mẫu huấn luyện $ (x, y) $ và trả ra đạo hàm:
 $\displaystyle \frac{\partial{L}}{\partial{U}}, \frac{\partial{L}}{\partial{V}}, \frac{\partial{L}}{\partial{W}} $.
@@ -591,7 +591,7 @@ Ta có thể giữ nguyên mô hình và làm cho mã nguồn ta chạy nhanh h�
 hoặc thay đổi mô hình để việc tính toán bớt tốn kém đi, hoặc là làm cả 2 việc đó.
 Các nhà nghiên cứu đã đưa ra được nhiều cách để mô hình của ta giảm bớt được chi phí tính toán,
 ví dụ như sử dụng softmax phân cấp hay thêm các tầng chiếu để tránh việc nhân các ma trạn lớn.
-(bạn có thể tham khảo chi tiết tại <a href="http://arxiv.org/pdf/1301.3781.pdf" target="_blank" rel="noopener noreferrer">đây</a> và <a href="http://www.fit.vutbr.cz/research/groups/speech/publi/2011/mikolov_icassp2011_5528.pdf" target="_blank" rel="noopener noreferrer">đây</a>).
+(bạn có thể tham khảo chi tiết tại <a href="http://arxiv.org/pdf/1301.3781.pdf" target="_blank"_ rel="noopener noreferrer">đây</a> và <a href="http://www.fit.vutbr.cz/research/groups/speech/publi/2011/mikolov_icassp2011_5528.pdf" target="_blank"_ rel="noopener noreferrer">đây</a>).
 Nhưng tôi vẫn muốn giữ cho mô hình của ta đơn giản, nên tôi sẽ cho chạy trên GPU.
 Trước khi làm việc này, ta hay thử chạy SGD với một tập dữ liệu nhỏ và kiểm tra xem lỗi có thực sự giảm sau mỗi vòng lặp hay không.
 
@@ -618,10 +618,10 @@ losses = train_with_sgd(model, X_train[:100], y_train[:100], nepoch=10, evaluate
 Tốt, có vẻ như ta cài đặt nó không sai và lỗi đang được giảm đi rồi.
 
 # 4. Huấn luyện với Theano trên GPU
-Tôi có viết một bài về <a href="http://www.wildml.com/2015/09/speeding-up-your-neural-network-with-theano-and-the-gpu/" target="_blank" rel="noopener noreferrer">Theano</a>,
+Tôi có viết một bài về <a href="http://www.wildml.com/2015/09/speeding-up-your-neural-network-with-theano-and-the-gpu/" target="_blank"_ rel="noopener noreferrer">Theano</a>,
 về cơ bản lô-gíc vẫn như vậy, nên thôi sẽ bỏ qua việc tối ưu mã nguồn ở đây.
 Tôi định nghĩa một lớp `RNNTheano` để thay thế các phép tính `numpy` tương ứng bằng phép tính của Theano.
-Cụ thể bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank" rel="noopener noreferrer">Github</a> nhé.
+Cụ thể bạn có thể xem trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank"_ rel="noopener noreferrer">Github</a> nhé.
 
 {{< codeblock "train-theano.py" "python" >}}
 np.random.seed(10)
@@ -629,7 +629,7 @@ model = RNNTheano(vocabulary_size)
 %timeit model.sgd_step(X_train[10], y_train[10], 0.005)
 {{< /codeblock >}}
 
-Lúc này, mỗi bước SGD chạy mất 70ms trên máy Mac của tôi (không có GPU) và 23ms trên <a href="https://aws.amazon.com/ec2/instance-types/#g2" target="_blank" rel="noopener noreferrer">g2.2xlarge </a> của Amazon EC2 với GPU.
+Lúc này, mỗi bước SGD chạy mất 70ms trên máy Mac của tôi (không có GPU) và 23ms trên <a href="https://aws.amazon.com/ec2/instance-types/#g2" target="_blank"_ rel="noopener noreferrer">g2.2xlarge </a> của Amazon EC2 với GPU.
 Nhanh hơn 15 lần so với cách chạy đầu của ta và có nghĩa là ta có thể huấn luyện mô hình của ta trong vài giờ hoặc vài ngày thay vì hàng tuần trời.
 Vẫn có nhiều cách tối ưu hoá khác mà ta có thể làm, nhưng hiện tại cứ để đó đã.
 
@@ -700,7 +700,7 @@ Một lý do có thể là do ta chưa huấn luyện nó đủ lâu, nhưng hì
 Đó cũng là lý do mà RNN không được ưu chuộng khi nó được sáng tạo ra.
 Về mặt lý thuyết trông nó rất đẹp, nhưng nó lại không chạy tốt trong thực tế và lúc đó ta cũng không biết tại sao ngay được.
 
-May mắn là hiện nay sự khó khăn khi huấn luyện RNN đã được <a href="http://arxiv.org/abs/1211.5063" target="_blank" rel="noopener noreferrer">lý giải</a> giúp ta hiểu hơn.
+May mắn là hiện nay sự khó khăn khi huấn luyện RNN đã được <a href="http://arxiv.org/abs/1211.5063" target="_blank"_ rel="noopener noreferrer">lý giải</a> giúp ta hiểu hơn.
 Trong phần tiếp theo của chuỗi bài này, ta sẽ khám phá giải thuật lan truyền ngược liên hồi BPTT
 (Backpropagation Through Time) chi tiết và xem xét *vấn đề mất mát đạo hàm* của nó (vanishing gradient problem).
 Đó là điểm khởi nguyên để ta có nhiều mô hình RNN tốt hơn như LSTM chẳng hạn.
@@ -709,4 +709,4 @@ LSTM hiện này là một phương pháp chính được sử dụng cho rất 
 **Tất cả những điều bạn học được trong phần này sẽ được áp dụng cho LSTM và các mô hình RNN khác nữa, nên đừng cảm thấy thất vọng ngay với kết quả của RNN thuần thu được**.
 
 Tôi xin dừng bài viết tại đây, nếu bạn có khúc mắc hay góp ý gì thì hãy bình luận ở phía dưới nhé.
-Cũng đừng quên xem mã nguồn đầy đủ trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank" rel="noopener noreferrer">Github</a> ha.
+Cũng đừng quên xem mã nguồn đầy đủ trên <a href="https://github.com/dennybritz/rnn-tutorial-rnnlm" target="_blank"_ rel="noopener noreferrer">Github</a> ha.
