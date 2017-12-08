@@ -51,7 +51,7 @@ Vậy nên việc thực hiện cơ chế này ở cả 2 phía máy chủ và t
 
 Lưu ý là ở trình duyệt Google Chrome cho phép ta gửi đồng thời nhiều request, nhưng các request này không phải ở cùng 1 kết nối TCP nhé.
 
-Cùng với <a href="http://httparchive.org/trends.php" target="_blank" rel="noopener noreferrer">lượng giao dịch tăng chóng mặt</a> người ta phải dùng nhiều tiểu sảo khác nhau để nâng cao hiệu quả trang web với HTTP/1.1 như:
+Cùng với <a href="http://httparchive.org/trends.php" target="_blank"_ rel="noopener noreferrer">lượng giao dịch tăng chóng mặt</a> người ta phải dùng nhiều tiểu sảo khác nhau để nâng cao hiệu quả trang web với HTTP/1.1 như:
 
 * Giảm request
  * Gom các file lại với nhau <br/>
@@ -67,7 +67,7 @@ Cùng với <a href="http://httparchive.org/trends.php" target="_blank" rel="noo
 Như vậy có thể thấy việc cải thiện tốc độ cho trang web với HTTP/1.1 rất nhọc công! Phải nói là **KHỔ**!
 
 # 2. HTTP/2 là gì
-Với các hạn chế của HTTP/1.1 thì <a href="https://http2.github.io/http2-spec/" target="_blank" rel="noopener noreferrer">HTTP/2</a> được ra đời với các mục tiêu chính sau:
+Với các hạn chế của HTTP/1.1 thì <a href="https://http2.github.io/http2-spec/" target="_blank"_ rel="noopener noreferrer">HTTP/2</a> được ra đời với các mục tiêu chính sau:
 
 * Giảm độ trễ của các trang web bằng cách
   * Ghép kênh cho nhiều request bằng 1 kết nối TCP
@@ -77,7 +77,7 @@ Với các hạn chế của HTTP/1.1 thì <a href="https://http2.github.io/http
 * Giữ được tính tương thích với HTTP/1.1
 * Cho phép cả trình duyệt lẫn máy chủ có thể chọn loại giao kết nối
 
-Khởi nguyên của HTTP/2 là dự án <a href="https://en.wikipedia.org/wiki/SPDY" target="_blank" rel="noopener noreferrer">SPDY</a> của Google nhằm giải quyết các vấn đề cơ bản mà HTTP/1.1 gặp phải từ năm 2009. Mãi cho tới năm 2015 nó mới được chuẩn hóa thành đặc tả chính thức HTTP/2. Lúc ấy trình duyệt Chrome vẫn hỗ trợ giao thức SPDY cũ cho tới 1 năm sau khi HTTP/2 ra đời. Rồi dần dần các trình duyệt khác cũng bắt đầu hỗ trợ HTTP/2 do nhận thấy được lợi điểm của nó.
+Khởi nguyên của HTTP/2 là dự án <a href="https://en.wikipedia.org/wiki/SPDY" target="_blank"_ rel="noopener noreferrer">SPDY</a> của Google nhằm giải quyết các vấn đề cơ bản mà HTTP/1.1 gặp phải từ năm 2009. Mãi cho tới năm 2015 nó mới được chuẩn hóa thành đặc tả chính thức HTTP/2. Lúc ấy trình duyệt Chrome vẫn hỗ trợ giao thức SPDY cũ cho tới 1 năm sau khi HTTP/2 ra đời. Rồi dần dần các trình duyệt khác cũng bắt đầu hỗ trợ HTTP/2 do nhận thấy được lợi điểm của nó.
 
 {{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/code/web/http2-history.png" title="Source: https://codezine.jp/article/detail/8663" >}}
 
@@ -122,7 +122,7 @@ $ openssl req -x509 -newkey rsa:2048 -nodes -sha256 -subj '/CN=localhost' \
 Lưu ý là chứng chỉ tạo ra này không phải là chứng chỉ được công nhận chính thức nên khi chạy với Google Chrome thì có thể bị báo lỗi SSL màu đỏ,
 nhưng cứ mặc nó đi vì nó chẳng ảnh hưởng gì tới local của ta đâu.
 
-Để tạo server bằng HTTP/2, tôi lấy luôn đoạn mã dưới từ tài liệu trên trang chủ <a href="https://nodejs.org/dist/latest-v9.x/docs/api/http2.html#http2_server_side_example" target="_blank" rel="noopener noreferrer">Nodejs.org</a>.
+Để tạo server bằng HTTP/2, tôi lấy luôn đoạn mã dưới từ tài liệu trên trang chủ <a href="https://nodejs.org/dist/latest-v9.x/docs/api/http2.html#http2_server_side_example" target="_blank"_ rel="noopener noreferrer">Nodejs.org</a>.
 Bạn có thể copy nguyên file này và để cùng thư mục với chứng chỉ vừa tạo phía trên.
 
 {{< codeblock "index.js" "js" >}}
@@ -184,4 +184,4 @@ Một phần khác cũng là để mang lại hiệu quả tốt hơn cho ngư�
 Ví như các công ty lớn như Google, Facebook, Twitter hay Amazon giờ đều đã chuyển qua HTTP/2 cả.
 Nên bạn không cần phải lo lắng chuyện đi sai nước hay lạc loài trong dòng chảy công nghệ hiện nay.
 
-Trong bày này tôi chỉ nói rất vắn tắt về HTTP/2 còn chi tiết thì các bạn nên xem đặc tả của nó <a href="https://http2.github.io/http2-spec/" target="_blank" rel="noopener noreferrer">tại đây</a> và cả bản tóm tắt về HTTP/2 trên <a href="https://developers.google.com/web/fundamentals/performance/http2" target="_blank" rel="noopener noreferrer">Google Developer</a> nữa nhé.
+Trong bày này tôi chỉ nói rất vắn tắt về HTTP/2 còn chi tiết thì các bạn nên xem đặc tả của nó <a href="https://http2.github.io/http2-spec/" target="_blank"_ rel="noopener noreferrer">tại đây</a> và cả bản tóm tắt về HTTP/2 trên <a href="https://developers.google.com/web/fundamentals/performance/http2" target="_blank"_ rel="noopener noreferrer">Google Developer</a> nữa nhé.
