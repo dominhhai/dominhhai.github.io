@@ -117,7 +117,10 @@ Có nhiều phương pháp để ước lượng các tham số này từ tập 
 Về cái nào hơn cái nào thì không có đánh giá chính thức nên chỉ có cách là áp dụng và tự đánh giá.
 
 ## 2.2. MLE
-Ý tưởng của MLE là chọn tham số $\theta$ sao cho đầu ra của tập mẫu quan sát được là hợp lý nhất. Ví dụ ta cần tìm tham số cho mô hình thống kế của bài toán xinh gái ảnh hưởng thế nào tới thông minh. Thì ta sẽ tìm tham số $\theta$ sao cho các biến các đầu vào là *"xinh gái"* - $X$ có kết quả gần với đầu ra *"thông minh"* - $Y$ nhất có thể.
+### 2.2.1. Khái niệm
+Ý tưởng của MLE là chọn tham số $\theta$ sao cho đầu ra của mô hình gần nhất với tập mẫu quan sát được. Ví dụ ta cần tìm tham số cho mô hình thống kê của bài toán xinh gái ảnh hưởng thế nào tới thông minh. Thì ta sẽ tìm tham số $\theta$ sao cho các biến các đầu vào là *"xinh gái"* - $X$ có kết quả gần với đầu ra *"thông minh"* - $Y$ nhất có thể.
+
+Vì các mẫu quan sát được hay nói cách khác là đã xảy ra rồi nên chúng có xác suất là 1, giờ nếu ta muốn đầu ra của ta gần với chúng nhất thì xác suất của đầu ra của ta phải gần với 1 nhất. Hay nói cách khác ta phải tìm tham số sao cho xác suất đầu ra của mô hình là lớn nhất có thể.
 
 Để mô tả xác suất đầu ra ta sử dụng một *hàm hợp lý* (*Likelihood function*) như sau:
 $$L(\theta)=\prod\_{i=1}^nf(X_i|\theta)$$
@@ -134,7 +137,7 @@ $$\hat\theta=\underset{\theta}{\mathrm{argmax}}L(\theta)$$
 
 > $\underset{\theta}{\mathrm{argmax}}$ là hàm trả ra giá trị của tham số $\theta$ mà tại đó khiến hàm đạt được giá trị lớn nhất.
 
-Tuy nhiên do các $f(X_i|\theta)$ là nhỏ (có thể là bé hơn 1) nên với tập mẫu lớn $L(\theta)$ rất có thể sẽ rất nhỏ và khó khăn để xử lý sai số. May mắn là nếu ta lấy $\log$ của nó thì tham số vẫn không thay đổi nên mà phép nhân của ta có thể biến thành phép cộng, nên trong thực tế ta sẽ sử dụng phiên bản $log$ của *hàm hợp lý* (*Log Likelihood function*):
+Tuy nhiên do các $f(X_i|\theta)$ là nhỏ (có thể là bé hơn 1) nên với tập mẫu lớn $L(\theta)$ rất có thể sẽ rất nhỏ và khó khăn để xử lý sai số. Hơn nữa việc tối ưu tích là khó khăn hơn so với tối ưu tổng nên nếu ta có thể biến đổi tương đương thành tổng thì quá nhẹ nhàng. May mắn là nếu ta lấy $\log$ của nó thì tham số vẫn không thay đổi nên mà phép nhân của ta có thể biến thành phép cộng, nên trong thực tế ta sẽ sử dụng phiên bản $log$ của *hàm hợp lý* (*Log Likelihood function*):
 $$LL(\theta)=\log L(\theta)=\log\prod\_{i=1}^nf(X_i|\theta)=\sum\_{i=1}^n\log f(X_i|\theta)$$
 
 Và ta sẽ tìm $\theta$ để tối ưu hoá hàm này:
@@ -142,8 +145,79 @@ $$\hat\theta=\underset{\theta}{\mathrm{argmax}}LL(\theta)$$
 
 Để tối ưu hoá hàm này ta có thể sử dụng nhiều phương pháp khác nhau, một trong các phương pháp phổ biến là sử dụng đạo hàm bậc nhất kết hợp chạy chương trình trên máy tính.
 
+### 2.2.2. Ví dụ
+
 ## 2.3. MAP
-Ý tưởng của MAP là chọn tham số $\theta$ sao cho đầu vào của tập mẫu quan sát được là gần nhất. Như vậy là khác với MLE đánh giá đầu ra cho giống nhất có thể thì MAP lại đánh giá đầu vào sao cho giống nhất có thể.
+### 2.3.1. Khái niệm
+Ý tưởng của MAP là chọn tham số $\theta$ sao chúng gần với tham số thực của dữ liệu nhất có thể. Như vậy không giống như việc khớp dữ liệu quan sát được của MLE thì MAP lại đi khớp với tham số thực của tập dữ liệu quan sát được rồi.
+
+Do có mẫu quan sát được rồi nên xác suất của chúng và xác suất của các tham số thực tương ứng là đã được xác định và bằng 1. Nên, giờ vấn đề của là làm sao để cho xác suất các tham số ước lượng khi đã biết mẫu quan sát được là gần với 1 nhất có thể. Hay nói cách khác xác suất của tham số ước lượng khi biết xác suất của mẫu quan sát và tham số thực phải lớn nhất có thể.
+
+Tương tự như MLE, ta cũng sẽ biểu diễn xác suất này như sau:
+$$P(\theta)=f(\theta|X)$$
+
+> $X$ ở đây là vec-to $X=[X_1,...,X_n]^{\intercal}$
+
+Giờ ta sử dụng [thuyết Bayes](/vi/2017/10/what-is-prob/#2-4-xác-suất-hậu-nghiệm-bayes) để biến đổi công thức trên một chút:
+$$
+\begin{aligned}
+P(\theta)&=f(\theta|X)
+\\cr\ &= \dfrac{f(X|\theta)g(\theta)}{h(X)}
+\\cr\ &= \dfrac{g(\theta)\prod\_{i=1}^nf(X_i|\theta)}{h(X)}
+\end{aligned}
+$$
+
+> $g, h$ ở đây cũng mang ý nghĩa tương tự như $f$. Tức, chúng là PMF nếu biến là rời rạc và PDF nếu biến là liên tục.
+
+Ta cũng sẽ tìm được tham số $\theta$ sao cho xác suất trên là lớn nhất, tức:
+$$
+\begin{aligned}
+\hat\theta&=\underset{\theta}{\mathrm{argmax}}P(\theta)
+\\cr\ &=\underset{\theta}{\mathrm{argmax}}\dfrac{g(\theta)\prod\_{i=1}^nf(X_i|\theta)}{h(X)}
+\\cr\ &=\underset{\theta}{\mathrm{argmax}}\prod\_{i=1}^nf(X_i|\theta)g(\theta)
+\end{aligned}
+$$
+
+Ở trên ta giản lược được $h(X)$ là do xác suất của mẫu quan sát được rồi là không đổi. Giờ ta lại lấy $\log$ tương tự như MLE:
+$$
+\begin{aligned}
+\hat\theta&=\underset{\theta}{\mathrm{argmax}}\prod\_{i=1}^nf(X_i|\theta)g(\theta)
+\\cr\ &=\underset{\theta}{\mathrm{argmax}}\log\bigg(\prod\_{i=1}^nf(X_i|\theta)g(\theta)\bigg)
+\\cr\ &=\underset{\theta}{\mathrm{argmax}}\bigg(\log g(\theta) + \sum\_{i=1}^n\log f(X_i|\theta)\bigg)
+\end{aligned}
+$$
+
+Từ công thức trên ta thấy rằng MAP chỉ khác MLE ở chỗ thêm $\log g(\theta)$ hay còn gọi là xác suất tiền nghiệm vào hàm mục tiêu. Nói vậy thôi nhưng vấn đề lại phát sinh rồi! Ta hiện giờ đã biết được mô hình phân phối của tập mẫu $f(X)$ nhưng lại chưa biết mô hình phân phối của tham số $g(\theta)$ nên việc tính toán có vẻ bất khả thi.
+
+### 2.3.2. Siêu tham số
+Tiếp tục với vấn đề chọn mô hình phân phối nào cho các tham số $\theta$. Trong thực tế người ta chọn mô hình của tham số $\theta$ sao cho cùng dạng với mô hình của tham số $\theta$ có điều kiện $X$. Hiểu theo nghĩa của Bayes là mô hình thống kê xác suất tiền nghiệm và hậu nghiệm là cùng họ với nhau. Mô hình thống kê kiểu này được gọi là **xác suất tiền nghiệm liên hợp** (<a href="https://en.wikipedia.org/wiki/Conjugate_prior" target="_blank"_ rel="noopener noreferrer">*conjugate prior*</a>) của hàm khả năng (*likelihood function*).
+
+Ví dụ, nếu mẫu của ta tuân theo phân phối Béc-nu-li $X \sim \mathcal{Bern}(p)$ với tham số $\theta=p$ thì phân phối xác suất tiền nghiệm liên hợp của nó là phân phối Beta $\theta \sim \mathcal{Beta}(\alpha,\beta)$ bởi khi kết hợp với Beta thì xác suất hậu nghiệm của nó cũng sẽ là Beta. Ở đây tôi không đề cập sâu về dạng mô hình này nhưng bạn nên đọc thêm để hiểu về nó cũng nhưng các ứng dụng của nó.
+
+Do các phân phối của tham số cũng được quy định bởi các tham số của phân phối tương ứng. Tức là các tham số $\theta$ cần tìm của ta giờ phải phụ thuộc vào cả các tham số của phân phối xác suất của nó. Để phân biệt người ta gọi các tham số này là **siêu tham số** (*hyperparameters*).
+
+Khi làm việc các siêu tham số này được thiết lập *dựa vào cảm quan* của người giải quyết bài toán. Việc chọn được siêu tham số hợp lý là một việc vô cùng cần thiết để thu được tham số $\theta$ tốt. Chính vì vậy mà các bài toán học máy sau này, ta thường xuyên phải xem xét nhiều bộ siêu tham số để được kết quả mong đợi là thế.
+
+Để thuận tiện khi làm việc, ta liệt kê một số xác suất tiền nghiệm liên hợp như dưới đây:
+
+| Tham số | Liên hợp |
+|---|---|
+| Béc-nu-li - $X \sim \mathcal{Bern}(p)$ | Beta - $\theta \sim \mathcal{Beta}(\alpha,\beta)$ |
+| Nhị thức - $X \sim \mathcal{Bin}(n,p)$ | Beta - $\theta \sim \mathcal{Beta}(\alpha,\beta)$ |
+| Poa-xông - $X \sim \mathcal{Poi}(\lambda)$ | Gamma  - $\theta \sim \mathcal{Gama}(\alpha,\beta)$ |
+| Phân phối hình học - $X \sim \mathcal{Geo}(p)$ | Beta - $\theta \sim \mathcal{Beta}(\alpha,\beta)$ |
+| Phân phối nhị thức âm - $X \sim \mathcal{NegBin}(r,p)$ | Beta - $\theta \sim \mathcal{Beta}(\alpha,\beta)$ |
+| Phân phối chuẩn - $X \sim \mathcal{N}(\mu,\\_)$ | Phân phối chuẩn - $\theta \sim \mathcal{N}(\mu_0,\sigma_0^2)$ |
+| Phân phối chuẩn - $X \sim \mathcal{N}(\\_,\sigma^2)$ | Gamma đảo - $\theta \sim \mathcal{InvGama}(\alpha,\beta)$ |
+| Phân phối mũ - $X \sim \mathcal{Exp}(\beta)$ | Gamma - $\theta \sim \mathcal{Gama}(\alpha,\beta)$ |
+
+### 2.3.3. Ví dụ
 
 # 3. Kết luận
-Chọn mẫu là một quá trình rất quan trọng để tìm ra quan hệ giữa các sự kiện và tính chất của dữ liệu. Trong thực tế ta thường chỉ làm việc với các mẫu ngẫu nhiên và đi tìm tham số của các mô hình thống kê với mẫu ngẫu nhiên. Việc tìm tham số hay còn gọi là quá trình học tham số là ý tưởng chính của các bài toán học máy nhằm tìm được mối tương quan giữa các đầu vào và đầu ra dựa trên tập dữ liệu huấn luyện. Từ đó khai phá, dự đoán được các sự kiện trong tương lai. Bài kế tiếp sẽ nói về cách áp dụng các kiến thức xác suất cho bài toán học máy ra sao.
+Chọn mẫu là một quá trình rất quan trọng để tìm ra quan hệ giữa các sự kiện và tính chất của dữ liệu. Trong thực tế ta thường chỉ làm việc với các mẫu ngẫu nhiên tức là các mẫu độc lập đôi một và cùng phân phối (*I.I.D*) rồi đi tìm tham số của các mô hình thống kê với mẫu ngẫu nhiên.
+
+Việc tìm tham số hay còn gọi là quá trình học tham số là ý tưởng chính của các bài toán học máy nhằm tìm được mối tương quan giữa các đầu vào và đầu ra dựa trên tập dữ liệu huấn luyện. Có 2 phương pháp chính để tìm tham số là **MLE** (Maximum Likelihood Estimation) và **MAP** (Maximum A Posteriori). Ý tưởng của MLE là tìm tham số sao cho đầu ra của mô hình là khớp với tập dữ liệu quan sát được nhất có thể, còn của MAP là tìm tham số sao cho gần với tham số thực tế của tập dữ liệu nhất có thể.
+
+Cả 2 phương pháp này đều lấy hàm mục tiêu phiên bản $\log$ (*Log Likehood function*) để cực đại hoá. Việc tìm tham số để tối ưu hàm này có thể thực hiện bằng các phương pháp của giải thích như đạo hàm cấp 1 kết hợp với sức mạnh tính toán của máy tính để giải quyết.
+
+Từ các tham số và mô hình đó, ta có thể khai phá và dự đoán được các sự kiện trong tương lai. Nghe vẫn hơi mông lung phải không? Không sao cả, bài kế tiếp ta sẽ cùng bàn về cách áp dụng các kiến thức xác suất cho bài toán học máy ra sao.
