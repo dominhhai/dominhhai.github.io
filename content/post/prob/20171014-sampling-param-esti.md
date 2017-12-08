@@ -13,7 +13,6 @@ autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/prob/icon.png
 metaAlignment: center
-draft: true
 ---
 Trong các phần trước ta đã tìm hiểu cơ bản về xác suất và thống kê xác suất cũng như một số mô hình thống kê thông dụng, dựa vào đó ta tiếp tục lấn sang 1 phần quan trọng là thống kê và ước lượng các tham số cho các bài toán thực tế.
 <!--more-->
@@ -146,6 +145,36 @@ $$\hat\theta=\underset{\theta}{\mathrm{argmax}}LL(\theta)$$
 Để tối ưu hoá hàm này ta có thể sử dụng nhiều phương pháp khác nhau, một trong các phương pháp phổ biến là sử dụng đạo hàm bậc nhất kết hợp chạy chương trình trên máy tính.
 
 ### 2.2.2. Ví dụ
+Ví dụ 1: Giả sử ta có tập dữ liệu $X=[X_1,X_2,...,X_n]$ tuân theo luật phân phối Bec-nu-li $X \sim \mathcal{Bern}(p)$ với tham số $p$. Giờ ta sẽ sử dụng phương pháp MLE để tìm tham số $p$.
+
+Hàm hợp lý của ta lúc này sẽ có dạng:
+$$L(\theta)=\prod\_{i=1}^nf(X_i|\theta)=\prod\_{i=1}^np^{X_i}(1-p)^{1-X_i}$$
+
+Phiên bản $\log$:
+$$
+\begin{aligned}
+LL(\theta)&=\sum\_{i=1}^n\log\Big(p^{X_i}(1-p)^{1-X_i}\Big)
+\\cr\ &=\sum\_{i=1}^n\log\Big(p^{X_i}\Big)+\log\Big((1-p)^{1-X_i}\Big)
+\\cr\ &=\sum\_{i=1}^nX_i\log(p)+(1-X_i)\log(1-p)
+\end{aligned}
+$$
+
+Đặt $Y=\sum\_{i=1}^nX_i$, ta có:
+$$LL(\theta)=Y\log(p)+(n-Y)\log(1-p)$$
+
+Giờ ta cần chọn $\hat p$ sao cho hàm trên đạt giá trị lớn nhất:
+$$\hat p=\underset{p}{\mathrm{argmax}}\Big(Y\log(p)+(n-Y)\log(1-p)\Big)$$
+
+Như ta đã biết hàm này đạt cực trị tại điểm có đạo hàm bằng 0, tức là:
+$$
+\begin{aligned}
+\ &LL(p)^{\prime}=0
+\\cr \iff & Y\frac{1}{p}+(n-Y)\frac{-1}{1-p} = 0
+\\cr \iff & p=\frac{Y}{n}
+\end{aligned}
+$$
+
+Từ đây ta sẽ có điểm $\hat p=\dfrac{\sum\_{i=1}^nX_i}{n}$ là giá trị ước lượng cần tìm.
 
 ## 2.3. MAP
 ### 2.3.1. Khái niệm
@@ -211,7 +240,32 @@ Khi làm việc các siêu tham số này được thiết lập *dựa vào c�
 | Phân phối chuẩn - $X \sim \mathcal{N}(\\_,\sigma^2)$ | Gamma đảo - $\theta \sim \mathcal{InvGama}(\alpha,\beta)$ |
 | Phân phối mũ - $X \sim \mathcal{Exp}(\beta)$ | Gamma - $\theta \sim \mathcal{Gama}(\alpha,\beta)$ |
 
+Tới đây thì ta có thể sử dụng các phương pháp tối ưu hàm mục tiêu hệt như với MLE chỉ khác là ta thêm các siêu tham số vào khi tính toán. Các siêu tham số này sẽ được thiết lập từ trước dựa vào cảm quan của người quan sát.
+
 ### 2.3.3. Ví dụ
+Ta xét lại ví dụ tìm $p$ của $X \sim \mathcal{Bern}(p)$ ở trên bằng phương pháp MAP. Vì đây là phân phối Bec-nu-li nên ta chọn phân phối Beta làm phân phối xác suất tiền nghiệm liên hợp $\theta \sim \mathcal{Beta}(\alpha,\beta)$ cho tham số $\theta=p$.
+
+Như vậy ước lượng $\hat p$ cần tìm là:
+$$
+\begin{aligned}
+\hat p&=\underset{\theta}{\mathrm{argmax}}\bigg(\log Beta(p)+\sum\_{i=1}^n\log Bern(X_i|p)\bigg)
+\\cr\ &=\underset{\theta}{\mathrm{argmax}}\bigg(\log\Big(\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}p^{\alpha-1}(1-p)^{\beta-1}\Big)+Y\log(p)+(n-Y)\log(1-p)\bigg)
+\end{aligned}
+$$
+
+Bỏ đi những thành phần hằng số (không phụ thuộc vào $p$) ta sẽ có:
+$$
+\begin{aligned}
+\hat p&=\underset{\theta}{\mathrm{argmax}}\bigg(\log\Big(p^{\alpha-1}(1-p)^{\beta-1}\Big)+Y\log(p)+(n-Y)\log(1-p)\bigg)
+\\cr\ &=\underset{\theta}{\mathrm{argmax}}\bigg((\alpha-1)log(p)+(\beta-1)\log(1-p)+ Y\log(p)+(n-Y)\log(1-p)\bigg)
+\\cr\ &=\underset{\theta}{\mathrm{argmax}}\bigg((\alpha-1+Y)log(p)+(\beta-1+n-Y)\log(1-p)\bigg)
+\end{aligned}
+$$
+
+Giải bằng cách lấy đạo hàm tương tự như trên ta sẽ được:
+$$\hat p=\frac{\alpha-1+\sum\_{i=1}^nX_i}{n+\alpha+\beta-2}$$
+
+Các siêu tham số $\alpha,\beta$ lúc này sẽ được chọn từ trước. Tuỳ vào giá trị của siêu tham số mà $\hat p$ thể hiện khác nhau dẫn tới kết quả của mô hình là khác nhau. Việc chọn $\alpha,\beta$ thế nào ta sẽ cùng xem xét sau trong các bài về học máy.
 
 # 3. Kết luận
 Chọn mẫu là một quá trình rất quan trọng để tìm ra quan hệ giữa các sự kiện và tính chất của dữ liệu. Trong thực tế ta thường chỉ làm việc với các mẫu ngẫu nhiên tức là các mẫu độc lập đôi một và cùng phân phối (*I.I.D*) rồi đi tìm tham số của các mô hình thống kê với mẫu ngẫu nhiên.
