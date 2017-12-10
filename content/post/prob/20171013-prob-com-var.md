@@ -4,6 +4,7 @@ slug: prob-com-var
 date: 2017-10-13
 categories:
 - Xác Suất
+- Phân Phối
 tags:
 - Xác Suất
 keywords:

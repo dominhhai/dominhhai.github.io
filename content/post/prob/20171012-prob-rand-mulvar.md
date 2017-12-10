@@ -4,6 +4,7 @@ slug: prob-rand-mulvar
 date: 2017-10-12
 categories:
 - Xác Suất
+- Phân Phối
 tags:
 - Xác Suất
 keywords:

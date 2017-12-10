@@ -4,6 +4,7 @@ slug: prob-rand-var
 date: 2017-10-11
 categories:
 - Xác Suất
+- Phân Phối
 tags:
 - Xác Suất
 keywords:
