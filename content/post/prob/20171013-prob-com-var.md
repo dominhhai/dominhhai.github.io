@@ -65,7 +65,7 @@ $$\sum\_{i=1}^kp_i=1$$
 Nếu biến ngẫu nhiên $X_i \in \\{0,1,...,n\\},\text{for }i=\overline{1,k}$ thể hiện số lần xuất hiện của sự kiện nhóm $i$, ta có:
 $$\sum\_{i=1}^kx_i=n$$
 
-Đặt $X=[X_1,X_2,...,X_k]^\{\intercal}$ là véc-to ngẫu nhiên với xác suất tương ứng $p=[p_1,p_2,...,p_k]^\{\intercal}$. Khi đó, $X$ tuân theo phân phối đa thức $X \sim \mathcal{Mult}(n,p)$ với tham số $n \in \mathbb N$ là số lần thành công và $p \in \mathbb{R}, 0 \le p \le 1$ là xác suất xuất tại mỗi phép thử, sẽ có các tính chất:
+Đặt $X=[X_1,X_2,...,X_k]^\{\intercal}$ là véc-to ngẫu nhiên với xác suất tương ứng $p=[p_1,p_2,...,p_k]^\{\intercal}$. Khi đó, $X$ tuân theo phân phối đa thức $X \sim \mathcal{Mult}(n,p)$ với tham số $n \in \mathbb N$ là số lần thành công và $p \in \mathbb{R^k}, 0 \le p_i \le 1$ là xác suất xuất tại mỗi phép thử, sẽ có các tính chất:
 
 | Định nghĩa | Giá trị |
 |---|---|
