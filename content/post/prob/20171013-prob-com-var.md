@@ -56,7 +56,26 @@ $\dbinom{n}{x}=\dfrac{n!}{x!(n-x)!}$ được gọi là hệ số nhị thức v
 
 Như vậy ta có thể thấy phép thử Béc-nu-li có thể coi là 1 trường hợp đặc biệt của phân phối nhị thức với $n=1$, nên phân phối Béc-nu-li còn có thể kí hiệu là: $X \sim \mathcal{Bin}(1,p)$.
 
-## 1.4. Phân phối Poa-xông - *Poisson distribution*
+## 1.4. Phân phối đa thức - *Multinomial distribution*
+Là phân phối tổng quát hoá của phân phối nhị thức. Giả sử ta có $n$ phép thử độc lập và mỗi phép thử sẽ cho kết quả thành là một trong số $k$ nhóm với mỗi nhóm có xác suất tương ứng xác định. Khi đó, phân phối đa thức sẽ mô hình hoá phân phối xác suất của số lần thành công của sự kiện. Như vậy, khi $(n=1,k=2)$ ta sẽ có phân phối Béc-nu-li, còn khi $(n>1,k=2)$ ta có phân phối nhị thức.
+
+Giả sử $p_i,\text{for }i=\overline{1,k}$ là xác suất rơi vào nhóm $i$ tương ứng trong $k$ nhóm, ta có:
+$$\sum\_{i=1}^kp_i=1$$
+
+Nếu biến ngẫu nhiên $X_i \in \\{0,1,...,n\\},\text{for }i=\overline{1,k}$ thể hiện số lần xuất hiện của sự kiện nhóm $i$, ta có:
+$$\sum\_{i=1}^kx_i=n$$
+
+Đặt $X=[X_1,X_2,...,X_k]^\{\intercal}$ là véc-to ngẫu nhiên với xác suất tương ứng $p=[p_1,p_2,...,p_k]^\{\intercal}$. Khi đó, $X$ tuân theo phân phối đa thức $X \sim \mathcal{Mult}(n,p)$ với tham số $n \in \mathbb N$ là số lần thành công và $p \in \mathbb{R}, 0 \le p \le 1$ là xác suất xuất tại mỗi phép thử, sẽ có các tính chất:
+
+| Định nghĩa | Giá trị |
+|---|---|
+| PMF - $p(x)$ | $\displaystyle\dbinom{n}{x}\prod_{i=1}^kp_i^{x_i}$ |
+| Kỳ vọng - $E[X]$ | $np$ |
+| Phương sai - $Var(X)$ | $np\otimes(1-p)$ |
+
+Trong đó: $\dbinom{n}{x}=\dfrac{n!}{\prod_{i=1}^kx_i!}$ gọi là hệ số đa thức. $\otimes$ thể hiện phép nhân phần tử: $Var(X_i)=np_i(1-p_i)$.
+
+## 1.5. Phân phối Poa-xông - *Poisson distribution*
 Là phân phối nhị thức đạt được khi $n$ rất lớn và $p$ rất nhỏ. Đặt $\lambda=np$, ta có:
 $$
 \begin{aligned}
@@ -79,7 +98,7 @@ Từ đây, khi ta có tham số $\lambda$ thì biến ngẫu nhiên $X$ tuân t
 | Kỳ vọng - $E[X]$ | $\lambda$ |
 | Phương sai - $Var(X)$ | $\lambda$ |
 
-## 1.5. Phân phối hình học - *Geometric distribution*
+## 1.6. Phân phối hình học - *Geometric distribution*
 Là phân phối của xác suất xuất hiện lần đầu tiên của sự kiện $A$ trong phép thử Béc-nu-li. Phân phối hình học được kí hiệu là $X \sim \mathcal{Geo}(p)$, trong đó tham số $p$ là xác suất xuất hiện của sự kiện $A$ trong mỗi phép thử.
 
 | Định nghĩa | Giá trị |
@@ -89,7 +108,7 @@ Là phân phối của xác suất xuất hiện lần đầu tiên của sự k
 | Kỳ vọng - $E[X]$ | $\dfrac{1-p}{p}$ |
 | Phương sai - $Var(X)$ | $\dfrac{1-p}{p^2}$ |
 
-## 1.6. Phân phối nhị thức âm - *Negative Binominal distribution*
+## 1.7. Phân phối nhị thức âm - *Negative Binominal distribution*
 Là phân phối xác suất xuất hiện lần thứ $r$ của sự kiện $A$ trong phép thử Béc-nu-li. Như vậy đây là phân phối tổng quát của phân phối hình học và phân phối hình học là phân phối nhị thức âm với $r=1$. Ta kí hiệu phân phối này là $X \sim \mathcal{NegBin}(r,p)$ với tham số $r$ là số lần xuất hiện của $A$ cùng với $p$ là xác suất xuất hiện của $A$ trong mỗi phép thử.
 
 | Định nghĩa | Giá trị |
