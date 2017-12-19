@@ -15,7 +15,6 @@ thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/math/katex.png
 metaAlignment: center
 ---
 Bài viết này tổng hợp lại các kí hiệu toán học được sử dụng trong blog. Về cơ bản, tôi sẽ cố gắng đồng bộ hết sức có thể các kí hiệu này với các kí hiệu thường được các nhà học máy và toán học sử dụng. Ở đây tôi không đề cập tới cách tính từng phép toán cụ thể vì tôi đã trình bày trong các chuỗi bài về [Toán](/vi/categories/to%C3%A1n/) và [Xác Suất](/vi/categories/x%C3%A1c-su%E1%BA%A5t/) rồi.
-
 <!--more-->
 
 <!--toc-->
