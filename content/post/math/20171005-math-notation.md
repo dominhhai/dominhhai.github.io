@@ -72,7 +72,7 @@ Bài viết này tổng hợp lại các kí hiệu toán học được sử d�
 | $\dfrac{\partial{f}}{\partial{x}}$ | Đạo hàm riêng của hàm $f$ theo $x$ |
 | $\nabla_\mathbf{x}f$ | Gradient của hàm $f$ theo véc-to $\mathbf{x}$ |
 | $\int_a^bf(x)dx$ | Tích phân tính theo $x$ trong khoảng $[a,b]$ |
-| $\int_\mathbb{A}f(x)dx$ | Tích phân toàn miền $A$ của $x$ |
+| $\int_\mathbb{A}f(x)dx$ | Tích phân toàn miền $\mathbb{A}$ của $x$ |
 | $\int f(x)dx$ | Tích phân toàn miền giá trị của $x$ |
 | $\log{x}$ hoặc $\ln{x}$ | Logarit tự nhiên: $\log{x}\triangleq\ln{x}\triangleq\log_e{x}$ |
 | $\sigma(x)$ | Hàm sigmoid (*logistic sigmoid*): $\dfrac{1}{1+e^{-x}}=\dfrac{1}{2}\Bigg(\tanh\bigg({\dfrac{x}{2}}\bigg)+1\Bigg)$ |
