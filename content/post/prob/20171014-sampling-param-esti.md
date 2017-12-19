@@ -111,7 +111,7 @@ Tham số là các giá trị quyết định sự phụ thuộc xác suất c�
 
 Có nhiều phương pháp để ước lượng các tham số này từ tập mẫu ta có nhưng được đề cập nhiều nhất là 2 phương pháp:
 
-* MLE (Maximum Likelihood Estimation): Cực đại ước lượng hợp lý
+* MLE (Maximum Likelihood Estimation): Ước lượng hợp lý cực đại
 * MAP (Maximum A Posteriori): Cực đại xác suất hậu nghiệm
 
 Về cái nào hơn cái nào thì không có đánh giá chính thức nên chỉ có cách là áp dụng và tự đánh giá.
