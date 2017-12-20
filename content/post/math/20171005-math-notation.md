@@ -1,5 +1,5 @@
 ---
-title: "[Giải Tích] Tập các kí hiệu toán học"
+title: "Tập các kí hiệu toán học"
 slug: math-notation
 date: 2017-10-05
 categories:
@@ -40,11 +40,11 @@ Bài viết này tổng hợp lại các kí hiệu toán học được sử d�
 | Kí hiệu | Ý nghĩa |
 | --- | --- |
 | $a$ | Số thực $a$ |
-| $\mathbf{a}$ | Véc-to $\mathbf{a}$ |
+| $\mathbf{a}$ | Véc-to cột $\mathbf{a}$ |
 | $\mathbf{A}$ | Ma trận $\mathbf{A}$ |
 | $[a_i]_n$ hoặc $(a_1,....,a_m)$ | Véc-to hàng $\mathbf{a}$ cấp $n$ |
 | $[a_i]_n^{\intercal}$ hoặc $(a_1,....,a_m)^{\intercal}$ | Véc-to cột $\mathbf{a}$ cấp $n$ |
-| $\mathbf{a}\in\mathbb{R^n}$ | Véc-to số thực $\mathbf{a}$ cấp $n$ |
+| $\mathbf{a}\in\mathbb{R^n}$ | Véc-to cột số thực $\mathbf{a}$ cấp $n$ |
 | $[A\_{ij}]\_{mn}$ | Ma trận $\mathbf{A}$ cấp $m \times n$ |
 | $\mathbf{A}\in\mathbb{R^{m \times n}}$ | Ma trận số thực $\mathbf{A}$ cấp $m \times n$ |
 | $\mathbf{I}_n$ | Ma trận đơn vị cấp $n$ |
