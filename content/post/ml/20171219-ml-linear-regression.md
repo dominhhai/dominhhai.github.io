@@ -51,7 +51,7 @@ $$y(\mathbf{x},\theta)=\sum\_{i=0}^{n-1}\theta_i\phi_i(\mathbf{x})=\theta^{\inte
 Như <a href="/vi/2017/10/math-notation/#s%E1%BB%91-v%C3%A0-ma-tr%E1%BA%ADn" target="_blank"_>quy ước</a> thì tất cả các véc-to nếu không nói gì thì ta ngầm định với nhau rằng nó là véc-to cột nên ta có được cách viết nhân ma trận như trên.
 
 # 3. Ước lượng tham số
-Giả sử ta có $m$ cặp dữ liệu huấn luyện $(\mathbf{x}_i, y_i)~~~,i=\overline{1,m}$ được tổ chức tương ứng bằng $X=[\mathbf{x}_1,\mathbf{x}_2,...,\mathbf{x}_m], \mathbf{y}=[y_1,y_2,...,y_m]$ và $\hat{y}\in\mathbb{R}^m$ là kết quả dự đoán tương ứng. Ta có thể đánh giá mức độ chênh lệch kết quả $\hat{y}$ và $y$ bằng một **hàm lỗi** (*lost function*) như sau:
+Giả sử ta có $m$ cặp dữ liệu huấn luyện $(\mathbf{x}_i, y_i)~~~,i=\overline{1,m}$ được tổ chức tương ứng bằng $\mathbf{X}=[\mathbf{x}_1,\mathbf{x}_2,...,\mathbf{x}_m]^{\intercal}, \mathbf{y}=[y_1,y_2,...,y_m]^{\intercal}$ và $\mathbf{\hat{y}}\in\mathbb{R}^m$ là kết quả dự đoán tương ứng. Ta có thể đánh giá mức độ chênh lệch kết quả $\hat{y}$ và $y$ bằng một **hàm lỗi** (*lost function*) như sau:
 
 $$
 \begin{aligned}
@@ -64,7 +64,7 @@ Công thức trên thể hiện trung bình của độ lệch (*khoảng cách*
 
 Không cần giải thích ta cũng có thể hiểu với nhau rằng tham số tốt nhất là tham số giúp cho hàm lỗi $J$ đạt giá trị nhỏ nhất.
 $$\hat\theta=\arg\min_{\theta}J(\theta) ~~~(3.2)$$
-Kết quả tối ưu nhất là $\hat{y}=y$, tức là $J(\theta)=0$. Để giải quyết bài toán này ta có thể sử dụng đạo hàm của $J(\theta)$ và tìm $\theta$ sao cho $J(\theta)^{\prime}=0$.
+Kết quả tối ưu nhất là $\mathbf{\hat{y}}=\mathbf{y}$, tức là $J(\theta)=0$. Để giải quyết bài toán này ta có thể sử dụng đạo hàm của $J(\theta)$ và tìm $\theta$ sao cho $J(\theta)^{\prime}=0$.
 $$
 \begin{aligned}
 \ &0 = \frac{1}{m}\sum\_{i=1}^m(\theta^{\intercal}\phi(\mathbf{x}_i)-y_i)\phi(\mathbf{x}_i)^{\intercal} &(3.3)
@@ -128,8 +128,8 @@ $$\Phi=
 1&\mathbf{x}_m\\cr
 \end{bmatrix}
 $$
-Như vậy $\Phi$ lúc này đơn giản là bằng với ma trận $X$ có thêm cột $1$ ở đầu:
-$$\Phi=X=
+Như vậy $\Phi$ lúc này đơn giản là bằng với ma trận $\mathbf{X}$ có thêm cột $1$ ở đầu:
+$$\Phi=\mathbf{X}=
 \begin{bmatrix}
 1&x_1\\cr
 1&x_2\\cr
@@ -139,7 +139,7 @@ $$\Phi=X=
 $$
 
 Lúc này ta có thể viết lại $y$ như sau:
-$$y=\theta^{\intercal}X$$
+$$y=\theta^{\intercal}\mathbf{X}$$
 
 {{< codeblock "one_var_linearinput.py" "python" "https://github.com/dominhhai/mldl/blob/master/code/linear_regression/one_var_linearinput.py">}}
 X = np.concatenate((np.ones((m,1)), X.reshape(-1,1)), axis=1)
