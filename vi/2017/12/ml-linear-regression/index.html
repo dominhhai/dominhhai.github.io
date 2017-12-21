@@ -5,14 +5,14 @@
 $$y(\mathbf{x},\theta)=\theta_0+\theta_1x_1+&hellip;+\theta_{k-1}x_{k-1} ~~~(2.1)$$
 trong đó $\mathbf{x}\in\mathbb{R}^{k-1}$ là véc-to biến đầu vào và $\theta\in\mathbb{R}^k$ là véc-to trọng số tương ứng. Thường $\theta$ được gọi là tham số của mô hình. Giá trị của tham số sẽ được ước lượng bằng cách sử dụng các cặp giá trị $(\mathbf{x}^{(i)},y^{(i)})$ của tập huấn luyện.</p><p>Thực ra mô hình tuyến tính là chỉ cần ở mức tuyến tính giữa tham số $\theta$ và $y$ là đủ. Và mình cho rằng tên gọi tuyến tính là xuất phát giữa $\theta$ và $y$, chứ không phải giữa $\mathbf{x}$ và $y$. Nói cách khác, ta có thể kết hợp các $\mathbf{x}$ một cách phi tuyến trước khi hợp với $\theta$ để được $y$. Một cách đơn giản là sử dụng hàm phi tuyến cho $\mathbf{x}$ như sau:
 $$y(\mathbf{x},\theta)=\theta_0+\theta_1\phi_1(\mathbf{x})+&hellip;+\theta_{n-1}\phi_{n-1}(\mathbf{x}) ~~~(2.2)$$</p><p>Các hàm phi tuyến $\phi_i(\mathbf{x})$ này được gọi là các <strong>hàm cơ bản</strong> (<em>basic function</em>). Thường người ta sẽ đặt $\phi_0(\mathbf{x})=1$ và viết lại công thức trên như sau:
-$$y(\mathbf{x},\theta)=\sum_{i=0}^{n-1}\theta_i\phi_i(\mathbf{x})=\theta^{\intercal}\phi(\mathbf{x}) ~~~(2.3)$$</p><p>Như <a href=https://dominhhai.github.io/vi/2017/10/math-notation/#s%E1%BB%91-v%C3%A0-ma-tr%E1%BA%ADn target=_blank _>quy ước</a> thì tất cả các véc-to nếu không nói gì thì ta ngầm định với nhau rằng nó là véc-to cột nên ta có được cách viết nhân ma trận như trên.</p><h1 id=3-ước-lượng-tham-số>3. Ước lượng tham số</h1><p>Giả sử ta có $m$ cặp dữ liệu huấn luyện $(\mathbf{x}_i, y_i)~~~,i=\overline{1,m}$ được tổ chức tương ứng bằng $X=[\mathbf{x}_1,\mathbf{x}_2,&hellip;,\mathbf{x}_m], \mathbf{y}=[y_1,y_2,&hellip;,y_m]$ và $\hat{y}\in\mathbb{R}^m$ là kết quả dự đoán tương ứng. Ta có thể đánh giá mức độ chênh lệch kết quả $\hat{y}$ và $y$ bằng một <strong>hàm lỗi</strong> (<em>lost function</em>) như sau:</p><p>$$
+$$y(\mathbf{x},\theta)=\sum_{i=0}^{n-1}\theta_i\phi_i(\mathbf{x})=\theta^{\intercal}\phi(\mathbf{x}) ~~~(2.3)$$</p><p>Như <a href=https://dominhhai.github.io/vi/2017/10/math-notation/#s%E1%BB%91-v%C3%A0-ma-tr%E1%BA%ADn target=_blank _>quy ước</a> thì tất cả các véc-to nếu không nói gì thì ta ngầm định với nhau rằng nó là véc-to cột nên ta có được cách viết nhân ma trận như trên.</p><h1 id=3-ước-lượng-tham-số>3. Ước lượng tham số</h1><p>Giả sử ta có $m$ cặp dữ liệu huấn luyện $(\mathbf{x}_i, y_i)~~~,i=\overline{1,m}$ được tổ chức tương ứng bằng $\mathbf{X}=[\mathbf{x}_1,\mathbf{x}_2,&hellip;,\mathbf{x}_m]^{\intercal}, \mathbf{y}=[y_1,y_2,&hellip;,y_m]^{\intercal}$ và $\mathbf{\hat{y}}\in\mathbb{R}^m$ là kết quả dự đoán tương ứng. Ta có thể đánh giá mức độ chênh lệch kết quả $\hat{y}$ và $y$ bằng một <strong>hàm lỗi</strong> (<em>lost function</em>) như sau:</p><p>$$
 \begin{aligned}
 J(\theta) &amp;= \frac{1}{2m}\sum_{i=1}^m(\hat{y}_i-y_i)^2
 \cr\ &amp;= \frac{1}{2m}\sum_{i=1}^m\Big(\theta^{\intercal}\phi(\mathbf{x}_i)-y_i\Big)^2 &amp;(3.1)
 \end{aligned}
 $$</p><p>Công thức trên thể hiện trung bình của độ lệch (<em>khoảng cách</em>) giữa các điểm dữ liệu thực tế và kết quả dự đoán sau khi ta ước lượng tham số. Còn tại sao ta lại chia cho 2 thì tôi sẽ giải thích sau. Hàm lỗi còn có tên gọi khác là <strong>hàm lỗi bình phương</strong> (<em>squared error function</em>) hoặc <strong>hàm lỗi trung bình bình phương</strong> (<em>mean squared error function</em>) hoặc <strong>hàm chi phí</strong> (<em>cost function</em>).</p><p>Không cần giải thích ta cũng có thể hiểu với nhau rằng tham số tốt nhất là tham số giúp cho hàm lỗi $J$ đạt giá trị nhỏ nhất.
 $$\hat\theta=\arg\min_{\theta}J(\theta) ~~~(3.2)$$
-Kết quả tối ưu nhất là $\hat{y}=y$, tức là $J(\theta)=0$. Để giải quyết bài toán này ta có thể sử dụng đạo hàm của $J(\theta)$ và tìm $\theta$ sao cho $J(\theta)^{\prime}=0$.
+Kết quả tối ưu nhất là $\mathbf{\hat{y}}=\mathbf{y}$, tức là $J(\theta)=0$. Để giải quyết bài toán này ta có thể sử dụng đạo hàm của $J(\theta)$ và tìm $\theta$ sao cho $J(\theta)^{\prime}=0$.
 $$
 \begin{aligned}
 \ &amp;0 = \frac{1}{m}\sum_{i=1}^m(\theta^{\intercal}\phi(\mathbf{x}_i)-y_i)\phi(\mathbf{x}_i)^{\intercal} &amp;(3.3)
@@ -51,8 +51,8 @@ $$\Phi=
 1&amp;\mathbf{x}_m\cr
 \end{bmatrix}
 $$
-Như vậy $\Phi$ lúc này đơn giản là bằng với ma trận $X$ có thêm cột $1$ ở đầu:
-$$\Phi=X=
+Như vậy $\Phi$ lúc này đơn giản là bằng với ma trận $\mathbf{X}$ có thêm cột $1$ ở đầu:
+$$\Phi=\mathbf{X}=
 \begin{bmatrix}
 1&amp;x_1\cr
 1&amp;x_2\cr
@@ -60,7 +60,7 @@ $$\Phi=X=
 1&amp;x_m\cr
 \end{bmatrix}
 $$</p><p>Lúc này ta có thể viết lại $y$ như sau:
-$$y=\theta^{\intercal}X$$</p><figure class="highlight python"><figcaption><span>one_var_linearinput.py</span><a href=https://github.com/dominhhai/mldl/blob/master/code/linear_regression/one_var_linearinput.py target=_blank rel=external>one_var_linearinput.py</a></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br></pre></td><td class=code><pre class="python code-highlight">X = np.concatenate((np.ones((m,1)), X.reshape(-1,1)), axis=1)</pre></td></tr></tbody></table></figure><p>Do $(\Phi^{\intercal}\Phi)$ có thể không khả nghịch nên ta có thể sử dụng phép giả nghịch đảo để làm việc:<figure class="highlight python"><figcaption><span>one_var_linearinput.py</span><a href=https://github.com/dominhhai/mldl/blob/master/code/linear_regression/one_var_linearinput.py target=_blank rel=external>one_var_linearinput.py</a></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br></pre></td><td class=code><pre class="python code-highlight">theta = np.dot(np.linalg.pinv(np.dot(X.T, X)), np.dot(X.T, y))</pre></td></tr></tbody></table></figure></p><p>Phép trên sẽ cho ta kết quả: <code>theta=[-577.17310612, 4.16001358]</code>, tức:
+$$y=\theta^{\intercal}\mathbf{X}$$</p><figure class="highlight python"><figcaption><span>one_var_linearinput.py</span><a href=https://github.com/dominhhai/mldl/blob/master/code/linear_regression/one_var_linearinput.py target=_blank rel=external>one_var_linearinput.py</a></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br></pre></td><td class=code><pre class="python code-highlight">X = np.concatenate((np.ones((m,1)), X.reshape(-1,1)), axis=1)</pre></td></tr></tbody></table></figure><p>Do $(\Phi^{\intercal}\Phi)$ có thể không khả nghịch nên ta có thể sử dụng phép giả nghịch đảo để làm việc:<figure class="highlight python"><figcaption><span>one_var_linearinput.py</span><a href=https://github.com/dominhhai/mldl/blob/master/code/linear_regression/one_var_linearinput.py target=_blank rel=external>one_var_linearinput.py</a></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br></pre></td><td class=code><pre class="python code-highlight">theta = np.dot(np.linalg.pinv(np.dot(X.T, X)), np.dot(X.T, y))</pre></td></tr></tbody></table></figure></p><p>Phép trên sẽ cho ta kết quả: <code>theta=[-577.17310612, 4.16001358]</code>, tức:
 $$
 \begin{cases}
 \theta_0=-577.17310612\cr
