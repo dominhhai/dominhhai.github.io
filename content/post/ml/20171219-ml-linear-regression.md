@@ -51,7 +51,7 @@ $$y(\mathbf{x},\theta)=\sum\_{i=0}^{n-1}\theta_i\phi_i(\mathbf{x})=\theta^{\inte
 Như <a href="/vi/2017/10/math-notation/#s%E1%BB%91-v%C3%A0-ma-tr%E1%BA%ADn" target="_blank"_>quy ước</a> thì tất cả các véc-to nếu không nói gì thì ta ngầm định với nhau rằng nó là véc-to cột nên ta có được cách viết nhân ma trận như trên.
 
 # 3. Ước lượng tham số
-Giả sử ta có $m$ cặp dữ liệu huấn luyện $(\mathbf{x}_i, y_i)~~~,i=\overline{1,m}$ và $\hat{y}\in\mathbb{R}^m$ là kết quả dự đoán tương ứng. Ta có thể đánh giá mức độ chênh lệch kết quả $\hat{y}$ và $y$ bằng một **hàm lỗi** (*lost function*) như sau:
+Giả sử ta có $m$ cặp dữ liệu huấn luyện $(\mathbf{x}_i, y_i)~~~,i=\overline{1,m}$ được tổ chức tương ứng bằng $X=[\mathbf{x}_1,\mathbf{x}_2,...,\mathbf{x}_m], \mathbf{y}=[y_1,y_2,...,y_m]$ và $\hat{y}\in\mathbb{R}^m$ là kết quả dự đoán tương ứng. Ta có thể đánh giá mức độ chênh lệch kết quả $\hat{y}$ và $y$ bằng một **hàm lỗi** (*lost function*) như sau:
 
 $$
 \begin{aligned}
