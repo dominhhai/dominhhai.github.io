@@ -218,7 +218,7 @@ $$y(\mathbf{x},\theta)=\theta^{\intercal}\phi(\mathbf{x})$$
 Khi khảo sát tìm tham số của mô hình ta có thể giải quyết thông qua việc tối thiểu hoá **hàm lỗi** (*loss function*):
 $$J(\theta)=\dfrac{1}{2m}\displaystyle\sum\_{i=1}^m\Big(\theta^{\intercal}\phi(\mathbf{x}_i)-y_i\Big)^2$$
 Hàm lỗi này thể hiện trung bình độ lệch giữa kết quả ước lượng và kết quả thực tế. Việc lấy bình phương giúp ta có thể dễ dàng tối ưu được bằng cách lấy đạo hàm vì nó có đạo hàm tại mọi điểm! Qua phép đạo hàm ta có được **công thức chuẩn** (*normal equation*) cho tham số:
-$$\theta = (\Phi^{\intercal}\Phi)^{-1}\Phi^{\intercal}\mathbf{y}$$
+$$\hat\theta = (\Phi^{\intercal}\Phi)^{-1}\Phi^{\intercal}\mathbf{y}$$
 Trong đó $\Phi\in\\mathbb{R}^{m\times n}$:
 $$\Phi=
 \begin{bmatrix}

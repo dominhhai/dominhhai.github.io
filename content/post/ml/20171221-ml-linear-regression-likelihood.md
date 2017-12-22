@@ -15,11 +15,11 @@ thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png
 metaAlignment: center
 ---
-Như bài viết trước đã đề cập tới phương pháp ước lượng tham số bằng công thức chuẩn cho thuật toán hồi quy tuyến tính $\theta=(\Phi^{\intercal}\Phi)^{-1}\Phi^{\intercal}\mathbf{y}$ bằng cách lấy đạo hàm hàm lỗi (*mean squared error*). Có thể bạn sẽ nghi ngờ về mức độ tin cậy thống kê của phương pháp ước lượng đó, nên bài viết này sẽ phân tích lý thuyết xác suất ước lượng bằng [MLE (*Maximum Likelihood Esitmation*)](/vi/2017/10/sampling-parameters-estimation/#2-2-mle) xem sao.
+Như bài viết trước đã đề cập tới phương pháp ước lượng tham số bằng công thức chuẩn cho thuật toán hồi quy tuyến tính $\hat\theta=(\Phi^{\intercal}\Phi)^{-1}\Phi^{\intercal}\mathbf{y}$ bằng cách lấy đạo hàm hàm lỗi (*mean squared error*). Có thể bạn sẽ nghi ngờ về mức độ tin cậy thống kê của phương pháp ước lượng đó, nên bài viết này sẽ phân tích lý thuyết xác suất ước lượng bằng [MLE (*Maximum Likelihood Esitmation*)](/vi/2017/10/sampling-parameters-estimation/#2-2-mle) xem sao.
 <!--more-->
 <!--toc-->
 # 1. Mô phỏng xác suất
-Qua định lý <a href="https://en.wikipedia.org/wiki/Central_limit_theorem" target="_blank"_ rel="noopener noreferrer">giới hạn trung tâm</a> (*central limit theorem*) thì phân phối xác suất của biến ngẫu nhiên sẽ hội tụ về phân phối chuẩn. Vận dụng định lý này cho đầu ra của mỗi mô hình hồi quy tuyến tính, ta sẽ thêm 1 lượng nhiễu theo xác suất chuẩn vào đầu ra, ta sẽ được:
+Theo định lý <a href="https://en.wikipedia.org/wiki/Central_limit_theorem" target="_blank"_ rel="noopener noreferrer">giới hạn trung tâm</a> (*central limit theorem*) thì phân phối xác suất của biến ngẫu nhiên sẽ hội tụ về phân phối chuẩn. Vận dụng định lý này cho đầu ra của mỗi mô hình hồi quy tuyến tính, ta sẽ thêm 1 lượng nhiễu theo xác suất chuẩn vào đầu ra, ta sẽ được:
 $$t=y(\mathbf{x},\theta)+\mathcal{N}(0,\sigma^2) ~~~,(1.1)$$
 
 Như đã phân tích ở [phần phân phối chuẩn](/vi/2017/10/prob-com-var/#2-2-1-%C4%91%E1%BB%91i-v%E1%BB%9Bi-bi%E1%BA%BFn-1-chi%E1%BB%81u-univariate) ta có thể biểu diễn phân phối của $t$ bằng phân phối chuẩn:
