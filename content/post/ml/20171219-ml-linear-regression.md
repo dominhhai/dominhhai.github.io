@@ -45,7 +45,7 @@ trong đó $\mathbf{x}\in\\mathbb{R}^{k-1}$ là véc-to biến đầu vào và $
 Thực ra mô hình tuyến tính là chỉ cần ở mức tuyến tính giữa tham số $\theta$ và $y$ là đủ. Và mình cho rằng tên gọi tuyến tính là xuất phát giữa $\theta$ và $y$, chứ không phải giữa $\mathbf{x}$ và $y$. Nói cách khác, ta có thể kết hợp các $\mathbf{x}$ một cách phi tuyến trước khi hợp với $\theta$ để được $y$. Một cách đơn giản là sử dụng hàm phi tuyến cho $\mathbf{x}$ như sau:
 $$y(\mathbf{x},\theta)=\theta_0+\theta_1\phi_1(\mathbf{x})+...+\theta\_{n-1}\phi\_{n-1}(\mathbf{x}) ~~~(2.2)$$
 
-Các hàm phi tuyến $\phi_i(\mathbf{x})$ này được gọi là các **hàm cơ bản** (*basic function*). Thường người ta sẽ đặt $\phi_0(\mathbf{x})=1$ và viết lại công thức trên như sau:
+$\theta_0$ được gọi là **độ lệch** (*bias*) nhằm cắt đi mức độ chênh lệch giữa mô hình và thực tế. Các hàm phi tuyến $\phi_i(\mathbf{x})$ này được gọi là các **hàm cơ bản** (*basic function*). Thường người ta sẽ đặt $\phi_0(\mathbf{x})=1$ và viết lại công thức trên như sau:
 $$y(\mathbf{x},\theta)=\sum\_{i=0}^{n-1}\theta_i\phi_i(\mathbf{x})=\theta^{\intercal}\phi(\mathbf{x}) ~~~(2.3)$$
 
 Như <a href="/vi/2017/10/math-notation/#s%E1%BB%91-v%C3%A0-ma-tr%E1%BA%ADn" target="_blank"_>quy ước</a> thì tất cả các véc-to nếu không nói gì thì ta ngầm định với nhau rằng nó là véc-to cột nên ta có được cách viết nhân ma trận như trên.
@@ -73,7 +73,7 @@ $$
 \end{aligned}
 $$
 
-Đây chính là **công thức chuẩn** (*normal equation*) của bài toán ta cần giải. Trong đó ma trận $\Phi\in\\mathbb{R}^{m\times n}$ là:
+Đây chính là **công thức chuẩn** (*normal equation*) của bài toán ta cần giải. Trong đó ma trận $\Phi\in\\mathbb{R}^{m\times n}$ được gọi là **ma trận mẫu** (*design matrix*), ta có thể hiểu nó đơn giản là tập mẫu của ta:
 $$\Phi=
 \begin{bmatrix}
 \phi_0(\mathbf{x}_1)&\phi_1(\mathbf{x}_1)&...&\phi\_{n-1}(\mathbf{x}_1)\\cr
