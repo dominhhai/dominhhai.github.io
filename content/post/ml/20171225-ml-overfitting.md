@@ -1,7 +1,7 @@
 ---
-title: "[ML] Cắt giảm lỗi với kĩ thuật chính quy hoá"
-slug: ml-regularization
-date: 2017-12-22T08:45:04+09:00
+title: "[ML] Vấn đề khớp quá (Overfitting)"
+slug: ml-overfitting
+date: 2017-12-25T08:45:04+09:00
 categories:
 - Học Máy
 - ML
