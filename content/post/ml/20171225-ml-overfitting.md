@@ -77,13 +77,42 @@ Một cách tổng quát, ta có thể dựa vào sự biến thiên của $E\_{
 * $E\_{train}$ và $E\_{CV}$ đều nhỏ: Vừa khớp
 * $E\_{train}$ nhỏ còn $E\_{CV}$ lớn: Khớp quá
 
-# 3. Cân bằng phương sai và độ lệch
+# 3. Xử lý lỗi
+## 3.1. Điểm hợp lý
+Đồ thị trên còn cho ta một gợi ý rất quan trọng là ta có thể đoán được điểm hợp lý để dừng lại khi huấn luyện. Điểm dừng ở đây chính là điểm mà đồ thị của $E\_{CV}$ đổi hướng. Khi bắt đầu thấy $E\_{CV}$ đổi hướng sau một số vòng lặp nào đó thì ta sẽ dừng việc huấn luyện lại và chọn lấy điểm bắt đầu có sự đổi hướng này làm điểm hợp lý cho tham số và siêu tham số. Nếu bạn cần đọc thêm về việc dừng này thì có thể đọc ở [phần điều kiện dừng](/vi/2017/12/ml-gd/#4-%C4%91i%E1%BB%81u-ki%E1%BB%87n-d%E1%BB%ABng) ở phần tối ưu hàm lỗi.
+
+## 3.2. Chưa khớp
+Như đã đề cập chuyện này xảy ra khi mà mô hình của ta chưa đủ phức tạp. Như vậy ta cần phải tăng độ phức tạp của mô hình lên. Để tăng độ phức tạp ta có thể lấy thêm tính năng cho mẫu bằng cách thêm các $\phi(\mathbf{x})$ khác nhau. Ví dụ, tăng bậc của đa thức lên có thể giúp ta khớp hơn với tập dữ liệu chẳng hạn. Cụ thể thì bạn có xem lại ví dụ 2 của [bài về hồi quy tuyến tính](/vi/2017/12/ml-linear-regression/#4-2-v%C3%AD-d%E1%BB%A5-2).
+
+Khi xảy ra lỗi *chưa khớp* thì ta cần lưu ý tới một điểm quan trọng là **tăng dữ liệu không giúp mô hình tốt hơn**. Tại sao lại thế thì ta sẽ cùng bàn về lý thuyết cân bằng giữa phương sai vào độ lệch ở bài viết sau.
+
+## 3.3. Quá khớp
+Khi xảy *quá khớp* ta có thể bỏ bớt tính năng đi để giảm độ phức tạp mô hình. Hoặc có thể lấy thêm dữ liệu để mô hình có thể học được một cách tổng quát hơn. Thật khó đưa ra được một cách cụ thể ngoài việc kết hợp của tất cả các kiểu xử lý trên lại với nhau sau đó đưa ra đánh giá cụ thể sau.
+
+Ngoài ra, ta còn có một kĩ thuật nữa rất phổ biến trong học máy là *chính quy hoá* mà ta sẽ cùng xem xét ở phần ngay dưới đấy.
+
 # 4. Kĩ thuật chính quy hoá
+## 4.1. Định nghĩa
+Chính quy hoá (*regularization*) là một kĩ thuật giúp giảm lỗi khớp quá bằng cách thêm một phần chính quy hoá vào hàm lỗi như sau:
 $$J(\theta)=E_X(\theta)+\lambda E\_\theta(\theta)$$
+
+$E_X(\theta)$ là hàm lỗi ban đầu và cụm $\lambda E\_\theta(\theta)$ mới thêm vào là số hạng chính quy hoá đóng vai trò như một biện pháp phạt lỗi (*penalization*).
+
+Trong đó, hệ số chính quy hoá $\lambda$ được chọn từ trước để cân bằng giữa $E_X(\theta)$ và $E\_\theta(\theta)$. $\lambda$ càng lớn thì ta càng coi trọng $E\_\theta(\theta)$, ít coi trọng tham số cho hàm lỗi ban đầu hơn, dẫn tới việc các tham số $\theta$ ít có ảnh hưởng tới mô hình hơn. Hay nói cách khác là mô hình bớt phức tạp đi giúp ta đỡ việc lỗi *quá khớp*.
+
+$E\_\theta(\theta)$
+
 
 $$E_\theta(\theta)=\frac{1}{2}\theta^{\intercal}\theta$$
 
 $$\hat\theta=(\lambda\mathbf{I}+\Phi^{\intercal}\Phi)^{-1}\Phi^{\intercal}\mathbf{y}$$
+
+## 4.2. Công thức chính chuẩn
+
+## 4.3. Tính đạo hàm
+
+## 4.4. Cài đặt
+Hệ số chính quy hoá $\lambda\ge 0$ ở đây thường nhỏ để không quá ảnh hưởng nhiều tới việc tối ưu lỗi truyền thống. Thường người ta sẽ chọn lấy 1 danh sách các $\lambda$ để huấn luyện và lấy một giá trị tối ưu nhất. Ví dụ: $\lambda=\\{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24\\}$. Lưu ý rằng hệ số này không dùng cho tập *kiểm chứng* khi đối chiếu để đánh giá mô hình.
 
 # 5. Kết luận
 Đánh giá mô hình có thể chia thành 3 dạng *chưa khớp* khi nó chưa đủ độ phức tạp, *quá khớp* khi nó quá phức tạp và *vừa khớp* khi mà nó vừa đủ để tổng quát hoá. Khi huấn luyện ta có thể sử dụng *tập huấn luyện* và *tập kiểm chứng* để đánh giá mô hình đang ở tình trạng nào. Nếu $E\_{train},E\_{CV}$ đều lớn thì ta nói rằng nó *chưa khớp*, còn $E\_{train}$ nhỏ và $E\_{CV}$ lớn thì ta nói rằng nó bị *quá khớp*.
@@ -91,4 +120,6 @@ $$\hat\theta=(\lambda\mathbf{I}+\Phi^{\intercal}\Phi)^{-1}\Phi^{\intercal}\mathb
 Bài toán chưa khớp thì ta có thể giải quyết bằng cách phức tạp hoá mô hình lên còn với bài toán quá khớp thì ta có thể sử dụng phương pháp chính quy hoá để giải quyết:
 $$J(\theta)=E_X(\theta)+\lambda E\_\theta(\theta)$$
 
-Hệ số chính quy hoá $\lambda\ge 0$ ở đây thường nhỏ để không quá ảnh hưởng nhiều tới việc tối ưu lỗi truyền thống. Thường người ta sẽ chọn lấy 1 danh sách các $\lambda$ để huấn luyện và lấy một giá trị tối ưu nhất. Ví dụ: $\lambda=\\{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24\\}$. Lưu ý rằng hệ số này không dùng cho tập *kiểm chứng* khi đối chiếu để đánh giá mô hình.
+Hệ số $\lambda$ càng lớn thì mô hình sẽ càng đơn giản đi từ đó giúp tránh được chuyện *quá khớp* nhưng cũng dẫn tới việc *chưa khớp*. Nên ta cần phải chọn được giá trị $\lambda$ hợp lý. Thường ta sẽ đưa ra 1 danh sách các hệ số $\lambda$ rồi chạy lần lượt và chọn lấy một giá trị tốt nhất. Tuy nhiên ta cần phải nhớ rằng cụm chuẩn hoá này không dùng cho tập *kiểm chứng* khi huấn luyện.
+
+Mặc dù qua bài này còn đôi chỗ hơi khó hiểu và mơ hồ nhưng nhìn chung nếu chỉ lập trình thì ta nhớ lấy hệ số $\lambda$ là được. Nếu bạn hứng thú tìm hiểu tận gốc vấn đề thì ta sẽ cùng xem trong bài viết tới về vấn đề cân bằng giữa phương sai và độ lệch của mô hình.

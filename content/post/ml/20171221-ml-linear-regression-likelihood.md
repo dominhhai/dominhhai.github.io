@@ -20,7 +20,7 @@ Như bài viết trước đã đề cập tới phương pháp ước lượng 
 <!--toc-->
 # 1. Mô phỏng xác suất
 Theo định lý <a href="https://en.wikipedia.org/wiki/Central_limit_theorem" target="_blank"_ rel="noopener noreferrer">giới hạn trung tâm</a> (*central limit theorem*) thì phân phối xác suất của biến ngẫu nhiên sẽ hội tụ về phân phối chuẩn. Vận dụng định lý này cho đầu ra của mỗi mô hình hồi quy tuyến tính, ta sẽ thêm 1 lượng nhiễu theo xác suất chuẩn vào đầu ra, ta sẽ được:
-$$t=y(\mathbf{x},\theta)+\mathcal{N}(0,\sigma^2) ~~~,(1.1)$$
+$$t=y(\mathbf{x},\theta)+\mathcal{N}(0,\sigma^2)$$
 
 Như đã phân tích ở [phần phân phối chuẩn](/vi/2017/10/prob-com-var/#2-2-1-%C4%91%E1%BB%91i-v%E1%BB%9Bi-bi%E1%BA%BFn-1-chi%E1%BB%81u-univariate) ta có thể biểu diễn phân phối của $t$ bằng phân phối chuẩn:
 $$p(t|\mathbf{x},\theta,\sigma)=\mathcal{N}(t|y(\mathbf{x},\theta),\sigma^2)$$
