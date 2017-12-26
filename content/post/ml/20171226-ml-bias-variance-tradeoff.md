@@ -14,7 +14,6 @@ autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png
 metaAlignment: center
-draft: true
 ---
 Bài này sẽ tập trung vào lý thuyết đằng sau các lỗi mô hình đã trình bày ở [bài viết trước](/vi/2017/12/ml-overfitting/). Việc hiểu lý thuyết này giúp ta có được cái nhìn toàn vẹn hơn về lỗi mô hình và cơ sở đánh giá lỗi.
 <!--more-->
@@ -55,6 +54,18 @@ Một mô hình mà đạt được độ lệch nhỏ và phương sai lớn th
 Nên thường trong thực tế người ta mong muốn đâu đó cân bằng được giữa độ lệch và phương sai. Mô hình mà đạt được độ lệch không quá lớn thì kết quả có khả năng lệch ít hơn và phương sai không quá lớn giúp cho phạm vi dự đoán hẹp lại thành ra kết quả gần với mong đợi hơn.
 
 # 3. Tương quan với lỗi mô hình
+Khi huấn luyện mô hình ta sẽ thu được kết quả giữa độ phức tạp mô hình và phương sai, độ lệch như sau:
+
 {{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/ml/bias_variance.png" title="Hình 2: Tương quan với lỗi. Source: http://scott.fortmann-roe.com/docs/BiasVariance.html" >}}
 
+Mô hình càng phức tạp thì độ lệch sẽ càng thấp đi nhưng phương sai sẽ tăng lên. Khi độ phức tạp mô hình càng tăng thì đồng nghĩa với việc mô hình càng khớp với mẫu huấn luyện thành ra độ lệch sẽ giảm đi. Mặt khác do phải khít dữ liệu nên phương sai phải rộng ra để có thể bao phủ được hết.
+
+Chính điểm này sẽ làm cho mô hình có thể bị quá khớp với dữ liệu mẫu mà mất đi tính tổng quát khi mà phương sai lớn quá. Còn mô hình sẽ chưa khớp nếu độ lệch lớn quá. Như hình trên mô phỏng thì đâu đó điểm tối ưu sẽ là điểm cân bằng giữa phương sai và độ lệch. Đây chính là mấu chốt để có thể đoán được mô hình của ta đang ở trong trạng thái nào như [bài viết trước](/vi/2017/12/ml-overfitting/#2-2-ph%C3%A1n-%C4%91%E1%BB%8Bnh-l%E1%BB%97i) đã phân tích.
+
 # 4. Kết luận
+Kỳ vọng lỗi có thể được phân tích thành phương sai và độ lệch:
+$$E[L]=\text{Bias}^2+\text{Var}+\text{Noise}$$
+
+Độ lệch $\text{Bias}$ là mức độ chênh lệch giữa trung bình của mô hình và dữ liệu thực tế, còn phương sai $\text{Var}$ thể hiện độ dao động của mô hình khi dự đoán. Trên thực tế ta mong muốn tối ưu được kỳ vọng lỗi với sự cân bằng giữa độ lệch và phương sai (*Bias-Variance Trade-off*).
+
+Khi mà phương sai lớn (*Hight Variance*) mô hình của ta sẽ bị quá khớp (*Overfitting*), còn độ lệch lớn (*Hight Bias*) thì mô hình của ta sẽ bị chưa khớp (*Underfitting*). Dựa vào sự biến thiên của phương sai và độ lệch chuẩn ta có được độ biến thiên của lỗi. Tại nơi mà đồ thị của lỗi đổi chiều ta sẽ có được điểm tối ưu cho mô hình. Cụ thể ra sao bạn có thể xem lại [bài viết trước](/vi/2017/12/ml-overfitting/).
