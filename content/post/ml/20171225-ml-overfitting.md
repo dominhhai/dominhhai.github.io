@@ -14,7 +14,6 @@ autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png
 metaAlignment: center
-draft: true
 ---
 Lỗi ước lượng tham số có thể được chia thành 2 loại là **khớp quá** (*over-fitting*) và **chưa khớp** (*under-fitting*) với tập huấn luyện. Trong bài này sẽ nói về cách theo dõi và hạn chế các lỗi này ra sao. Trọng tâm của bài này sẽ tập trung chủ yếu vào kĩ thuật **chính quy hoá** (*regularization*) để giải quyết vấn đề khớp quá của tham số.
 <!--more-->
