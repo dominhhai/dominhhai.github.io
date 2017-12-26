@@ -20,21 +20,17 @@ Bài này sẽ tập trung vào lý thuyết đằng sau các lỗi mô hình đ
 <!--more-->
 <!--toc-->
 
-# 1. Phân tích phương sai và độ lệch
-Giả sử ta có $t=f(\mathbf{x},\theta)+\mathcal{N}(0,\sigma^2)$ là đầu ra thực tế ứng với mỗi đầu vào $\mathbf{x}$. Giờ ta cần tìm $y(\mathbf{x},\theta)$ xấp xỉ với $f(\mathbf{x},\theta)$ nhất có thể bằng cách học tham số $\theta$.
+# 1. Phân tích kỳ vọng lỗi
+Giả sử ta có $y=f(\mathbf{x})+\mathcal{N}(0,\sigma^2)$ là đầu ra thực tế ứng với mỗi đầu vào $\mathbf{x}$. Giờ ta cần tìm $\hat{f}(\mathbf{x},\theta)$ xấp xỉ với $f(\mathbf{x})$ nhất có thể bằng cách học tham số $\theta$.
 
-Nếu ta coi lỗi $L\big(t,y(\mathbf{x})\big)$ là độ chênh lệch giữa điểm thực tế và ước lượng với $y(\mathbf{x},\theta)$ thì ta có trung bình lỗi hay nói cách khác là kỳ vọng lỗi là:
-$$E[L]=\iint L\big(t,y(\mathbf{x})\big)p(\mathbf{x},t)\text{d}\mathbf{x}\text{d}t$$
+$$E[L]=E[\big(y-\hat{f}(\mathbf{x})\big)^2]=\iint\big(\hat{f}(\mathbf{x})-y\big)^2p(\mathbf{x},y)\text{d}\mathbf{x}\text{d}y$$
 
-Như các bài trước đã phân tích, ta chọn:
-$$L\big(t,y(\mathbf{x})\big)=\big(y(\mathbf{x})-t\big)^2$$
+Về cơ bản đây cũng chính là trung bình lỗi $J(\theta)$ với nhiều tập dữ liệu, hay nói cách khác là trung bình lỗi cho cả những dữ liệu mà ta chưa có được. Như vậy, rất hiển nhiên là muốn mô hình của ta hoạt động tốt thì kỳ vọng lỗi này phải là nhỏ nhất có thể.
 
-Như vậy:
-$$E[L]=\iint\big(y(\mathbf{x})-t\big)^2p(\mathbf{x},t)\text{d}\mathbf{x}\text{d}t$$
+Ở đây tôi không chứng minh, nhưng ta có thể suy luận ra:
+$$E[L]=\big(E[\hat{f}(\mathbf{x})-f(\mathbf{x})]\big)^2+E[\big(\hat{f}(\mathbf{x})-E[\hat{f}(\mathbf{x})]\big)^2]+\sigma^2$$
 
-Về cơ bản đây cũng chính là công thức tương đương của hàm lỗi $J(\theta)$ mà ta đã đề cập ở các bài trước. Giờ mục tiêu của ta cũng là tìm $\theta$ sao cho kỳ vọng lỗi $E[L]$ là nhỏ nhất.
-
-Kỳ vọng lỗi này có thể phân tích ra phương sai và độ lệch như sau:
+Như vậy, kỳ vọng lỗi này có thể phân tích ra phương sai và độ lệch như sau:
 $$E[L]=\text{Bias}^2+\text{Var}+\text{Noise}$$
 Trong đó:
 
@@ -42,11 +38,23 @@ Trong đó:
 * Phương sai $\text{Var}=E[y(\mathbf{x})^2]-E[y(\mathbf{x})]^2$
 * Nhiễu $\text{Noise}=\sigma^2$
 
-Do $\sigma^2$ được cố định từ trước bằng giả thuyết phân phối chuẩn, nên kỳ vọng lỗi của ta sẽ phụ thuộc vào 2 thành phần là độ lệch và phương sai.
+Do $\sigma^2$ được cố định từ trước bằng giả thuyết phân phối chuẩn, nên kỳ vọng lỗi của ta sẽ phụ thuộc vào 2 thành phần là độ lệch và phương sai. Từ đây ta có thể hiểu phương sai và độ lệch như sau:
+
+* **Độ lệch**: Độ lệch giữa trung bình của mô hình ước lượng được và trung bình thực tế của dữ liệu. Độ lệch càng lớn thì mô hình và giá trị thực của ta sẽ càng không khớp nhau.
+* **Phương sai**: Độ phân tán của kết quả ước lượng được của mô hình. Phương sai càng lớn thì khả năng giá trị dự đoán sẽ dao động quanh càng mạnh dẫn tới có thể lệch xa giá trị thực tế.
 
 # 2. Quan hệ phương sai và độ lệch
-Kỳ vọng lỗi nhỏ ứng với độ lệch và phương sai nhỏ tuy nhiên để đạt được điều này thì cực kì khó khăn. Thường ta sẽ mong muốn
+Để dễ hiểu ta có thể biểu diễn quan hệ giữa phương sai và độ lệch bằng hình vẽ dưới đây:
 
-{{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/ml/bias_variance_tradeoff.jpg" title="Hình 1: Mô tả quan hệ bias-variance" >}}
+{{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/ml/bias_variance_tradeoff.jpg" title="Hình 1: Mô tả quan hệ bias-variance. Source: https://goo.gl/g8FWko" >}}
 
-# 3. Kết luận
+Lý tưởng nhất là ta đạt được cả độ lệch nhỏ và phương sai bé, nhưng trong thực tế điều đó lại rất khó khăn do tập dữ liệu của ta khó mà đại diện được hết cho tất cả các khả năng.
+
+Một mô hình mà đạt được độ lệch nhỏ và phương sai lớn thì có thể sẽ rất linh hoạt khi dự đoán nhưng kết quả dự đoán cũng bị phân tán rất mạnh dẫn tới có thể đưa ra kết quả không mong muốn. Còn mô hình mà có độ lệch lớn thì khó mà khớp được với kết quả thực tế.
+
+Nên thường trong thực tế người ta mong muốn đâu đó cân bằng được giữa độ lệch và phương sai. Mô hình mà đạt được độ lệch không quá lớn thì kết quả có khả năng lệch ít hơn và phương sai không quá lớn giúp cho phạm vi dự đoán hẹp lại thành ra kết quả gần với mong đợi hơn.
+
+# 3. Tương quan với lỗi mô hình
+{{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/ml/bias_variance.png" title="Hình 2: Tương quan với lỗi. Source: http://scott.fortmann-roe.com/docs/BiasVariance.html" >}}
+
+# 4. Kết luận
