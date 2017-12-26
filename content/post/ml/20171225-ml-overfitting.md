@@ -1,5 +1,5 @@
 ---
-title: "[ML] Vấn đề khớp quá (Overfitting)"
+title: "[ML] Mô hình quá khớp (Overfitting)"
 slug: ml-overfitting
 date: 2017-12-25T08:45:04+09:00
 categories:
@@ -98,21 +98,65 @@ $$J(\theta)=E_X(\theta)+\lambda E\_\theta(\theta)$$
 
 $E_X(\theta)$ là hàm lỗi ban đầu và cụm $\lambda E\_\theta(\theta)$ mới thêm vào là số hạng chính quy hoá đóng vai trò như một biện pháp phạt lỗi (*penalization*).
 
+{{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/ml/sin2pi_ridge.png" title="Hình 3: y=sin(2πx) L2. Without Ridge: λ=0 (left); Ridge: λ=1e-4 (center); Ridge: λ=1 (right)" >}}
+
 Trong đó, hệ số chính quy hoá $\lambda$ được chọn từ trước để cân bằng giữa $E_X(\theta)$ và $E\_\theta(\theta)$. $\lambda$ càng lớn thì ta càng coi trọng $E\_\theta(\theta)$, ít coi trọng tham số cho hàm lỗi ban đầu hơn, dẫn tới việc các tham số $\theta$ ít có ảnh hưởng tới mô hình hơn. Hay nói cách khác là mô hình bớt phức tạp đi giúp ta đỡ việc lỗi *quá khớp*.
 
-$E\_\theta(\theta)$
+$E\_\theta(\theta)$ ở đây sẽ không bao gồm độ lệch $\theta_0$ và thường có dạng như sau:
+$$E\_\theta(\theta)=\frac{1}{p}\Vert\theta\Vert_p^p=\frac{1}{p}\sum\_{i=1}^n\|\theta_i|^p$$
 
+Khi đó, hàm lỗi có thể viết lại như sau:
+$$J(\theta)=E_X(\theta)+\lambda\frac{1}{p}\sum\_{i=1}^n\|\theta_i|^p$$
 
-$$E_\theta(\theta)=\frac{1}{2}\theta^{\intercal}\theta$$
+$p$ thường được chọn là 2 (*L2 Norm*) và 1 (*L1 Norm* hay còn được gọi là *Lasso* trong thống kê).
 
+Với *L2*, hàm lỗi có dạng:
+$$J(\theta)=E_X(\theta)+\frac{\lambda}{2}\theta^{\intercal}\theta$$
+
+Với *L1*, hàm lỗi có dạng:
+$$J(\theta)=E_X(\theta)+\lambda\sum\_{i=1}^n\|\theta_i|$$
+
+Phương pháp chính quy hoá này còn có tên là **cắt trọng số** (*weight decay*) vì nó làm cho các trọng số (tham số $\theta$) bị tiêu biến dần về 0 trong khi học. Còn trong thống kê, phương pháp này có tên là **co tham số** (*parameter shrinkage*) vì nó làm co lại các giá trị tham số dần về 0.
+
+## 4.2. Công thức chuẩn
+Với hàm lỗi của hồi quy tuyến tính thì ta thường chia lấy trung bình của toàn mẫu nên số hạng chính quy hoá cũng sẽ được chia tương tự. Ngoài ra ta cũng thường lấy *L2* để thực hiện việc chính quy hoá, nên:
+$$J(\theta)=\frac{1}{2m}\sum\_{i=1}^m\Big(\theta^{\intercal}\phi(\mathbf{x}_i)-y_i\Big)^2+\frac{\lambda}{2m}\theta^{\intercal}\theta$$
+
+Khi đó, công thức chuẩn được viết lại như sau:
 $$\hat\theta=(\lambda\mathbf{I}+\Phi^{\intercal}\Phi)^{-1}\Phi^{\intercal}\mathbf{y}$$
 
-## 4.2. Công thức chính chuẩn
-
 ## 4.3. Tính đạo hàm
+Việc tính đạo hàm nhằm thực hiện giải thuật [tối ưu với Gradient Descent](/vi/2017/12/ml-gd/).
+
+Đạo hàm khi có số hạng chính quy hoá với:
+
+* *L2* : $\dfrac{\partial E_X(\theta)}{\partial\theta_i}+\lambda\theta_i$
+* *L1* : $\dfrac{\partial E_X(\theta)}{\partial\theta_i}+\lambda\text{sgn}(\theta_i)$
+
+> Lưu ý: đạo hàm này **không** tính cho $\theta_0$. Nói cách khác $\theta_0$ không được thêm số hạng chính quy hoá.
+
+Trường hợp của bài toán hồi quy tuyến tính:
+
+$$\frac{\partial}{\partial\theta_i}=\frac{1}{m}\sum\_{j=1}^m(\theta^{\intercal}\phi(\mathbf{x}_j)-y_j)\mathbf{x_j}+\begin{cases}0 &\text{for }i=0\\cr\frac{\lambda}{m}\theta_i &\text{for }i>0\end{cases}$$
+
+Gradient có dạng sau:
+$$\Delta_\theta J(\theta)=\frac{1}{m}(\theta^{\intercal}\Phi-y)\Phi+\frac{\lambda}{m}\theta$$
+
+Đương nhiên là khi tính số hạng chính quy hoá ta gắn $\theta_0\triangleq 0$ để tiêu biến số hạng đó đi.
 
 ## 4.4. Cài đặt
-Hệ số chính quy hoá $\lambda\ge 0$ ở đây thường nhỏ để không quá ảnh hưởng nhiều tới việc tối ưu lỗi truyền thống. Thường người ta sẽ chọn lấy 1 danh sách các $\lambda$ để huấn luyện và lấy một giá trị tối ưu nhất. Ví dụ: $\lambda=\\{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24\\}$. Lưu ý rằng hệ số này không dùng cho tập *kiểm chứng* khi đối chiếu để đánh giá mô hình.
+Hệ số chính quy hoá $\lambda$ thường nhỏ để không quá ảnh hưởng nhiều tới việc tối ưu lỗi truyền thống. Thường người ta sẽ chọn lấy 1 danh sách các $\lambda$ để huấn luyện và lấy một giá trị tối ưu nhất. Tuy nhiên, lưu ý rằng hệ số này không dùng cho tập *kiểm chứng* khi đối chiếu để đánh giá mô hình.
+
+Cụ thể các bước cài đặt như sau:
+
+1. Tạo danh sách các $\lambda$.
+2. Tạo các mô hình tương ứng với các $\phi(\mathbf{x})$ tương ứng. Ví dụ như bậc của đa thức hay co giãn các thuộc tính chẳng hạn.
+3. Học tham số $\theta$ ứng với từng $\lambda$ một.
+4. Tính lỗi với tập kiểm chứng $E_{CV}(\theta)$ ứng với tham số $\theta$ học được (lúc này đặt $\lambda=0$).
+5. Chọn lấy mô hình ứng với tham số và $\lambda$ cho ít lỗi nhất với tập kiểm chứng.
+6. Lấy $\theta$ và $\lambda$ tương ứng rồi tính lỗi cho tập kiểm tra $E_{test}(\theta)$ và đánh giá mô hình.
+
+Nếu hứng thú bạn có thể xem ví dụ cài đặt thuật toán với chính quy hoá <a href="https://github.com/dominhhai/mldl/blob/master/code/linear_regression/one_var_sin2pi-regularization.ipynb" target="_blank"_ rel="noopener noreferrer">tại đây</a> nhé.
 
 # 5. Kết luận
 Đánh giá mô hình có thể chia thành 3 dạng *chưa khớp* khi nó chưa đủ độ phức tạp, *quá khớp* khi nó quá phức tạp và *vừa khớp* khi mà nó vừa đủ để tổng quát hoá. Khi huấn luyện ta có thể sử dụng *tập huấn luyện* và *tập kiểm chứng* để đánh giá mô hình đang ở tình trạng nào. Nếu $E\_{train},E\_{CV}$ đều lớn thì ta nói rằng nó *chưa khớp*, còn $E\_{train}$ nhỏ và $E\_{CV}$ lớn thì ta nói rằng nó bị *quá khớp*.
