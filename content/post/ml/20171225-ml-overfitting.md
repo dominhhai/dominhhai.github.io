@@ -81,7 +81,7 @@ Một cách tổng quát, ta có thể dựa vào sự biến thiên của $E\_{
 Đồ thị trên còn cho ta một gợi ý rất quan trọng là ta có thể đoán được điểm hợp lý để dừng lại khi huấn luyện. Điểm dừng ở đây chính là điểm mà đồ thị của $E\_{CV}$ đổi hướng. Khi bắt đầu thấy $E\_{CV}$ đổi hướng sau một số vòng lặp nào đó thì ta sẽ dừng việc huấn luyện lại và chọn lấy điểm bắt đầu có sự đổi hướng này làm điểm hợp lý cho tham số và siêu tham số. Nếu bạn cần đọc thêm về việc dừng này thì có thể đọc ở [phần điều kiện dừng](/vi/2017/12/ml-gd/#4-%C4%91i%E1%BB%81u-ki%E1%BB%87n-d%E1%BB%ABng) ở phần tối ưu hàm lỗi.
 
 ## 3.2. Chưa khớp
-Như đã đề cập chuyện này xảy ra khi mà mô hình của ta chưa đủ phức tạp. Như vậy ta cần phải tăng độ phức tạp của mô hình lên. Để tăng độ phức tạp ta có thể lấy thêm tính năng cho mẫu bằng cách thêm các $\phi(\mathbf{x})$ khác nhau. Ví dụ, tăng bậc của đa thức lên có thể giúp ta khớp hơn với tập dữ liệu chẳng hạn. Cụ thể thì bạn có xem lại ví dụ 2 của [bài về hồi quy tuyến tính](/vi/2017/12/ml-linear-regression/#4-2-v%C3%AD-d%E1%BB%A5-2).
+Như đã đề cập chuyện này xảy ra khi mà mô hình của ta chưa đủ phức tạp. Như vậy ta cần phải tăng độ phức tạp của mô hình lên. Để tăng độ phức tạp ta có thể lấy thêm tính năng cho mẫu bằng cách thêm các $\phi(\mathbf{x})$ khác nhau. Ví dụ, tăng bậc của đa thức lên có thể giúp ta khớp hơn với tập dữ liệu chẳng hạn. Cụ thể thì bạn có xem lại ví dụ 2 của [bài về hồi quy tuyến tính](/vi/2017/12/ml-linear-regression/#5-2-v%C3%AD-d%E1%BB%A5-2).
 
 Khi xảy ra lỗi *chưa khớp* thì ta cần lưu ý tới một điểm quan trọng là **tăng dữ liệu không giúp mô hình tốt hơn**. Tại sao lại thế thì ta sẽ cùng bàn về lý thuyết cân bằng giữa phương sai vào độ lệch ở bài viết sau.
 

@@ -50,7 +50,48 @@ $$y(\mathbf{x},\theta)=\sum\_{i=0}^{n-1}\theta_i\phi_i(\mathbf{x})=\theta^{\inte
 
 Như <a href="/vi/2017/10/math-notation/#s%E1%BB%91-v%C3%A0-ma-tr%E1%BA%ADn" target="_blank"_>quy ước</a> thì tất cả các véc-to nếu không nói gì thì ta ngầm định với nhau rằng nó là véc-to cột nên ta có được cách viết nhân ma trận như trên.
 
-# 3. Ước lượng tham số
+# 3. Chọn hàm cơ bản
+Việc chọn hàm cơ bản $\phi(\mathbf{x})$ cũng chính là chọn tính năng cho đầu vào rất quan trọng trong học máy. Ngoài ra việc chọn ra sao còn ảnh hưởng tới tốc độ và bộ nhớ để tính toán nữa. Ở đây tôi chỉ để cập tới 1 vài cách đơn giản để chọn hàm cơ bản mà thôi.
+
+## 3.1. Giữ nguyên đầu vào
+Giữ nguyên đầu vào có ý là không thay đổi giá trị đầu vào, tức:
+$$\phi(\mathbf{x})=\mathbf{x}$$
+
+Thường người ta sẽ gom các đầu vào thành một ma trận $\mathbf{X}\in\mathbb{R}^{m\times n}$:
+$$\mathbf{X}=[\mathbf{x}_1,\mathbf{x}_2,...,\mathbf{x}_m]^{\intercal}$$
+
+Mỗi hàng của ma trận chứa 1 mẫu và mỗi cột sẽ chứa các thuộc tính đầu vào.
+
+## 3.2. Chuẩn hoá đầu vào
+Là phương pháp co giãn các thuộc tính về khoảng $[min,max]$ nào đó (thường là $[-1,1]$ hoặc $[-0.5,0.5]$) dựa vào kì vọng và độ lệch chuẩn của chúng.
+$$x_i=\frac{x_i-\mu_i}{s_i}$$
+
+Trong đó, $\mu_i$ là trung bình, còn $s_i$ là độ lệch chuẩn của tính năng $i$. Đôi lúc người ta cũng có thể lấy $s_i$ là khoảng rộng chuẩn $s_i=max-min$.
+
+Việc này không làm mất tính chất phân phối của chúng nên không ảnh hưởng tới kết quả học. Nhưng lại giúp cho việc học trở lên dễ dàng hơn vì các thuộc tính gần như cùng khoảng nhỏ với nhau. Phương pháp này còn có tên khác là **chuẩn hoá trung bình** (*mean normalization*).
+
+## 3.3. Đa thức hoá
+Sử dụng đa thức bậc cao để làm đầu vào:
+$$\phi_i(\mathbf{x})=\mathbf{x}^i$$
+
+Với các bài toán hồi quy tuyến tính thì phương pháp này rất hay được sử dụng.
+
+## 3.4. Sử dụng hàm Gaussian
+$$\phi_i(\mathbf{x})=\exp\Bigg(-\frac{(\mathbf{x}-\mu_i)^2}{2s^2}\Bigg)$$
+
+$\mu_i$ ở đây sẽ chỉ định vị trí trung bình cho đầu vào còn $s$ sẽ chỉ định độ phân tán cho đầu vào. Việc sử dụng hàm này sẽ giúp ta có được đầu vào theo phân phối chuẩn.
+
+## 3.5. Sử dụng hàm sigmoid
+Tương tự như hàm Gaussian, ta có thể sử dụng hàm sigmoid để biến đổi đầu vào:
+$$\phi_i(\mathbf{x})=\sigma\Bigg(-\frac{\mathbf{x}-\mu_i}{s}\Bigg)$$
+
+Hàm sigmoid được sử dụng là sigmoid chuẩn:
+$$\sigma(z)=\frac{1}{1+\exp(-z)}$$
+
+Một biến thể khác là sử dụng $tanh$ vì nó khá gần với $sigmoid$:
+$$tanh(z)=2\sigma(2z)-1$$
+
+# 4. Ước lượng tham số
 Giả sử ta có $m$ cặp dữ liệu huấn luyện $(\mathbf{x}_i, y_i)~~~,i=\overline{1,m}$ được tổ chức tương ứng bằng $\mathbf{X}=[\mathbf{x}_1,\mathbf{x}_2,...,\mathbf{x}_m]^{\intercal}, \mathbf{y}=[y_1,y_2,...,y_m]^{\intercal}$ và $\mathbf{\hat{y}}\in\mathbb{R}^m$ là kết quả dự đoán tương ứng. Ta có thể đánh giá mức độ chênh lệch kết quả $\hat{y}$ và $y$ bằng một **hàm lỗi** (*lost function*) như sau:
 
 $$
@@ -87,9 +128,9 @@ $$
 
 Ở phép lấy đạo hàm `(3.3)` ta thấy rằng mẫu số 2 bị triệt tiêu và giúp bỏ đi được thừa số 2 khi tính đạo hàm. Đấy chính là lý do mà người ta để mẫu số 2 cho hàm lỗi.
 
-# 4. Lập trình
+# 5. Lập trình
 Chém gió loằng ngoằng mãi rồi, giờ phải bắt tay vào code thử xem đúng hay sai.
-## 4.1. Ví dụ 1
+## 5.1. Ví dụ 1
 Ví dụ khởi động này tôi sẽ lấy dữ liệu đơn giản $y=3+4x$ để làm việc.
 Trước tiên tôi đã chuẩn bị tập dữ liệu huấn luyện gồm 100 cặp dữ liệu được sinh ra theo nhiễu của hàm $y=3+4x$ tại <a href="https://github.com/dominhhai/mldl/blob/master/dataset/1_linearinput.csv" target="_blank"_ rel="noopener noreferrer">Repo trên Github</a>.
 
@@ -170,7 +211,7 @@ plt.xlabel('x'); plt.ylabel('y'); plt.show()
 
 Toàn bộ mã nguồn đầy đủ của phần này tôi có để trên Github và ngoài ra còn thêm các phần thực hiện bằng thư viện `scikit-learn` và `TensorFlow` để kiểm chứng kết quả đạt được nữa. Cụ thể bạn có xem trên <a href="https://github.com/dominhhai/mldl/blob/master/code/linear_regression/one_var_linearinput.py" target="_blank"_ rel="noopener noreferrer">Github</a> hoặc dễ dàng hơn với <a href="https://github.com/dominhhai/mldl/blob/master/code/linear_regression/one_var_linearinput.ipynb" target="_blank"_ rel="noopener noreferrer">IPython</a>.
 
-## 4.2. Ví dụ 2
+## 5.2. Ví dụ 2
 Phần này ta sẽ phức tạp vấn đề lên 1 chút bằng cách lấy $y=\sin(2\pi x)$. Tương tự như trên tôi đã chuẩn bị dữ liệu trên <a href="https://github.com/dominhhai/mldl/blob/master/dataset/1_sin2pi.csv" target="_blank"_ rel="noopener noreferrer">trên Repo đó</a>. Cụ thể nó sẽ được mô phỏng như sau:
 
 <canvas id="ex4"></canvas>
@@ -212,7 +253,7 @@ Kết quả ước lượng có thể được mô hình hoá như sau:
 
 Kết quả lần này cũng khá khớp với dữ liệu mẫu mà ta có được. Nếu bạn quan tâm tới mã nguồn cụ thể thì xem  trên <a href="https://github.com/dominhhai/mldl/blob/master/code/linear_regression/one_var_sin2pi.py" target="_blank"_ rel="noopener noreferrer">Github</a> nhé.
 
-# 5. Kết luận
+# 6. Kết luận
 Thuật toán hồi quy tuyến tính (*linear regression*) thuộc vào nhóm học có giám sát (*supervised learning*) là được **mô hình** hoá bằng:
 $$y(\mathbf{x},\theta)=\theta^{\intercal}\phi(\mathbf{x})$$
 Khi khảo sát tìm tham số của mô hình ta có thể giải quyết thông qua việc tối thiểu hoá **hàm lỗi** (*loss function*):
@@ -234,7 +275,7 @@ Khi lập trình với `python` ta có thể giải quyết việc $(\Phi^{\inte
 np.linalg.pinv(np.dot(X.T, X))
 ```
 
-Từ đầu tới giờ ta vẫn chưa bàn về cách chọn hàm phi tuyến $\phi(\mathbf{x})$ ra sao và cũng chưa đưa ra các hạn chế cũng như cách khắc phục của mô hình này. Nhưng bài viết lần này đã khá dài, nên tôi xin phép viết vào các bài tiếp theo.
+Mặc dù công thức chuẩn có thể tính được tham số nhưng với tập dữ liệu mà lớn thì khả năng sẽ không khít được với bộ nhớ của máy tính, nên trong thực tế người ta thường sử dụng phương pháp đạo hàm để tối ưu. Vậy phương pháp này là gì thì ta sẽ cùng xem xét ở bài viết sau.
 
 <script>
 function fnMain() {
