@@ -305,3 +305,4 @@ E(y, \hat{y})       &= \sum_t{E_t(y_t, \hat{h_y})} \\cr
 ## Useful Links
 * [Math Dict](http://www.tudientoan.com/)
 * [KaTex Functions](https://khan.github.io/KaTeX/function-support.html)
+* [Unicode Emoji](https://unicode.org/emoji/charts/text-style.html)
