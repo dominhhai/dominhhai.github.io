@@ -46,7 +46,12 @@ for (i in range(NUM_INTERS)):
 <span class=caption>Hình 2: Ảnh hưởng của độ học η</span></div><p>Ngoài ra nếu để ý thì thấy nếu hàm lỗi $J(\theta)$ mà không lồi thì ta rất dễ bị rơi vào điểm tối thiểu cục bộ (<em>local minimum</em>) thay vì tiến được tới điểm tối thiểu toàn cục (<em>global minimum</em>). Việc chọn $\eta$ lúc này có vai trò rất lớn vì nếu $\eta$ hợp lý thì ta có vể vượt qua được điểm tối ưu cục bộ để tiến tiếp tới điểm tối ưu toán cục.</p><p>Thật khó để đưa ra một lời khuyên nào cho việc chọn $\eta$ vì nó còn phụ thuộc vào dữ liệu đang làm việc ra sao nữa. Nhưng thường thì người ta cứ thử nhiều giá trị và đưa ra đánh giá để chọn lấy một giá trị phù hợp. Thường mình hay bắt đầu với $\eta=0.01$ để làm việc, lý do là gì thì cũng không rõ. hé hé</p><p>Một yếu điểm nữa khi cài đặt giải thuật này là việc tính đạo hàm rất dễ bị nhầm lẫn, ta sẽ cùng xem xét trong phần tính đạo hàm dưới đây.</p><h1 id=2-ứng-dụng-cho-hồi-quy-tuyến-tính>2. Ứng dụng cho hồi quy tuyến tính</h1><p>Với bài toán hồi quy tuyến tính ta có công thức tính của hàm lỗi như sau:
 $$J(\theta)=\frac{1}{2m}\sum_{i=1}^m(\theta^{\intercal}\phi(\mathbf{x}_i)-y_i)^2$$
 Lúc này ta có gradient:
-$$\nabla_\theta J(\theta)=\frac{1}{m}(\theta^{\intercal}\Phi-y)\Phi$$</p><p>Trong đó $\Phi$ là <a href=https://dominhhai.github.io/vi/2017/12/ml-linear-regression/#6-k%E1%BA%BFt-lu%E1%BA%ADn>ma trận mẫu</a>:
+$$
+\begin{aligned}
+\nabla_\theta J(\theta)&amp;=\frac{1}{m}\sum_{i=1}^m(\theta^{\intercal}\phi(\mathbf{x}_i)-y_i)\phi(\mathbf{x}_i)
+\cr\ &amp;=\frac{1}{m}\Phi^{\intercal}(\Phi\theta-y)
+\end{aligned}
+$$</p><p>Trong đó $\Phi$ là <a href=https://dominhhai.github.io/vi/2017/12/ml-linear-regression/#6-k%E1%BA%BFt-lu%E1%BA%ADn>ma trận mẫu</a>:
 $$\Phi=
 \begin{bmatrix}
 \phi_0(\mathbf{x}_1)&amp;\phi_1(\mathbf{x}_1)&amp;&hellip;&amp;\phi_{n-1}(\mathbf{x}_1)\cr
@@ -56,7 +61,7 @@ $$\Phi=
 \end{bmatrix}
 $$</p><p>Như vậy tại mỗi bước tham số được cập nhập:
 $$
-\theta=\theta-\eta\frac{1}{m}(\theta^{\intercal}\Phi-y)\Phi
+\theta=\theta-\eta\frac{1}{m}\Phi^{\intercal}(\Phi\theta-y)
 $$</p><p>Code với <code>Python</code>:<figure class="highlight python language-python"><figcaption><span>gradient_descent.py</span><a href=https://github.com/dominhhai/mldl/blob/master/coursera-ml/ex1.ipynb target=_blank rel=external>gradient_descent.py</a></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br></pre></td><td class=code><pre class="code-highlight language-python"><code class=python>def gradient_descent(X, y, theta, eta, num_inters):
     # number of training examples
     m = y.size
