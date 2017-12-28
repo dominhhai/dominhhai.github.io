@@ -9,7 +9,8 @@ init:
 
 # for dev
 dev:
-	@hugo server -D
+	@open /Applications/Google\ Chrome.app 'http://localhost:1313' \
+		| hugo server -D
 
 # build
 # minify output https://github.com/tdewolff/minify/tree/master/cmd/minify#directories
