@@ -139,6 +139,10 @@ dateFormat = "2006年January2日"
   # Global keywords configuration. Following keywords will be add to every pages
   keywords = ["dominhhai", "programming", "computer science", "machine learning", "deep learning"]
 
+  # Syntax highlighter, possible choice between: "highlight.js" (recommanded) and "prism.js" (experimental)
+  # You can comment it to disable syntax highlighting
+  syntaxHighlighter = "highlight.js"
+
   # Hide sidebar on all article page to let article take full width to improve reading, and enjoy wide images and cover images. (true: enable, false: disable)
   clearReading = true
 
