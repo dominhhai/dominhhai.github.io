@@ -1,7 +1,7 @@
 ---
 title: "[Atom] Tự động phát hiện và hiển thị mã hoá"
 slug: atom-auto-encoding
-date: 2018-02-01T09:28:28+09:00
+date: 2018-01-11T09:28:28+09:00
 categories:
 - Lập Trình
 - Editor
