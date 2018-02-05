@@ -16,7 +16,6 @@ thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png
 metaAlignment: center
 customJS:
 - https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js
-draft: true
 ---
 Trong các phần trước ta đã tìm hiểu về phương pháp hồi quy tuyến tính để dự đoán đầu ra liên tục, phần này ta sẽ tìm hiểu thêm một thuật toán nữa trong học có giám sát là **hồi quy logistic** (*Logistic Regression*) nhằm mục đính phân loại dữ liệu.
 <!--more-->
@@ -26,7 +25,7 @@ Phương pháp hồi quy logistic là một mô hình hồi quy nhằm dự đo�
 
 Ví dụ, xem một bức ảnh có chứa một con mèo hay không. Thì ở đây ta coi đầu ra $y=1$ nếu bước ảnh có một con mèo và $y=0$ nếu bức ảnh không có con mèo nào. Đầu vào $\mathbf{x}$ ở đây sẽ là các pixel một bức ảnh đầu vào.
 
-{{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/ml/logistic-regression-1.png" title="Classification with 2 groups" >}}
+{{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/ml/logistic-regression_ex2_ret_1.png" title="Classification with 2 groups" >}}
 
 Để đơn giản, trước tiên ta sẽ cùng đi tìm hiểu mô hình và cách giải quyết cho bài toán phân loại nhị phân tức là $y=\\{0,1\\}$. Sau đó ta mở rộng cho trường hợp nhiều nhóm sau.
 
@@ -49,59 +48,264 @@ $$p(y_0|\mathbf{x})=\dfrac{1}{1+\exp(-a)}=\sigma(a)$$
 Hàm $\sigma(a)$ ở đây được gọi là **hàm sigmoid** (*logistic sigmoid function*). Hình dạng chữ S bị chặn 2 đầu của nó rất đặt biệt ở chỗ dạng phân phối đều ra và rất mượt.
 <canvas id="sigmoid"></canvas>
 
+Ở đây tôi không chứng minh, nhưng vận dụng thuyết phân phối chuẩn, ta có thể chỉ ra rằng:
+$$a = \mathbf{w}^{\intercal}\mathbf{x} + w_0$$
+Đặt: $\mathbf{x}_0=[1,...,1]$, ta có thể viết gọn lại thành:
+$$a = \mathbf{w}^{\intercal}\mathbf{x}$$
+
+Công thức tính xác suất lúc này:
+$$p(y_0|\mathbf{x})=\dfrac{1}{1+\exp(-a)}=\sigma(\mathbf{w}^{\intercal}\mathbf{x})$$
+
+Trong đó, $\mathbf{x}$ là thuộc tính đầu vào còn $\mathbf{w}$ là trọng số tương ứng.
+
+> Lưu ý rằng cũng như phần [hồi quy tuyến tính](/vi/2017/12/ml-linear-regression/) thì $\mathbf{x}$ ở đây không nhất thiết là đầu vào thô của tập dữ liệu mà ta có thể sử dụng các hàm cơ bản $\phi(\mathbf{x})$ để tạo ra nó. Tuy nhiên, ở đây để cho gọn gàng tôi không viết $\phi(\mathbf{x})$ như lần trước nữa.
+
+Có công thức tính được xác suất rồi thì ta có thể sử dụng một ngưỡng $\epsilon\in [0,1]$ để quyết định nhóm tương ứng. Cụ thể:
+$$
+\begin{cases}
+\mathbf{x}\in y_0 &\text{if } p(y_0|\mathbf{x})\ge\epsilon
+\\cr
+\mathbf{x}\in y_1 &\text{if } p(y_0|\mathbf{x})<\epsilon
+\end{cases}
+$$
+
+Ví dụ, $\epsilon=0.7$ thì $\mathbf{x}\in y_0$ khi mà xác suất thuộc nhóm $y_0$ của nó là trên 70%, còn dưới 70% thì ta phân nó vào nhóm $y_1$.
+
+Dựa vào phân tích ở [ví dụ mẫu phần xác suất](/vi/2017/10/prob-4-ml/#3-gi%E1%BA%A3i-thu%E1%BA%ADt-logistic-regression), ta cần tối thiểu hoá làm lỗi sau:
+$$J(\mathbf{w})=-\frac{1}{m}\sum_{i=1}^m\Big(y^{(i)}log\sigma^{(i)} + (1-y^{(i)})log(1-\sigma^{(i)})\Big)$$
+
+Trong đó, $m$ là kích cỡ của tập dữ liệu, $y^{(i)}$ lớp tương ứng của dữ liệu thứ $i$ trong tập dữ liệu, $\sigma^{(i)}=\sigma(\mathbf{w}^{\intercal}\mathbf{x}^{(i)})$ là xác suất tương ứng khi tính với mô hình cho dữ liệu thứ $i$.
 
 # 3. Ước lượng tham số
+## 3.1. Phương pháp GD
+Để tối ưu hàm $J(\mathbf{w})$ trên, ta lại sử dụng các phương pháp [Gradient Descent](/vi/2017/12/ml-gd/) để thực hiện. Ở đây, đạo hàm của hàm log trên [có thể được tính](/vi/2017/10/prob-4-ml/#3-2-l%C3%BD-thuy%E1%BA%BFt) như sau:
+$$
+\begin{aligned}
+\frac{\partial J(\mathbf{w})}{\partial w_j}&=\frac{1}{m}\sum\_{i=1}^m(\sigma_j^{(i)}-y_j^{(i)})\mathbf{x}_j^{(i)}
+\\cr\ &=\frac{1}{m}\sum\_{i=1}^m\big(\sigma(\mathbf{w}^{\intercal}\mathbf{x}_j^{(i)})-y_j^{(i)}\big)\mathbf{x}_j^{(i)}
+\\cr\ &=\frac{1}{m}\mathbf{X}_j^{\intercal}\big(\mathbf{\sigma}_j-\mathbf{y}_j\big)
+\end{aligned}
+$$
+
+Ví dụ, theo phương pháp [BGD](/vi/2017/12/ml-gd/#1-gradient-descent-l%C3%A0-g%C3%AC), ta sẽ cập nhập tham số sau mỗi vòng lặp như sau:
+$$\mathbf{w}=\mathbf{w}-\eta\frac{1}{m}\mathbf{X}^{\intercal}\big(\mathbf{\sigma}-\mathbf{y}\big)$$
+
+## 3.2. Phương pháp Newton-Raphson
+Phương pháp ở phía trên ta chỉ sử dụng đạo hàm bậc nhất cho phép GD quen thuộc, tuy nhiên ở bài toán này việc sử dụng đạo hàm bậc 2 đem tại tốc độ tốt hơn.
+
+$$\mathbf{w}=\mathbf{w}-\mathbf{H}^{-1}\nabla J(\mathbf{w})$$
+
+Trong đó, $\nabla J(\mathbf{w})$ là <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant" target="_blank"_ rel="noopener noreferrer">ma trận Jacobi</a> của $J(\mathbf{w})$, còn $\mathbf{H}$ là <a href="https://en.wikipedia.org/wiki/Hessian_matrix" target="_blank"_ rel="noopener noreferrer">ma trận Hessian</a> của $J(\mathbf{w})$. Hay nói cách khác, $\mathbf{H}$ là ma trận Jacobi của $\nabla J(\mathbf{w})$.
+
+Phương pháp này có tên chính thức là *Newton-Raphson*. Phương pháp này không chỉ sử dụng riêng cho bài toán hồi quy logistic mà còn có thể áp dụng cho cả các bài toán hồi quy tuyến tính. Tuy nhiên, việc thực hiện với hồi quy tuyến tính không thực sự phổ biến.
+
+Ta có:
+$$
+\begin{aligned}
+\nabla J(\mathbf{w})&=\frac{1}{m}\sum\_{i=1}^m(\sigma^{(i)}-y^{(i)})\mathbf{x}^{(i)}
+\\cr\ &=\frac{1}{m}\mathbf{X}^{T}\big(\mathbf{\sigma}-\mathbf{y}\big)
+\end{aligned}
+$$
+
+Đạo hàm của hàm sigmoid:
+$$\frac{d\sigma}{da}=\sigma(1-\sigma)$$
+
+Nên:
+$$
+\begin{aligned}
+\mathbf{H}&=\nabla\nabla J(\mathbf{w})
+\\cr\ &=\frac{1}{m}\sum\_{i=1}^m\mathbf{x}^{(i)}{\mathbf{x}^{(i)}}^{\intercal}
+\\cr\ &=\frac{1}{m}\sum\_{i=1}^m\mathbf{X}^{T}\mathbf{X}
+\end{aligned}
+$$
+
+Thế vào công thức cập nhập tham số ta có tham số sau mỗi lần cập nhập là:
+$$\mathbf{w}=(\mathbf{X}^{T}\mathbf{X})^{-1}\mathbf{X}^{T}\mathbf{y}$$
+
+Như vậy, so với cách lấy đạo hàm bậc 1 thì cách này tỏ ra đơn giản và nhanh hơn.
+
 # 4. Lập trình
-# 5. Kết luận
+Dựa vào các phân tích phía trên ta thử lập trình với BGD xem sao. Trong bài viết này tôi chỉ để cập tới đoạn mã chính để thực hiện việc tối ưu, còn toàn bộ mã nguồn bạn có thể xem trên <a href="https://github.com/dominhhai/mldl/blob/master/coursera-ml/ex2.ipynb" target="_blank"_ rel="noopener noreferrer">Github</a>.
+
+Tập dữ liệu được sử dụng ở đây là <a href="https://github.com/dominhhai/mldl/blob/master/coursera-ml/ex2data1.csv" target="_blank"_ rel="noopener noreferrer">dữ liệu bài tập</a> trong khoá học ML của giáo sư Andrew Ng.
+
+{{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/ml/logistic-regression_ex2_data_1.png" title="Dataset" >}}
+
+Giờ ta sử dụng phương pháp BGD để tối ưu hàm $J(\mathbf{w})$:
+{{< codeblock "bgd.py" "python" "https://github.com/dominhhai/mldl/blob/master/coursera-ml/ex2.ipynb">}}
+# gradient descent max step
+INTERATIONS = 200000
+# learning rate
+ALPHA = 0.001
+
+# calc sigmoid function
+def sigmoid(z):
+    return 1.0 / (1.0 + np.exp(-z))
+
+# calc J function
+def compute_cost(X, y, theta):
+    # number of training examples
+    m = y.size
+    # activation
+    h = sigmoid(np.dot(X, theta))
+    # cost
+    j = - np.sum(y * np.log(h) + (1 -  y) * np.log(1 - h)) / m
+    return j
+
+# implement BGD
+def gradient_descent(X, y, theta, alpha, num_inters):
+    # number of training examples
+    m = y.size
+    jHistory = np.empty(num_inters)
+
+    for i in range(num_inters):
+        delta = np.dot(X.T, sigmoid(np.dot(X, theta))- y) / m
+        theta -= alpha * delta
+        jHistory[i] = compute_cost(X, y, theta)
+
+    return theta, jHistory
+
+# train
+theta, jHistory = gradient_descent(X, y, np.zeros(X.shape[1]), ALPHA, INTERATIONS)
+print(theta)
+# theta: [-7.45017822  0.06550395  0.05898701]
+{{< /codeblock >}}
+
+Kết quả thu được:
+$$
+\begin{cases}
+w_0=-7.45017822 \\cr
+w_1=0.06550395 \\cr
+w_2=0.05898701
+\end{cases}
+$$
+
+Thử vẽ đường phân tách với $\epsilon=0.5$ ta sẽ được:
+{{< image classes="fancybox center" src="https://res.cloudinary.com/dominhhai/image/upload/ml/logistic-regression_ex2_ret_1.png" title="Decision Boundary with ϵ=0.5" >}}
+
+# 5. Phân loại nhiều nhóm
+Ở phần trên ta vừa phân tích phương pháp phân loại 2 nhóm $y=\\{0,1\\}$, dựa vào đó ta có thể tổng quát hoá cho bài toán phân loại K nhóm $y=\\{1,..,K\\}$. Về cơ bản 2 có 2 phương pháp chính là:
+
+* Dựa theo phương pháp 2 nhóm
+* Dựa theo mô hình xác suất nhiều nhóm
+
+Cụ thể ra sao, ta cùng xem chi tiết ngày phần dưới đây.
+
+## 5.1. Dựa theo phương pháp 2 nhóm
+Ta có thể sử dụng phương pháp phân loại 2 nhóm để phân loại nhiều nhóm bằng cách tính xác xuất của tầng nhóm tương ứng rồi chọn nhóm có xác suất lớn nhất là đích:
+$$p(y_k|\mathbf{x})=\max p(y_j|\mathbf{x})~~~,\forall j=\overline{1,K}$$
+
+Đoạn quyết định nhóm dựa theo ngưỡng $\epsilon$ vẫn hoàn toàn tương tự như vậy. Nếu $p(y_k|\mathbf{x})\ge\epsilon$ thì $\mathbf{x}\in y_k$, còn không thì nó sẽ không thuộc nhóm $y_k$.
+
+Phương pháp này khá đơn giản và dễ hiểu song việc thực thi có thể rất tốn kém thời gian do ta phải tính xác suất của nhiều nhóm. Bởi vậy ta cùng xem 1 giải pháp khác hiệu quả hơn như dưới đây.
+
+## 5.2. Dựa theo mô hình xác suất nhiều nhóm
+Tương tự như phân loại 2 nhóm, ta có thể mở rộng ra thành nhiều nhóm với cùng phương pháp sử dụng công thức xác suất hậu nghiệm để được hàm **softmax** sau:
+$$
+\begin{aligned}
+p(y_k|\mathbf{x})=p_k&=\frac{p(\mathbf{x}|y_k)p(y_k)}{\sum_jp(\mathbf{x}|y_j)p(y_j)}
+\\cr\ &=\frac{\exp(a_k)}{\sum_j\exp(a_j)}
+\end{aligned}
+$$
+
+Với $a_j=\log\Big(p(\mathbf{x}|y_j)p(y_j)\Big)=\mathbf{w}_j^{\intercal}\mathbf{x}$. Trong đó, $\mathbf{w}_j$ là trọng số tương ứng với nhóm $j$, còn $\mathbf{x}$ là đầu vào dữ liệu. Tập các $\mathbf{w}_j$ sẽ được gom lại bằng một ma trận trọng số $\mathbf{W}$ với mỗi cột tương ứng với trọng số của nhóm tương ứng.
+
+Ở đây, ta sẽ mã hoá các nhóm của ta thành một véc-to **one-hot** với phần tử ở chỉ số nhóm tương ứng bằng 1 và các phần tử khác bằng 0. Ví dụ: $y_1=[1,0,...,0], y_3=[0,0,1,0,...,0]$. Tập hợp các véc-tơ này lại ta sẽ có được một ma trận chéo $\mathbf{Y}$ với mỗi cột tương ứng với 1 nhóm. Ví dụ, ma trận sau biểu diễn cho tập 3 nhóm:
+$$
+\mathbf{Y}=\begin{bmatrix}
+1 & 0 & 0 \\cr
+0 & 1 & 0 \\cr
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+Như vậy, ta có thể tính xác suất hợp toàn tập với giả sử các tập dữ liệu là độc lập đôi một:
+$$
+\begin{aligned}
+p(\mathbf{Y}|\mathbf{W})&=\prod\_{i=1}^m\prod\_{k=1}^Kp(y_k|\mathbf{x}_i)^{Y\_{ik}}
+\\cr\ &=\prod\_{i=1}^m\prod\_{k=1}^Kp\_{ik}^{Y\_{ik}}
+\end{aligned}
+$$
+
+Trong đó, $p\_{ik}=p_k(\mathbf{x}_i)$. Lấy log ta được hàm lỗi:
+$$J(\mathbf{W})=-\sum\_{i=1}^m\sum\_{k=1}^KY\_{ik}\log p\_{ik}$$
+
+Như vậy, ta có thể thấy đây là công thức tổng quát của hàm lỗi trong trường hợp 2 nhóm. Công thức này còn có tên gọi là **cross-entropy** error function.
+
+Việc tối ưu hàm lỗi này cũng tương tự như trường hợp 2 nhóm bằng cách lấy đạo hàm:
+$$\nabla_{w_j}J(\mathbf{W})=\sum\_{i=1}^m\big(p\_{ij}-Y\_{ij}\big)\mathbf{x}_i$$
+
+> <a href="https://en.wikipedia.org/wiki/Cross_entropy" target="_blank"_ rel="noopener noreferrer">cross-entropy</a> là cách đo độ tương tự giữ 2 phân phối xác suất với nhau. Nếu 2 phần phối càng giống nhau thì cross-entropy của chúng càng nhỏ. Như vậy để tìm mô hình gần với mô hình thực của tập dữ liệu, ta chỉ cần tối thiểu hoá cross-entropy của nó.
+
+# 6. Over-fitting
+Tương tự như phần hồi quy tuyến tính, ta có thể xử lý overfitting bằng phương pháp thêm hệ số [chính quy hoá](/vi/2017/12/ml-overfitting/#4-k%C4%A9-thu%E1%BA%ADt-ch%C3%ADnh-quy-ho%C3%A1) cho hàm lỗi:
+$$J(\mathbf{w})=-\frac{1}{m}\sum_{i=1}^m\Big(y^{(i)}log\sigma^{(i)} + (1-y^{(i)})log(1-\sigma^{(i)})\Big)+\lambda\frac{1}{m}\mathbf{w}^{\intercal}\mathbf{w}$$
+
+Đạo hàm lúc này sẽ là:
+$$\frac{\partial J(\mathbf{w})}{\partial w_j}=\frac{1}{m}\mathbf{X}_j^{\intercal}\big(\mathbf{\sigma}_j-\mathbf{y}_j\big)+\lambda\frac{1}{m}w_j$$
+
+# 7. Kết luận
+Bài viết lần này đã tổng kết lại phương pháp phân loại logistic regression dựa vào cách tính xác suất của mỗi nhóm. Phương này khá đơn giản nhưng cho kết quả rất khả quan và được áp dụng rất nhiều trong cuộc sống.
+
+Với phân loại nhị phân (2 nhóm), ta có cách tính xác suất:
+$$p(y_0|\mathbf{x})=\dfrac{1}{1+\exp(-a)}=\sigma(\mathbf{w}^{\intercal}\mathbf{x})$$
+
+Hàm lỗi tương ứng:
+$$J(\mathbf{w})=-\frac{1}{m}\sum_{i=1}^m\Big(y^{(i)}log\sigma^{(i)} + (1-y^{(i)})log(1-\sigma^{(i)})\Big)+\lambda\frac{1}{m}\mathbf{w}^{\intercal}\mathbf{w}$$
+
+Có đạo hàm:
+$$\frac{\partial J(\mathbf{w})}{\partial w_j}=\frac{1}{m}\mathbf{X}_j^{\intercal}\big(\mathbf{\sigma}_j-\mathbf{y}_j\big)+\lambda\frac{1}{m}w_j
+$$
+
+Trong thực tế, ta thường xuyên phải phân loại nhiều nhóm. Việc này có thể áp dụng bằng cách lấy nhóm có xác suất lớn nhất hoặc sử dụng **softmax** để tính xác suất:
+$$p(y_k|\mathbf{x})=p_k=\frac{\exp(a_k)}{\sum_j\exp(a_j)}$$
+Với $a_j=\mathbf{w}_j^{\intercal}\mathbf{x}$, trong đó véc-tơ $\mathbf{w}_j$ là trọng số tương ứng với mỗi nhóm.
 
 <script>
 function fnMain() {
-  var opts = {
-    title: {
-      display: true,
-      position: 'bottom',
-      text: 'Hình 1. Quan hệ y=3+4x'
-    },
-    scales: {
-      xAxes: [{
-        type: 'linear',
-        position: 'bottom',
-        ticks: {
-          max: 5000
-        },
-        scaleLabel: {
-          display: true,
-          labelString: 'x'
-        }
-      }],
-      yAxes: [{
-        scaleLabel: {
-          display: true,
-          labelString: 'y'
-        }
-      }]
-    }
-  };
   // sigmoid: y = 1 / (1 + exp(-x))
+  var data = [];
+  for (var i = -5; i <= 5; i+=0.01) {
+    data.push({
+        x: i,
+        y: 1 / (1 + Math.exp(-i))
+      });
+  }
   new Chart('sigmoid', {
     type: 'line',
     data: {
       datasets: [{
-        label: 'Expected Line',
+        label: 'sigmoid function',
         backgroundColor: 'rgba(0, 128, 0, 1)',
         borderColor: 'rgba(0, 128, 0, 1)',
         fill: false,
         pointRadius: 0,
-        data: [{x:1024,y:4099},{x:4968,y:19875}]
-      }, {
-        type: 'bubble',
-        label: 'Training Data',
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        data: [{x:1024,y:3041.34479672},{x:1077,y:3848.11290461},{x:1093,y:1425.14949365},{x:1114,y:3784.23651747},{x:1125,y:6153.79172866},{x:1199,y:3554.11797412},{x:1228,y:3580.0545406},{x:1254,y:3302.36707498},{x:1271,y:4411.08028247},{x:1300,y:4984.36490397},{x:1339,y:3618.27841285},{x:1377,y:3504.57835306},{x:1417,y:6589.78692837},{x:1536,y:5217.89629577},{x:1613,y:18396.38637446},{x:1636,y:5222.87799369},{x:1665,y:4999.52100524},{x:1680,y:5665.26113175},{x:1726,y:8264.58318873},{x:1726,y:8507.36647557},{x:1844,y:7770.4563142},{x:1884,y:9743.47131578},{x:1942,y:6771.49886413},{x:1962,y:9084.57940426},{x:1994,y:9043.94701116},{x:2007,y:8776.39151486},{x:2066,y:10050.1578826},{x:2239,y:8916.42555485},{x:2239,y:8165.64808713},{x:2305,y:8755.25366519},{x:2310,y:8364.34661322},{x:2322,y:8915.34859433},{x:2379,y:9197.38241427},{x:2440,y:7851.95904396},{x:2544,y:8207.20804011},{x:2549,y:8709.82913985},{x:2578,y:11755.6163048},{x:2604,y:8596.51192103},{x:2615,y:10361.0047482},{x:2638,y:9411.6197175},{x:2761,y:9319.6415672},{x:2769,y:12842.8819172},{x:2786,y:11531.2407491},{x:2820,y:8595.93288139},{x:2844,y:12229.2987937},{x:2876,y:12759.8926708},{x:3055,y:12137.8405953},{x:3068,y:11996.5109723},{x:3094,y:11800.2729985},{x:3094,y:12566.2939954},{x:3130,y:13600.3942388},{x:3132,y:14640.825237},{x:3193,y:11428.4092551},{x:3207,y:12301.4877344},{x:3322,y:12999.5669428},{x:3372,y:15054.715276},{x:3380,y:12525.3570879},{x:3455,y:14183.6408623},{x:3468,y:16607.8764098},{x:3549,y:15966.3032046},{x:3605,y:15479.7197159},{x:3696,y:16868.0934864},{x:3704,y:13931.9144869},{x:3939,y:16177.9194112},{x:3940,y:14843.2978469},{x:3954,y:17660.6273388},{x:4001,y:11626.150281},{x:4037,y:18021.1539509},{x:4040,y:15692.8771098},{x:4072,y:15529.7418794},{x:4110,y:19643.2255653},{x:4129,y:15436.0340749},{x:4161,y:16222.9260112},{x:4174,y:15331.25712},{x:4240,y:15681.3275478},{x:4291,y:19263.7251749},{x:4298,y:16254.3605446},{x:4327,y:16945.6846065},{x:4364,y:18965.7091401},{x:4420,y:17848.2934953},{x:4422,y:18893.8296387},{x:4441,y:19548.8303537},{x:4449,y:17997.3169139},{x:4509,y:17680.3094298},{x:4535,y:20888.1014948},{x:4559,y:18718.2694955},{x:4626,y:17537.3976187},{x:4710,y:18955.2873097},{x:4737,y:16783.8474195},{x:4776,y:19772.5909007},{x:4786,y:17760.8922801},{x:4809,y:20106.9348223},{x:4813,y:19525.5150033},{x:4845,y:17059.5073393},{x:4860,y:19594.6604656},{x:4884,y:19585.7409977},{x:4901,y:18295.7299998},{x:4949,y:21835.5489789},{x:4949,y:19998.4766695},{x:4968,y:20582.4548821}]
+        data: data
       }]
     },
-    options: opts
+    options: {
+      title: {
+        display: true,
+        position: 'bottom',
+        text: 'Hình 1. Đồ thị hàm sigmoid σ(a)'
+      },
+      scales: {
+        xAxes: [{
+          type: 'linear',
+          position: 'bottom',
+          scaleLabel: {
+            display: true,
+            labelString: 'a'
+          }
+        }],
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'σ'
+          }
+        }]
+      }
+    }
   });
 }
 </script>
