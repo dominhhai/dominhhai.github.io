@@ -10,6 +10,7 @@ tags:
 keywords:
 - Học Máy
 - Machine Learning
+- logistic regression
 autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png

@@ -10,6 +10,7 @@ tags:
 keywords:
 - Học Máy
 - Machine Learning
+- Linear Regression
 autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png

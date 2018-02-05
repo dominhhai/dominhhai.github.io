@@ -10,6 +10,7 @@ tags:
 keywords:
 - Học Máy
 - Machine Learning
+- bias variance tradeoff
 autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png

@@ -10,6 +10,7 @@ tags:
 keywords:
 - Học Máy
 - Machine Learning
+- Maximum Likelihood Esitmation
 autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png
