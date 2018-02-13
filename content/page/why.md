@@ -41,6 +41,8 @@ Ngoài kí hiệu $ \triangleq $ ra thì người ta còn sử dụng kí hiệu
 # 4. Hộp đen máy bay là gì?
 Hộp đen máy bay là thiết bị lưu trữ thông tin bay của máy bay. Gọi là hộp đen nhưng thường nó có màu vàng bên trong có các bộ nhớ và chip xử lý để thu thập liên tục và lưu trữ lại toàn bộ các thông tin trên máy bay. Ngoài ra nó còn có cả bộ ghi âm, ghi lại toàn bộ âm thanh trong buồng lái như các cuộc trò chuyện của phi công chẳng hạn.
 
+{{< image classes="fancybox center" thumbnail-width="60%" src="https://znews-photo-td.zadn.vn/w660/Uploaded/aolnpvp/2015_01_01/zing_maybay1.jpg" >}}
+
 Hộp đen được thiết kế rất đặc biệt khiến cho nó rất khó bị phá hủy nhằm giúp nó có thể được bảo đảm an toàn khi máy bay gặp sự cố. Nó cũng thường được đặt ở đuôi máy bay, nơi mà chịu ít tác động nhất khi máy bay bị phá huỷ.
 
 Như vậy có thể thấy hộp đen là một thiết bị đặc biệt quan trọng trên máy bay, giúp cho ta có thể phân tích được nguyên nhân gặp trục trặc của máy bay. Tuy nhiên việc tìm kiếm hộp đen luôn mất rất nhiều thời gian, có thể là không tìm thấy sau sự cố. Vậy tại sao người ta không đề xuất các giải pháp khác như theo dõi thông tin trực tiếp qua việc kết nối với các vệ tinh? Câu trả lời là máy bay ít khi gặp tai nạn mà chi phí để vận hành máy bay thông qua vệ tinh như vậy cực kì tốn kém. Nên người ta vẫn chuộng hộp đen hơn cả.
