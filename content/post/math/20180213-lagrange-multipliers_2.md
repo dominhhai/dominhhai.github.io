@@ -113,7 +113,7 @@ $$
 
 Để có cực trị thì các $\textcolor{#0d923f}\mu\neq\mathbf{0}$, tức là các $\color{#0d923f}\mu_j$ không đồng thời bằng $0$, hơn nữa:
 
-* **Cực đại** chỉ đạt được khi $\textcolor{#0d923f}{\mu_j} \ge 0$, tức: $-\textcolor{#0d923f}\mu_j\big(\textcolor{#bc2612}{h_j(\mathbf{x})-r_j}\big)\ge 0$
-* **Cực tiểu** chỉ đạt được khi $\textcolor{#0d923f}\mu_j\le 0$, tức: $-\textcolor{#0d923f}\mu_j\big(\textcolor{#bc2612}{h_j(\mathbf{x})-r_j}\big)\le 0$
+* **Cực đại** chỉ đạt được khi $\textcolor{#0d923f}{\mu_j} \ge 0 ~~~,\forall{j}$, tức: $-\textcolor{#0d923f}\mu_j\big(\textcolor{#bc2612}{h_j(\mathbf{x})-r_j}\big)\ge 0$
+* **Cực tiểu** chỉ đạt được khi $\textcolor{#0d923f}{\mu_j}\le 0 ~~~,\forall{j}$, tức: $-\textcolor{#0d923f}\mu_j\big(\textcolor{#bc2612}{h_j(\mathbf{x})-r_j}\big)\le 0$
 
 Như vậy ta có thể thấy bằng phương pháp Lagrange, ta có thể giải quyết một lớp kha khá các bài toán tối ưu có ràng buộc bằng cách giải đạo hàm của hàm Lagrangian khá mạnh mẽ và tiện lợi.
