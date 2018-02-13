@@ -17,7 +17,7 @@ thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/math/katex.png
 metaAlignment: center
 ---
-Phương pháp nhân tử Lagrange (*method of Lagrange multipliers*) là một kỹ thuật cực kì hữu dụng để giải các bài toán tối ưu có ràng buộc. Trong chuỗi bài viết này tối sẽ chia làm 3 phần: (1) Ràng buộc là đẳng thức; (2) Ràng buộc là bất đẳng thức; (3) Đối ngẫu. Bài viết đầu tiên này tôi sẽ tập trung vào tối ưu có ràng buộc là đẳng thức.
+Phương pháp nhân tử Lagrange (*method of Lagrange multipliers*) là một kỹ thuật cực kì hữu dụng để giải các bài toán tối ưu có ràng buộc. Trong chuỗi bài viết này tối sẽ chia làm 2 phần: (1) Ràng buộc là đẳng thức; (2) Ràng buộc là bất đẳng thức. Bài viết đầu tiên này tôi sẽ tập trung vào tối ưu có ràng buộc là đẳng thức.
 <!--more-->
 <!--toc-->
 # 1. Kỹ thuật Lagrange
