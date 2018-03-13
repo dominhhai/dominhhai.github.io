@@ -75,6 +75,17 @@ Sau khoảng 2 tuần thì bạn sẽ nhận được visa và thường visa ch
 
 Một điểm nữa là việc xin visa có thể mất tới 6 tuần nếu đúng thời cao điểm mọi người tới Nhật. Nên nếu sau 2 tuần mà không tin tức gì thì cũng đừng quá sốt ruột. Hồ sơ bạn đẹp thì hoàn toàn có thể tự tin xin được visa.
 
+# Yêu cầu bổ sung giấy tờ
+Có trường hợp đại sứ quan yêu cầu thêm giấy tờ bổ sung, vì sao thì không ai rõ cả. Ví dụ, có lần mình xin visa họ yêu cầu thêm cả giấy nghỉ phép nữa.
+
+Thời gian trên giấy nghỉ phép đương nhiên là phải khớp với những gì khai trong visa. Khi đại sứ quán yêu cầu bổ sung thì tốt nhất bạn nên nhanh chóng hoàn thiện giấy tờ được yêu cầu để tránh bị kéo dài thời gian nhận visa. Đương nhiên là trong trường hợp phải bổ sung thì visa sẽ bị kéo dài thêm thời gian, thời gian bao lâu thì đại sứ quán sẽ thông báo lại sau.
+
+Thời gian nộp bổ sung vẫn là vào buổi sáng từ 8:00~11:30. Tuy nhiên nộp bổ sung thì thường không phải lấy số và có thể nộp được luôn mà không phải xếp hàng dài như nộp giấy tờ mới.
+
+Khi đi nộp nhớ mang theo giấy hẹn của đại sứ quán, nếu không đem thì cũng cần nhớ số hiệu của giấy hẹn. Nếu không có số hiệu này thì đương nhiên là giấy tờ của bạn khó nhận biết được của hồ sơ nào để bổ sung.
+
+Một điểm nữa là chỉ cần nộp những giấy tờ mà đại sứ quán yêu cầu, không nên nộp thừa gây bối rối cho họ.
+
 # Mẹo vặt
 Về các giấy tờ cần photo thì nếu có thể bạn nên photo màu nhìn cho dễ và không cần thiết phải xin công chứng. Ở Nhật thì có thể ra các コンビニ như Family Mart để photo rất tiện và mỗi tờ chỉ mất 10円 thôi. Các giấy tờ photo ở Việt Nam thì nên mang theo bản gốc để đối chứng nếu bên đại sứ quán có yêu cầu.
 
