@@ -12,7 +12,18 @@
 </code></pre><p>Có được <code>pip</code> rồi thì việc cài gói phần mềm trong môi trường ảo hệt như môi trường thật:</p><pre><code>$ pip install YOUR_MODULE
 </code></pre><p>Tương tự các thao tác xoá gói hay làm mọi trò với môi trường thật cũng có thể thực hiện trong môi trường ảo. Đương nhiên là các thao tác này chỉ ảnh hưởng tới môi trường ảo mà thôi.</p><h4 id=3-4-xuất-gói>3.4. Xuất gói</h4><p>Việc xuất gói để đồng bộ môi trường với những thành viên khác trong đội dự án cũng được thực hiện tương tự như môi trường thật:</p><pre><code>$ pip freeze -l &gt; requirements.txt
 </code></pre><p>Đương nhiên là việc cài đặt theo danh sách gói này cũng thế:</p><pre><code>$ pip install -r requirements.txt
-</code></pre><h3 id=4-tổng-kết>4. Tổng kết</h3><p>Phần này sẽ tóm gói lại các lệnh để tạo được môi trường ảo:</p><pre><code># Tạo môi trường ảo
+</code></pre><h3 id=4-vài-vấn-đề-với-venv>4. Vài vấn đề với venv</h3><h4 id=4-1-matplotlib>4.1. matplotlib</h4><p>Rất có thể khi sài gói <code>matplotlib</code> ở môi trường ảo ta sẽ gặp lỗi:</p><pre><code>$ python -c &quot;import matplotlib.pyplot&quot;
+Traceback (most recent call last):
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/Users/haidm/HAI/mathplot/.venv/lib/python2.7/site-packages/matplotlib/pyplot.py&quot;, line 115, in &lt;module&gt;
+    _backend_mod, new_figure_manager, draw_if_interactive, _show = pylab_setup()
+  File &quot;/Users/haidm/HAI/mathplot/.venv/lib/python2.7/site-packages/matplotlib/backends/__init__.py&quot;, line 62, in pylab_setup
+    [backend_name], 0)
+  File &quot;/Users/haidm/HAI/mathplot/.venv/lib/python2.7/site-packages/matplotlib/backends/backend_macosx.py&quot;, line 17, in &lt;module&gt;
+    from matplotlib.backends import _macosx
+RuntimeError: Python is not installed as a framework. The Mac OS X backend will not be able to function correctly if Python is not installed as a framework. See the Python documentation for more information on installing Python as a framework on Mac OS X. Please either reinstall Python as a framework, or try one of the other backends. If you are using (Ana)Conda please install python.app and replace the use of 'python' with 'pythonw'. See 'Working with Matplotlib on OSX' in the Matplotlib FAQ for more information.
+</code></pre><p>Đây là lỗi không nhận định được <code>backend</code> của <code>matplotlib</code> và để xử lý được lỗi này, ta có thể chỉ định tham số cho <code>backend</code>. Việc này được thực hiện bằng cách thêm file cấu hình <a href=https://github.com/dominhhai/mldl/blob/master/matplotlibrc><code>matplotlibrc</code></a> ở thư mục gốc của dự án với nội dung:</p><pre><code>backend: TkAgg
+</code></pre><h3 id=5-tổng-kết>5. Tổng kết</h3><p>Phần này sẽ tóm gói lại các lệnh để tạo được môi trường ảo:</p><pre><code># Tạo môi trường ảo
 $ virtualenv --system-site-packages .venv
 
 # Khởi động môi trường ảo
