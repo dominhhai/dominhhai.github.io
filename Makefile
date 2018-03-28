@@ -7,6 +7,12 @@ init:
 		&& git branch --set-upstream-to=origin/master master \
 		&& cd ..
 
+# for build code
+bcode:
+	@cd code \
+		&& source .venv/bin/activate \
+		&& jupyter notebook
+
 # for dev
 dev:
 	@open /Applications/Google\ Chrome.app 'http://localhost:1313' \
