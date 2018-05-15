@@ -1,6 +1,6 @@
 ---
-title: "[NN] Lan truyền ngược - Backpropagation"
-slug: nn-bp
+title: "[NN] Cài đặt NN cho bài toán nhận dạng số"
+slug: nn-implement
 date: 2018-04-25T10:20:14+09:00
 categories:
 - Học Máy
