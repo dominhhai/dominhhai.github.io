@@ -204,8 +204,8 @@ dateFormat = "2006年January2日"
   # Custom CSS. Put here your custom CSS files. They are loaded after the theme CSS;
   # they have to be referred from static root. Example
   [[params.customCSS]]
-    href = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css"
-    integrity = "sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx"
+    href = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css"
+    integrity = "sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei"
     crossorigin = "anonymous"
   [[params.customCSS]]
     href = "css/main.css"
@@ -213,12 +213,12 @@ dateFormat = "2006年January2日"
   # Custom JS. Put here your custom JS files. They are loaded after the theme JS;
   # they have to be referred from static root. Example
   [[params.customJS]]
-    src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.js"
-    integrity = "sha384-GR8SEkOO1rBN/jnOcQDFcFmwXAevSLx7/Io9Ps1rkxWp983ZIuUGfxivlF/5f5eJ"
+    src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"
+    integrity = "sha384-jmxIlussZWB7qCuB+PgKG1uLjjxbVVIayPJwi6cG6Zb4YKq0JIw+OMnkkEC7kYCq"
     crossorigin = "anonymous"
   [[params.customJS]]
-    src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/contrib/auto-render.min.js"
-    integrity = "sha384-cXpztMJlr2xFXyDSIfRWYSMVCXZ9HeGXvzyKTYrn03rsMAlOtIQVzjty5ULbaP8L"
+    src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/contrib/auto-render.min.js"
+    integrity = "sha384-IiI65aU9ZYub2MY9zhtKd1H2ps7xxf+eb2YFG9lX6uRqpXCvBTOidPRCXCrQ++Uc"
     crossorigin = "anonymous"
   [[params.customJS]]
     src = "js/main.js"
