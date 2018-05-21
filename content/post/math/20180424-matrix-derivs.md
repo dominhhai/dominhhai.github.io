@@ -191,5 +191,33 @@ $$\mathbf{y}=\mathbf{V}\mathbf{z}$$
 Từ đây, ta có thể sử dụng quy tắc chuỗi như sau:
 $$\frac{d\mathbf{y}}{d\mathbf{x}}=\frac{d\mathbf{y}}{d\mathbf{z}}\frac{d\mathbf{z}}{d\mathbf{x}}$$
 
+Để chứng minh điều này, ta lại vận dụng chiến lược phân tách ở trên để phân tích các thành phần ra, bắt đầu với mỗi thành phần của véc-tơ $\mathbf{y}$ với mỗi thành phần của véc-tơ $\mathbf{x}$:
+
+$$\frac{dy_i}{dx_j}=\frac{dy_i}{d\mathbf{z}}\frac{d\mathbf{z}}{dx_j}$$
+
+Nếu $\mathbf{z}$ có $K$ thành phần thì:
+$$\frac{dy_i}{dx_j}=\sum\_{k=1}^K\frac{dy_i}{dz_k}\frac{dz_k}{dx_j}$$
+
+Như đã chứng minh ở trên (đạo hàm của véc-tơ theo véc-tơ) thì ta có:
+$$
+\begin{aligned}
+\frac{dy_i}{dz_k} &= V\_{i,k}
+\\cr
+\frac{dz_k}{dx_j} &= W\_{k,j}
+\end{aligned}
+$$
+
+Nên ta có:
+
+$$\frac{dy_i}{dx_j}=\sum\_{k=1}^KV\_{i,k}W\_{k,j}=\mathbf{V}\mathbf{W}$$
+
+Tới đây, ta được điều phải chứng minh:
+$$\frac{d\mathbf{y}}{d\mathbf{x}}=\frac{d\mathbf{y}}{d\mathbf{z}}\frac{d\mathbf{z}}{d\mathbf{x}}$$
+
+Như vậy, ta có thể sử dụng quy tắc chuỗi trong nhóm của các véc-tơ và ma trận bằng cách:
+
+* Bóc tách các kết quả và biến trung gian để biểu diễn
+* Biểu diễn quy tắc chuỗi cho từng thành phân riêng của đạo hàm đích
+* Lấy tổng lại các kết quả trung gian với quy tắc chuỗi.
 
 > Tham khảo: http://cs231n.stanford.edu/vecDerivs.pdf
