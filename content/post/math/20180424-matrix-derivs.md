@@ -209,10 +209,9 @@ $$
 
 Nên ta có:
 
-$$\frac{dy_i}{dx_j}=\sum\_{k=1}^KV\_{i,k}W\_{k,j}=\mathbf{V}\mathbf{W}$$
+$$\frac{dy_i}{dx_j}=\sum\_{k=1}^KV\_{i,k}W\_{k,j}=\mathbf{V}\_{i,:}\mathbf{W}\_{:,j}$$
 
-Tới đây, ta được điều phải chứng minh:
-$$\frac{d\mathbf{y}}{d\mathbf{x}}=\frac{d\mathbf{y}}{d\mathbf{z}}\frac{d\mathbf{z}}{d\mathbf{x}}$$
+Tới đây, ta được điều phải chứng minh.
 
 Như vậy, ta có thể sử dụng quy tắc chuỗi trong nhóm của các véc-tơ và ma trận bằng cách:
 
