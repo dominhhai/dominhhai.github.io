@@ -36,3 +36,6 @@ public
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# tmp
+code/.tmp
