@@ -58,7 +58,7 @@ W_{d,b} ~~~ \text{if } a=c
 \cr
 0 ~~~ \text{otherwise}
 \end{cases}
-$$</p><p>Nếu lấy $\mathbf{Y}<em>{i,:}$ là hàng thứ $i$ của $\mathbf{Y}$ và $\mathbf{X}</em>{i,:}$ là hàng thứ $i$ của $\mathbf{X}$ thì rõ ràng:
+$$</p><p>Nếu lấy $\mathbf{Y}_{i,:}$ là hàng thứ $i$ của $\mathbf{Y}$ và $\mathbf{X}_{i,:}$ là hàng thứ $i$ của $\mathbf{X}$ thì rõ ràng:
 $$\frac{\partial{\mathbf{Y}_{i,:}}}{\partial{\mathbf{X}_{i,:}}}=W$$</p><p>Đây cũng chính là trường hợp tổng quát của công thức tính đạo hàm ở <a href=#1-4-ho%C3%A1n-%C4%91%E1%BB%95i-vec-t%C6%A1-c%E1%BB%99t-v%E1%BB%9Bi-h%C3%A0ng>phần 1</a>.</p><h1 id=3-quy-tắc-chuỗi>3. Quy tắc chuỗi</h1><p>Quy tắc chuỗi dùng để tính <a href=https://dominhhai.github.io/vi/2017/10/multi-var-func/#5-đạo-hàm-riêng-của-hàm-hợp>đạo hàm của hàm hợp</a> sẽ được áp dụng thế nào cho các phép kết hợp của véc-tơ, ma trận?</p><p>Giả sử, ta có các véc-tơ cột $\mathbf{y}$ và $\mathbf{x}$:
 $$\mathbf{y} = \mathbf{V}\mathbf{W}\mathbf{x}$$</p><p>Thử tính đạo hàm của $\mathbf{y}$ theo $\mathbf{x}$ xem sao. Đầu tiên ta nhận xét rằng, tích của 2 ma trận $\mathbf{V}$ và $\mathbf{W}$ chỉ đơn giản là một ma trận khác $\mathbf{U}$, vì thế ta có:
 $$\frac{d\mathbf{y}}{d\mathbf{x}}=\mathbf{V}\mathbf{W}=\mathbf{U}$$</p><p>Tuy nhiên, để hiểu được quy tắc chuỗi áp dụng ra sao thì ta sẽ đưa vào các kết quả trung gian để sử dụng được quy tắc chuỗi trong trường hợp này. Giả sử véc-tơ $\mathbf{z}$ được định nghĩa như sau:
