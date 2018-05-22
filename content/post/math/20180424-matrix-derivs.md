@@ -191,11 +191,11 @@ $$\mathbf{y}=\mathbf{V}\mathbf{z}$$
 Từ đây, ta có thể sử dụng quy tắc chuỗi như sau:
 $$\frac{d\mathbf{y}}{d\mathbf{x}}=\frac{d\mathbf{y}}{d\mathbf{z}}\frac{d\mathbf{z}}{d\mathbf{x}}$$
 
-Để chứng minh điều này, ta lại vận dụng chiến lược phân tách ở trên để phân tích các thành phần ra, bắt đầu với mỗi thành phần của véc-tơ $\mathbf{y}$ với mỗi thành phần của véc-tơ $\mathbf{x}$:
+Để chắc chắn rằng ta thực sự hiểu ý nghĩa của nó là gì, ta lại vận dụng chiến lược phân tách ở trên để phân tích các thành phần ra, bắt đầu với mỗi thành phần của véc-tơ $\mathbf{y}$ với mỗi thành phần của véc-tơ $\mathbf{x}$:
 
 $$\frac{dy_i}{dx_j}=\frac{dy_i}{d\mathbf{z}}\frac{d\mathbf{z}}{dx_j}$$
 
-Nếu $\mathbf{z}$ có $K$ thành phần thì:
+Áp dụng tiếp [quy tắc chuỗi của hàm nhiều biến](/vi/2017/10/multi-var-func/#5-đạo-hàm-riêng-của-hàm-hợp), giả sử rằng $\mathbf{z}$ có $K$ thành phần thì ta có:
 $$\frac{dy_i}{dx_j}=\sum\_{k=1}^K\frac{dy_i}{dz_k}\frac{dz_k}{dx_j}$$
 
 Như đã chứng minh ở trên (đạo hàm của véc-tơ theo véc-tơ) thì ta có:
