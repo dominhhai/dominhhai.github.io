@@ -168,7 +168,7 @@ W\_{d,b} ~~~ \text{if } a=c
 \end{cases}
 $$
 
-Nếu lấy $\mathbf{Y}_{i,:}$ là hàng thứ $i$ của $\mathbf{Y}$ và $\mathbf{X}_{i,:}$ là hàng thứ $i$ của $\mathbf{X}$ thì rõ ràng:
+Nếu lấy $\mathbf{Y}\_{i,:}$ là hàng thứ $i$ của $\mathbf{Y}$ và $\mathbf{X}\_{i,:}$ là hàng thứ $i$ của $\mathbf{X}$ thì rõ ràng:
 $$\frac{\partial{\mathbf{Y}\_{i,:}}}{\partial{\mathbf{X}\_{i,:}}}=W$$
 
 Đây cũng chính là trường hợp tổng quát của công thức tính đạo hàm ở [phần 1](#1-4-ho%C3%A1n-%C4%91%E1%BB%95i-vec-t%C6%A1-c%E1%BB%99t-v%E1%BB%9Bi-h%C3%A0ng).
