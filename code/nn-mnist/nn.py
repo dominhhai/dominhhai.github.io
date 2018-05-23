@@ -2,6 +2,8 @@
 NN class
 ~~~~~~~~~~~~
 Neural Network implement class.
+This NN use sigmoid as activation functions with cross-entropy cost function.
+
 E.x:
 # init NN of 5 layers with
 # * input layer: 784 nodes
@@ -35,17 +37,29 @@ class NN(object):
         """
         Train NN with data ``(x, y)``
         """
+        
         print(data)
      
     def predict(self, x):
         """
         Predict label for input image ``x``
         """
-        y = self.feedforward(x)
-        return np.argmax(y)
+        _, a = self.feedforward(x)
+        return np.argmax(a[self.L-1])
+    
+    def cost(self, x):
+        
+        return 0
     
     def feedforward(self, x):
-        return a
+        z = []
+        a = [x]
+        for l in range(1, self.L):
+            z_l =  np.dot(W, a[l-1])
+            a_l = self.sigmoid(z)
+            z.append(z_l)
+            a.append(a_l)
+        return (z, a)
     
     def backprop(self, x, y):
         return 0
