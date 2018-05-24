@@ -1,3 +1,4 @@
+
 """
 data_loader
 ~~~~~~~~~~~~
@@ -44,7 +45,7 @@ def load():
   
   # test data
   inputs = [x.reshape((784, 1)) for x in t_dt[0]]
-  test_data = zip(inputs, t_dt)
+  test_data = zip(inputs, t_dt[1])
   
   return (training_data, validation_data, test_data)
 
