@@ -41,9 +41,9 @@ Trong đó có 60,000 dữ liệu huấn luyện và 10,000 dữ liệu kiểm t
 ## 1.2. Mô hình mạng
 Đầu vào của mạng, ta có thể sử dụng mỗi điểm ảnh cho 1 đầu vào, hay nói cách khác đầu vào của ta gồm 784 nút mạng mỗi nút chứ giá trị của 1 điểm ảnh. Về mặt kĩ thuật, ta có thể coi đầu vào là 1 véc-tơ cột 784 chiều với mỗi phần từ chứa giá trị 1 điểm ảnh.
 
-Còn đầu ra đại diện cho các số từ $0$ tới $9$. Về nguyên tắc ta có thể sử dụng 4 nút ra để mã hoá cho 10 nhãn đó bởi $4^2=16>10$, tuy nhiên nếu làm như vậy thì khó mà nhìn được xác suất dự đoán tương ứng vỡi mỗi nhãn là bao nhiêu. Nên trong bài toán này ta sử dụng 10 đầu ra tương ứng với 10 nhãn. Mỗi đầu ra sẽ nhận giá trị trong khoảng $[0, 1]$ tương ứng với xác suất dự đoán ở mỗi nhãn. Như vậy, trường hợp chắc chắn đúng thì vì trị tương ứng sẽ bằng 1 và các vị trí khác bằng 0. Về mặt thuật ngữ, nó chính là vec-to **[one-hot](https://en.wikipedia.org/wiki/One-hot)**. Ví dụ, nếu đầu ra là $5$ thì phần tử ở vị trí thứ 5 là 1 còn các vị trí khác là 0:
+Còn đầu ra đại diện cho các số từ $0$ tới $9$. Về nguyên tắc ta có thể sử dụng 4 nút ra để mã hoá cho 10 nhãn đó bởi $4^2=16>10$, tuy nhiên nếu làm như vậy thì khó mà nhìn được xác suất dự đoán tương ứng vỡi mỗi nhãn là bao nhiêu. Nên trong bài toán này ta sử dụng 10 đầu ra tương ứng với 10 nhãn. Mỗi đầu ra sẽ nhận giá trị trong khoảng $[0, 1]$ tương ứng với xác suất dự đoán ở mỗi nhãn. Như vậy, trường hợp chắc chắn đúng thì vì trị tương ứng sẽ bằng 1 và các vị trí khác bằng 0. Về mặt thuật ngữ, nó chính là vec-to **[one-hot](https://en.wikipedia.org/wiki/One-hot)**. Ví dụ, nếu đầu ra là $5$ thì phần tử ở vị trí thứ 6 là 1 còn các vị trí khác là 0:
 
-$$\begin{bmatrix}0&0&0&0&\textcolor{red}{1}&0&0&0&0\end{bmatrix}^{\intercal}$$
+$$\begin{bmatrix}0&0&0&0&0&\textcolor{red}{1}&0&0&0&0\end{bmatrix}^{\intercal}$$
 
 Trong bài toán này, ta sẽ sử dụng hàm *sigmoid* làm hàm kích hoạt cho các nút mạng và hàm lỗi tương ứng là cross-entropy như đã đề cập ở [bài viết trước](/vi/2018/04/nn-intro/). Dạng bài toán này, người ta còn hay sử dụng [hàm softmax](/vi/2018/04/softmax-derivs/) để làm hàm kích hoạt cho tầng ra của mạng do kết quả của hàm này tương tự như phép lấy xác suất. Việc cài đặt hàm này cũng tương tự như hàm *sigmoid*, tuy nhiên để đơn giản và phù hợp với mục đích của bài là nói về cách cài đặt mạng NN, tôi không cài đặt ở đây.
 
