@@ -40,9 +40,9 @@ class NN():
         # ``w[0]` is layer 2 (hidden layer 1), ..., ``w[L-2]`` is output layer 
         # Each row hold weights for inputs (from before layer) of correspoding node (on current layer)
         # The first column is bias for correspoding node
-        self.w = [np.random.randn(l2, l1 + 1) for l2, l1 in zip(layers[1:], layers[:-1])]
+        self.w = [np.random.randn(l2, l1 + 1)/np.sqrt(l1) for l2, l1 in zip(layers[1:], layers[:-1])]
         
-    def train(self, train_data, epochs, mini_batch_size, eta):
+    def train(self, train_data, epochs, mini_batch_size, eta, lamda=0.0):
         """
         Train NN with train data ``[(x, y)]``.
         This use mini-batch SGD method to train the NN.
@@ -65,19 +65,22 @@ class NN():
                 for x, y in mini_batch:
                     grad = self.backprop(x, y)
                     w_grad = [W_grad + g for W_grad, g in zip(w_grad, grad)]
-                w_grad = [W_grad / m_batch for W_grad in w_grad]
+#                 w_grad = [W_grad / m_batch for W_grad in w_grad]
+                w_grad = [(W_grad + lamda * np.insert(W[:,1:], 0, 0, axis=1)) / m_batch
+                                      for W, W_grad in zip(self.w, w_grad)]
                 
                 # check grad for first mini_batch in first epoch
-                if j == 0  and k == 0 and not self.check_grad(mini_batch, w_grad):
-                    print('backprop fail!')
-                    return False
+                #if j == 0  and k == 0 and not self.check_grad(mini_batch, lamda, w_grad):
+                #    print('backprop fail!')
+                #    return False
                 
                 # update w
                 self.w = [W - eta * W_grad for W, W_grad in zip(self.w, w_grad)]
             
             # calc cost
-            cost.append(self.cost(train_data))
-            print('Epoch {0} done: {1}'.format(j + 1, time.time() - start_time))
+            cost_j = self.cost(train_data, lamda)
+            cost.append(cost_j)
+            print('Epoch {0} done: {1}, cost: {2}'.format(j + 1, time.time() - start_time, cost_j))
             
         return cost
     
@@ -141,7 +144,7 @@ class NN():
         """
         return np.insert(a, 0, 1, axis=0)
     
-    def check_grad(self, data, grad, epsilon=1e-4, threshold=1e-6):
+    def check_grad(self, data, lamda, grad, epsilon=1e-4, threshold=1e-6):
         """
         Check gradient with:
         * Epsilon      : 1e-4
@@ -154,10 +157,10 @@ class NN():
                     w_l_ij = self.w[l][i][j]
                     # left
                     self.w[l][i][j] = w_l_ij - epsilon
-                    l_cost = self.cost(data)
+                    l_cost = self.cost(data, lamda)
                     # right
                     self.w[l][i][j] = w_l_ij + epsilon
-                    r_cost = self.cost(data)
+                    r_cost = self.cost(data, lamda)
                     # numerical grad
                     num_grad = (r_cost - l_cost) / (2 * epsilon)
                     
@@ -174,7 +177,7 @@ class NN():
         
         return True
     
-    def cost(self, data):
+    def cost(self, data, lamda):
         """
         Return cross-entropy cost of NN on test data
         """
@@ -184,6 +187,8 @@ class NN():
             _, a = self.feedforward(x)
             a_L = a[-1]
             j += np.sum(np.nan_to_num(y*np.log(a_L) + (1-y)*np.log(1-a_L)))
+        
+        j -= 0.5 * lamda * sum(np.linalg.norm(W[:,1:])**2 for W in self.w)
         return -j / m
     
     def sigmoid(self, z):
