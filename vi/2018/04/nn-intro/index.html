@@ -74,7 +74,7 @@ $$
 \begin{aligned}
 \dfrac{\partial{J}}{\partial{\mathbf{z}^{(l)}}} &amp;= \dfrac{\partial{J}}{\partial{\mathbf{z}^{(l+1)}}}\dfrac{\partial{\mathbf{z}^{(l+1)}}}{\partial{\mathbf{a}^{(l)}}}\dfrac{\partial{\mathbf{a}^{(l)}}}{\partial{\mathbf{z}^{(l)}}}
 \cr
-&amp; = \bigg(\mathbf{W}^{(l+1)}\dfrac{\partial{J}}{\partial{\mathbf{z}^{(l+1)}}}\bigg)\dfrac{\partial{\mathbf{a}^{(l)}}}{\partial{\mathbf{z}^{(l)}}}
+&amp; = \bigg(\big(\mathbf{W}^{(l+1)}\big)^{\intercal}\dfrac{\partial{J}}{\partial{\mathbf{z}^{(l+1)}}}\bigg)\dfrac{\partial{\mathbf{a}^{(l)}}}{\partial{\mathbf{z}^{(l)}}}
 \end{aligned}
 $$
 với $\mathbf{z}^{(l)}$ tính được ở bước 1 và $\dfrac{\partial{J}}{\partial{\mathbf{z}^{(l+1)}}}$ tính được ở vòng lặp ngay trước.</p></li><li><p><strong>4. Tính đạo hàm</strong>:<br>Tính đạo hàm theo tham số $w$ bằng công thức:
@@ -82,7 +82,7 @@ $$
 \begin{aligned}
 \dfrac{\partial{J}}{\partial{\mathbf{W}^{(l)}}} &amp;= \dfrac{\partial{J}}{\partial{\mathbf{z}^{(l)}}}\dfrac{\partial{\mathbf{z}^{(l)}}}{\partial{\mathbf{W}^{(l)}}}
 \cr
-&amp; = \dfrac{\partial{J}}{\partial{\mathbf{z}^{(l)}}}\mathbf{a}^{(l-1)}
+&amp; = \dfrac{\partial{J}}{\partial{\mathbf{z}^{(l)}}}\big(\mathbf{a}^{(l-1)}\big)^{\intercal}
 \end{aligned}
 $$
 với $\mathbf{a}^{(l-1)}$ tính được ở bước 1 và $\dfrac{\partial{J}}{\partial{\mathbf{z}^{(l)}}}$ tính được ở bước 3.</p></li></ul><h1 id=6-tổng-kết>6. Tổng kết</h1><p>Lấy cảm hứng từ mạng nơ-ron sinh học, mạng NN được hình thành từ các tầng nơ-ron nhân tạo. Mạng NN gồm 3 kiểu tầng chính là <strong>tầng vào</strong> (<em>input layer</em>) biểu diễn cho đầu vào, <strong>tầng ra</strong> (<em>output layer</em>) biểu diễn cho kết quả đầu ra và <strong>tầng ẩn</strong> (<em>hidden layer</em>) thể hiện cho các bước suy luận trung gian. Mỗi nơ-ron sẽ nhận tất cả đầu vào từ các nơ-ron ở tầng trước đó và sử dụng một <strong>hàm kích hoạt dạng</strong> (<em>activation function</em>) phi tuyến như <em>sigmoid</em>, <em>ReLU</em>, <em>tanh</em> để tính toán đầu ra.</p><p>Quá trình suy luận từ tầng vào tới tầng ra của mạng NN là quá trình <strong>lan truyền tiến</strong> (<em>feedforward</em>), tức là đầu vào các nơ-ron tại 1 tầng đều lấy từ kết quả các nơ-ron tầng trước đó mà không có quá trình suy luận ngược lại.</p><p>$$
@@ -97,9 +97,9 @@ $$</p><p>Để tối ưu được hàm lỗi $J(\mathbb{W})$ này người ta s�
 \begin{aligned}
 \dfrac{\partial{J}}{\partial{\mathbf{z}^{(L)}}} &amp;= \dfrac{\partial{J}}{\partial{\mathbf{a}^{(L)}}}\dfrac{\partial{\mathbf{a}^{(L)}}}{\partial{\mathbf{z}^{(L)}}}
 \cr
-\dfrac{\partial{J}}{\partial{\mathbf{z}^{(l)}}} &amp;= \bigg(\mathbf{W}^{(l+1)}\dfrac{\partial{J}}{\partial{\mathbf{z}^{(l+1)}}}\bigg)\dfrac{\partial{\mathbf{a}^{(l)}}}{\partial{\mathbf{z}^{(l)}}}
+\dfrac{\partial{J}}{\partial{\mathbf{z}^{(l)}}} &amp;= \bigg(\big(\mathbf{W}^{(l+1)}\big)^{\intercal}\dfrac{\partial{J}}{\partial{\mathbf{z}^{(l+1)}}}\bigg)\dfrac{\partial{\mathbf{a}^{(l)}}}{\partial{\mathbf{z}^{(l)}}}
 \cr
-\dfrac{\partial{J}}{\partial{\mathbf{W}^{(l)}}} &amp;= \dfrac{\partial{J}}{\partial{\mathbf{z}^{(l)}}}\mathbf{a}^{(l-1)}
+\dfrac{\partial{J}}{\partial{\mathbf{W}^{(l)}}} &amp;= \dfrac{\partial{J}}{\partial{\mathbf{z}^{(l)}}}\big(\mathbf{a}^{(l-1)}\big)^{\intercal}
 \end{aligned}
 $$</p><p>Bài viết giới thiệu này cơ bản đã trình bài khái niệm và các lý thuyết cơ bản của một mạng NN, còn cách cài đặt ra sao thì bạn có thể đón đọc ở bài tiếp theo nhé.</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">THẺ ĐÁNH DẤU</span><br><a class="tag tag--primary tag--small" href=https://dominhhai.github.io/vi/tags/h%E1%BB%8Dc-m%C3%A1y/>Học Máy</a>
 <a class="tag tag--primary tag--small" href=https://dominhhai.github.io/vi/tags/nn/>NN</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://dominhhai.github.io/vi/2018/04/matrix-derivs/ data-tooltip="[Giải Tích] Đạo hàm với vec-tơ, ma trận, ten-xơ"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">Tiếp</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://dominhhai.github.io/vi/2018/04/git-clone-tag/ data-tooltip="[Git] Lấy mã nguồn theo tag"><span class="hide-xs hide-sm text-small icon-mr">Trước</span>
