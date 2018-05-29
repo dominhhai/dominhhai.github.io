@@ -120,9 +120,11 @@ class NN():
 Nếu chạy thử với mạng 1 tầng ẩn 100 nút và $\lambda=4$ thì ta có thể thu được [kết quả](https://github.com/dominhhai/dominhhai.github.io/blob/dev/code/nn-mnist/network-overfitting.ipynb#3.-Test) chính xác tới **96.72%**, tăng được *0.1%* so với $\lambda=0$ tức là không thực hiện việc chính quy hoá.
 
 # 2. Dropout
-Một kĩ thuật nữa rất hay được sử dụng là **[bỏ nút mạng](http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf)** (*dropout*) rất đơn giản và cho kết quả rất khả quan. Ý tưởng của phương pháp này là trong quá trình huấn luyện ta bỏ đi ngẫu nhiêu một vài nút mạng ở tầng ẩn (thường lên tới 50% số nút mạng mỗi tầng ẩn) nhằm giảm độ phức tạp của mạng.
+Một kĩ thuật nữa rất hay được sử dụng là **[bỏ nút mạng](http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf)** (*dropout*) rất đơn giản và cho kết quả rất khả quan. Ý tưởng của phương pháp này là trong quá trình huấn luyện ta bỏ đi ngẫu nhiêu một vài nút mạng nhằm giảm độ phức tạp của mạng.
 
 Ta có thể coi mạng sau khi bỏ đi các nút đó là một mạng mới tinh gọn hơn mạng gốc. Như vậy, Với mỗi các lô dữ liệu huấn luyện khác nhau mà ta thực hiện với các mạng tinh giản khác nhau thì kết quả ta thu được sẽ là một mạng trung bình của các mạng tinh gọn đó. Bằng việc lấy mạng trung bình đó, thì ta có thể hi vọng rằng mạng của ta có thể tổng quát được nhiều trường hợp hơn hay nói cách khác là bớt được vấn đề quá khớp.
+
+Tuy nhiên một điểm cần lưu ý là ta **{{<hl-text danger>}}không được bỏ bất kì nút mạng nào ở tầng ra{{</hl-text>}}**, bởi đầu ra của ta cần phải ở dạng mã hoá đầy đủ. Thường người ta sẽ bỏ nút mạng ở **{{<hl-text success>}}đầu vào với xác xuất là 20%{{</hl-text>}}** và **{{<hl-text blue>}}các tầng ẩn là 50%{{</hl-text>}}**.
 
 Với ý tưởng như vậy, ta có thể cài đặt mạng theo quy trình sau:
 
@@ -132,10 +134,13 @@ Với ý tưởng như vậy, ta có thể cài đặt mạng theo quy trình sa
   * 2.2. Học với mạng sau khi bỏ nút
   * 2.3. Hồi phục lại các nút bị bỏ đi
 
-Cài đặt cụ thể như sau:
+Ví dụ, tôi cài đặt cho việc các nút ẩn với xác xuất được truyền bởi tham số `dropout` của hàm huấn luyện `train` như sau:
+
 {{<codeblock "nn-overfitting.py" "python" "https://github.com/dominhhai/dominhhai.github.io/blob/dev/code/nn-mnist/nn-overfitting.py">}}
 class NN():
-    def train(self, train_data, epochs, mini_batch_size, eta, lamda=0.0):
+    def train(self, train_data, epochs, mini_batch_size, eta,
+		lamda=0.0,
+		dropout=0.0):
         """
         Train NN with train data ``[(x, y)]``.
         This use mini-batch SGD method to train the NN.
@@ -152,30 +157,120 @@ class NN():
             for k in range(0, m, mini_batch_size):
                 mini_batch = train_data[k:k+mini_batch_size]
                 m_batch = len(mini_batch)
+                # dropout
+                m_dropout = None
+                if dropout > 0:
+                    m_dropout = [np.random.binomial(n=1, p=1.0-dropout, size=l).reshape((l,1))
+                                                    for l in self.layers[1:-1]]
                 # calc gradient
                 w_grad = [np.zeros(W.shape) for W in self.w]
                 for x, y in mini_batch:
-                    grad = self.backprop(x, y)
+                    grad = self.backprop(x, y, m_dropout)
                     w_grad = [W_grad + g for W_grad, g in zip(w_grad, grad)]
                 w_grad = [W_grad / m_batch for W_grad in w_grad]
-
                 # add regularization term
                 w_grad = [W_grad + (lamda/m_batch * np.insert(W[:,1:],0,0,axis=1))
                             for W, W_grad in zip(self.w, w_grad)]
-                
                 # check grad for first mini_batch in first epoch
-                if j == 0  and k == 0 and not self.check_grad(mini_batch, w_grad):
+                if j == 0  and k == 0 and not self.check_grad(mini_batch, w_grad, m_dropout):
                     print('backprop fail!')
                     return False
-                
                 # update w
                 self.w = [W - eta * W_grad for W, W_grad in zip(self.w, w_grad)]
-            
             # calc cost
-            cost.append(self.cost(train_data))
-            
+            cost.append(self.cost(train_data, m_dropout))
         return cost
+
+    def backprop(self, x, y, m_dropout=None):
+        """
+        Backpropagation to calc derivatives
+        """
+        w_grad = [np.zeros(W.shape) for W in self.w]
+        # feedforward
+        z, a = self.feedforward(x, m_dropout)
+        # backward
+        dz = a[-1] - y
+        for _l in range(1, self.L):
+            l = -_l # layer index
+            if l < -1:
+                da = self.sigmoid_grad(z[l])
+                # dropout
+                if not (m_dropout is None):
+                    da *= m_dropout[l+1]
+                # do not calc for w_0 (da_0 / dz = 0 because of a_0 = 1 for all z)
+                dz = np.dot(self.w[l+1][:, 1:].transpose(), dz) * da
+            # gradient    
+            w_grad[l] = np.dot(dz, a[l-1].transpose())
+        return w_grad
+
+    def feedforward(self, x, m_dropout=None):
+        """
+        Feedforward through network for calc ``z``,`` a``.
+        ``z`` is list of (L-1) vec-tor, ``z[0]`` for layer 2, and so on.
+        ``a`` is list of (L) vec-tor, ``a[0]`` for layer 1, and so on.
+        """
+        z = []
+        a = [self.add_bias(x)]
+        for l in range(1, self.L):
+            z_l = np.dot(self.w[l-1], a[l-1])
+            a_l = self.sigmoid(z_l)
+            if l < self.L - 1:
+                # dropout
+                if not (m_dropout is None):
+                    a_l *= m_dropout[l-1]
+                # add bias a_0
+                a_l = self.add_bias(a_l)
+            z.append(z_l)
+            a.append(a_l)
+        return (z, a)
+
+    def check_grad(self, data, lamda, grad,
+		m_dropout=None,
+		epsilon=1e-4,
+		threshold=1e-6):
+        """
+        Check gradient with:
+        * Epsilon      : 1e-4
+        * Threshold : 1e-6
+        """
+        for l in range(self.L - 1):
+            n_row, n_col = self.w[l].shape
+            for i in range(n_row):
+                for j in range(n_col):
+                    w_l_ij = self.w[l][i][j]
+                    # left
+                    self.w[l][i][j] = w_l_ij - epsilon
+                    l_cost = self.cost(data, lamda, m_dropout)
+                    # right
+                    self.w[l][i][j] = w_l_ij + epsilon
+                    r_cost = self.cost(data, lamda, m_dropout)
+                    # numerical grad
+                    num_grad = (r_cost - l_cost) / (2 * epsilon)
+                    # diff
+                    diff = abs(grad[l][i][j] - num_grad)
+                    # reset w
+                    self.w[l][i][j] = w_l_ij
+                    
+                    if diff > threshold:
+                        return False
+        return True
+
+    def cost(self, data, lamda, m_dropout=None):
+        """
+        Return cross-entropy cost of NN on test data
+        """
+        m = len(data)
+        j = 0
+        for x, y in data:
+            _, a = self.feedforward(x, m_dropout)
+            a_L = a[-1]
+            j -= np.sum(np.nan_to_num(y*np.log(a_L) + (1-y)*np.log(1-a_L)))
+        # regularization term
+        j += 0.5 * lamda * sum(np.linalg.norm(W[:,1:])**2 for W in self.w)
+        return j / m
 {{</codeblock>}}
+
+Sau khi chạy thử với xác xuất bỏ là 50%, kết quả tôi thu được chính xác tới **96.77%**. Dù hơn phương pháp chưa bỏ nút một chút, nhưng hi vọng với các tập dữ liệu và khởi tạo tham số khác nhau thì cho được kết quả khả quan hơn.
 
 # 3. Kết luận
 Bài này đã đưa ra 2 phương pháp làm giảm độ phức tạp của mạng NN nhằm nâng cao tính tổng quát hoá của mạng là kĩ thuật chính quy hoá - *regularization* và bỏ nút mạng - *dropout*. Trong thực tế, người ta thường kết hợp cả 2 phương pháp này với nhau vì việc cài đặt không quá phức tạp mà cho hiệu quả rất tốt. Mã nguồn của phần này, tôi cũng cài đặt theo phương pháp kết hợp cả 2, nếu bạn hứng thú thì có thể đọc [tại đây](https://github.com/dominhhai/dominhhai.github.io/blob/dev/code/nn-mnist/nn-overfitting.py) nhé.
