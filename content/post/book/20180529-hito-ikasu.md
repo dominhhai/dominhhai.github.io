@@ -7,10 +7,10 @@ categories:
 - Kinh Doanh
 tags:
 - Kinh Doanh
-- Charles Duhigg
+- Inamori Kazuo
 keywords:
-- Sức mạnh của thói quen
-- Charles Duhigg
+- Giám đốc làm gì
+- Inamori Kazuo
 autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/v1527595873/book/hito-ikasu.jpg
