@@ -62,8 +62,10 @@ $$</p><p>Trong đó, $\dfrac{\partial J_0}{\partial w_i}$ là đạo hàm của 
             # calc cost
             cost.append(self.cost(train_data))
             
-        return cost</code></pre></td></tr></tbody></table></figure></p><p>Nếu chạy thử với mạng 1 tầng ẩn 100 nút và $\lambda=4$ thì ta có thể thu được <a href=https://github.com/dominhhai/dominhhai.github.io/blob/dev/code/nn-mnist/network-overfitting.ipynb#3.-Test>kết quả</a> chính xác tới <strong>96.72%</strong>, tăng được <em>0.1%</em> so với $\lambda=0$ tức là không thực hiện việc chính quy hoá.</p><h1 id=2-dropout>2. Dropout</h1><p>Một kĩ thuật nữa rất hay được sử dụng là <strong><a href=http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf>bỏ nút mạng</a></strong> (<em>dropout</em>) rất đơn giản và cho kết quả rất khả quan. Ý tưởng của phương pháp này là trong quá trình huấn luyện ta bỏ đi ngẫu nhiêu một vài nút mạng ở tầng ẩn (thường lên tới 50% số nút mạng mỗi tầng ẩn) nhằm giảm độ phức tạp của mạng.</p><p>Ta có thể coi mạng sau khi bỏ đi các nút đó là một mạng mới tinh gọn hơn mạng gốc. Như vậy, Với mỗi các lô dữ liệu huấn luyện khác nhau mà ta thực hiện với các mạng tinh giản khác nhau thì kết quả ta thu được sẽ là một mạng trung bình của các mạng tinh gọn đó. Bằng việc lấy mạng trung bình đó, thì ta có thể hi vọng rằng mạng của ta có thể tổng quát được nhiều trường hợp hơn hay nói cách khác là bớt được vấn đề quá khớp.</p><p>Với ý tưởng như vậy, ta có thể cài đặt mạng theo quy trình sau:</p><ul><li>1. Phân lô dữ liệu</li><li>2. Xử lý mỗi lô với mạng tinh giản<ul><li>2.1. Bỏ đi ngẫu nhiên một số nút mạng ẩn</li><li>2.2. Học với mạng sau khi bỏ nút</li><li>2.3. Hồi phục lại các nút bị bỏ đi</li></ul></li></ul><p>Cài đặt cụ thể như sau:<figure class="highlight python language-python"><figcaption><span>nn-overfitting.py</span><a href=https://github.com/dominhhai/dominhhai.github.io/blob/dev/code/nn-mnist/nn-overfitting.py target=_blank rel=external>nn-overfitting.py</a></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br><span class=line>21</span><br><span class=line>22</span><br><span class=line>23</span><br><span class=line>24</span><br><span class=line>25</span><br><span class=line>26</span><br><span class=line>27</span><br><span class=line>28</span><br><span class=line>29</span><br><span class=line>30</span><br><span class=line>31</span><br><span class=line>32</span><br><span class=line>33</span><br><span class=line>34</span><br><span class=line>35</span><br><span class=line>36</span><br><span class=line>37</span><br><span class=line>38</span><br><span class=line>39</span><br><span class=line>40</span><br><span class=line>41</span><br></pre></td><td class=code><pre class="code-highlight language-python"><code class=python>class NN():
-    def train(self, train_data, epochs, mini_batch_size, eta, lamda=0.0):
+        return cost</code></pre></td></tr></tbody></table></figure></p><p>Nếu chạy thử với mạng 1 tầng ẩn 100 nút và $\lambda=4$ thì ta có thể thu được <a href=https://github.com/dominhhai/dominhhai.github.io/blob/dev/code/nn-mnist/network-overfitting.ipynb#3.-Test>kết quả</a> chính xác tới <strong>96.72%</strong>, tăng được <em>0.1%</em> so với $\lambda=0$ tức là không thực hiện việc chính quy hoá.</p><h1 id=2-dropout>2. Dropout</h1><p>Một kĩ thuật nữa rất hay được sử dụng là <strong><a href=http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf>bỏ nút mạng</a></strong> (<em>dropout</em>) rất đơn giản và cho kết quả rất khả quan. Ý tưởng của phương pháp này là trong quá trình huấn luyện ta bỏ đi ngẫu nhiêu một vài nút mạng nhằm giảm độ phức tạp của mạng.</p><p>Ta có thể coi mạng sau khi bỏ đi các nút đó là một mạng mới tinh gọn hơn mạng gốc. Như vậy, Với mỗi các lô dữ liệu huấn luyện khác nhau mà ta thực hiện với các mạng tinh giản khác nhau thì kết quả ta thu được sẽ là một mạng trung bình của các mạng tinh gọn đó. Bằng việc lấy mạng trung bình đó, thì ta có thể hi vọng rằng mạng của ta có thể tổng quát được nhiều trường hợp hơn hay nói cách khác là bớt được vấn đề quá khớp.</p><p>Tuy nhiên một điểm cần lưu ý là ta <strong><span class="highlight-text danger">không được bỏ bất kì nút mạng nào ở tầng ra</span></strong>, bởi đầu ra của ta cần phải ở dạng mã hoá đầy đủ. Thường người ta sẽ bỏ nút mạng ở <strong><span class="highlight-text success">đầu vào với xác xuất là 20%</span></strong> và <strong><span class="highlight-text blue">các tầng ẩn là 50%</span></strong>.</p><p>Với ý tưởng như vậy, ta có thể cài đặt mạng theo quy trình sau:</p><ul><li>1. Phân lô dữ liệu</li><li>2. Xử lý mỗi lô với mạng tinh giản<ul><li>2.1. Bỏ đi ngẫu nhiên một số nút mạng ẩn</li><li>2.2. Học với mạng sau khi bỏ nút</li><li>2.3. Hồi phục lại các nút bị bỏ đi</li></ul></li></ul><p>Ví dụ, tôi cài đặt cho việc các nút ẩn với xác xuất được truyền bởi tham số <code>dropout</code> của hàm huấn luyện <code>train</code> như sau:</p><figure class="highlight python language-python"><figcaption><span>nn-overfitting.py</span><a href=https://github.com/dominhhai/dominhhai.github.io/blob/dev/code/nn-mnist/nn-overfitting.py target=_blank rel=external>nn-overfitting.py</a></figcaption><table><tbody><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br><span class=line>17</span><br><span class=line>18</span><br><span class=line>19</span><br><span class=line>20</span><br><span class=line>21</span><br><span class=line>22</span><br><span class=line>23</span><br><span class=line>24</span><br><span class=line>25</span><br><span class=line>26</span><br><span class=line>27</span><br><span class=line>28</span><br><span class=line>29</span><br><span class=line>30</span><br><span class=line>31</span><br><span class=line>32</span><br><span class=line>33</span><br><span class=line>34</span><br><span class=line>35</span><br><span class=line>36</span><br><span class=line>37</span><br><span class=line>38</span><br><span class=line>39</span><br><span class=line>40</span><br><span class=line>41</span><br><span class=line>42</span><br><span class=line>43</span><br><span class=line>44</span><br><span class=line>45</span><br><span class=line>46</span><br><span class=line>47</span><br><span class=line>48</span><br><span class=line>49</span><br><span class=line>50</span><br><span class=line>51</span><br><span class=line>52</span><br><span class=line>53</span><br><span class=line>54</span><br><span class=line>55</span><br><span class=line>56</span><br><span class=line>57</span><br><span class=line>58</span><br><span class=line>59</span><br><span class=line>60</span><br><span class=line>61</span><br><span class=line>62</span><br><span class=line>63</span><br><span class=line>64</span><br><span class=line>65</span><br><span class=line>66</span><br><span class=line>67</span><br><span class=line>68</span><br><span class=line>69</span><br><span class=line>70</span><br><span class=line>71</span><br><span class=line>72</span><br><span class=line>73</span><br><span class=line>74</span><br><span class=line>75</span><br><span class=line>76</span><br><span class=line>77</span><br><span class=line>78</span><br><span class=line>79</span><br><span class=line>80</span><br><span class=line>81</span><br><span class=line>82</span><br><span class=line>83</span><br><span class=line>84</span><br><span class=line>85</span><br><span class=line>86</span><br><span class=line>87</span><br><span class=line>88</span><br><span class=line>89</span><br><span class=line>90</span><br><span class=line>91</span><br><span class=line>92</span><br><span class=line>93</span><br><span class=line>94</span><br><span class=line>95</span><br><span class=line>96</span><br><span class=line>97</span><br><span class=line>98</span><br><span class=line>99</span><br><span class=line>100</span><br><span class=line>101</span><br><span class=line>102</span><br><span class=line>103</span><br><span class=line>104</span><br><span class=line>105</span><br><span class=line>106</span><br><span class=line>107</span><br><span class=line>108</span><br><span class=line>109</span><br><span class=line>110</span><br><span class=line>111</span><br><span class=line>112</span><br><span class=line>113</span><br><span class=line>114</span><br><span class=line>115</span><br><span class=line>116</span><br><span class=line>117</span><br><span class=line>118</span><br><span class=line>119</span><br><span class=line>120</span><br><span class=line>121</span><br><span class=line>122</span><br><span class=line>123</span><br><span class=line>124</span><br><span class=line>125</span><br><span class=line>126</span><br><span class=line>127</span><br><span class=line>128</span><br><span class=line>129</span><br><span class=line>130</span><br><span class=line>131</span><br></pre></td><td class=code><pre class="code-highlight language-python"><code class=python>class NN():
+    def train(self, train_data, epochs, mini_batch_size, eta,
+		lamda=0.0,
+		dropout=0.0):
         &#34;&#34;&#34;
         Train NN with train data ``[(x, y)]``.
         This use mini-batch SGD method to train the NN.
@@ -80,29 +82,117 @@ $$</p><p>Trong đó, $\dfrac{\partial J_0}{\partial w_i}$ là đạo hàm của 
             for k in range(0, m, mini_batch_size):
                 mini_batch = train_data[k:k&#43;mini_batch_size]
                 m_batch = len(mini_batch)
+                # dropout
+                m_dropout = None
+                if dropout &gt; 0:
+                    m_dropout = [np.random.binomial(n=1, p=1.0-dropout, size=l).reshape((l,1))
+                                                    for l in self.layers[1:-1]]
                 # calc gradient
                 w_grad = [np.zeros(W.shape) for W in self.w]
                 for x, y in mini_batch:
-                    grad = self.backprop(x, y)
+                    grad = self.backprop(x, y, m_dropout)
                     w_grad = [W_grad &#43; g for W_grad, g in zip(w_grad, grad)]
                 w_grad = [W_grad / m_batch for W_grad in w_grad]
-
                 # add regularization term
                 w_grad = [W_grad &#43; (lamda/m_batch * np.insert(W[:,1:],0,0,axis=1))
                             for W, W_grad in zip(self.w, w_grad)]
-                
                 # check grad for first mini_batch in first epoch
-                if j == 0  and k == 0 and not self.check_grad(mini_batch, w_grad):
+                if j == 0  and k == 0 and not self.check_grad(mini_batch, w_grad, m_dropout):
                     print(&#39;backprop fail!&#39;)
                     return False
-                
                 # update w
                 self.w = [W - eta * W_grad for W, W_grad in zip(self.w, w_grad)]
-            
             # calc cost
-            cost.append(self.cost(train_data))
-            
-        return cost</code></pre></td></tr></tbody></table></figure></p><h1 id=3-kết-luận>3. Kết luận</h1><p>Bài này đã đưa ra 2 phương pháp làm giảm độ phức tạp của mạng NN nhằm nâng cao tính tổng quát hoá của mạng là kĩ thuật chính quy hoá - <em>regularization</em> và bỏ nút mạng - <em>dropout</em>. Trong thực tế, người ta thường kết hợp cả 2 phương pháp này với nhau vì việc cài đặt không quá phức tạp mà cho hiệu quả rất tốt. Mã nguồn của phần này, tôi cũng cài đặt theo phương pháp kết hợp cả 2, nếu bạn hứng thú thì có thể đọc <a href=https://github.com/dominhhai/dominhhai.github.io/blob/dev/code/nn-mnist/nn-overfitting.py>tại đây</a> nhé.</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">THẺ ĐÁNH DẤU</span><br><a class="tag tag--primary tag--small" href=https://dominhhai.github.io/vi/tags/h%E1%BB%8Dc-m%C3%A1y/>Học Máy</a>
+            cost.append(self.cost(train_data, m_dropout))
+        return cost
+
+    def backprop(self, x, y, m_dropout=None):
+        &#34;&#34;&#34;
+        Backpropagation to calc derivatives
+        &#34;&#34;&#34;
+        w_grad = [np.zeros(W.shape) for W in self.w]
+        # feedforward
+        z, a = self.feedforward(x, m_dropout)
+        # backward
+        dz = a[-1] - y
+        for _l in range(1, self.L):
+            l = -_l # layer index
+            if l &lt; -1:
+                da = self.sigmoid_grad(z[l])
+                # dropout
+                if not (m_dropout is None):
+                    da *= m_dropout[l&#43;1]
+                # do not calc for w_0 (da_0 / dz = 0 because of a_0 = 1 for all z)
+                dz = np.dot(self.w[l&#43;1][:, 1:].transpose(), dz) * da
+            # gradient    
+            w_grad[l] = np.dot(dz, a[l-1].transpose())
+        return w_grad
+
+    def feedforward(self, x, m_dropout=None):
+        &#34;&#34;&#34;
+        Feedforward through network for calc ``z``,`` a``.
+        ``z`` is list of (L-1) vec-tor, ``z[0]`` for layer 2, and so on.
+        ``a`` is list of (L) vec-tor, ``a[0]`` for layer 1, and so on.
+        &#34;&#34;&#34;
+        z = []
+        a = [self.add_bias(x)]
+        for l in range(1, self.L):
+            z_l = np.dot(self.w[l-1], a[l-1])
+            a_l = self.sigmoid(z_l)
+            if l &lt; self.L - 1:
+                # dropout
+                if not (m_dropout is None):
+                    a_l *= m_dropout[l-1]
+                # add bias a_0
+                a_l = self.add_bias(a_l)
+            z.append(z_l)
+            a.append(a_l)
+        return (z, a)
+
+    def check_grad(self, data, lamda, grad,
+		m_dropout=None,
+		epsilon=1e-4,
+		threshold=1e-6):
+        &#34;&#34;&#34;
+        Check gradient with:
+        * Epsilon      : 1e-4
+        * Threshold : 1e-6
+        &#34;&#34;&#34;
+        for l in range(self.L - 1):
+            n_row, n_col = self.w[l].shape
+            for i in range(n_row):
+                for j in range(n_col):
+                    w_l_ij = self.w[l][i][j]
+                    # left
+                    self.w[l][i][j] = w_l_ij - epsilon
+                    l_cost = self.cost(data, lamda, m_dropout)
+                    # right
+                    self.w[l][i][j] = w_l_ij &#43; epsilon
+                    r_cost = self.cost(data, lamda, m_dropout)
+                    # numerical grad
+                    num_grad = (r_cost - l_cost) / (2 * epsilon)
+                    # diff
+                    diff = abs(grad[l][i][j] - num_grad)
+                    # reset w
+                    self.w[l][i][j] = w_l_ij
+                    
+                    if diff &gt; threshold:
+                        return False
+        return True
+
+    def cost(self, data, lamda, m_dropout=None):
+        &#34;&#34;&#34;
+        Return cross-entropy cost of NN on test data
+        &#34;&#34;&#34;
+        m = len(data)
+        j = 0
+        for x, y in data:
+            _, a = self.feedforward(x, m_dropout)
+            a_L = a[-1]
+            j -= np.sum(np.nan_to_num(y*np.log(a_L) &#43; (1-y)*np.log(1-a_L)))
+        # regularization term
+        j &#43;= 0.5 * lamda * sum(np.linalg.norm(W[:,1:])**2 for W in self.w)
+        return j / m</code></pre></td></tr></tbody></table></figure><p>Sau khi chạy thử với xác xuất bỏ là 50%, kết quả tôi thu được chính xác tới <strong>96.77%</strong>. Dù hơn phương pháp chưa bỏ nút một chút, nhưng hi vọng với các tập dữ liệu và khởi tạo tham số khác nhau thì cho được kết quả khả quan hơn.</p><h1 id=3-kết-luận>3. Kết luận</h1><p>Bài này đã đưa ra 2 phương pháp làm giảm độ phức tạp của mạng NN nhằm nâng cao tính tổng quát hoá của mạng là kĩ thuật chính quy hoá - <em>regularization</em> và bỏ nút mạng - <em>dropout</em>. Trong thực tế, người ta thường kết hợp cả 2 phương pháp này với nhau vì việc cài đặt không quá phức tạp mà cho hiệu quả rất tốt. Mã nguồn của phần này, tôi cũng cài đặt theo phương pháp kết hợp cả 2, nếu bạn hứng thú thì có thể đọc <a href=https://github.com/dominhhai/dominhhai.github.io/blob/dev/code/nn-mnist/nn-overfitting.py>tại đây</a> nhé.</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">THẺ ĐÁNH DẤU</span><br><a class="tag tag--primary tag--small" href=https://dominhhai.github.io/vi/tags/h%E1%BB%8Dc-m%C3%A1y/>Học Máy</a>
 <a class="tag tag--primary tag--small" href=https://dominhhai.github.io/vi/tags/nn/>NN</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--disabled"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">Tiếp</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://dominhhai.github.io/vi/2018/05/vim-config/ data-tooltip="[Vim] Cấu hình cơ bản trên CentOS"><span class="hide-xs hide-sm text-small icon-mr">Trước</span>
 <i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions><i class="fa fa-share-alt"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://dominhhai.github.io/vi/2018/05/nn-overfitting/"><i class="fa fa-facebook-official"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://dominhhai.github.io/vi/2018/05/nn-overfitting/"><i class="fa fa-twitter"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://plus.google.com/share?url=https://dominhhai.github.io/vi/2018/05/nn-overfitting/"><i class="fa fa-google-plus"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread><i class="fa fa-comment-o"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#table-of-contents><i class="fa fa-list"></i></a></li></ul></div><div id=disqus_thread><noscript>Please enable JavaScript to view the <a href=//disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></div></article><footer id=footer class=main-content-wrap><div id=helpinfo><div id=author><label id=home>Hai's Blog</label><div class=language><label for=language>Other Languages:</label>
 <select id=language>
