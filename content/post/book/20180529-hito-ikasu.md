@@ -16,10 +16,10 @@ thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/v1527595873/book/hito-ikasu.jpg
 metaAlignment: center
 ---
-{{< image classes="fancybox nocaption right fig-33" src="https://res.cloudinary.com/dominhhai/image/upload/v1527595873/book/hito-ikasu.jpg" title="Power of Habit" >}}
-
 Dịch được cái tiêu đề cuốn này quả không hề dễ dàng tẹo nào. Dịch nôm na ra là làm thế nào để anh em nhân viên làm việc tốt. Nhưng cũng chưa hẳn là như vậy. Cuốn này này tập trung vào việc giải đáp là chính. Với người hỏi là các học viên của lớp học Inamori-Juku và người đáp là bác Inamori.
+<!--more-->
 
+{{< image classes="fancybox nocaption right fig-33" src="https://res.cloudinary.com/dominhhai/image/upload/v1527595873/book/hito-ikasu.jpg" title="Power of Habit" >}}
 
 > [Inamori Kazuo](https://vi.wikipedia.org/wiki/Inamori_Kazuo) là một thiên tài kinh doanh người Nhật, người đưa tư tưởng Phật giáo vào trong kinh doanh và lãnh đạo công ty, lãnh đạo tập thể. Ông lập ra lớp học kinh doanh Inamori-Juku nhằm giúp các doanh nghiệp tìm được cách kinh doanh đúng đắn cho mình.
 

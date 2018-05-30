@@ -7,7 +7,7 @@ categories:
 - Editor
 tags:
 - Editor
-- Atom
+- Vim
 keywords:
 - Editor
 - Vim
