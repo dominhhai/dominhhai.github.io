@@ -4,9 +4,10 @@ slug: jq-json-processing
 date: 2018-05-30
 categories:
 - Lập Trình
-- Editor
+- Terminal
 tags:
-- Editor
+- Terminal
+- JSON
 - jq
 keywords:
 - json processing
