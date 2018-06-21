@@ -51,7 +51,7 @@ Tại sao cách tính này lại hữu dụng? Tại sao ta lại cần phải t
 
 Thứ nhất, một mô hình như vậy có thể được sử dụng như một cơ chế đánh giá.
 Ví dụ, một hệ thống dịch máy thường sinh ra nhiều khả năng cho một câu đầu vào.
-Lúc này bạn có thể sử dụg mô hình ngôn ngữ để chọn ra khả năng có xác xuất cao nhất.
+Lúc này bạn có thể sử dụng mô hình ngôn ngữ để chọn ra khả năng có xác xuất cao nhất.
 Một cách trừu tượng, câu có xác xuất cao có thể là câu đúng ngữ pháp.
 Cách đánh giá này cũng tương tự như với hệ thống nhận giạng giọng nói.
 
