@@ -7,6 +7,7 @@ showDate: false
 showSocial: true
 showTags: false
 showPagination: false
+isFullPage: true
 ---
 バカみたい質問ですが日常に合ったことについて質問である。
 

@@ -7,6 +7,7 @@ showDate: false
 showSocial: true
 showTags: false
 showPagination: false
+isFullPage: true
 ---
 Seem a list *stupid* questions which I faced!
 

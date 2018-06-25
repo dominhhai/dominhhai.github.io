@@ -1,6 +1,6 @@
 {{ $.Scratch.Set "isPost" false }}
 {{ if .IsPage }}
-  {{ if eq .Type "post" }}
+  {{ if or (eq .Type "post") (.Params.isFullPage) }}
     {{ $.Scratch.Set "isPost" true }}
   {{ end }}
 {{ end }}

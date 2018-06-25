@@ -7,6 +7,7 @@ showDate: false
 showSocial: true
 showTags: false
 showPagination: false
+isFullPage: true
 ---
 Trang này tổng hợp các câu hỏi *ngu* mà mình vẫn thắc mắc trong cuộc sống thường ngày.
 
