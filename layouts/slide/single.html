@@ -116,14 +116,20 @@
         {{ end }}
         {{ if .Params.renderchart }}
           // mermaid chart
-          mermaid.initialize({ startOnLoad:true });
+          mermaid.initialize({ startOnLoad:false });
+          // showCharts();
         {{ end }}
       });
-      slideshow.on('showSlide', function (slide) {
-        if (slide.properties.reload) {
-          location.reload(false);
-        }
-      });
+      {{ if .Params.renderchart }}
+        slideshow.on('afterShowSlide', function() {
+          var diagrams = document.querySelectorAll('.mermaid');
+          for(var i=0; i < diagrams.length; i++){
+            if(diagrams[i].offsetWidth > 0) {
+              mermaid.init(undefined, diagrams[i]);
+            }
+          }
+        });
+      {{ end }}
     </script>
     {{ partial "foot_end.html" . }}
   </body>

@@ -30,7 +30,6 @@ $$f(z)=\frac{1}{1+e^{-z}}$$
 .footnote[Go directly to [project site](https://github.com/gnab/remark)]
 ---
 layout: false
-reload: true
 ## What is it and why should I be using it?
 <div class="mermaid">
 graph LR
