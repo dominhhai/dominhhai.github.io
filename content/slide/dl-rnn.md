@@ -18,11 +18,21 @@ class: center, middle, inverse
 ---
 #remark
 [ri-mahrk]
+<div class="mermaid">
+graph LR
+        A-->B
+        B-->C
+        C-->A
+        D-->C
+</div>
+$$f(z)=\frac{1}{1+e^{-z}}$$
+- Inline: $f(x)=x^2+2x+1$
 .footnote[Go directly to [project site](https://github.com/gnab/remark)]
 ---
 layout: false
+reload: true
 ## What is it and why should I be using it?
-<div class="mermaid" style="margin-top: 10px;">
+<div class="mermaid">
 graph LR
         A-->B
         B-->C

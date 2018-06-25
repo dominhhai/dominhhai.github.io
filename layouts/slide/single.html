@@ -94,7 +94,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/contrib/auto-render.min.js" crossorigin="anonymous" integrity="sha384-IiI65aU9ZYub2MY9zhtKd1H2ps7xxf+eb2YFG9lX6uRqpXCvBTOidPRCXCrQ++Uc"></script>
     {{ end }}
     {{ if .Params.renderchart }}
-      <script src="https://unpkg.com/mermaid@8.0.0-rc.8/dist/mermaid.min.js"></script>
+      <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
     {{ end }}
     <script type="text/javascript">
       var slideshow = remark.create({
@@ -102,22 +102,28 @@
         highlightLanguage: {{ with .Params.highlightlanguage }}{{ . }}{{ else }}'python'{{ end }},
         highlightLines: {{ with .Params.highlightlines }}true{{ else }}false{{ end }},
         highlightSpans: {{ with .Params.highlightspans }}true{{ else }}false{{ end }}
+      }, function() {
+        {{ if .Params.rendermath }}
+          // KaTex Math Config
+          var katexOpts = { delimiters:[
+            { left: "$$"  , right: "$$"  , display: true  },
+            { left: "\\[" , right: "\\]" , display: true  },
+            { left: "$"   , right: "$"   , display: false },
+            { left: "\\(" , right: "\\)" , display: false }
+          ]};
+          // render KaTex Math
+          renderMathInElement(document.body, katexOpts);
+        {{ end }}
+        {{ if .Params.renderchart }}
+          // mermaid chart
+          mermaid.initialize({ startOnLoad:true });
+        {{ end }}
       });
-      {{ if .Params.rendermath }}
-        // KaTex Math Config
-        var katexOpts = { delimiters:[
-          { left: "$$"  , right: "$$"  , display: true  },
-          { left: "\\[" , right: "\\]" , display: true  },
-          { left: "$"   , right: "$"   , display: false },
-          { left: "\\(" , right: "\\)" , display: false }
-        ]};
-        // render KaTex Math
-        renderMathInElement(document.body, katexOpts);
-      {{ end }}
-      {{ if .Params.renderchart }}
-        // mermaid chart
-        mermaid.initialize({ startOnLoad:true });
-      {{ end }}
+      slideshow.on('showSlide', function (slide) {
+        if (slide.properties.reload) {
+          location.reload(false);
+        }
+      });
     </script>
     {{ partial "foot_end.html" . }}
   </body>
