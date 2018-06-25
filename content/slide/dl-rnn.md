@@ -4,6 +4,12 @@ date: 2018-06-25
 keywords:
 - RNN & LSTM
 description: "Hello World"
+renderMath: true
+renderChart: true
+autoThumbnailImage: true
+thumbnailImagePosition: left
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png
+metaAlignment: center
 ---
 
 name: inverse
@@ -14,14 +20,18 @@ class: center, middle, inverse
 [ri-mahrk]
 .footnote[Go directly to [project site](https://github.com/gnab/remark)]
 ---
+layout: false
 ## What is it and why should I be using it?
-<div class="mermaid">
+<div class="mermaid" style="margin-top: 10px;">
 graph LR
         A-->B
         B-->C
         C-->A
         D-->C
 </div>
+
+$$f(z)=\frac{1}{1+e^{-z}}$$
+- Inline: $f(x)=x^2+2x+1$
 ---
 layout: false
 .left-column[
