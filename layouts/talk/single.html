@@ -115,19 +115,12 @@
           renderMathInElement(document.body, katexOpts);
         {{ end }}
         {{ if .Params.renderchart }}
-          // mermaid chart
           mermaid.initialize({ startOnLoad:false });
-          // showCharts();
         {{ end }}
       });
       {{ if .Params.renderchart }}
         slideshow.on('afterShowSlide', function() {
-          var diagrams = document.querySelectorAll('.mermaid');
-          for(var i=0; i < diagrams.length; i++){
-            if(diagrams[i].offsetWidth > 0) {
-              mermaid.init(undefined, diagrams[i]);
-            }
-          }
+          mermaid.init(undefined, '.mermaid');
         });
       {{ end }}
     </script>
