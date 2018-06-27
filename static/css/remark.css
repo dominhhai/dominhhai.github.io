@@ -9,6 +9,10 @@ h1, h2, h3 {
   font-family: 'Yanone Kaffeesatz';
   font-weight: 400;
   margin-bottom: 0;
+  margin-top: 0;
+}
+h1 {
+  border-bottom: solid rgb(249, 38, 114);
 }
 .remark-slide-content h1 { font-size: 3em; }
 .remark-slide-content h2 { font-size: 2em; }
