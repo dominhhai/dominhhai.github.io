@@ -1,86 +1,69 @@
 ---
-title: "RNN & LSTM"
+title: "Recurrent Neural Networks"
 date: 2018-06-25
 keywords:
 - RNN & LSTM
-description: "Hello World"
+description: "Introduction to RNNs, LSTM, GRU"
 renderMath: true
-renderChart: true
 autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png
 metaAlignment: center
 ---
 
-name: inverse
 layout: true
-class: center, middle, inverse
+class: center, middle
 ---
-#remark
-[ri-mahrk]
-<div class="mermaid">
-graph LR
-        A-->B
-        B-->C
-        C-->A
-        D-->C
-</div>
-$$f(z)=\frac{1}{1+e^{-z}}$$
-- Inline: $f(x)=x^2+2x+1$
-.footnote[Go directly to [project site](https://github.com/gnab/remark)]
+# Recurrent Neural Networks
+08-07-2018
+
+Do Minh Hai
+
+[<i class="fab fa-github"> @dominhhai</i>](https://github.com/dominhhai)
 ---
 layout: false
-## What is it and why should I be using it?
-<div class="mermaid">
-graph LR
-        A-->B
-        B-->C
-        C-->A
-        D-->C
-</div>
+class: left
 
-$$f(z)=\frac{1}{1+e^{-z}}$$
-- Inline: $f(x)=x^2+2x+1$
+# Outline
+
+- Time Series problem
+
+- Recurrent Neural Networks - RNN
+
+- Lost Function
+
+- Backpropagation Through Time - BPPT
+
+- Vanishing and Exploding Gradient problem
+
+- Long Short-Term Memory - LSTM
+
+- Gated Reccurent Unit - GRU
 ---
-layout: false
-.left-column[
-  ## What is it?
-]
-.right-column[
-  A simple, in-browser, Markdown-driven slideshow tool targeted at people who know their way around HTML and CSS, featuring:
+# Time Series problem
+- Input: .red[variable-length] sequences of dependent input variables
+$$P(\mathbf{x\_t}|\mathbf{x\_{t-1}},...,\mathbf{x\_1})$$
 
-- Markdown formatting, with smart extensions
+- Output: .red[variable-length] sequences of dependent output values
+$$P(\mathbf{y\_t}|\mathbf{y\_{t-1}},...,\mathbf{y\_1},\mathbf{x})$$
 
-- Presenter mode, with cloned slideshow view
+### Language Model:
+- Chữ tài đi với chữ .red[tai] tai một vần.
+- He is Vietnames. But he can not speak .red[Vietnames]. 😳
 
-- Syntax highlighting, supporting a range of languages
-
-- Slide scaling, thus similar appearance on all devices / resolutions .red[*]
-
-- Touch support for smart phones and pads, i.e. swipe to navigate slides
-
-.footnote[.red[*] At least browsers try their best]
-]
+### Language Translation:
+- Tao hôn nó.　 😍 　.red[彼女にキスした。]
+- Nó hôn tao.　 🙏　 .red[彼女からキスされる。]
 ---
-.left-column[
-  ## What is it?
-  ## Why use it?
-]
-.right-column[
-If your ideal slideshow creation workflow contains any of the following steps:
+# Time Series problem - FNN
+<img height="20%" width="60%" src="https://cs231n.github.io/assets/nn1/neural_net2.jpeg" alt="FNN">
+### FNN:
+- Fixed input/output size
+- Unordered input
 
-- Just write what's on your mind
-
-- Do some basic styling
-
-- Easily collaborate with others
-
-- Share with and show to everyone
-
-Then remark might be perfect for your next.red[*] slideshow!
-
-.footnote[.red[*] You probably want to convert existing slideshows as well]
-]
+### Slide windows for sequences of inputs:
+- window size may not fit
+- window's weights are not shared
 ---
 .left-column[
   ## What is it?
