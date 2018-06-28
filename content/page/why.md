@@ -47,3 +47,8 @@ Hộp đen máy bay là thiết bị lưu trữ thông tin bay của máy bay. G
 Hộp đen được thiết kế rất đặc biệt khiến cho nó rất khó bị phá hủy nhằm giúp nó có thể được bảo đảm an toàn khi máy bay gặp sự cố. Nó cũng thường được đặt ở đuôi máy bay, nơi mà chịu ít tác động nhất khi máy bay bị phá huỷ.
 
 Như vậy có thể thấy hộp đen là một thiết bị đặc biệt quan trọng trên máy bay, giúp cho ta có thể phân tích được nguyên nhân gặp trục trặc của máy bay. Tuy nhiên việc tìm kiếm hộp đen luôn mất rất nhiều thời gian, có thể là không tìm thấy sau sự cố. Vậy tại sao người ta không đề xuất các giải pháp khác như theo dõi thông tin trực tiếp qua việc kết nối với các vệ tinh? Câu trả lời là máy bay ít khi gặp tai nạn mà chi phí để vận hành máy bay thông qua vệ tinh như vậy cực kì tốn kém. Nên người ta vẫn chuộng hộp đen hơn cả.
+
+# 5. Kí hiệu *et al.* trong các bài báo là gì?
+Trong các tạp chí, báo khoa học các phần tài liệu tham chiếu thường có kí hiệu `et al.` đi sau tên tác giả như `Rumelhart, et al.` chẳng hạn. Kí hiệu này có nghĩa là `and others` tức là ám chỉ cùng một số đồng nghiệp khác. Xuất thân của kí hiệu này bắt nguồn từ chữ `et alii` và `et aliea` trong tiếng Latinh.
+
+Mục đích của kí hiệu này để làm ngắn gọn đoạn trích dẫn, tham chiếu các bài báo khác. Tuy nhiên không phải tạp chí, hội nghị nào cũng chấp nhận việc sử dụng kí hiệu này. Nên trước khi đăng bài cần kiểm tra lại yêu cầu của tạp chí, hội nghị một cách cụ thể.

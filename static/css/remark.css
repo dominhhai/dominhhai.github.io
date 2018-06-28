@@ -19,7 +19,7 @@ h1 {
 .remark-slide-content h3 { font-size: 1.6em; }
 .footnote {
   position: absolute;
-  bottom: 3em;
+  bottom: 0;
 }
 li p { line-height: 1.25em; }
 .red { color: #fa0000; }
@@ -61,7 +61,9 @@ code {
   color: #f3f3f3;
   line-height: 0.8em;
 }
-
+.center {
+  text-align: center;
+}
 /* Slide-specific styling */
 #slide-inverse .footnote {
   bottom: 12px;
@@ -104,11 +106,15 @@ code {
   height: 92%;
   float: left;
 }
-  .left-column h2:last-of-type, .left-column h3:last-child {
-    color: #000;
-  }
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: #000;
+}
 .right-column {
   width: 75%;
   float: right;
   padding-top: 1em;
+}
+
+.refer {
+  font-size: initial;
 }
