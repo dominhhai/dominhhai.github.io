@@ -87,7 +87,7 @@ $$P(\mathbf{y\_t}|\mathbf{y\_{t-1}},...,\mathbf{y\_1},\mathbf{x})$$
 ]
 
 .footnote[.refer[
-\# [*Hopfield (1982), Rumelhart, et al. (1986a), Jordan (1986), Elman (1990)*](#15)
+\# [*Hopfield (1982), Rumelhart et al. (1986a), Jordan (1986), Elman (1990)*](#15)
 ]]
 ---
 # RNN - seq2seq
@@ -107,14 +107,13 @@ $$
 \begin{aligned}
 \mathbf s\_t &= \sigma(\mathbf W\_{in}\mathbf x\_t + \mathbf W\_{rec}\mathbf s\_{t-1} + \mathbf b\_s)
 \\cr
-\mathbf{\hat y\_t} &= \text{softmax}(\mathbf U\mathbf s\_t + \mathbf b\_y)
+\mathbf{\hat y\_t} &= h(\mathbf U\mathbf s\_t + \mathbf b\_y)
 \end{aligned}
 $$
-
-Where:
 - $\mathbf x_t$ : embedded word
-- $\mathbf s_0$ : 1st hidden state. Set to *0* or *pre-trained* values.
+- $\mathbf s_0$ : 1st hidden state. Set to *$\vec\mathbf 0$* or *pre-trained* values.
 - $\sigma$ : activation function. Usually the $\tanh, \text{ReLU}, sigmoid$.
+- $h$ : predict function. Such as, $softmax$ for language modeling.
 
 .footnote[.refer[
 \# [*Werbos (1990)*](#15)
@@ -178,9 +177,17 @@ Why do we have to care about it?
 - Can NOT learn long-term dependencies
 
 .red[Deep FNNs and RNNs are easy to stuck on these problems.]
+- product of matrices is similar to product of real numbers can to go zero or infinity.
+$$
+\lim\limits\_{k\rightarrow\infty}\lambda^k = \begin{cases}
+0 &\text{if }\lambda < 1
+\\cr
+\infty &\text{if }\lambda > 1
+\end{cases}
+$$
 
 .footnote[.refer[
-\# [*Bengio, et al. (1994), Pascanu, et al. (2013)*](#15)
+\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#15)
 ]]
 ---
 # Vanishing and Exploding Gradient - WHY
@@ -199,29 +206,22 @@ $$\dfrac{\partial J\_t}{\partial\mathbf W}= \sum\_{k=1}^t\dfrac{\partial J\_t}{\
 
 - Error from step $t$ back to $k$:
 $$
-\dfrac{\mathbf s\_t}{\mathbf s\_k}
-= \prod\_{i=k+1}^t \dfrac{\partial\mathbf s\_i}{\partial\mathbf s\_{i-1}}
-= \prod\_{i=k+1}^t \mathbf W\_{rec}^{\intercal}\text{diag}\big(\sigma^{\prime}(\mathbf s\_{i-1})\big)
+\dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_k}
+= \prod\_{j=k}^{t-1} \dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}
+= \prod\_{j=k}^{t-1} \mathbf W\_{rec}^{\intercal}\text{diag}\big(\sigma^{\prime}(\mathbf s\_j)\big)
 $$
 
 .footnote[.refer[
-\# [*Bengio, et al. (1994), Pascanu, et al. (2013)*](#15)
+\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#15)
 ]]
 
 ---
 # Vanishing and Exploding Gradient - WHY
-- Error from step $t$ back to $k$:
-$$
-\dfrac{\mathbf s\_t}{\mathbf s\_k}
-= \prod\_{i=k+1}^t \dfrac{\partial\mathbf s\_i}{\partial\mathbf s\_{i-1}}
-= \prod\_{i=k+1}^t \mathbf W\_{rec}^{\intercal}\text{diag}\big(\sigma^{\prime}(\mathbf s\_{i-1})\big)
-$$
+- $\mathbf s\_k$ is vector, so $\dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}$ is a Jacobian matrix
 
-- $\mathbf s\_j$ is vector, so $\dfrac{\partial\mathbf s\_i}{\partial\mathbf s\_{i-1}}$ is Jacobian matrix
-
-For:
+Let:
 - $\gamma\in\mathbb{R}, \big\lVert \text{diag}\big(\sigma^{\prime}(\mathbf s\_{i-1})\big)\big\rVert \le \gamma$
-- $\lambda\_1=\lvert\max\big(eigenvalues(\mathbf W\_{rec})\big)\rvert$
+- $\lambda\_1=\max\big(\lvert eigenvalues(\mathbf W\_{rec})\rvert\big)$
 
 We have:
 $$
@@ -231,8 +231,35 @@ $$
 \le \lambda\_1\gamma
 $$
 
+Let $\eta=\lambda\_1\gamma$ and $l=t-k$ :
+$$
+\dfrac{\partial\mathbf J\_t}{\partial\mathbf s\_t}\dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_k}
+= \dfrac{\partial\mathbf J\_t}{\partial\mathbf s\_t}\sum\_{j=k}^{t-1}\dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}
+\le \eta^l\dfrac{\partial\mathbf J\_t}{\partial\mathbf s\_t}
+$$
+
 .footnote[.refer[
-\# [*Bengio, et al. (1994), Pascanu, et al. (2013)*](#15)
+\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#15)
+]]
+
+---
+# Vanishing and Exploding Gradient - WHY
+$$
+\dfrac{\partial\mathbf J\_t}{\partial\mathbf s\_t}\dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_k}
+\le \eta^l\dfrac{\partial\mathbf J\_t}{\partial\mathbf s\_t}
+$$
+
+With $(t-k)$ is large (*long-term dependencies*) :
+- $\lambda_1<\dfrac{1}{\gamma}$ or $\eta<1$: *sufficient* condition for vanishing gradient problem
+
+- $\lambda_1>\dfrac{1}{\gamma}$ or $\eta>1$: *neccessary* condition for exploding gradient problem
+
+E.x, gradient will shrink to zero when:
+- $\lambda_1<1$ if $\sigma$ is $\tanh$ because $\gamma=1$
+- $\lambda_1<4$ if $\sigma$ is $\text{sigmoid}$ because $\gamma=0.25$
+
+.footnote[.refer[
+\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#15)
 ]]
 ---
 # Gradient Clipping
@@ -246,7 +273,7 @@ Where:
 - Dashed lines: rescaled gradient descent
 
 .footnote[.refer[
-\# [*Pascanu, et al. (2013)*](#15)
+\# [*Pascanu et al. (2013)*](#15)
 ]]
 ---
 # Gradient Clipping
@@ -272,11 +299,24 @@ $$
 - Effective
 
 .footnote[.refer[
-\# [*Pascanu, et al. (2013)*](#15)
+\# [*Pascanu et al. (2013)*](#15)
 ]]
 ---
 # Long Short-Term Memory - LSTM
+- Constant Error Flow of Identity Relationship doesn't decay:
+$$
+\begin{aligned}
+& \mathbf s\_t=\mathbf s\_{t-1}+F(\mathbf x\_t)
+\\cr
+\implies & \dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_{t-1}}=1
+\end{aligned}
+$$
 
+- Key idea: Use .red[*Constant Error Carousel*] - **CEC** to prevent from gradient decay
+
+.footnote[.refer[
+\# [*Hochreiter (1997)*](#15)
+]]
 ---
 # Gated Reccurent Unit - GRU
 
@@ -292,7 +332,7 @@ $$
 
 - [1] [*Hopfield (1982)*. Neural networks and physical systems with emergent collective computational abilities](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC346238/pdf/pnas00447-0135.pdf)
 
-- [2] [*Rumelhart, et al. (1986a)*. Learning representations by back-propagation erros](https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf)
+- [2] [*Rumelhart et al. (1986a)*. Learning representations by back-propagation erros](https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf)
 
 - [3] [*Jordan (1986)*. Serial order: A parallel distributed processing approach](https://pdfs.semanticscholar.org/f8d7/7bb8da085ec419866e0f87e4efc2577b6141.pdf)
 
@@ -300,16 +340,16 @@ $$
 
 - [5] [*Werbos (1990)*. Backpropagation Through Time: What It Does and How to Do It](http://axon.cs.byu.edu/~martinez/classes/678/Papers/Werbos_BPTT.pdf)
 
-- [6] [*Bengio, et al. (1994)*. Learning Long-Term Dependencies with Gradient Descent is Difficult](http://www.iro.umontreal.ca/~lisa/pointeurs/ieeetrnn94.pdf)
+- [6] [*Bengio et al. (1994)*. Learning Long-Term Dependencies with Gradient Descent is Difficult](http://www.iro.umontreal.ca/~lisa/pointeurs/ieeetrnn94.pdf)
 
-- [7] [*Pascanu, et al. (2013)*. On the difficulty of training Recurrent Neural Networks](https://arxiv.org/pdf/1211.5063.pdf)
+- [7] [*Pascanu et al. (2013)*. On the difficulty of training Recurrent Neural Networks](https://arxiv.org/pdf/1211.5063.pdf)
 
-- [8] [*Hochreiter, et al. (1997)*. Long Short-Term Memory](http://www.bioinf.jku.at/publications/older/2604.pdf)
+- [8] [*Hochreiter et al. (1997)*. Long Short-Term Memory](http://www.bioinf.jku.at/publications/older/2604.pdf)
 
-- [9] [*Greff, et al. (2017)*. LSTM: A search space odyssey](https://arxiv.org/pdf/1503.04069.pdf)
+- [9] [*Greff et al. (2017)*. LSTM: A search space odyssey](https://arxiv.org/pdf/1503.04069.pdf)
 
-- [10] [*Jozefowics, et al. (2015)*. An Empirical Exploration of Recurrent Network Architectures](http://proceedings.mlr.press/v37/jozefowicz15.pdf)
+- [10] [*Jozefowics et al. (2015)*. An Empirical Exploration of Recurrent Network Architectures](http://proceedings.mlr.press/v37/jozefowicz15.pdf)
 
-- [11] [*Cho, et al. (2014)*. Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation](https://arxiv.org/pdf/1406.1078v3.pdf)
+- [11] [*Cho et al. (2014)*. Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation](https://arxiv.org/pdf/1406.1078v3.pdf)
 
 ]

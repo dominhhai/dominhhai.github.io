@@ -99,6 +99,7 @@
     {{ end }}
     <script type="text/javascript">
       var slideshow = remark.create({
+        ratio: {{ with .Params.ratio }}{{ . }}{{ else }}'4:3'{{ end }},
         highlightStyle: {{ with .Params.highlightstyle }}{{ . }}{{ else }}'monokai'{{ end }},
         highlightLanguage: {{ with .Params.highlightlanguage }}{{ . }}{{ else }}'python'{{ end }},
         highlightLines: {{ with .Params.highlightlines }}true{{ else }}false{{ end }},

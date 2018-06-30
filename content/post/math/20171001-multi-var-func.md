@@ -100,7 +100,7 @@ $
 
 Bạn có để ý là $\displaystyle \frac{\partial^2f}{\partial{y}\partial{x}} = \frac{\partial^2f}{\partial{x}\partial{y}} $ không? Đây chính là *định lý Schwarz* về đạo hàm cấp cao: Đạo hàm riêng cấp cao của hàm nhiều biến không phụ thuộc vào thứ tự lấy đạo hàm riêng của các biến thành phần đó.
 
-Giả sử hàm $ f(x, y, z) $ có 3 biến đi chẳng nữa thì ta luôn có $\displaystyle \frac{\partial^2f}{\partial{x}\partial{y}\partial{z}} = \frac{\partial^2f}{\partial{y}\partial{x}\partial{z}} = \frac{\partial^2f}{\partial{z}\partial{x}\partial{y}} $.
+Giả sử hàm $ f(x, y, z) $ có 3 biến đi chẳng nữa thì ta luôn có $\displaystyle \frac{\partial^3f}{\partial{x}\partial{y}\partial{z}} = \frac{\partial^3f}{\partial{y}\partial{x}\partial{z}} = \frac{\partial^3f}{\partial{z}\partial{x}\partial{y}} $.
 
 Riêng với đạo hàm cấp 2 ta còn có thể sử dụng cách kí hiệu tương tự như đạo hàm cấp 1 như sau: $ f^{\prime\prime}_x $ cho đạo hàm cấp 2 của theo biến x, $ f^{\prime\prime}_y $ cho đạo hàm cấp 2 của theo biến y và $ f^{\prime\prime}\_{xy} $ cho đạo hàm cấp 2 của theo cả 2 biến x, y. Lưu ý là kí hiệu này chỉ dùng cho cấp 2 thôi nhé, các cấp cao hơn ta không sử dụng cách này nữa vì nhìn sẽ rất loạn.
 
