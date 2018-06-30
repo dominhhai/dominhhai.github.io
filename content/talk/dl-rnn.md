@@ -100,6 +100,9 @@ $$P(\mathbf{y\_t}|\mathbf{y\_{t-1}},...,\mathbf{y\_1},\mathbf{x})$$
 - Hidden Nodes is NOT fixed
 ---
 # RNN - unroll
+<img width="100%" src="https://colah.github.io/posts/2015-09-NN-Types-FP/img/RNN-general.png" alt="RNN in/out">
+---
+# RNN - unroll
 <img width="100%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" alt="RNN in/out">
 
 ### Calc Formulas
@@ -313,18 +316,90 @@ $$
 $$
 
 - Key idea: Use .red[*Constant Error Carousel*] - **CEC** to prevent from gradient decay
+- The key component is a memory cell that acts like an accumulator (contains the identity relationship) over time
+- Instead of computing new state as a matrix product with the old state, it rather computes the difference between them. Expressivity is the same, but gradients are better behaved
+
+$$c\_t = c\_{t-1} + \sigma(x\_t, h\_{t-1})$$
+
+.footnote[.refer[
+\# [*Hochreiter (1997)*](#15)
+]]
+---
+# LSTM
+.center[<img style="text-align: center;" width="100%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" alt="Clip Gradient">]
+
+Use sigmoid to control info (cell state) by a pointwise multiplication operation. The sigmoid layer outputs numbers between zero and one, describing how much of each component should be let through. A value of zero means “let nothing through,” while a value of one means “let everything through!”
+
+- Forgot Gate: $f_t$
+- Input Gate: $i_t$
+- Output Gate: $o_t$
+---
+# LSTM - Forward
+$$
+\begin{aligned}
+f\_t &= \sigma(W\_f[h\_{t-1}, x\_t]+b\_f)
+\\cr
+i\_t &= \sigma(W\_i[h\_{t-1}, x\_t]+b\_i)
+\\cr
+o\_t &= \sigma(W\_o[h\_{t-1}, x\_t]+b\_o)
+\\cr
+c\_t &= \sigma(W\_c[h\_{t-1}, x\_t]+b\_c)
+\\cr
+\tilde{c\_t} &= \sigma(W\_c[h\_{t-1}, x\_t]+b\_c)
+\\cr
+c\_t &= f\_t\*c\_{t-1}+i\_t\*\tilde{c\_t}
+\\cr
+h\_t &= o\_t\*\tanh(c\_t)
+\end{aligned}
+$$
+
+.footnote[.refer[
+\# [*Hochreiter (1997)*](#15)
+]]
+---
+# LSTM - Backward
+$$
+\begin{aligned}
+\partial h\_t &= \dfrac{\partial E}{\partial h\_t}
+\\cr
+\partial o\_t &= \partial h\_t \* \tanh(c\_t)
+\\cr
+\partial c\_t &= \partial c\_{t+1} \* f\_{t+1} + \partial h\_t \* \partial o\_t \* (1-\tanh^2(c\_t))
+\\cr
+\partial i\_t &= \partial c\_t \* a\_t
+\\cr
+\partial f\_t &= \partial c\_t \* c\_{t-1}
+\\cr
+\partial a\_t &= \partial c\_t \* i\_t
+\\cr
+\partial c\_{t-1} &= \partial c\_t \* f\_t
+\end{aligned}
+$$
 
 .footnote[.refer[
 \# [*Hochreiter (1997)*](#15)
 ]]
 ---
 # Gated Reccurent Unit - GRU
+.center[<img style="text-align: center;" width="110%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png" alt="Clip Gradient">]
 
+.footnote[.refer[
+\# [*Cho et al. (2014)*](#15)
+]]
 ---
 # Bidirectional RNNs
+.center[<img style="text-align: center;" width="100%" src="https://poodar.me/images/post-images/bi_rnn_architecture.png" alt="Clip Gradient">]
+
+.center[<img style="text-align: center;" width="100%" src="https://colah.github.io/posts/2015-09-NN-Types-FP/img/RNN-bidirectional.png" alt="Clip Gradient">]
 
 ---
 # Deep RNNs
+.center[<img style="text-align: center;" width="100%" src="https://poodar.me/images/post-images/deep_bidirectional_rnn_architecture.png" alt="Clip Gradient">]
+---
+# Deep RNNs
+.center[<img style="text-align: center;" width="50%" src="https://i.imgur.com/J3DwxSF.png" alt="Clip Gradient">]
+---
+# Summary
 
 ---
 # References
@@ -332,7 +407,7 @@ $$
 
 - [1] [*Hopfield (1982)*. Neural networks and physical systems with emergent collective computational abilities](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC346238/pdf/pnas00447-0135.pdf)
 
-- [2] [*Rumelhart et al. (1986a)*. Learning representations by back-propagation erros](https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf)
+- [2] [*Rumelhart et al. (1986a)*. Learning representations by back-propagation errors](https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf)
 
 - [3] [*Jordan (1986)*. Serial order: A parallel distributed processing approach](https://pdfs.semanticscholar.org/f8d7/7bb8da085ec419866e0f87e4efc2577b6141.pdf)
 
