@@ -121,6 +121,12 @@ $$
 .footnote[.refer[
 \# [*Werbos (1990)*](#15)
 ]]
+
+???
+How to sample data?
+1. Add END sysbol to the end of each sequence.
+2. Use extra Bernoulli ouput. Determine by Sigmoid function.
+3. Add extra output to predict $T$.
 ---
 # Lost Function
 <img width="100%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" alt="RNN in/out">
@@ -144,6 +150,9 @@ Backprop over time steps $t=\overline{1,T}$ then summing gradient of each step.
 .footnote[.refer[
 \# [*Werbos (1990)*](#15)
 ]]
+
+???
+Slow because of sequences. Can't parallel handling.
 ---
 # Backpropagation Through Time - BPPT
 .red[Backprop over time steps $t=\overline{1,T}$ then summing gradient of each step.]
@@ -236,9 +245,9 @@ $$
 
 Let $\eta=\lambda\_1\gamma$ and $l=t-k$ :
 $$
-\dfrac{\partial\mathbf J\_t}{\partial\mathbf s\_t}\dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_k}
-= \dfrac{\partial\mathbf J\_t}{\partial\mathbf s\_t}\sum\_{j=k}^{t-1}\dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}
-\le \eta^l\dfrac{\partial\mathbf J\_t}{\partial\mathbf s\_t}
+\dfrac{\partial J\_t}{\partial\mathbf s\_t}\dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_k}
+= \dfrac{\partial J\_t}{\partial\mathbf s\_t}\sum\_{j=k}^{t-1}\dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}
+\le \eta^l\dfrac{\partial J\_t}{\partial\mathbf s\_t}
 $$
 
 .footnote[.refer[
@@ -248,8 +257,8 @@ $$
 ---
 # Vanishing and Exploding Gradient - WHY
 $$
-\dfrac{\partial\mathbf J\_t}{\partial\mathbf s\_t}\dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_k}
-\le \eta^l\dfrac{\partial\mathbf J\_t}{\partial\mathbf s\_t}
+\dfrac{\partial J\_t}{\partial\mathbf s\_t}\dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_k}
+\le \eta^l\dfrac{\partial J\_t}{\partial\mathbf s\_t}
 $$
 
 With $(t-k)$ is large (*long-term dependencies*) :
@@ -264,6 +273,11 @@ E.x, gradient will shrink to zero when:
 .footnote[.refer[
 \# [*Bengio et al. (1994), Pascanu et al. (2013)*](#15)
 ]]
+
+???
+Gradient of long-term is exponentially smaller than short-term.
+So, take long time to learn long-term.
+10-20 may be out of range.
 ---
 # Gradient Clipping
 - Solution to exploding gradient problem: .red[Rescale gradients]
