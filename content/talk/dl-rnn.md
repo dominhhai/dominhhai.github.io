@@ -53,7 +53,7 @@ $$P(\mathbf{x\_t}|\mathbf{x\_{t-1}},...,\mathbf{x\_1})$$
 $$P(\mathbf{y\_t}|\mathbf{y\_{t-1}},...,\mathbf{y\_1},\mathbf{x})$$
 
 ### Language Model:
-- Chữ tài đi với chữ .red[tai] tai một vần.
+- Chữ tài đi với chữ .red[tai] một vần.
 - He is Vietnames. But he can not speak .red[Vietnames]. 😳
 
 ### Language Translation:
@@ -72,7 +72,7 @@ $$P(\mathbf{y\_t}|\mathbf{y\_{t-1}},...,\mathbf{y\_1},\mathbf{x})$$
 ---
 # Recurrent Neural Networks - RNN
 .left-column[
-<img width="100%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-rolled.png" alt="Basic RNN">
+![RNN Rolled](/images/talk_dl_rnn_rolled.png)
 ]
 .right-column[
 ### 3 Node Types
@@ -100,23 +100,22 @@ $$P(\mathbf{y\_t}|\mathbf{y\_{t-1}},...,\mathbf{y\_1},\mathbf{x})$$
 - Hidden Nodes is NOT fixed
 ---
 # RNN - unroll
-<img width="100%" src="https://colah.github.io/posts/2015-09-NN-Types-FP/img/RNN-general.png" alt="RNN in/out">
----
-# RNN - unroll
-<img width="100%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" alt="RNN in/out">
+.center[
+<img width="60%" src="/images/talk_dl_rnn_unrolled.png" alt="RNN unrolled">
+]
 
 ### Calc Formulas
 $$
 \begin{aligned}
-\mathbf s\_t &= \sigma(\mathbf W\_{in}\mathbf x\_t + \mathbf W\_{rec}\mathbf s\_{t-1} + \mathbf b\_s)
+\mathbf s\_t &= f(\mathbf W\_{in}\mathbf x\_t + \mathbf W\_{rec}\mathbf s\_{t-1} + \mathbf b\_s)
 \\cr
-\mathbf{\hat y\_t} &= h(\mathbf U\mathbf s\_t + \mathbf b\_y)
+\mathbf{\hat y\_t} &= g(\mathbf U\mathbf s\_t + \mathbf b\_y)
 \end{aligned}
 $$
 - $\mathbf x_t$ : embedded word
 - $\mathbf s_0$ : 1st hidden state. Set to *$\vec\mathbf 0$* or *pre-trained* values.
-- $\sigma$ : activation function. Usually the $\tanh, \text{ReLU}, sigmoid$.
-- $h$ : predict function. Such as, $softmax$ for language modeling.
+- $f$ : activation function. Usually the $\tanh, \text{ReLU}, sigmoid$.
+- $g$ : predict function. Such as, $softmax$ for language modeling.
 
 .footnote[.refer[
 \# [*Werbos (1990)*](#15)
@@ -129,9 +128,11 @@ How to sample data?
 3. Add extra output to predict $T$.
 ---
 # Lost Function
-<img width="100%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" alt="RNN in/out">
+.center[
+<img width="55%" src="/images/talk_dl_rnn_lostfn.png" alt="RNN in/out">
+]
 
-$$J(\theta) = \frac{1}{T}\sum\_{t=1}^TJ\_t(\theta) = -\frac{1}{T}\sum\_{t=1}^T\sum\_{j=1}^Ny\_{kj}\log \hat y\_{kj}$$
+$$J(\theta) = \frac{1}{T}\sum\_{t=1}^TJ\_t(\theta) = -\frac{1}{T}\sum\_{t=1}^T\sum\_{j=1}^Ny\_{tj}\log \hat y\_{tj}$$
 
 Where:
 - $T$: total time steps
@@ -143,7 +144,7 @@ Where:
 ]]
 ---
 # Backpropagation Through Time - BPPT
-<img width="100%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" alt="gradient">
+.center[![RNN BPPT](/images/talk_dl_rnn_bppt.png)]
 
 Backprop over time steps $t=\overline{1,T}$ then summing gradient of each step.
 
@@ -206,8 +207,8 @@ $$
 - Similar hidden state function
 $$
 \mathbf s\_t
-= f(\mathbf s\_{t-1}, \mathbf x\_t, \mathbf W)
-= \mathbf W\_{rec}\sigma(\mathbf s\_{t-1}) + \mathbf W\_{in}\mathbf x\_t + \mathbf b\_s
+= F(\mathbf s\_{t-1}, \mathbf x\_t, \mathbf W)
+= \mathbf W\_{rec}f(\mathbf s\_{t-1}) + \mathbf W\_{in}\mathbf x\_t + \mathbf b\_s
 $$
 
 - Gradient w.r.t $\mathbf W$:
@@ -396,6 +397,24 @@ $$
 ---
 # Gated Reccurent Unit - GRU
 .center[<img style="text-align: center;" width="110%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png" alt="Clip Gradient">]
+
+.footnote[.refer[
+\# [*Cho et al. (2014)*](#15)
+]]
+---
+# Gated Reccurent Unit - GRU
+- Reset Gate
+$$r\_t = \sigma(\mathbf W\_r[h\_{t-1},x\_t])$$
+- Update Gate
+$$z\_t = \sigma(\mathbf W\_z[h\_{t-1},x\_t])$$
+
+$$
+\begin{aligned}
+\tilde{h\_t} &= \tanh(\mathbf W[r\_t\*h\_{t-1}, x\_t])
+\\cr
+h\_t &= z\_t\*h\_{t-1} + (1-z\_t)\*\tilde{h\_t}
+\end{aligned}
+$$
 
 .footnote[.refer[
 \# [*Cho et al. (2014)*](#15)
