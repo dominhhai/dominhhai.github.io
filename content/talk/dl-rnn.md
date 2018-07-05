@@ -9,7 +9,6 @@ autoThumbnailImage: true
 thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png
 metaAlignment: center
-draft: true
 ---
 
 layout: true
@@ -47,10 +46,10 @@ class: left
 ---
 # Time Series problem
 - Input: .red[variable-length] sequences of dependent input variables
-$$P(\mathbf{x\_t}|\mathbf{x\_{t-1}},...,\mathbf{x\_1})$$
+$$P(\mathbf{x}\_t|\mathbf{x}\_{t-1},...,\mathbf{x}\_1)$$
 
 - Output: .red[variable-length] sequences of dependent output values
-$$P(\mathbf{y\_t}|\mathbf{y\_{t-1}},...,\mathbf{y\_1},\mathbf{x})$$
+$$P(\mathbf{y}\_t|\mathbf{y}\_{t-1},...,\mathbf{y}\_1,\mathbf{x})$$
 
 ### Language Model:
 - Chữ tài đi với chữ .red[tai] một vần.
@@ -69,6 +68,10 @@ $$P(\mathbf{y\_t}|\mathbf{y\_{t-1}},...,\mathbf{y\_1},\mathbf{x})$$
 ### Slide windows for sequences of inputs:
 - window size may not fit
 - window's weights are not shared
+
+.footnote[.refer[
+\# Figure: https://cs231n.github.io/neural-networks-1/
+]]
 ---
 # Recurrent Neural Networks - RNN
 .left-column[
@@ -78,7 +81,7 @@ $$P(\mathbf{y\_t}|\mathbf{y\_{t-1}},...,\mathbf{y\_1},\mathbf{x})$$
 ### 3 Node Types
 - Input Nodes: $\mathbf x_t$
 - .red[Recurrent Hidden Nodes]: $\mathbf s_t$ <br>*keeps order of hidden's state*
-- Output Nodes: $\mathbf{\hat y_t}$
+- Output Nodes: $\mathbf{\hat y}_t$
 
 ### Shared Weights
 - Input Weights: $\mathbf W_{in}$
@@ -87,7 +90,7 @@ $$P(\mathbf{y\_t}|\mathbf{y\_{t-1}},...,\mathbf{y\_1},\mathbf{x})$$
 ]
 
 .footnote[.refer[
-\# [*Hopfield (1982), Rumelhart et al. (1986a), Jordan (1986), Elman (1990)*](#15)
+\# [*Hopfield (1982), Rumelhart et al. (1986a), Jordan (1986), Elman (1990)*](#25)
 ]]
 ---
 # RNN - seq2seq
@@ -98,6 +101,10 @@ $$P(\mathbf{y\_t}|\mathbf{y\_{t-1}},...,\mathbf{y\_1},\mathbf{x})$$
 - Sequences in the output
 
 - Hidden Nodes is NOT fixed
+
+.footnote[.refer[
+\# Figure: https://karpathy.github.io/2015/05/21/rnn-effectiveness/
+]]
 ---
 # RNN - unroll
 .center[
@@ -109,7 +116,7 @@ $$
 \begin{aligned}
 \mathbf s\_t &= f(\mathbf W\_{in}\mathbf x\_t + \mathbf W\_{rec}\mathbf s\_{t-1} + \mathbf b\_s)
 \\cr
-\mathbf{\hat y\_t} &= g(\mathbf U\mathbf s\_t + \mathbf b\_y)
+\mathbf{\hat y}\_t &= g(\mathbf U\mathbf s\_t + \mathbf b\_y)
 \end{aligned}
 $$
 - $\mathbf x_t$ : embedded word
@@ -118,7 +125,7 @@ $$
 - $g$ : predict function. Such as, $softmax$ for language modeling.
 
 .footnote[.refer[
-\# [*Werbos (1990)*](#15)
+\# [*Werbos (1990)*](#25)
 ]]
 
 ???
@@ -140,16 +147,22 @@ Where:
 - $J_t(\theta)$: lost at step $t$
 
 .footnote[.refer[
-\# [*Werbos (1990)*](#15)
+\# [*Werbos (1990)*](#25)
 ]]
 ---
 # Backpropagation Through Time - BPPT
 .center[![RNN BPPT](/images/talk_dl_rnn_bppt.png)]
 
 Backprop over time steps $t=\overline{1,T}$ then summing gradient of each step.
+- $(\mathbf W\_{in}, \mathbf W\_{rec}) = \mathbf W = \mathbf W^{(k)} ~~~, k=\overline{1,T}$:
+$$
+\dfrac{\partial J\_t}{\partial\mathbf W}
+= \sum\_{k=1}^t\dfrac{\partial J\_t}{\partial\mathbf{W}^{(k)}}\dfrac{\partial\mathbf{W}^{(k)}}{\partial\mathbf{W}}
+= \sum\_{k=1}^t\dfrac{\partial J\_t}{\partial\mathbf{W}^{(k)}}
+$$
 
 .footnote[.refer[
-\# [*Werbos (1990)*](#15)
+\# [*Werbos (1990)*](#25)
 ]]
 
 ???
@@ -163,19 +176,19 @@ $$\dfrac{\partial J}{\partial\theta}=\sum\_{t=1}^T\dfrac{\partial J\_t}{\partial
 - w.r.t $\mathbf U$:
 $$
 \dfrac{\partial J\_t}{\partial\mathbf U}
-= \dfrac{\partial J\_t}{\partial\mathbf{\hat y\_t}}\dfrac{\partial\mathbf{\hat y\_t}}{\partial\mathbf U}
-= (\mathbf{\hat y\_t}-\mathbf{y\_t})\mathbf{s\_t}^{\intercal}
+= \dfrac{\partial J\_t}{\partial\mathbf{\hat y}\_t}\dfrac{\partial\mathbf{\hat y}\_t}{\partial\mathbf U}
+= (\mathbf{\hat y}\_t-\mathbf{y}\_t)\mathbf{s}\_t^{\intercal}
 $$
 
 - w.r.t $\mathbf W$ ($\mathbf W\_{in}, \mathbf W\_{rec}$):
 $$
 \dfrac{\partial J\_t}{\partial\mathbf W}
-= \dfrac{\partial J\_t}{\partial\mathbf{\hat y\_t}}\dfrac{\partial\mathbf{\hat y\_t}}{\partial\mathbf s\_t}\dfrac{\partial\mathbf{s\_t}}{\partial\mathbf W}
-= \sum\_{k=1}^t\dfrac{\partial J\_t}{\partial\mathbf{\hat y\_t}}\dfrac{\partial\mathbf{\hat y\_t}}{\partial\mathbf s\_t}\dfrac{\partial\mathbf{s\_t}}{\partial\mathbf{s\_k}}\dfrac{\partial\mathbf{s\_k}}{\partial\mathbf W}
+= \dfrac{\partial J\_t}{\partial\mathbf{\hat y}\_t}\dfrac{\partial\mathbf{\hat y}\_t}{\partial\mathbf s\_t}\dfrac{\partial\mathbf{s}\_t}{\partial\mathbf W}
+= \sum\_{k=1}^t\dfrac{\partial J\_t}{\partial\mathbf{\hat y}\_t}\dfrac{\partial\mathbf{\hat y}\_t}{\partial\mathbf s\_t}\dfrac{\partial\mathbf{s}\_t}{\partial\mathbf{s}\_k}\dfrac{\partial\mathbf{s}\_k}{\partial\mathbf W}
 $$
 
 .footnote[.refer[
-\# [*Werbos (1990)*](#15)
+\# [*Werbos (1990)*](#25)
 ]]
 ---
 # Vanishing and Exploding Gradient
@@ -200,7 +213,7 @@ $$
 $$
 
 .footnote[.refer[
-\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#15)
+\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#25)
 ]]
 ---
 # Vanishing and Exploding Gradient - WHY
@@ -215,17 +228,17 @@ $$
 $$\dfrac{\partial J}{\partial\mathbf W}=\sum\_{t=1}^T\dfrac{\partial J\_t}{\partial\mathbf W}$$
 
 - At step $t$:
-$$\dfrac{\partial J\_t}{\partial\mathbf W}= \sum\_{k=1}^t\dfrac{\partial J\_t}{\partial\mathbf{\hat y\_t}}\dfrac{\partial\mathbf{\hat y\_t}}{\partial\mathbf s\_t}\textcolor{blue}{\dfrac{\partial\mathbf{s\_t}}{\partial\mathbf{s\_k}}}\dfrac{\partial\mathbf{s\_k}}{\partial\mathbf W}$$
+$$\dfrac{\partial J\_t}{\partial\mathbf W} = \sum\_{k=1}^t\dfrac{\partial J\_t}{\partial\mathbf s\_t}\textcolor{blue}{\dfrac{\partial\mathbf{s}\_t}{\partial\mathbf{s}\_k}}\dfrac{\partial\mathbf{s}\_k}{\partial\mathbf W}$$
 
 - Error from step $t$ back to $k$:
 $$
 \dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_k}
 = \prod\_{j=k}^{t-1} \dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}
-= \prod\_{j=k}^{t-1} \mathbf W\_{rec}^{\intercal}\text{diag}\big(\sigma^{\prime}(\mathbf s\_j)\big)
+= \prod\_{j=k}^{t-1} \mathbf W\_{rec}^{\intercal}\text{diag}\big(f^{\prime}(\mathbf s\_j)\big)
 $$
 
 .footnote[.refer[
-\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#15)
+\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#25)
 ]]
 
 ---
@@ -233,14 +246,14 @@ $$
 - $\mathbf s\_k$ is vector, so $\dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}$ is a Jacobian matrix
 
 Let:
-- $\gamma\in\mathbb{R}, \big\lVert \text{diag}\big(\sigma^{\prime}(\mathbf s\_{i-1})\big)\big\rVert \le \gamma$
+- $\gamma\in\mathbb{R}, \big\lVert \text{diag}\big(f^{\prime}(\mathbf s\_j)\big)\big\rVert \le \gamma$
 - $\lambda\_1=\max\big(\lvert eigenvalues(\mathbf W\_{rec})\rvert\big)$
 
 We have:
 $$
-\forall k,
-\bigg\lVert\dfrac{\partial\mathbf s\_{k+1}}{\partial\mathbf s\_k}\bigg\rVert
-\le \lVert\mathbf W\_{rec}^{\intercal}\rVert\big\lVert \text{diag}\big(\sigma^{\prime}(\mathbf s\_{i-1})\big)\big\rVert
+\forall j,
+\bigg\lVert\dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}\bigg\rVert
+\le \lVert\mathbf W\_{rec}^{\intercal}\rVert\big\lVert \text{diag}\big(f^{\prime}(\mathbf s\_j)\big)\big\rVert
 \le \lambda\_1\gamma
 $$
 
@@ -252,7 +265,7 @@ $$
 $$
 
 .footnote[.refer[
-\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#15)
+\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#25)
 ]]
 
 ---
@@ -272,7 +285,7 @@ E.x, gradient will shrink to zero when:
 - $\lambda_1<4$ if $\sigma$ is $\text{sigmoid}$ because $\gamma=0.25$
 
 .footnote[.refer[
-\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#15)
+\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#25)
 ]]
 
 ???
@@ -283,7 +296,7 @@ So, take long time to learn long-term.
 # Gradient Clipping
 - Solution to exploding gradient problem: .red[Rescale gradients]
 
-.center[<img style="text-align: center;" width="60%" src="/images/talk_dl_rnn_clip_grad.png" alt="Clip Gradient">]
+.center[<img width="60%" src="/images/talk_dl_rnn_clip_grad.png" alt="Clip Gradient">]
 .center[*Error surface of a single hidden unit recurrent network*]
 
 Where:
@@ -291,7 +304,7 @@ Where:
 - Dashed lines: rescaled gradient descent
 
 .footnote[.refer[
-\# [*Pascanu et al. (2013)*](#15)
+\# [*Pascanu et al. (2013)*](#25)
 ]]
 ---
 # Gradient Clipping
@@ -317,122 +330,147 @@ $$
 - Effective
 
 .footnote[.refer[
-\# [*Pascanu et al. (2013)*](#15)
+\# [*Pascanu et al. (2013)*](#25)
 ]]
 ---
 # Long Short-Term Memory - LSTM
 - Constant Error Flow of Identity Relationship doesn't decay:
-$$
-\begin{aligned}
-& \mathbf s\_t=\mathbf s\_{t-1}+F(\mathbf x\_t)
-\\cr
-\implies & \dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_{t-1}}=1
-\end{aligned}
-$$
+$$\mathbf s\_t=\mathbf s\_{t-1}+f(\mathbf x\_t) \implies \dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_{t-1}}=1$$
 
 - Key idea: Use .red[*Constant Error Carousel*] - **CEC** to prevent from gradient decay
-- The key component is a memory cell that acts like an accumulator (contains the identity relationship) over time
-- Instead of computing new state as a matrix product with the old state, it rather computes the difference between them. Expressivity is the same, but gradients are better behaved
+  - .red[**Memory Cell**] $\mathbf c_t$: indentity relationship
+  - Compute new state by difference from before time step*[s]*
+  $$\mathbf c\_t = \mathbf c\_{t-1} + \textcolor{blue}{f(\mathbf x\_t, \mathbf h\_{t-1})}$$
+  *$\mathbf h_t$ is the output at time step $t$*
 
-$$c\_t = c\_{t-1} + \sigma(x\_t, h\_{t-1})$$
+- Weights conflict:
+  - Input Weights: Same weights for *"write operations"*
+  - Output Weights: Same weights for *"read operations"*
+
+  ==> Use .red[**Gates Units**] to control conflicting
 
 .footnote[.refer[
-\# [*Hochreiter (1997)*](#15)
+\# [*Hochreiter (1997)*](#25)
 ]]
 ---
 # LSTM
-.center[<img style="text-align: center;" width="100%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" alt="Clip Gradient">]
+.center[<img width="100%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" alt="LSTM">]
 
-Use sigmoid to control info (cell state) by a pointwise multiplication operation. The sigmoid layer outputs numbers between zero and one, describing how much of each component should be let through. A value of zero means “let nothing through,” while a value of one means “let everything through!”
-
-- Forgot Gate: $f_t$
-- Input Gate: $i_t$
-- Output Gate: $o_t$
----
-# LSTM - Forward
-$$
-\begin{aligned}
-f\_t &= \sigma(W\_f[h\_{t-1}, x\_t]+b\_f)
-\\cr
-i\_t &= \sigma(W\_i[h\_{t-1}, x\_t]+b\_i)
-\\cr
-o\_t &= \sigma(W\_o[h\_{t-1}, x\_t]+b\_o)
-\\cr
-c\_t &= \sigma(W\_c[h\_{t-1}, x\_t]+b\_c)
-\\cr
-\tilde{c\_t} &= \sigma(W\_c[h\_{t-1}, x\_t]+b\_c)
-\\cr
-c\_t &= f\_t\*c\_{t-1}+i\_t\*\tilde{c\_t}
-\\cr
-h\_t &= o\_t\*\tanh(c\_t)
-\end{aligned}
-$$
+- Gate Units:
+ - sigmoid function $\sigma\in[0,1]$ controls how much info can be through
+- Gate Types:
+  - Forget Gate $\mathbf f_t$ (*Gers et al. (1999)*)
+  - Input Gate $\mathbf i_t$
+  - Output Gate $\mathbf o_t$
+- CEC: center $\oplus$ act as linear function
 
 .footnote[.refer[
-\# [*Hochreiter (1997)*](#15)
+\# Figure: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+]]
+---
+# LSTM - Forward
+- Forget Gate:
+$$\mathbf f\_t = \sigma(\mathbf W\_f[\mathbf h\_{t-1}, \mathbf x\_t]+\mathbf b\_f)$$
+- Input Gate:
+$$\mathbf i\_t = \sigma(\mathbf W\_i[\mathbf h\_{t-1}, \mathbf x\_t]+\mathbf b\_i)$$
+- Output Gate:
+$$\mathbf o\_t = \sigma(\mathbf W\_o[\mathbf h\_{t-1}, \mathbf x\_t]+\mathbf b\_o)$$
+- New State:
+$$
+\begin{aligned}
+\mathbf{\tilde{c}}\_t &= \tanh(\mathbf W\_c[\mathbf h\_{t-1}, \mathbf x\_t]+\mathbf b\_c)
+\\cr
+\mathbf c\_t &= \mathbf f\_t\*\mathbf c\_{t-1}+\mathbf i\_t\*\mathbf{\tilde{c}}\_t
+\end{aligned}
+$$
+- Cell's Output:
+$$\mathbf h\_t = \mathbf o\_t\*\tanh(\mathbf c\_t)$$
+
+.footnote[.refer[
+\# [*Hochreiter (1997)*](#25)
 ]]
 ---
 # LSTM - Backward
-$$
-\begin{aligned}
-\partial h\_t &= \dfrac{\partial E}{\partial h\_t}
-\\cr
-\partial o\_t &= \partial h\_t \* \tanh(c\_t)
-\\cr
-\partial c\_t &= \partial c\_{t+1} \* f\_{t+1} + \partial h\_t \* \partial o\_t \* (1-\tanh^2(c\_t))
-\\cr
-\partial i\_t &= \partial c\_t \* a\_t
-\\cr
-\partial f\_t &= \partial c\_t \* c\_{t-1}
-\\cr
-\partial a\_t &= \partial c\_t \* i\_t
-\\cr
-\partial c\_{t-1} &= \partial c\_t \* f\_t
-\end{aligned}
-$$
+- Cell's Output: $\delta h\_t = \mathbf y\_t - \mathbf h\_t$
 
-.footnote[.refer[
-\# [*Hochreiter (1997)*](#15)
-]]
+- Output Gate: $\delta o\_t = \delta h\_t \* \tanh(\mathbf c\_t)$
+  - Compute: $\delta W\_o^{(t)}, \delta b\_o^{(t)}$
+- New State: $\delta c\_t = \textcolor{blue}{\delta c\_t} + \delta h\_t \* \delta o\_t \* (1-\tanh^2(\mathbf c\_t))$
+
+- Previous State: $\delta c\_{t-1} = \delta c\_t \* \mathbf f\_t$
+
+- Input Gate: $\delta i\_t = \delta c\_t \* \mathbf{\tilde{c}}\_t$
+  - Compute: $\delta W\_i^{(t)}, \delta b\_i^{(t)}$
+
+- Forget Gate: $\delta f\_t = \delta c\_t \* \mathbf c\_{t-1}$
+  - Compute: $\delta W\_f^{(t)}, \delta b\_f^{(t)}$
+
+- External Input: $\delta\tilde{c\_t} = \delta c\_t \* \mathbf i\_t$
+  - Compute: $\delta W\_c^{(t)}, \delta b\_c^{(t)}$
+
 ---
 # Gated Reccurent Unit - GRU
-.center[<img style="text-align: center;" width="110%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png" alt="Clip Gradient">]
+.center[<img width="110%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png" alt="GRU">]
+
+- Cell State $h_t$
+  - Cell State & Hidden State
+
+- Update Gate $z\_t$
+  - Forget Gate & Input Gate
+
+- Reset Gate $r\_t$
 
 .footnote[.refer[
-\# [*Cho et al. (2014)*](#15)
-]]
----
-# Gated Reccurent Unit - GRU
-- Reset Gate
-$$r\_t = \sigma(\mathbf W\_r[h\_{t-1},x\_t])$$
-- Update Gate
-$$z\_t = \sigma(\mathbf W\_z[h\_{t-1},x\_t])$$
-
-$$
-\begin{aligned}
-\tilde{h\_t} &= \tanh(\mathbf W[r\_t\*h\_{t-1}, x\_t])
-\\cr
-h\_t &= z\_t\*h\_{t-1} + (1-z\_t)\*\tilde{h\_t}
-\end{aligned}
-$$
-
-.footnote[.refer[
-\# [*Cho et al. (2014)*](#15)
+\# [*Cho et al. (2014)*](#25), Figure: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
 ]]
 ---
 # Bidirectional RNNs
-.center[<img style="text-align: center;" width="100%" src="https://poodar.me/images/post-images/bi_rnn_architecture.png" alt="Clip Gradient">]
+.center[<img width="80%" src="https://colah.github.io/posts/2015-09-NN-Types-FP/img/RNN-bidirectional.png" alt="Bidirectional RNNs">]
 
-.center[<img style="text-align: center;" width="100%" src="https://colah.github.io/posts/2015-09-NN-Types-FP/img/RNN-bidirectional.png" alt="Clip Gradient">]
+- Previous Dependencies (left → right):
+$$\mathbf s\_t = f(\mathbf W\_{in}\mathbf x\_t + \mathbf W\_{rec}\mathbf s\_t + \mathbf b\_s)$$
+- Following Dependencies (right → left):
+$$\mathbf s\_t^{\prime} = f(\mathbf W\_{in}^{\prime}\mathbf x\_t + \mathbf W\_{rec}^{\prime}\mathbf s\_t + \mathbf b\_s^{\prime})$$
+- Output:
+$$\qquad\mathbf y\_t = g(U[\mathbf s\_t,\mathbf s\_t^{\prime}] + \mathbf b\_y)$$
 
+
+.footnote[.refer[
+\# Figure: https://colah.github.io/posts/2015-09-NN-Types-FP/
+]]
 ---
 # Deep RNNs
-.center[<img style="text-align: center;" width="100%" src="https://poodar.me/images/post-images/deep_bidirectional_rnn_architecture.png" alt="Clip Gradient">]
----
-# Deep RNNs
-.center[<img style="text-align: center;" width="50%" src="https://i.imgur.com/J3DwxSF.png" alt="Clip Gradient">]
+.center[<img width="65%" src="/images/talk_dl_rnn_deep.png" alt="Deep RNNs">]
+
+- Layer 0 (Input):
+$$\mathbf s\_t^{(0)} = \mathbf x\_t$$
+
+- Layer $l=\overline{1,L}$:
+$$\mathbf s\_t^{(l)} = f(\mathbf W\_{in}^{(l)}\mathbf s\_t^{(l-1)} + \mathbf W\_{rec}^{(l)}\mathbf s\_{t-1}^{(l)} + \mathbf b\_s^{(l)})$$
+
+- Output:
+$$\mathbf{\hat y}\_t = g(\mathbf U\mathbf s\_t^{(L)} + \mathbf b\_y)$$
 ---
 # Summary
+- RNNs
+  - Variable-length In/Output
+  - Train with BPPT
+  - .red[Vanishing & exploding gradient problem]
+
+- Gradient Clipping
+  - Rescale gradients to prevent from exploding gradient problem
+
+- LSTM
+  - Memory Cell: Keep linear relationship between state
+  - Gate Units: control through info with sigmoid function $\sigma\in[0,1]$
+  - Time step lags > 1000
+  - Local in space and time: $\Theta(1)$ per step and weight
+
+- GRU
+  - Merge cell state and hidden state
+  - Combine forget gate and input gate into update gate
+
+- RNNs variants: Bidirectional RNNs, Deep RNNs
 
 ---
 # References
