@@ -354,7 +354,7 @@ $$\mathbf s\_t=\mathbf s\_{t-1}+f(\mathbf x\_t) \implies \dfrac{\partial\mathbf 
 ]]
 ---
 # LSTM
-.center[<img width="100%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" alt="LSTM">]
+.center[![LSTM](/images/talk_dl_lstm.png)]
 
 - Gate Units:
  - sigmoid function $\sigma\in[0,1]$ controls how much info can be through
