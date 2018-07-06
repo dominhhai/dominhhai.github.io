@@ -1,4 +1,6 @@
 ## GLOBAL ##
+- id: "global.talk"
+  translation: "Thuyết Trình"
 - id: "global.why"
   translation: "Hỏi ngu"
 

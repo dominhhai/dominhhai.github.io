@@ -97,10 +97,10 @@ dateFormat = "2006年January2日"
   url = "/archives/"
 [[menu.main]]
   weight = 5
-  identifier = "about"
-  name = "About"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-address-card\"></i>"
-  url = "/#about"
+  identifier = "talk"
+  name = "My Talks"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-chalkboard-teacher\"></i>"
+  url = "/talk/"
 [[menu.main]]
   weight = 6
   identifier = "why"
@@ -112,13 +112,13 @@ dateFormat = "2006年January2日"
   weight = 1
   identifier = "github"
   name = "GitHub"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
+  pre = "<i class=\"sidebar-button-icon fab fa-lg fa-github\"></i>"
   url = "https://github.com/dominhhai"
 [[menu.links]]
   weight = 2
   identifier = "twitter"
   name = "Twitter"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-twitter\"></i>"
+  pre = "<i class=\"sidebar-button-icon fab fa-lg fa-twitter\"></i>"
   url = "https://twitter.com/minhhai3b"
 
 [[menu.misc]]

@@ -1,4 +1,6 @@
 ## GLOBAL ##
+- id: "global.talk"
+  translation: "発表"
 - id: "global.why"
   translation: "バカ質問"
 

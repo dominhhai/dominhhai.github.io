@@ -1,9 +1,9 @@
 ---
 title: "Recurrent Neural Networks"
-date: 2018-06-25
+date: 2018-07-06
 keywords:
 - RNN & LSTM
-description: "Introduction to RNNs, LSTM, GRU"
+description: "Introduction to RNNs, LSTM, GRU. Talk at Tokyo ML Event."
 renderMath: true
 autoThumbnailImage: true
 thumbnailImagePosition: left
