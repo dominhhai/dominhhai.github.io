@@ -1,6 +1,6 @@
 ---
 title: "Recurrent Neural Networks"
-date: 2018-07-06
+date: 2018-07-07
 keywords:
 - RNN & LSTM
 description: "Introduction to RNNs, LSTM, GRU. Talk at Tokyo ML Event."
@@ -143,7 +143,7 @@ $$J(\theta) = \frac{1}{T}\sum\_{t=1}^TJ\_t(\theta) = -\frac{1}{T}\sum\_{t=1}^T\s
 
 Where:
 - $T$: total time steps
-- $N$: size of bag of words
+- $N$: numbers of words
 - $J_t(\theta)$: lost at step $t$
 
 .footnote[.refer[
