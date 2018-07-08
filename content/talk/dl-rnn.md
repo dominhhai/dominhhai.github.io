@@ -53,7 +53,7 @@ $$P(\mathbf{y}\_t|\mathbf{y}\_{t-1},...,\mathbf{y}\_1,\mathbf{x})$$
 
 ### Language Model:
 - Chữ tài đi với chữ .red[tai] một vần.
-- He is Vietnames. But he can not speak .red[Vietnames]. 😳
+- He is Vietnamese. But he can not speak .red[Vietnamese]. 😳
 
 ### Language Translation:
 - Tao hôn nó.　 😍 　.red[彼女にキスした。]
@@ -260,7 +260,7 @@ $$
 Let $\eta=\lambda\_1\gamma$ and $l=t-k$ :
 $$
 \dfrac{\partial J\_t}{\partial\mathbf s\_t}\dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_k}
-= \dfrac{\partial J\_t}{\partial\mathbf s\_t}\sum\_{j=k}^{t-1}\dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}
+= \dfrac{\partial J\_t}{\partial\mathbf s\_t}\prod\_{j=k}^{t-1}\dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}
 \le \eta^l\dfrac{\partial J\_t}{\partial\mathbf s\_t}
 $$
 
@@ -281,8 +281,8 @@ With $(t-k)$ is large (*long-term dependencies*) :
 - $\lambda_1>\dfrac{1}{\gamma}$ or $\eta>1$: *neccessary* condition for exploding gradient problem
 
 E.x, gradient will shrink to zero when:
-- $\lambda_1<1$ if $\sigma$ is $\tanh$ because $\gamma=1$
-- $\lambda_1<4$ if $\sigma$ is $\text{sigmoid}$ because $\gamma=0.25$
+- $\lambda_1<1$ if $f$ is $\tanh$ because $\gamma=1$
+- $\lambda_1<4$ if $f$ is $\text{sigmoid}$ because $\gamma=0.25$
 
 .footnote[.refer[
 \# [*Bengio et al. (1994), Pascanu et al. (2013)*](#25)
@@ -325,9 +325,9 @@ $$
 \end{aligned}
 $$
 
-- Simple
+- Usually, $\text{threshold}\in [1,5]$
 
-- Effective
+- Simple, Effective
 
 .footnote[.refer[
 \# [*Pascanu et al. (2013)*](#25)
@@ -391,7 +391,7 @@ $$\mathbf h\_t = \mathbf o\_t\*\tanh(\mathbf c\_t)$$
 ]]
 ---
 # LSTM - Backward
-- Cell's Output: $\delta h\_t = \mathbf y\_t - \mathbf h\_t$
+- Cell's Output: $\delta h\_t = \partial J\_t/\partial \mathbf h\_t$
 
 - Output Gate: $\delta o\_t = \delta h\_t \* \tanh(\mathbf c\_t)$
   - Compute: $\delta W\_o^{(t)}, \delta b\_o^{(t)}$
