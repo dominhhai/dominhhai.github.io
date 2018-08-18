@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Talks on Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/talk/</link><description>Recent content in Talks on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Sat, 07 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/vi/talk/index.xml" rel="self" type="application/rss+xml"/><item><title>Recurrent Neural Networks</title><link>https://dominhhai.github.io/vi/talk/dl-rnn/</link><pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/talk/dl-rnn/</guid><description>layout: true
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Talks on Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/talk/</link><description>Recent content in Talks on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Sat, 18 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/vi/talk/index.xml" rel="self" type="application/rss+xml"/><item><title>[ICML] Learning Longer-term Dependencies in RNNs with Auxiliary Losses</title><link>https://dominhhai.github.io/vi/talk/paper-longer-term-rnn/</link><pubDate>Sat, 18 Aug 2018 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/talk/paper-longer-term-rnn/</guid><description>layout: true
+class: center, middle Learning Longer-term Dependencies in RNNs with Auxiliary Losses .red[.refer[ Trieu H.Trinh, Andrew M.Dai, Minh-Thang Luong, Quoc V.Le ]]
+19-08-2018
+Do Minh Hai
+@dominhhai
+.footnote[.refer[ Tokyo Paper Reading Fest
+]] layout: false class: left
+Outline Long-term Dependencies problem in RNNs
+Methodology
+Auxiliary Losses
+Procedure
+Exeperiments
+Model
+Results
+Analysis Long-term Dependencies problem Long-term dependencies
+BPTT tend to vanish or explode during training</description></item><item><title>Recurrent Neural Networks</title><link>https://dominhhai.github.io/vi/talk/dl-rnn/</link><pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/talk/dl-rnn/</guid><description>layout: true
 class: center, middle Recurrent Neural Networks 08-07-2018
 Do Minh Hai
 @dominhhai layout: false class: left
