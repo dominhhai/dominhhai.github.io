@@ -101,7 +101,7 @@ class: left
   - Subsequence Length $\\{l_i\\}~~~, i=\overline{1,n}$
 
 ### Auxiliary Loss:
-$$L\_\text{auxiliary}=\frac{\sum\_{i=i}^n L\_i}{\sum\_{i=i}^n l\_i}$$
+$$L\_\text{auxiliary}=\frac{\sum\_{i=1}^n L\_i}{\sum\_{i=1}^n l\_i}$$
 
   where, the sum of cross-entroy loss $L\_i=\sum\_{t=1}^{l\_i}\text{TokenLost}\_t$
 ---
@@ -115,21 +115,21 @@ $$L\_\text{auxiliary}=\frac{\sum\_{i=i}^n L\_i}{\sum\_{i=i}^n l\_i}$$
 
 ### Main objective model
 - Input: embedding size of 128
-
 - 1-layer LSTM with 128 cells
-
 - 2-layers FFN with 256 hidden units
   - Dropout with probability 0.5 on the 2nd-FFN
-
 - Output: softmax prediction
 
 ### Auxiliary model
 - 2-layers LSTM
   - Bottom layer is initialized with main LSTM states
   - Top layer starts with zero
-
 - 2-layers FFN with 256 hidden units
   - Dropout with probability 0.5 on the 2nd-FFN
+
+#### Hyper-parameters
+- $n=1$
+- $l_i=600$
 ---
 # Exeperiments - Results
 .center[&lt;img width=&#34;80%&#34; src=&#34;/images/talk-paper-long-term-rnn-4.png&#34; alt=&#34;MNIST, pMNIST, CIFAR10&#34;&gt;]
@@ -146,10 +146,14 @@ $$L\_\text{auxiliary}=\frac{\sum\_{i=i}^n L\_i}{\sum\_{i=i}^n l\_i}$$
 
 - DBpedia
 
+  - $l_i=300$
+
 .center[&lt;img width=&#34;60%&#34; src=&#34;/images/talk-paper-long-term-rnn-7.png&#34; alt=&#34;DBpedia&#34;&gt;]
 ---
 # Analysis
 - Shrinking BPTT length
+
+  - Dataset: CIFAR10
 
 .center[&lt;img width=&#34;80%&#34; src=&#34;/images/talk-paper-long-term-rnn-8.png&#34; alt=&#34;Shrinking BPTT length&#34;&gt;]
 
@@ -157,20 +161,30 @@ $$L\_\text{auxiliary}=\frac{\sum\_{i=i}^n L\_i}{\sum\_{i=i}^n l\_i}$$
 # Analysis
 - Multiple Reconstructions with fixed BPTT cost
 
+  - Dataset: CIFAR10
+
 .center[&lt;img width=&#34;60%&#34; src=&#34;/images/talk-paper-long-term-rnn-9.png&#34; alt=&#34;Multiple Reconstructions with fixed BPTT cost&#34;&gt;]
 
+- When $l_i$ is constant, we can use batch to utilize data parallelism
 ---
 # Analysis
 - Regulaziation and Optimization
+  - Dataset: CIFAR10
 
-.center[&lt;img width=&#34;60%&#34; src=&#34;/images/talk-paper-long-term-rnn-10.png&#34; alt=&#34;Regulaziation and Optimization&#34;&gt;]
+.center[&lt;img width=&#34;56%&#34; src=&#34;/images/talk-paper-long-term-rnn-10.png&#34; alt=&#34;Regulaziation and Optimization&#34;&gt;]
 
 ---
 # Analysis
-- Relative contribution of difference factors to *r*-LSTM
+- Relative contribution of difference factors to *r*-LSTM&#39;s performance
+
+  - Dataset: CIFAR10
+  - Turning off part from original full setting
 
 .center[&lt;img width=&#34;80%&#34; src=&#34;/images/talk-paper-long-term-rnn-11.png&#34; alt=&#34;Ablation Study&#34;&gt;]
 
+- Jointly training Unsupervised and Supervised loss is most important
+
+- More randomness is better
 ---
 layout: true
 class: center, middle
