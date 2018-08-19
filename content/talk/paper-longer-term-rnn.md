@@ -70,7 +70,7 @@ class: left
 ]]
 ---
 # Methodology
-.center[<img width="80%" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/5553566b1dd59bc8bc1df0d5096ce1b2342c19d1/1-Figure1-1.png" alt="Method Overview">]
+.center[<img width="80%" src="/images/talk-paper-long-term-rnn-1.png" alt="Method Overview">]
 
 ### Auxiliary Loss:
 - Unsupervised
@@ -81,7 +81,7 @@ class: left
   - Improves performance and scalability
 ---
 # Methodology
-.center[<img width="100%" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/5553566b1dd59bc8bc1df0d5096ce1b2342c19d1/2-Figure2-1.png" alt="Auxiliary Loss">]
+.center[<img width="100%" src="/images/talk-paper-long-term-rnn-2.png" alt="Auxiliary Loss">]
 
 ### Auxiliary Loss:
 - *r*-LSTM: Reconstruction
@@ -94,7 +94,7 @@ class: left
 - Difference RNNs
 ---
 # Methodology
-.center[<img width="100%" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/5553566b1dd59bc8bc1df0d5096ce1b2342c19d1/2-Figure2-1.png" alt="Auxiliary Loss">]
+.center[<img width="100%" src="/images/talk-paper-long-term-rnn-2.png" alt="Auxiliary Loss">]
 
 ### Training
 - Random anchor points
@@ -106,7 +106,7 @@ class: left
 
 ---
 # Methodology
-.center[<img width="70%" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/5553566b1dd59bc8bc1df0d5096ce1b2342c19d1/2-Figure2-1.png" alt="Auxiliary Loss">]
+.center[<img width="80%" src="/images/talk-paper-long-term-rnn-2.png" alt="Auxiliary Loss">]
 
 ### Sampling
 - Add extra hyper-parameters
@@ -119,7 +119,7 @@ $$L\_\text{auxiliary}=\frac{\sum\_{i=i}^n L\_i}{\sum\_{i=i}^n l\_i}$$
   where, the sum of cross-entroy loss $L\_i=\sum\_{t=1}^{l\_i}\text{TokenLost}\_t$
 ---
 # Exeperiments - Datasets
-.center[<img width="90%" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/5553566b1dd59bc8bc1df0d5096ce1b2342c19d1/4-Table1-1.png" alt="Datasets">]
+.center[<img width="90%" src="/images/talk-paper-long-term-rnn-3.png" alt="Datasets">]
 
 - Up to 16,000
   - over 20 times longer than any previously use benhmark
@@ -145,44 +145,44 @@ $$L\_\text{auxiliary}=\frac{\sum\_{i=i}^n L\_i}{\sum\_{i=i}^n l\_i}$$
   - Dropout with probability 0.5 on the 2nd-FFN
 ---
 # Exeperiments - Results
-.center[<img width="80%" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/5553566b1dd59bc8bc1df0d5096ce1b2342c19d1/4-Table2-1.png" alt="MNIST, pMNIST, CIFAR10">]
+.center[<img width="80%" src="/images/talk-paper-long-term-rnn-4.png" alt="MNIST, pMNIST, CIFAR10">]
 ---
 # Exeperiments - Results
 - StandfordDogs
 
-.center[<img width="65%" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/5553566b1dd59bc8bc1df0d5096ce1b2342c19d1/5-Figure3-1.png" alt="StandfordDogs">]
+.center[<img width="65%" src="/images/talk-paper-long-term-rnn-5.png" alt="StandfordDogs">]
 ---
 # Exeperiments - Results
 - Compare with Transformer
 
-.center[<img width="60%" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/5553566b1dd59bc8bc1df0d5096ce1b2342c19d1/6-Table3-1.png" alt="Transformer">]
+.center[<img width="60%" src="/images/talk-paper-long-term-rnn-6.png" alt="Transformer">]
 
 - DBpedia
 
-.center[<img width="60%" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/5553566b1dd59bc8bc1df0d5096ce1b2342c19d1/6-Table4-1.png" alt="DBpedia">]
+.center[<img width="60%" src="/images/talk-paper-long-term-rnn-7.png" alt="DBpedia">]
 ---
 # Analysis
 - Shrinking BPTT length
 
-.center[<img width="80%" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/5553566b1dd59bc8bc1df0d5096ce1b2342c19d1/7-Figure4-1.png" alt="Shrinking BPTT length">]
+.center[<img width="80%" src="/images/talk-paper-long-term-rnn-8.png" alt="Shrinking BPTT length">]
 
 ---
 # Analysis
 - Multiple Reconstructions with fixed BPTT cost
 
-.center[<img width="60%" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/5553566b1dd59bc8bc1df0d5096ce1b2342c19d1/7-Table6-1.png" alt="Multiple Reconstructions with fixed BPTT cost">]
+.center[<img width="60%" src="/images/talk-paper-long-term-rnn-9.png" alt="Multiple Reconstructions with fixed BPTT cost">]
 
 ---
 # Analysis
 - Regulaziation and Optimization
 
-.center[<img width="60%" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/5553566b1dd59bc8bc1df0d5096ce1b2342c19d1/8-Figure5-1.png" alt="Regulaziation and Optimization">]
+.center[<img width="60%" src="/images/talk-paper-long-term-rnn-10.png" alt="Regulaziation and Optimization">]
 
 ---
 # Analysis
 - Relative contribution of difference factors to *r*-LSTM
 
-.center[<img width="80%" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/5553566b1dd59bc8bc1df0d5096ce1b2342c19d1/8-Figure6-1.png" alt="Ablation Study">]
+.center[<img width="80%" src="/images/talk-paper-long-term-rnn-11.png" alt="Ablation Study">]
 
 ---
 layout: true
