@@ -87,218 +87,131 @@ class: left
 
 ---
 # Monte Carlo Control
-<img width="100%" src="https://karpathy.github.io/assets/rnn/diags.jpeg" alt="RNN in/out">
+- Use GPI as DP
+$$\pi\_0 \stackrel{E}{\longrightarrow} q\_{\pi\_0} \stackrel{I}{\longrightarrow} \pi\_1 \stackrel{E}{\longrightarrow} q\_{\pi\_1} \stackrel{I}{\longrightarrow} \pi\_2 \stackrel{E}{\longrightarrow} ... \stackrel{I}{\longrightarrow} \pi\_\* \stackrel{E}{\longrightarrow} q\_{\pi\_\*}$$
 
-- Sequences in the input
+- Policy evaluation $\stackrel{E}{\longrightarrow}$: using MC methods for prediction
 
-- Sequences in the output
+- Policy improment $\stackrel{I}{\longrightarrow}$: policy greedy w.r.t the current value function
 
-- Hidden Nodes is NOT fixed
-
-.footnote[.refer[
-\# Figure: https://karpathy.github.io/2015/05/21/rnn-effectiveness/
-]]
----
-# RNN - unroll
-.center[
-<img width="60%" src="/images/talk_dl_rnn_unrolled.png" alt="RNN unrolled">
-]
-
-### Calc Formulas
+- Meets the policy improvement theorem
 $$
 \begin{aligned}
-\mathbf s\_t &= f(\mathbf W\_{in}\mathbf x\_t + \mathbf W\_{rec}\mathbf s\_{t-1} + \mathbf b\_s)
-\\cr
-\mathbf{\hat y}\_t &= g(\mathbf U\mathbf s\_t + \mathbf b\_y)
+q\_{\pi\_k}\big(s,\pi\_{k+1}(s)\big) &= q\_{\pi\_k}\big(s,\arg\max\_a q\_{\pi\_k}(s,a)\big)
+\\cr &= \max\_a q\_{\pi\_k}(s,a)
+\\cr & \ge q\_{\pi\_k}\big(s,\pi\_k(s)\big)
+\\cr & \ge v\_{\pi\_k}(s)
 \end{aligned}
 $$
-- $\mathbf x_t$ : embedded word
-- $\mathbf s_0$ : 1st hidden state. Set to *$\vec\mathbf 0$* or *pre-trained* values.
-- $f$ : activation function. Usually the $\tanh, \text{ReLU}, sigmoid$.
-- $g$ : predict function. Such as, $softmax$ for language modeling.
 
-.footnote[.refer[
-\# [*Werbos (1990)*](#25)
-]]
-
-???
-How to sample data?
-1. Add END sysbol to the end of each sequence.
-2. Use extra Bernoulli ouput. Determine by Sigmoid function.
-3. Add extra output to predict $T$.
+  if, $\pi\_{k+1}=\pi\_k$, then $\pi\_k=\pi\_\*$
 ---
-# Lost Function
-.center[
-<img width="55%" src="/images/talk_dl_rnn_lostfn.png" alt="RNN in/out">
-]
+# Monte Carlo Control
+- Converage conditions assumptions:
+  - (1) episodes have exploring starts $\pi(s,a)>0~~~\forall s,a$
 
-$$J(\theta) = \frac{1}{T}\sum\_{t=1}^TJ\_t(\theta) = -\frac{1}{T}\sum\_{t=1}^T\sum\_{j=1}^Ny\_{tj}\log \hat y\_{tj}$$
+  - (2) policy evaluation could be done with an infinite number of episodes
 
-Where:
-- $T$: total time steps
-- $N$: numbers of words
-- $J_t(\theta)$: lost at step $t$
+- Monte Carlo without Exploring Starts
+  - **on-policy** methods: evaluate or improve the policy that is used to make decisions
 
-.footnote[.refer[
-\# [*Werbos (1990)*](#25)
-]]
+  - **off-policy** methods: evaluate or improve the policy different from that is used to generate the data
 ---
-# Backpropagation Through Time - BPPT
-.center[![RNN BPPT](/images/talk_dl_rnn_bppt.png)]
+# Monte Carlo Exploring Starts
+- Alterate between evaluation and improvement on an episode-by-episode basis
 
-Backprop over time steps $t=\overline{1,T}$ then summing gradient of each step.
-- $(\mathbf W\_{in}, \mathbf W\_{rec}) = \mathbf W = \mathbf W^{(k)} ~~~, k=\overline{1,T}$:
-$$
-\dfrac{\partial J\_t}{\partial\mathbf W}
-= \sum\_{k=1}^t\dfrac{\partial J\_t}{\partial\mathbf{W}^{(k)}}\dfrac{\partial\mathbf{W}^{(k)}}{\partial\mathbf{W}}
-= \sum\_{k=1}^t\dfrac{\partial J\_t}{\partial\mathbf{W}^{(k)}}
-$$
+- Convergence to this fixed point (fixed point is optimal policy $\pi_*$) seems inevitable
 
-.footnote[.refer[
-\# [*Werbos (1990)*](#25)
-]]
-
-???
-Slow because of sequences. Can't parallel handling.
+.center[<img width="100%" src="https://raw.githubusercontent.com/dominhhai/rl-intro/master/assets/5.3.mc-es.png" alt="Monte Carlo Exploring Starts">]
 ---
-# Backpropagation Through Time - BPPT
-.red[Backprop over time steps $t=\overline{1,T}$ then summing gradient of each step.]
+# On-Policy method
+- Learn about policy currently executing
 
-### Gradient Calc
-$$\dfrac{\partial J}{\partial\theta}=\sum\_{t=1}^T\dfrac{\partial J\_t}{\partial\theta}$$
-- w.r.t $\mathbf U$:
-$$
-\dfrac{\partial J\_t}{\partial\mathbf U}
-= \dfrac{\partial J\_t}{\partial\mathbf{\hat y}\_t}\dfrac{\partial\mathbf{\hat y}\_t}{\partial\mathbf U}
-= (\mathbf{\hat y}\_t-\mathbf{y}\_t)\mathbf{s}\_t^{\intercal}
-$$
+- Policy is generally soft $\pi(a|s)>0$
 
-- w.r.t $\mathbf W$ ($\mathbf W\_{in}, \mathbf W\_{rec}$):
-$$
-\dfrac{\partial J\_t}{\partial\mathbf W}
-= \dfrac{\partial J\_t}{\partial\mathbf{\hat y}\_t}\dfrac{\partial\mathbf{\hat y}\_t}{\partial\mathbf s\_t}\dfrac{\partial\mathbf{s}\_t}{\partial\mathbf W}
-= \sum\_{k=1}^t\dfrac{\partial J\_t}{\partial\mathbf{\hat y}\_t}\dfrac{\partial\mathbf{\hat y}\_t}{\partial\mathbf s\_t}\dfrac{\partial\mathbf{s}\_t}{\partial\mathbf{s}\_k}\dfrac{\partial\mathbf{s}\_k}{\partial\mathbf W}
-$$
+- ε-soft policy like ε-greedy:
+  - probability of nongreedy is $\dfrac{\epsilon}{| \mathcal A(s) |}$
+  - and, probability of greedy is $1-\epsilon+\dfrac{\epsilon}{| \mathcal A(s) |}$
 
-.footnote[.refer[
-\# [*Werbos (1990)*](#25)
-]]
+- ε-greedy with respect to $q_\pi$ is an improvement over any ε-soft policy $\pi$
+
+$$
+\begin{aligned}
+q\_\pi\big(s,\pi'(s)\big) &= \sum\_a \pi'(a | s) q\_\pi(s,a)
+\\cr &= \frac{\epsilon}{| \mathcal A(s) |}\sum\_a q\_\pi(s,a) + (1-\epsilon)\max\_a q\_\pi(s,a)
+\\cr &\ge v\_\pi(s)
+\end{aligned}
+$$
+- Converages to the best ε-soft policy $v\_\pi=\tilde v\_\* ~~~, \forall s\in\mathcal S$
 ---
-# Vanishing and Exploding Gradient
-Why do we have to care about it?
-
-### Exploding Gradient
-- Norm of gradient increases exponentially
-- Overflow when calc gradient
-
-### Vanishing Gradient
-- Norm of gradient decrease exponentially (to 0)
-- Can NOT learn long-term dependencies
-
-.red[Deep FNNs and RNNs are easy to stuck on these problems.]
-- product of matrices is similar to product of real numbers can to go zero or infinity.
-$$
-\lim\limits\_{k\rightarrow\infty}\lambda^k = \begin{cases}
-0 &\text{if }\lambda < 1
-\\cr
-\infty &\text{if }\lambda > 1
-\end{cases}
-$$
-
-.footnote[.refer[
-\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#25)
-]]
+# On-Policy method
+.center[<img width="100%" src="https://raw.githubusercontent.com/dominhhai/rl-intro/master/assets/5.4.e-soft.png" alt="On-Policy method">]
 ---
-# Vanishing and Exploding Gradient - WHY
-- Similar hidden state function
-$$
-\mathbf s\_t
-= F(\mathbf s\_{t-1}, \mathbf x\_t, \mathbf W)
-= \mathbf W\_{rec}f(\mathbf s\_{t-1}) + \mathbf W\_{in}\mathbf x\_t + \mathbf b\_s
-$$
+# Off-policy method
+- Learn the value of the target policy $\pi$ from experience due to behavior policy $b$
+  - Optimal policy: target policy
 
-- Gradient w.r.t $\mathbf W$:
-$$\dfrac{\partial J}{\partial\mathbf W}=\sum\_{t=1}^T\dfrac{\partial J\_t}{\partial\mathbf W}$$
+  - Exploratory & generate policy: behavior policy
 
-- At step $t$:
-$$\dfrac{\partial J\_t}{\partial\mathbf W} = \sum\_{k=1}^t\dfrac{\partial J\_t}{\partial\mathbf s\_t}\textcolor{blue}{\dfrac{\partial\mathbf{s}\_t}{\partial\mathbf{s}\_k}}\dfrac{\partial\mathbf{s}\_k}{\partial\mathbf W}$$
+- More powerful and general than on-policy
+  - On-policy methods is special case in which $\pi = b$
 
-- Error from step $t$ back to $k$:
-$$
-\dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_k}
-= \prod\_{j=k}^{t-1} \dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}
-= \prod\_{j=k}^{t-1} \mathbf W\_{rec}^{\intercal}\text{diag}\big(f^{\prime}(\mathbf s\_j)\big)
-$$
+- Greater variance and slower to converge
 
-.footnote[.refer[
-\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#25)
-]]
-
+- Coverage assumption: $b$ generates behavior that covers, or includes, $\pi$
+$$\pi(a | s) > 0 \implies b(a | s) > 0$$
 ---
-# Vanishing and Exploding Gradient - WHY
-- $\mathbf s\_k$ is vector, so $\dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}$ is a Jacobian matrix
+# Off-policy method
+- Method: use importance sampling
+  - Estimate expected values under one distribution given samples from another
+  - Importance-sampling ratio: weighting returns according to the relative probability of their trajectories under the two policies
+- The relative probability of the trajectory under 2 polices depend only on the 2 policies and the sequence:
+  $$\rho\_{t:T-1} = \prod\_{k=1}^{T-1}\frac{\pi(A\_k | S\_k)}{b(A\_k | S\_k)}$$
 
-Let:
-- $\gamma\in\mathbb{R}, \big\lVert \text{diag}\big(f^{\prime}(\mathbf s\_j)\big)\big\rVert \le \gamma$
-- $\lambda\_1=\max\big(\lvert eigenvalues(\mathbf W\_{rec})\rvert\big)$
+- Expected value of target policy:
+  $$v\_\pi(s) = E\big[\rho\_{t:T-1}G\_t | S\_t=s\big]$$
+  where, $G_t$ is the returns of $b$ : $v_b(s) = E\big[G_t | S_t=s\big]$
 
-We have:
-$$
-\forall j,
-\bigg\lVert\dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}\bigg\rVert
-\le \lVert\mathbf W\_{rec}^{\intercal}\rVert\big\lVert \text{diag}\big(f^{\prime}(\mathbf s\_j)\big)\big\rVert
-\le \lambda\_1\gamma
-$$
-
-Let $\eta=\lambda\_1\gamma$ and $l=t-k$ :
-$$
-\dfrac{\partial J\_t}{\partial\mathbf s\_t}\dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_k}
-= \dfrac{\partial J\_t}{\partial\mathbf s\_t}\prod\_{j=k}^{t-1}\dfrac{\partial\mathbf s\_{j+1}}{\partial\mathbf s\_j}
-\le \eta^l\dfrac{\partial J\_t}{\partial\mathbf s\_t}
-$$
-
-.footnote[.refer[
-\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#25)
-]]
-
+- Indexing time steps in a way that increases across episode boundaries
+  - first episode ends in terminal state at time $t-1=100$
+  - next episode begins at time $t=101$
 ---
-# Vanishing and Exploding Gradient - WHY
-$$
-\dfrac{\partial J\_t}{\partial\mathbf s\_t}\dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_k}
-\le \eta^l\dfrac{\partial J\_t}{\partial\mathbf s\_t}
-$$
+# Off-policy method
+- 2 types of importance sampling:
+  - Ordinary importance sampling:
+    $$V(s) = \frac{\sum\_{t\in\mathscr T(s)}\rho\_{t:T(t)-1}G\_t}{| \mathscr T |}$$
+  - Weighted importance sampling:
+    $$V(s) = \frac{\sum\_{t\in\mathscr T(s)}\rho\_{t:T(t)-1}G\_t}{\sum\_{t\in\mathscr T(s)}\rho\_{t:T(t)-1}}$$
 
-With $(t-k)$ is large (*long-term dependencies*) :
-- $\lambda_1<\dfrac{1}{\gamma}$ or $\eta<1$: *sufficient* condition for vanishing gradient problem
-
-- $\lambda_1>\dfrac{1}{\gamma}$ or $\eta>1$: *neccessary* condition for exploding gradient problem
-
-E.x, gradient will shrink to zero when:
-- $\lambda_1<1$ if $f$ is $\tanh$ because $\gamma=1$
-- $\lambda_1<4$ if $f$ is $\text{sigmoid}$ because $\gamma=0.25$
-
-.footnote[.refer[
-\# [*Bengio et al. (1994), Pascanu et al. (2013)*](#25)
-]]
-
-???
-Gradient of long-term is exponentially smaller than short-term.
-So, take long time to learn long-term.
-10-20 may be out of range.
+    where:
+      - $\mathscr T(s)$: set of all time steps in which state $s$ is visited
+      - $T(t)$: first time of termination following time $t$
+      - $G\_t$: returns after $t$ up through $T(t)$
+      - $\\{G\_t\\}\_{t\in\mathscr T(s)}$ are the returns that pertain to state $s$
+      - $\\{\rho\_{t:T(t)-1}\\}\_{t\in\mathscr T(s)}$ are the corresponding importance-sampling ratios
 ---
-# Gradient Clipping
-- Solution to exploding gradient problem: .red[Rescale gradients]
+# Incremental MC prediction
+- For on-policy:
+  - Exactly the same methods as Bandits
+  - But, for the average returns $G_t$ instead of average rewards $R_t$
 
-.center[<img width="60%" src="/images/talk_dl_rnn_clip_grad.png" alt="Clip Gradient">]
-.center[*Error surface of a single hidden unit recurrent network*]
-
-Where:
-- Solid lines: standard gradient descent
-- Dashed lines: rescaled gradient descent
-
-.footnote[.refer[
-\# [*Pascanu et al. (2013)*](#25)
-]]
+- For ordinary importance sampling: scaling returns by $\rho_{t:T(t)-1}$
+- For weighted importance sampling
+  - Have sequence of returns $G\_1, G\_2, ..., G\_{n-1}$ all starting in the same state
+  - Corresponding random weight $W\_i$ (e.g., $W\_i = \rho\_{t\_i:T(t\_i)-1}$)
+    $$V\_n = \frac{\sum\_{k=1}^{n-1}W\_kG\_k}{\sum\_{k=1}^{n-1}W\_k} ~~~, n\ge 2$$
+  - update rule:
+    $$
+    \begin{cases}
+     V\_{n+1} &= V\_n + \dfrac{W\_n}{C\_n}\big[G\_n - V\_n\big] ~~~, n\ge 1
+     \\cr
+     C\_{n+1} &= C\_n + W\_{n+1} ~~~, C\_0 = 0
+    \end{cases}
+    $$
+can apply to on-policy when $\pi=b, W=1$
+---
+# Incremental MC prediction
+.center[<img width="100%" src="https://raw.githubusercontent.com/dominhhai/rl-intro/master/assets/5.6.weighted-importance-sampling.png" alt="Incremental MC prediction">]
 ---
 # Gradient Clipping
 - Add `threshold` hyper-parameter to clip norm of gradients
