@@ -191,11 +191,10 @@ $$\pi(a | s) > 0 \implies b(a | s) > 0$$
       - $\\{\rho\_{t:T(t)-1}\\}\_{t\in\mathscr T(s)}$ are the corresponding importance-sampling ratios
 ---
 # Incremental MC prediction
-- For on-policy:
-  - Exactly the same methods as Bandits
-  - But, for the average returns $G_t$ instead of average rewards $R_t$
+- For on-policy: Exactly the same methods as Bandits
 
-- For ordinary importance sampling: scaling returns by $\rho_{t:T(t)-1}$
+- For ordinary importance sampling: Scaling returns by $\rho_{t:T(t)-1}$
+
 - For weighted importance sampling
   - Have sequence of returns $G\_1, G\_2, ..., G\_{n-1}$ all starting in the same state
   - Corresponding random weight $W\_i$ (e.g., $W\_i = \rho\_{t\_i:T(t\_i)-1}$)
@@ -203,205 +202,94 @@ $$\pi(a | s) > 0 \implies b(a | s) > 0$$
   - update rule:
     $$
     \begin{cases}
-     V\_{n+1} &= V\_n + \dfrac{W\_n}{C\_n}\big[G\_n - V\_n\big] ~~~, n\ge 1
+     V\_{n+1} &= V\_n + \dfrac{W\_n}{C\_n}\big[G\_n - V\_n\big] &, n\ge 1
      \\cr
-     C\_{n+1} &= C\_n + W\_{n+1} ~~~, C\_0 = 0
+     C\_{n+1} &= C\_n + W\_{n+1} &, C\_0 = 0
     \end{cases}
     $$
-can apply to on-policy when $\pi=b, W=1$
+    - Can apply to on-policy when $\pi=b, W=1$
 ---
 # Incremental MC prediction
 .center[<img width="100%" src="https://raw.githubusercontent.com/dominhhai/rl-intro/master/assets/5.6.weighted-importance-sampling.png" alt="Incremental MC prediction">]
 ---
-# Gradient Clipping
-- Add `threshold` hyper-parameter to clip norm of gradients
+# Off-policy MC Control
+- Requires behavior $b$ is soft: $b(a | s) &gt; 0$
+
+- Advantage:
+  - Target policy $\pi$ may be deterministic (e.g., greedy)
+
+  - While the behavior policy $b$ can continue to sample all possible actions
+
+- Disadvantages:
+  - Learn only from the tails of episodes (the remaining actions in the episode are greedy)
+
+  - Greatly slow learning when non-greedy actions are common (states appearing in the early portions of long episodes)
+---
+# Off-policy MC Control
+.center[<img width="100%" src="https://raw.githubusercontent.com/dominhhai/rl-intro/master/assets/5.7.off-policy-mc-control.png" alt="off-policy MC Control">]
+---
+# Discounting-aware Importance Sampling
+- Use discounted rewards structure of the returns to reduce the variance of off-policy estimators
+
+- Let define, the **flat partial return**:
+  $$\overline G\_{t:h} = R\_{t+1} + R\_{t+2} + ... + R\_h ~~~, 0\le t < h\le T$$
+
+- Compute the **full return** $G_t$ by flat partial returns:
 
 $$
 \begin{aligned}
-& -------------------
-\\cr
-& \hat g = \dfrac{\partial J}{\partial\mathbf W}
-\\cr
-& \textbf{if} \quad\lVert\hat{g}\rVert \ge threshold \quad\textbf{   then}
-\\cr
-& \qquad \hat{g} \gets \dfrac{threshold}{\lVert\hat{g}\rVert}\hat{g}
-\\cr
-& \textbf{end if}
-\\cr& -------------------
+G\_t &= R\_{t+1} + \gamma R\_{t+2}  + \gamma^2 R\_{t+3} + ... + \gamma^{T-t-1} R\_T
+\\cr &= (1-\gamma)R\_{t+1}
+\\cr & \quad + (1-\gamma)\gamma(R\_{t+1} + R\_{t+2})
+\\cr & \quad + (1-\gamma)\gamma^2(R\_{t+1} + R\_{t+2} + R\_{t+3})
+\\cr & \quad \vdots
+\\cr & \quad + (1-\gamma)\gamma^{T-t-2}(R\_{t+1} + R\_{t+2} + ... + R\_{T-1})
+\\cr & \quad + \gamma^{T-t-1}(R\_{t+1} + R\_{t+2} + ... + R\_T)
+\\cr &= (1-\gamma)\sum\_{h=t+1}^{T-1}\gamma^{h-t-1}\overline G\_{t:h} + \gamma^{T-t-1}\overline G\_{t:T}
 \end{aligned}
 $$
-
-- Usually, $\text{threshold}\in [1,5]$
-
-- Simple, Effective
-
-.footnote[.refer[
-\# [*Pascanu et al. (2013)*](#25)
-]]
 ---
-# Long Short-Term Memory - LSTM
-- Constant Error Flow of Identity Relationship doesn't decay:
-$$\mathbf s\_t=\mathbf s\_{t-1}+f(\mathbf x\_t) \implies \dfrac{\partial\mathbf s\_t}{\partial\mathbf s\_{t-1}}=1$$
+# Discounting-aware Importance Sampling
+- Discount rate but have no effect if $\gamma=1$
 
-- Key idea: Use .red[*Constant Error Carousel*] - **CEC** to prevent from gradient decay
-  - .red[**Memory Cell**] $\mathbf c_t$: indentity relationship
-  - Compute new state by difference from before time step*[s]*
-  $$\mathbf c\_t = \mathbf c\_{t-1} + \textcolor{blue}{f(\mathbf x\_t, \mathbf h\_{t-1})}$$
-  *$\mathbf h_t$ is the output at time step $t$*
+- For ordinary importance-sampling estimator:
+$$V(s)=\dfrac{\displaystyle\sum\_{t\in\mathscr T(s)}\Big( (1-\gamma)\sum\_{h=t+1}^{T(t)-1}\gamma^{h-t-1}\rho\_{t:h-1}\overline G\_{t:h} + \gamma^{T(t)-t-1}\rho\_{t:T(t)-1}\overline G\_{t:T(t)}\Big)}{| \mathscr T(s) |}$$
 
-- Weights conflict:
-  - Input Weights: Same weights for *"write operations"*
-  - Output Weights: Same weights for *"read operations"*
-
-  ==> Use .red[**Gates Units**] to control conflicting
-
-.footnote[.refer[
-\# [*Hochreiter (1997)*](#25)
-]]
+- For weighted importance-sampling estimator:
+$$V(s)=\dfrac{\displaystyle\sum\_{t\in\mathscr T(s)}\Big( (1-\gamma)\sum\_{h=t+1}^{T(t)-1}\gamma^{h-t-1}\rho\_{t:h-1}\overline G\_{t:h} + \gamma^{T(t)-t-1}\rho\_{t:T(t)-1}\overline G\_{t:T(t)}\Big)}{\displaystyle\sum\_{t\in\mathscr T(s)}\Big( (1-\gamma)\sum\_{h=t+1}^{T(t)-1}\gamma^{h-t-1}\rho\_{t:h-1} + \gamma^{T(t)-t-1}\rho\_{t:T(t)-1}\Big)}$$
 ---
-# LSTM
-.center[![LSTM](/images/talk_dl_lstm.png)]
+# Per-decision Importance Sampling
+- One more way of reducing variance, even if $\gamma=1$
 
-- Gate Units:
- - sigmoid function $\sigma\in[0,1]$ controls how much info can be through
-- Gate Types:
-  - Forget Gate $\mathbf f_t$ (*Gers et al. (1999)*)
-  - Input Gate $\mathbf i_t$
-  - Output Gate $\mathbf o_t$
-- CEC: center $\oplus$ act as linear function
-
-.footnote[.refer[
-\# Figure: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
-]]
----
-# LSTM - Forward
-- Forget Gate:
-$$\mathbf f\_t = \sigma(\mathbf W\_f[\mathbf h\_{t-1}, \mathbf x\_t]+\mathbf b\_f)$$
-- Input Gate:
-$$\mathbf i\_t = \sigma(\mathbf W\_i[\mathbf h\_{t-1}, \mathbf x\_t]+\mathbf b\_i)$$
-- Output Gate:
-$$\mathbf o\_t = \sigma(\mathbf W\_o[\mathbf h\_{t-1}, \mathbf x\_t]+\mathbf b\_o)$$
-- New State:
+- Use structure of the returns as sum of rewards
 $$
 \begin{aligned}
-\mathbf{\tilde{c}}\_t &= \tanh(\mathbf W\_c[\mathbf h\_{t-1}, \mathbf x\_t]+\mathbf b\_c)
-\\cr
-\mathbf c\_t &= \mathbf f\_t\*\mathbf c\_{t-1}+\mathbf i\_t\*\mathbf{\tilde{c}}\_t
+\rho\_{t:T-1}G\_t &= \rho\_{t:T-1}(R\_{t+1}+\gamma R\_{t+2}+...+\gamma^{T-t-1} R\_T)
+\\cr &= \rho\_{t:T-1}R\_{t+1}+\gamma\rho\_{t:T-1}R\_{t+2}+...+\gamma^{T-t-1}\rho\_{t:T-1}R_T
 \end{aligned}
 $$
-- Cell's Output:
-$$\mathbf h\_t = \mathbf o\_t\*\tanh(\mathbf c\_t)$$
 
-.footnote[.refer[
-\# [*Hochreiter (1997)*](#25)
-]]
+  where, sub-term $\rho\_{t:T-1}R\_{t+k}$ depend only on the first and the last rewards
+  $$E[\rho\_{t:T-1}R\_{t+k}] = E[\rho\_{t:t+k-1}R\_{t+k}]$$
+
+- **per-decision** importance-sampling
+$$E[\rho\_{t:T-1}G_t] = E[\tilde G_t]$$
+
+  where, $$\tilde G\_t=\rho\_{t:t}R\_{t+1} + \gamma\rho\_{t:t+1}R\_{t+2} + \gamma^2\rho\_{t:t+2}R\_{t+3} + ... + \gamma^{T-t-1}\rho\_{t:T-1}R\_T$$
 ---
-# LSTM - Backward
-- Cell's Output: $\delta h\_t = \partial J\_t/\partial \mathbf h\_t$
+# Per-decision Importance Sampling
+- Use for **ordinary** importance-sampling
+  - Same unbiased expectation (in the first-visit case) as the ordinary importance-sampling estimator
 
-- Output Gate: $\delta o\_t = \delta h\_t \* \tanh(\mathbf c\_t)$
-  - Compute: $\delta W\_o^{(t)}, \delta b\_o^{(t)}$
-- New State: $\delta c\_t = \textcolor{blue}{\delta c\_t} + \delta h\_t \* \delta o\_t \* (1-\tanh^2(\mathbf c\_t))$
+  - But not consistent (do not converge to the true value with infinite data)
 
-- Previous State: $\delta c\_{t-1} = \delta c\_t \* \mathbf f\_t$
+  $$V(s)=\frac{\sum_{t\in\mathscr T(s)}\tilde G_t}{| \mathscr T(s) |}$$
 
-- Input Gate: $\delta i\_t = \delta c\_t \* \mathbf{\tilde{c}}\_t$
-  - Compute: $\delta W\_i^{(t)}, \delta b\_i^{(t)}$
-
-- Forget Gate: $\delta f\_t = \delta c\_t \* \mathbf c\_{t-1}$
-  - Compute: $\delta W\_f^{(t)}, \delta b\_f^{(t)}$
-
-- External Input: $\delta\tilde{c\_t} = \delta c\_t \* \mathbf i\_t$
-  - Compute: $\delta W\_c^{(t)}, \delta b\_c^{(t)}$
-
+- Do NOT use for *weighted* importance-sampling
 ---
-# Gated Reccurent Unit - GRU
-.center[<img width="110%" src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png" alt="GRU">]
-
-- Cell State $h_t$
-  - Cell State & Hidden State
-
-- Update Gate $z\_t$
-  - Forget Gate & Input Gate
-
-- Reset Gate $r\_t$
-
-.footnote[.refer[
-\# [*Cho et al. (2014)*](#25), Figure: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
-]]
+layout: true
+class: center, middle
 ---
-# Bidirectional RNNs
-.center[<img width="80%" src="https://colah.github.io/posts/2015-09-NN-Types-FP/img/RNN-bidirectional.png" alt="Bidirectional RNNs">]
+# Thank You 😊
 
-- Previous Dependencies (left → right):
-$$\mathbf s\_t = f(\mathbf W\_{in}\mathbf x\_t + \mathbf W\_{rec}\mathbf s\_t + \mathbf b\_s)$$
-- Following Dependencies (right → left):
-$$\mathbf s\_t^{\prime} = f(\mathbf W\_{in}^{\prime}\mathbf x\_t + \mathbf W\_{rec}^{\prime}\mathbf s\_t + \mathbf b\_s^{\prime})$$
-- Output:
-$$\qquad\mathbf y\_t = g(U[\mathbf s\_t,\mathbf s\_t^{\prime}] + \mathbf b\_y)$$
-
-
-.footnote[.refer[
-\# Figure: https://colah.github.io/posts/2015-09-NN-Types-FP/
-]]
----
-# Deep RNNs
-.center[<img width="65%" src="/images/talk_dl_rnn_deep.png" alt="Deep RNNs">]
-
-- Layer 0 (Input):
-$$\mathbf s\_t^{(0)} = \mathbf x\_t$$
-
-- Layer $l=\overline{1,L}$:
-$$\mathbf s\_t^{(l)} = f(\mathbf W\_{in}^{(l)}\mathbf s\_t^{(l-1)} + \mathbf W\_{rec}^{(l)}\mathbf s\_{t-1}^{(l)} + \mathbf b\_s^{(l)})$$
-
-- Output:
-$$\mathbf{\hat y}\_t = g(\mathbf U\mathbf s\_t^{(L)} + \mathbf b\_y)$$
----
-# Summary
-- RNNs
-  - Variable-length In/Output
-  - Train with BPPT
-  - .red[Vanishing & exploding gradient problem]
-
-- Gradient Clipping
-  - Rescale gradients to prevent from exploding gradient problem
-
-- LSTM
-  - Memory Cell: Keep linear relationship between state
-  - Gate Units: control through info with sigmoid function $\sigma\in[0,1]$
-  - Time step lags > 1000
-  - Local in space and time: $\Theta(1)$ per step and weight
-
-- GRU
-  - Merge cell state and hidden state
-  - Combine forget gate and input gate into update gate
-
-- RNNs variants: Bidirectional RNNs, Deep RNNs
-
----
-# References
-.refer[
-
-- [1] [*Hopfield (1982)*. Neural networks and physical systems with emergent collective computational abilities](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC346238/pdf/pnas00447-0135.pdf)
-
-- [2] [*Rumelhart et al. (1986a)*. Learning representations by back-propagation errors](https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf)
-
-- [3] [*Jordan (1986)*. Serial order: A parallel distributed processing approach](https://pdfs.semanticscholar.org/f8d7/7bb8da085ec419866e0f87e4efc2577b6141.pdf)
-
-- [4] [*Elman (1990)*. Finding structure in time](https://crl.ucsd.edu/~elman/Papers/fsit.pdf)
-
-- [5] [*Werbos (1990)*. Backpropagation Through Time: What It Does and How to Do It](http://axon.cs.byu.edu/~martinez/classes/678/Papers/Werbos_BPTT.pdf)
-
-- [6] [*Bengio et al. (1994)*. Learning Long-Term Dependencies with Gradient Descent is Difficult](http://www.iro.umontreal.ca/~lisa/pointeurs/ieeetrnn94.pdf)
-
-- [7] [*Pascanu et al. (2013)*. On the difficulty of training Recurrent Neural Networks](https://arxiv.org/pdf/1211.5063.pdf)
-
-- [8] [*Hochreiter et al. (1997)*. Long Short-Term Memory](http://www.bioinf.jku.at/publications/older/2604.pdf)
-
-- [9] [*Greff et al. (2017)*. LSTM: A search space odyssey](https://arxiv.org/pdf/1503.04069.pdf)
-
-- [10] [*Jozefowics et al. (2015)*. An Empirical Exploration of Recurrent Network Architectures](http://proceedings.mlr.press/v37/jozefowicz15.pdf)
-
-- [11] [*Cho et al. (2014)*. Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation](https://arxiv.org/pdf/1406.1078v3.pdf)
-
-]
+Happy Coding!
