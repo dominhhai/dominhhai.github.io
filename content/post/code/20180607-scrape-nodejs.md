@@ -22,7 +22,7 @@ metaAlignment: center
 ---
 Trước tiên khi nghĩ tới việc lấy dữ liệu từ các trang cần phải thao tác qua vài bước như submit form, chuyển trang nọ kia người ta thường nghĩ ngay tới việc sử dụng headless browser như [Puppeteer](https://github.com/GoogleChrome/puppeteer), [Selenium / WebDriver](https://www.seleniumhq.org/), hay [PhantomJS](http://phantomjs.org/).
 
-Nhưng dở cái này mấy cái này nó sẽ khởi động nhân của trình duyện như Chrome chẳng hạn để thực hiện việc truy cập và thao tác trang web nên cực kì nặng nề. Bạn thử bật một đống trình duyệt lên trên máy tính của bạn thì rõ. Đương nhiên là nếu server bạn trâu thì không nói làm gì. Nếu không có server trâu thì phải tìm cách thay thế headless browser để giảm chi phí cho việc thao tác trang web.
+Nhưng dở cái này mấy cái này nó sẽ khởi động nhân của trình duyệt như Chrome chẳng hạn để thực hiện việc truy cập và thao tác trang web nên cực kì nặng nề. Bạn thử bật một đống trình duyệt lên trên máy tính của bạn thì rõ. Đương nhiên là nếu server bạn trâu thì không nói làm gì. Nếu không có server trâu thì phải tìm cách thay thế headless browser để giảm chi phí cho việc thao tác trang web.
 
 Về cơ bản thì các trang web cần thao tác qua vài bước như ấn nút nọ, submit form kia rồi chuyển trang nọ kia thì đều dựa vào **headers, cookies** để xử lý cả. Nên nếu ta duy trì xử lý khéo được các thông tin đó thì hoàn toàn có thể điều khiển được trang web cần lấy dữ liệu.
 
