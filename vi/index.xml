@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/</link><description>Recent content on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Sat, 18 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/vi/index.xml" rel="self" type="application/rss+xml"/><item><title>[ICML] Learning Longer-term Dependencies in RNNs with Auxiliary Losses</title><link>https://dominhhai.github.io/vi/talk/paper-longer-term-rnn/</link><pubDate>Sat, 18 Aug 2018 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/talk/paper-longer-term-rnn/</guid><description>layout: true
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hai&#39;s Blog</title><link>https://dominhhai.github.io/vi/</link><description>Recent content on Hai&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>vi</language><lastBuildDate>Fri, 24 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://dominhhai.github.io/vi/index.xml" rel="self" type="application/rss+xml"/><item><title>Reinforcement Learning: An Introduction. Chapter 5</title><link>https://dominhhai.github.io/vi/talk/rl-sutton-chap5/</link><pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/talk/rl-sutton-chap5/</guid><description>layout: true
+class: center, middle Reinforcement Learning: An Introduction
+Chapter 5: Monte Carlo Methods 26-08-2018
+Do Minh Hai
+@dominhhai layout: false class: left
+Outline Introduction
+Monte Carlo Prediction
+Monte Carlo Control
+On-Policy method
+Off-policy method
+Incremental Implementation for MC prediction
+Off-policy MC Control
+Discounting-aware Importance Sampling
+Per-decision Importance Sampling Introduction Environment is incomplete
+Learning from experience of interaction with environment</description></item><item><title>[ICML] Learning Longer-term Dependencies in RNNs with Auxiliary Losses</title><link>https://dominhhai.github.io/vi/talk/paper-longer-term-rnn/</link><pubDate>Sat, 18 Aug 2018 00:00:00 +0000</pubDate><guid>https://dominhhai.github.io/vi/talk/paper-longer-term-rnn/</guid><description>layout: true
 class: center, middle Learning Longer-term Dependencies in RNNs with Auxiliary Losses .red[.refer[ Trieu H.Trinh, Andrew M.Dai, Minh-Thang Luong, Quoc V.Le ]]
 19-08-2018
 Do Minh Hai

@@ -1,0 +1,283 @@
+<!doctype html><html lang=vi><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><title>Reinforcement Learning: An Introduction. Chapter 5</title><meta name=author content="Do Minh Hai"><meta name=keywords content="RL,Reinforcement Learning,dominhhai,programming,computer science,machine learning,deep learning"><link rel=icon href=https://dominhhai.github.io/favicon/golden-buddha-512-79567.png><link rel=canonical href=https://dominhhai.github.io/vi/talk/rl-sutton-chap5/><meta name=description content="Reinforcement Learning: An Introduction, by Richard S. Sutton and Andrew G. Barto. Chapter 5."><meta property=og:type content=website><meta property=og:title content="Reinforcement Learning: An Introduction. Chapter 5"><meta property=og:url content=https://dominhhai.github.io/vi/talk/rl-sutton-chap5/><meta property=og:description content="Reinforcement Learning: An Introduction, by Richard S. Sutton and Andrew G. Barto. Chapter 5."><meta property=og:site_name content="Hai's Blog"><meta property=og:locale content=vi><meta name=twitter:card content=summary><meta name=twitter:title content="Reinforcement Learning: An Introduction. Chapter 5"><meta name=twitter:url content=https://dominhhai.github.io/vi/talk/rl-sutton-chap5/><meta name=twitter:description content="Reinforcement Learning: An Introduction, by Richard S. Sutton and Andrew G. Barto. Chapter 5."><meta name=twitter:creator content=@minhhai3b><meta property=og:image content="https://www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640"><meta name=twitter:image content="https://www.gravatar.com/avatar/711b36be8e444cd1d60b348077bfd752?s=640"><meta property=og:image content=https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png><meta name=twitter:image content=https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png><link rel=publisher href=https://plus.google.com/115106277658014197977><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.1.0/css/all.css integrity=sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css integrity=sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei crossorigin=anonymous><link rel=stylesheet href=https://dominhhai.github.io/css/remark.css><script async src="https://www.googletagmanager.com/gtag/js?id=UA-105333519-1"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','UA-105333519-1');</script></head><body><textarea id=source>layout: true
+class: center, middle
+---
+# Reinforcement Learning: An Introduction&lt;br&gt;Chapter 5: Monte Carlo Methods
+*26-08-2018*
+
+Do Minh Hai
+
+[&lt;i class=&#34;fab fa-github&#34;&gt; @dominhhai&lt;/i&gt;](https://github.com/dominhhai)
+---
+layout: false
+class: left
+
+# Outline
+
+- Introduction
+
+- Monte Carlo Prediction
+
+- Monte Carlo Control
+
+- On-Policy method
+
+- Off-policy method
+
+- Incremental Implementation for MC prediction
+
+- Off-policy MC Control
+
+- Discounting-aware Importance Sampling
+
+- Per-decision Importance Sampling
+---
+# Introduction
+- Environment is incomplete
+
+- Learning from experience of interaction with environment
+  - Experience is divided into **episodes**
+
+  - Based on averaging sample&#39;s returns
+
+- Like an associative bandit
+  - Nonstationary from the point of view of the earlier state
+
+- Adapt the idea of GPI from DP
+
+---
+# Monte Carlo Prediction
+.left-column[&lt;img width=&#34;70%&#34; src=&#34;https://raw.githubusercontent.com/dominhhai/rl-intro/master/assets/mc_backup_diagram.png&#34; alt=&#34;MC backup diagram&#34;&gt;
+*backup diagram*
+]
+.right-column[
+- Estimate $v_\pi(s)$ from experience by averaging the returns observed after visits to that state $s$
+
+- 2 methods:
+  - first-visit MC: average of the returns only for the first visits to $s$
+  - every-visit MC: average of the returns for all visits to $s$
+
+- Estimates for each state are independent
+
+- Unlike DP
+  - Only one choice considered at each state - only sampled on the one episode
+  - Do not bootstrap
+]
+---
+# Monte Carlo Prediction
+.center[&lt;img width=&#34;100%&#34; src=&#34;https://raw.githubusercontent.com/dominhhai/rl-intro/master/assets/5.1.first-visit-mc.png&#34; alt=&#34;first-visit MC prediction&#34;&gt;]
+### Estimation of Action Values
+- Estimate $q_*$ when a model is not available
+- Averaging returns starting from state $s$, taking action $a$ following policy $\pi$
+- Need to estimate the value of all the actions from each state
+- *Exploring starts*: $\pi(s,a)&gt;0~~~\forall{s,a}$
+
+---
+# Monte Carlo Control
+- Use GPI as DP
+$$\pi\_0 \stackrel{E}{\longrightarrow} q\_{\pi\_0} \stackrel{I}{\longrightarrow} \pi\_1 \stackrel{E}{\longrightarrow} q\_{\pi\_1} \stackrel{I}{\longrightarrow} \pi\_2 \stackrel{E}{\longrightarrow} ... \stackrel{I}{\longrightarrow} \pi\_\* \stackrel{E}{\longrightarrow} q\_{\pi\_\*}$$
+
+- Policy evaluation $\stackrel{E}{\longrightarrow}$: using MC methods for prediction
+
+- Policy improment $\stackrel{I}{\longrightarrow}$: policy greedy w.r.t the current value function
+
+- Meets the policy improvement theorem
+$$
+\begin{aligned}
+q\_{\pi\_k}\big(s,\pi\_{k&#43;1}(s)\big) &amp;= q\_{\pi\_k}\big(s,\arg\max\_a q\_{\pi\_k}(s,a)\big)
+\\cr &amp;= \max\_a q\_{\pi\_k}(s,a)
+\\cr &amp; \ge q\_{\pi\_k}\big(s,\pi\_k(s)\big)
+\\cr &amp; \ge v\_{\pi\_k}(s)
+\end{aligned}
+$$
+
+  if, $\pi\_{k&#43;1}=\pi\_k$, then $\pi\_k=\pi\_\*$
+---
+# Monte Carlo Control
+- Converage conditions assumptions:
+  - (1) episodes have exploring starts $\pi(s,a)&gt;0~~~\forall s,a$
+
+  - (2) policy evaluation could be done with an infinite number of episodes
+
+- Monte Carlo without Exploring Starts
+  - **on-policy** methods: evaluate or improve the policy that is used to make decisions
+
+  - **off-policy** methods: evaluate or improve the policy different from that is used to generate the data
+---
+# Monte Carlo Exploring Starts
+- Alterate between evaluation and improvement on an episode-by-episode basis
+
+- Convergence to this fixed point (fixed point is optimal policy $\pi_*$) seems inevitable
+
+.center[&lt;img width=&#34;100%&#34; src=&#34;https://raw.githubusercontent.com/dominhhai/rl-intro/master/assets/5.3.mc-es.png&#34; alt=&#34;Monte Carlo Exploring Starts&#34;&gt;]
+---
+# On-Policy method
+- Learn about policy currently executing
+
+- Policy is generally soft $\pi(a|s)&gt;0$
+
+- ε-soft policy like ε-greedy:
+  - probability of nongreedy is $\dfrac{\epsilon}{| \mathcal A(s) |}$
+  - and, probability of greedy is $1-\epsilon&#43;\dfrac{\epsilon}{| \mathcal A(s) |}$
+
+- ε-greedy with respect to $q_\pi$ is an improvement over any ε-soft policy $\pi$
+
+$$
+\begin{aligned}
+q\_\pi\big(s,\pi&#39;(s)\big) &amp;= \sum\_a \pi&#39;(a | s) q\_\pi(s,a)
+\\cr &amp;= \frac{\epsilon}{| \mathcal A(s) |}\sum\_a q\_\pi(s,a) &#43; (1-\epsilon)\max\_a q\_\pi(s,a)
+\\cr &amp;\ge v\_\pi(s)
+\end{aligned}
+$$
+- Converages to the best ε-soft policy $v\_\pi=\tilde v\_\* ~~~, \forall s\in\mathcal S$
+---
+# On-Policy method
+.center[&lt;img width=&#34;100%&#34; src=&#34;https://raw.githubusercontent.com/dominhhai/rl-intro/master/assets/5.4.e-soft.png&#34; alt=&#34;On-Policy method&#34;&gt;]
+---
+# Off-policy method
+- Learn the value of the target policy $\pi$ from experience due to behavior policy $b$
+  - Optimal policy: target policy
+
+  - Exploratory &amp; generate policy: behavior policy
+
+- More powerful and general than on-policy
+  - On-policy methods is special case in which $\pi = b$
+
+- Greater variance and slower to converge
+
+- Coverage assumption: $b$ generates behavior that covers, or includes, $\pi$
+$$\pi(a | s) &gt; 0 \implies b(a | s) &gt; 0$$
+---
+# Off-policy method
+- Method: use importance sampling
+  - Estimate expected values under one distribution given samples from another
+  - Importance-sampling ratio: weighting returns according to the relative probability of their trajectories under the two policies
+- The relative probability of the trajectory under 2 polices depend only on the 2 policies and the sequence:
+  $$\rho\_{t:T-1} = \prod\_{k=1}^{T-1}\frac{\pi(A\_k | S\_k)}{b(A\_k | S\_k)}$$
+
+- Expected value of target policy:
+  $$v\_\pi(s) = E\big[\rho\_{t:T-1}G\_t | S\_t=s\big]$$
+  where, $G_t$ is the returns of $b$ : $v_b(s) = E\big[G_t | S_t=s\big]$
+
+- Indexing time steps in a way that increases across episode boundaries
+  - first episode ends in terminal state at time $t-1=100$
+  - next episode begins at time $t=101$
+---
+# Off-policy method
+- 2 types of importance sampling:
+  - Ordinary importance sampling:
+    $$V(s) = \frac{\sum\_{t\in\mathscr T(s)}\rho\_{t:T(t)-1}G\_t}{| \mathscr T |}$$
+  - Weighted importance sampling:
+    $$V(s) = \frac{\sum\_{t\in\mathscr T(s)}\rho\_{t:T(t)-1}G\_t}{\sum\_{t\in\mathscr T(s)}\rho\_{t:T(t)-1}}$$
+
+    where:
+      - $\mathscr T(s)$: set of all time steps in which state $s$ is visited
+      - $T(t)$: first time of termination following time $t$
+      - $G\_t$: returns after $t$ up through $T(t)$
+      - $\\{G\_t\\}\_{t\in\mathscr T(s)}$ are the returns that pertain to state $s$
+      - $\\{\rho\_{t:T(t)-1}\\}\_{t\in\mathscr T(s)}$ are the corresponding importance-sampling ratios
+---
+# Incremental MC prediction
+- For on-policy: Exactly the same methods as Bandits
+
+- For ordinary importance sampling: Scaling returns by $\rho_{t:T(t)-1}$
+
+- For weighted importance sampling
+  - Have sequence of returns $G\_1, G\_2, ..., G\_{n-1}$ all starting in the same state
+  - Corresponding random weight $W\_i$ (e.g., $W\_i = \rho\_{t\_i:T(t\_i)-1}$)
+    $$V\_n = \frac{\sum\_{k=1}^{n-1}W\_kG\_k}{\sum\_{k=1}^{n-1}W\_k} ~~~, n\ge 2$$
+  - update rule:
+    $$
+    \begin{cases}
+     V\_{n&#43;1} &amp;= V\_n &#43; \dfrac{W\_n}{C\_n}\big[G\_n - V\_n\big] &amp;, n\ge 1
+     \\cr
+     C\_{n&#43;1} &amp;= C\_n &#43; W\_{n&#43;1} &amp;, C\_0 = 0
+    \end{cases}
+    $$
+    - Can apply to on-policy when $\pi=b, W=1$
+---
+# Incremental MC prediction
+.center[&lt;img width=&#34;100%&#34; src=&#34;https://raw.githubusercontent.com/dominhhai/rl-intro/master/assets/5.6.weighted-importance-sampling.png&#34; alt=&#34;Incremental MC prediction&#34;&gt;]
+---
+# Off-policy MC Control
+- Requires behavior $b$ is soft: $b(a | s) &amp;gt; 0$
+
+- Advantage:
+  - Target policy $\pi$ may be deterministic (e.g., greedy)
+
+  - While the behavior policy $b$ can continue to sample all possible actions
+
+- Disadvantages:
+  - Learn only from the tails of episodes (the remaining actions in the episode are greedy)
+
+  - Greatly slow learning when non-greedy actions are common (states appearing in the early portions of long episodes)
+---
+# Off-policy MC Control
+.center[&lt;img width=&#34;100%&#34; src=&#34;https://raw.githubusercontent.com/dominhhai/rl-intro/master/assets/5.7.off-policy-mc-control.png&#34; alt=&#34;off-policy MC Control&#34;&gt;]
+---
+# Discounting-aware Importance Sampling
+- Use discounted rewards structure of the returns to reduce the variance of off-policy estimators
+
+- Let define, the **flat partial return**:
+  $$\overline G\_{t:h} = R\_{t&#43;1} &#43; R\_{t&#43;2} &#43; ... &#43; R\_h ~~~, 0\le t &lt; h\le T$$
+
+- Compute the **full return** $G_t$ by flat partial returns:
+
+$$
+\begin{aligned}
+G\_t &amp;= R\_{t&#43;1} &#43; \gamma R\_{t&#43;2}  &#43; \gamma^2 R\_{t&#43;3} &#43; ... &#43; \gamma^{T-t-1} R\_T
+\\cr &amp;= (1-\gamma)R\_{t&#43;1}
+\\cr &amp; \quad &#43; (1-\gamma)\gamma(R\_{t&#43;1} &#43; R\_{t&#43;2})
+\\cr &amp; \quad &#43; (1-\gamma)\gamma^2(R\_{t&#43;1} &#43; R\_{t&#43;2} &#43; R\_{t&#43;3})
+\\cr &amp; \quad \vdots
+\\cr &amp; \quad &#43; (1-\gamma)\gamma^{T-t-2}(R\_{t&#43;1} &#43; R\_{t&#43;2} &#43; ... &#43; R\_{T-1})
+\\cr &amp; \quad &#43; \gamma^{T-t-1}(R\_{t&#43;1} &#43; R\_{t&#43;2} &#43; ... &#43; R\_T)
+\\cr &amp;= (1-\gamma)\sum\_{h=t&#43;1}^{T-1}\gamma^{h-t-1}\overline G\_{t:h} &#43; \gamma^{T-t-1}\overline G\_{t:T}
+\end{aligned}
+$$
+---
+# Discounting-aware Importance Sampling
+- Discount rate but have no effect if $\gamma=1$
+
+- For ordinary importance-sampling estimator:
+$$V(s)=\dfrac{\displaystyle\sum\_{t\in\mathscr T(s)}\Big( (1-\gamma)\sum\_{h=t&#43;1}^{T(t)-1}\gamma^{h-t-1}\rho\_{t:h-1}\overline G\_{t:h} &#43; \gamma^{T(t)-t-1}\rho\_{t:T(t)-1}\overline G\_{t:T(t)}\Big)}{| \mathscr T(s) |}$$
+
+- For weighted importance-sampling estimator:
+$$V(s)=\dfrac{\displaystyle\sum\_{t\in\mathscr T(s)}\Big( (1-\gamma)\sum\_{h=t&#43;1}^{T(t)-1}\gamma^{h-t-1}\rho\_{t:h-1}\overline G\_{t:h} &#43; \gamma^{T(t)-t-1}\rho\_{t:T(t)-1}\overline G\_{t:T(t)}\Big)}{\displaystyle\sum\_{t\in\mathscr T(s)}\Big( (1-\gamma)\sum\_{h=t&#43;1}^{T(t)-1}\gamma^{h-t-1}\rho\_{t:h-1} &#43; \gamma^{T(t)-t-1}\rho\_{t:T(t)-1}\Big)}$$
+---
+# Per-decision Importance Sampling
+- One more way of reducing variance, even if $\gamma=1$
+
+- Use structure of the returns as sum of rewards
+$$
+\begin{aligned}
+\rho\_{t:T-1}G\_t &amp;= \rho\_{t:T-1}(R\_{t&#43;1}&#43;\gamma R\_{t&#43;2}&#43;...&#43;\gamma^{T-t-1} R\_T)
+\\cr &amp;= \rho\_{t:T-1}R\_{t&#43;1}&#43;\gamma\rho\_{t:T-1}R\_{t&#43;2}&#43;...&#43;\gamma^{T-t-1}\rho\_{t:T-1}R_T
+\end{aligned}
+$$
+
+  where, sub-term $\rho\_{t:T-1}R\_{t&#43;k}$ depend only on the first and the last rewards
+  $$E[\rho\_{t:T-1}R\_{t&#43;k}] = E[\rho\_{t:t&#43;k-1}R\_{t&#43;k}]$$
+
+- **per-decision** importance-sampling
+$$E[\rho\_{t:T-1}G_t] = E[\tilde G_t]$$
+
+  where, $$\tilde G\_t=\rho\_{t:t}R\_{t&#43;1} &#43; \gamma\rho\_{t:t&#43;1}R\_{t&#43;2} &#43; \gamma^2\rho\_{t:t&#43;2}R\_{t&#43;3} &#43; ... &#43; \gamma^{T-t-1}\rho\_{t:T-1}R\_T$$
+---
+# Per-decision Importance Sampling
+- Use for **ordinary** importance-sampling
+  - Same unbiased expectation (in the first-visit case) as the ordinary importance-sampling estimator
+
+  - But not consistent (do not converge to the true value with infinite data)
+
+  $$V(s)=\frac{\sum_{t\in\mathscr T(s)}\tilde G_t}{| \mathscr T(s) |}$$
+
+- Do NOT use for *weighted* importance-sampling
+---
+layout: true
+class: center, middle
+---
+# Thank You 😊
+
+Happy Coding!
+</textarea>
+<script src=https://dominhhai.github.io/js/remark-latest.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js crossorigin=anonymous integrity=sha384-jmxIlussZWB7qCuB+PgKG1uLjjxbVVIayPJwi6cG6Zb4YKq0JIw+OMnkkEC7kYCq></script><script src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/contrib/auto-render.min.js crossorigin=anonymous integrity=sha384-IiI65aU9ZYub2MY9zhtKd1H2ps7xxf+eb2YFG9lX6uRqpXCvBTOidPRCXCrQ++Uc></script><script>var slideshow=remark.create({ratio:'4:3',highlightStyle:'monokai',highlightLanguage:'python',highlightLines:false,highlightSpans:false},function(){var katexOpts={delimiters:[{left:"$$",right:"$$",display:true},{left:"\\[",right:"\\]",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}]};renderMathInElement(document.body,katexOpts);});</script><script>if(typeof fnMain==='function'){fnMain();}</script></body></html>
