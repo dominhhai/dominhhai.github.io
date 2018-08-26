@@ -7,7 +7,7 @@ description: "Reinforcement Learning: An Introduction, by Richard S. Sutton and 
 renderMath: true
 autoThumbnailImage: true
 thumbnailImagePosition: left
-thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png
+thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/rl/logo.png
 metaAlignment: center
 ---
 
