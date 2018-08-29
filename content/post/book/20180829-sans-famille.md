@@ -14,7 +14,7 @@ thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/book/Khong-Gia-Dinh.jpg
 metaAlignment: center
 ---
-Một câu chuyện cảm động và kết thúc có hậu về một cậu bé nghị lực và giàu tình cảm. Thật không hổ danh là một tiểu thuyết kiệt tác tồn tại suốt cả trăm năm nay, các tình tiết trong suốt câu chuyện được thuật lại hết sức công phu và thuyết phục dưới cái ngòi bút tài tình của nhà văn nổi tiếng người Pháp - ông [Hector Malot](https://vi.wikipedia.org/wiki/Hector_Malot).
+Một câu chuyện cảm động và kết thúc có hậu về một cậu bé đầy nghị lực và giàu tình cảm. Thật không hổ danh là một tiểu thuyết kiệt tác tồn tại suốt cả trăm năm nay, các tình tiết trong suốt câu chuyện được thuật lại hết sức công phu và thuyết phục dưới cái ngòi bút tài tình của nhà văn nổi tiếng người Pháp - ông [Hector Malot](https://vi.wikipedia.org/wiki/Hector_Malot).
 
 {{< image classes="fancybox nocaption right fig-33" src="https://res.cloudinary.com/dominhhai/image/upload/book/Khong-Gia-Dinh.jpg" title="Khong Gia Dinh" >}}
 
