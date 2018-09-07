@@ -21,7 +21,7 @@ thumbnailImagePosition: left
 thumbnailImage: https://res.cloudinary.com/dominhhai/image/upload/dl/logo.png
 metaAlignment: center
 ---
-Dưới đấy là slide giới thiệu về RNNs, LSTM, GRU tại [Tokyo ML Event](https://www.facebook.com/events/1772695682776739/) hôm chủ nhật 08/07/2018 vừa qua. Tiện đây, blog mình có thêm mục **[Chém gió](http://localhost:1313/vi/talk/)** lưu trữ lại các slide trình bày của mình tại các hội nhóm.
+Dưới đấy là slide giới thiệu về RNNs, LSTM, GRU tại [Tokyo ML Event](https://www.facebook.com/events/1772695682776739/) hôm chủ nhật 08/07/2018 vừa qua. Tiện đây, blog mình có thêm mục **[Chém gió](/vi/talk/)** lưu trữ lại các slide trình bày của mình tại các hội nhóm.
 <!--more-->
 
 Để xem full mode dễ dàng hơn bạn có thể click [tại đây](/vi/talk/dl-rnn/#1). Để điều khiển chuyển qua lại các page, bạn có thể sử dụng các phím sang trái/phải hoặc scroll slide nhé.
