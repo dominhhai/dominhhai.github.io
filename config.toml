@@ -30,6 +30,7 @@ enableRobotsTXT = true
 [languages.vi]
 weight = 0
 languagename = "Tiếng Việt"
+fbAppId = "333198270561466"
 
 ## English
 [languages.en-us]
