@@ -85,7 +85,7 @@ Về cơ bản, HTTP/2 có thể được mô tả bằng hình vẽ dưới đ�
 
 {{< image classes="fancybox center" src="https://developers.google.com/web/fundamentals/performance/http2/images/binary_framing_layer01.svg" title="Source: https://developers.google.com/web/fundamentals/performance/http2/" >}}
 
-Mỗi kết nối của TCP có thể có nhiều `dòng` (`stream`), trong mỗi `dòng` có thể mang nhiều `thông điệp` (`message`), mỗi `thông điệp` được cấu tạo bởi các `khung` (`frame`) chưa thông tin đã mã hóa dạng nhị phân. Trong `khung` này luôn chứa phần đầu `header` mang thông tin về `dòng` mà nó thuộc về.
+Mỗi kết nối của TCP có thể có nhiều `dòng` (`stream`), trong mỗi `dòng` có thể mang nhiều `thông điệp` (`message`), mỗi `thông điệp` được cấu tạo bởi các `khung` (`frame`) chứa thông tin đã mã hóa dạng nhị phân. Trong `khung` này luôn chứa phần đầu `header` mang thông tin về `dòng` mà nó thuộc về.
 
 Chính nhờ kiến trúc kiểu này mà ta có thể truyền cùng lúc nhiều thông tin 2 chiều giữa máy chủ và trình duyệt dựa vào các dòng thông tin của chúng. Bạn có thể tưởng tượng rằng mỗi dòng là 1 request-response của HTTP/1.1, các dòng này là độc lập với nhau nên việc lấy thông tin dòng này sẽ không phụ thuộc và không ảnh hưởng tới dòng kia.
 
