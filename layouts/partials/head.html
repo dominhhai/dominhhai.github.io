@@ -58,7 +58,7 @@
       {{ end }}
     {{ end }}
     {{ with .Site.Params.fbLocate }}
-    <meta property="og:locale" content="{{ .Site.Params.fbLocate }}">
+      <meta property="og:locale" content="{{ . }}">
     {{ end }}
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}">
