@@ -42,58 +42,70 @@
       <link rel="canonical" href="{{ .Permalink }}" />
     {{ end }}
 
-    <!-- open graph data -->
     <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+    {{ with .Site.Author.googleplus }}
+      <link rel="publisher" href="https://plus.google.com/{{ . | urlize }}">
+    {{ end }}
+
+    <!-- open graph data -->
+    {{ with .Site.Params.fbAppId }}
+      <meta property="fb:app_id" content="{{ . }}">
+    {{ end }}
+    {{ with .Site.Params.fbAdminIds }}
+      {{ range . }}
+          <meta property="fb:admins" content="{{ . }}">
+      {{ end }}
+    {{ end }}
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}">
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
     <meta property="og:site_name" content="{{ .Site.Title }}">
     <meta property="og:locale" content="{{ .Lang }}">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}">
-    <meta name="twitter:url" content="{{ .Permalink }}">
-    <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-    {{ with .Site.Author.twitter }}
-      <meta name="twitter:creator" content="@{{ . }}">
-    {{ end }}
-    {{ with .Site.Params.fbAppId }}
-      <meta property="fb:app_id" content="{{ . }}">
-    {{ end }}
-
-    <!-- Facebook admins -->
-    {{ with .Site.Params.fbAdminIds }}
-      {{ range . }}
-          <meta property="fb:admins" content="{{ . }}">
-      {{ end }}
-    {{ end }}
-
     {{ with .Params.thumbnailImage }}
       <meta property="og:image" content="{{ . | absURL }}">
-      <meta name="twitter:image" content="{{ . | absURL }}">
     {{ end }}
     {{ with .Params.coverImage }}
       <meta property="og:image" content="{{ . | absURL }}">
-      <meta name="twitter:image" content="{{ . | absURL }}">
     {{ end }}
     {{ with .Params.gallery }}
       {{ range . }}
         <meta property="og:image" content="{{ range first 1 (split . " ") }}{{ . | absURL }}{{ end }}">
+      {{ end }}
+    {{ end }}
+    {{ if .Scratch.Get "gravatarEmail" }}
+      <meta property="og:image" content="https://www.gravatar.com/avatar/{{ (md5 (.Scratch.Get "gravatarEmail")) | urlize }}?s=640">
+    {{ else if .Site.Author.picture }}
+      <meta property="og:image" content="{{ .Site.Author.picture | absURL }}">
+    {{ end }}
+    <!-- open graph data END -->
+
+    <!-- twitter data -->
+    {{ with .Site.Author.twitter }}
+      <meta name="twitter:creator" content="@{{ . }}">
+    {{ end }}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}">
+    <meta name="twitter:url" content="{{ .Permalink }}">
+    <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    {{ if .Scratch.Get "gravatarEmail" }}
+      <meta name="twitter:image" content="https://www.gravatar.com/avatar/{{ (md5 (.Scratch.Get "gravatarEmail")) | urlize }}?s=640">
+    {{ else if .Site.Author.picture }}
+      <meta name="twitter:image" content="{{ .Site.Author.picture | absURL }}">
+    {{ end }}
+    {{ with .Params.gallery }}
+      {{ range . }}
         <meta name="twitter:image" content="{{ range first 1 (split . " ") }}{{ . | absURL }}{{ end }}">
       {{ end }}
     {{ end }}
-
-    {{ if .Scratch.Get "gravatarEmail" }}
-      <meta property="og:image" content="https://www.gravatar.com/avatar/{{ (md5 (.Scratch.Get "gravatarEmail")) | urlize }}?s=640">
-      <meta name="twitter:image" content="https://www.gravatar.com/avatar/{{ (md5 (.Scratch.Get "gravatarEmail")) | urlize }}?s=640">
-    {{ else if .Site.Author.picture }}
-      <meta property="og:image" content="{{ .Site.Author.picture | absURL }}">
-      <meta name="twitter:image" content="{{ .Site.Author.picture | absURL }}">
+    {{ with .Params.coverImage }}
+      <meta name="twitter:image" content="{{ . | absURL }}">
     {{ end }}
-
-    {{ with .Site.Author.googleplus }}
-      <link rel="publisher" href="https://plus.google.com/{{ . | urlize }}">
+    {{ with .Params.thumbnailImage }}
+      <meta name="twitter:image" content="{{ . | absURL }}">
     {{ end }}
+    <!-- twitter data END -->
 
     <!--EXTERNAL STYLES-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
