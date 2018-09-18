@@ -73,6 +73,8 @@ fbLocate = "ja_JP"
   twitter = "minhhai3b"
   # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
   googlePlus = "115106277658014197977"
+  # Your FB profile id. E.g : thibaudlepretre
+  fb = "dominhai"
 
 # Menu Configuration
 [[menu.main]]

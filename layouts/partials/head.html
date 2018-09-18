@@ -61,7 +61,7 @@
       <meta property="og:locale" content="{{ . }}">
     {{ end }}
     <meta property="og:type" content="article">
-    <meta property="article:author" content="{{ .Site.Author.name }}">
+    <meta property="article:author" content="{{ .Site.Author.fb }}">
     <meta property="og:title" content="{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}">
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
