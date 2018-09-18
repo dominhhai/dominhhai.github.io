@@ -31,12 +31,14 @@ enableRobotsTXT = true
 weight = 0
 languagename = "Tiếng Việt"
 fbAppId = "333198270561466"
+fbLocate = "vi_VN"
 
 ## English
 [languages.en-us]
 weight = 1
 languagename = "English"
 categories = ["Programming", "Machine Learning", "Math", "Probability", "Books"]
+fbLocate = "en_US"
 
 ## Japanese
 [languages.ja]
@@ -44,6 +46,7 @@ weight = 2
 languagename = "日本語"
 categories = ["開発", "機械学習", "数学", "確率", "読書"]
 dateFormat = "2006年January2日"
+fbLocate = "ja_JP"
 
 # Post permalinks Configuration
 [permalinks]
@@ -70,6 +73,8 @@ dateFormat = "2006年January2日"
   twitter = "minhhai3b"
   # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
   googlePlus = "115106277658014197977"
+  # Your FB profile id. E.g : thibaudlepretre
+  fb = "dominhai"
 
 # Menu Configuration
 [[menu.main]]
